@@ -3,11 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KillScale - Know What Ads to Scale in 30 Seconds</title>
-  <meta name="description" content="Connect your Meta Ads and get instant verdicts on what to Kill or Scale. Live sync, real-time ROAS tracking, and deep trend analysis.">
+  <title>KillScale - Your Meta Ads Command Center</title>
+  <meta name="description" content="See which Meta Ads are making money, then pause losers and adjust budgets—all without opening Ads Manager. The clarity engine with full control built in.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap');
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -15,30 +20,30 @@
     }
 
     :root {
-      --bg-dark: #0a0a0a;
-      --bg-card: #141414;
-      --bg-card-hover: #1a1a1a;
-      --border: #262626;
-      --border-light: #333;
+      --bg-dark: #050506;
+      --bg-card: #0c0c0e;
+      --bg-card-hover: #111113;
+      --border: #1a1a1f;
+      --border-light: #2a2a30;
       --accent: #f97316;
-      --accent-hover: #ea580c;
-      --accent-glow: rgba(249, 115, 22, 0.15);
-      --green: #22c55e;
-      --green-bg: rgba(34, 197, 94, 0.1);
-      --text: #ffffff;
+      --accent-hover: #fb923c;
+      --accent-glow: rgba(249, 115, 22, 0.2);
+      --green: #10b981;
+      --green-bg: rgba(16, 185, 129, 0.1);
+      --green-border: rgba(16, 185, 129, 0.25);
+      --text: #fafafa;
       --text-muted: #a1a1aa;
-      --text-dim: #71717a;
+      --text-dim: #52525b;
       --red: #ef4444;
       --red-bg: rgba(239, 68, 68, 0.1);
-      --yellow: #eab308;
-      --yellow-bg: rgba(234, 179, 8, 0.1);
+      --yellow: #f59e0b;
+      --yellow-bg: rgba(245, 158, 11, 0.1);
       --blue: #3b82f6;
       --blue-bg: rgba(59, 130, 246, 0.1);
-      --purple: #a855f7;
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Satoshi', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg-dark);
       color: var(--text);
       line-height: 1.6;
@@ -51,7 +56,7 @@
       padding: 0 24px;
     }
 
-    /* Navigation */
+    /* ========== NAVIGATION ========== */
     nav {
       padding: 16px 0;
       border-bottom: 1px solid var(--border);
@@ -59,8 +64,9 @@
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(10, 10, 10, 0.85);
+      background: rgba(5, 5, 6, 0.8);
       backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       z-index: 100;
     }
 
@@ -75,6 +81,12 @@
       align-items: center;
       gap: 12px;
       text-decoration: none;
+    }
+
+    .logo-text {
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: -0.5px;
     }
 
     .nav-links {
@@ -111,14 +123,15 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #dc2626);
+      background: var(--accent);
       color: white;
-      box-shadow: 0 4px 20px var(--accent-glow);
+      box-shadow: 0 0 30px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,0.1);
     }
 
     .btn-primary:hover {
+      background: var(--accent-hover);
       transform: translateY(-2px);
-      box-shadow: 0 6px 30px var(--accent-glow);
+      box-shadow: 0 0 40px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,0.15);
     }
 
     .btn-secondary {
@@ -133,14 +146,14 @@
     }
 
     .btn-large {
-      padding: 16px 32px;
+      padding: 18px 36px;
       font-size: 16px;
       border-radius: 12px;
     }
 
-    /* Hero Section */
+    /* ========== HERO SECTION ========== */
     .hero {
-      padding: 140px 0 80px;
+      padding: 160px 0 100px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -149,27 +162,29 @@
     .hero::before {
       content: '';
       position: absolute;
-      top: -200px;
+      top: -300px;
       left: 50%;
       transform: translateX(-50%);
-      width: 1000px;
-      height: 800px;
-      background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 60%);
+      width: 1200px;
+      height: 1000px;
+      background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 50%);
       pointer-events: none;
+      opacity: 0.6;
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
+      gap: 10px;
+      padding: 10px 18px;
       background: var(--green-bg);
-      border: 1px solid rgba(34, 197, 94, 0.3);
+      border: 1px solid var(--green-border);
       border-radius: 100px;
       font-size: 13px;
       color: var(--green);
-      margin-bottom: 24px;
-      font-weight: 500;
+      margin-bottom: 32px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
     }
 
     .hero-badge .pulse {
@@ -182,37 +197,36 @@
 
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.2); }
+      50% { opacity: 0.5; transform: scale(1.3); }
     }
 
     .hero h1 {
-      font-size: clamp(42px, 6vw, 76px);
+      font-size: clamp(44px, 6vw, 80px);
       font-weight: 900;
-      line-height: 1.05;
-      margin-bottom: 24px;
+      line-height: 1.0;
+      margin-bottom: 28px;
       letter-spacing: -3px;
     }
 
-    .hero h1 .gradient {
-      background: linear-gradient(135deg, var(--accent), #ef4444, var(--accent));
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: gradient 3s linear infinite;
+    .hero h1 .chaos {
+      color: var(--red);
     }
 
-    @keyframes gradient {
-      0% { background-position: 0% center; }
-      100% { background-position: 200% center; }
+    .hero h1 .clarity {
+      color: var(--green);
     }
 
     .hero-subtitle {
       font-size: 20px;
       color: var(--text-muted);
-      max-width: 640px;
-      margin: 0 auto 40px;
+      max-width: 680px;
+      margin: 0 auto 44px;
       line-height: 1.7;
+    }
+
+    .hero-subtitle strong {
+      color: var(--text);
+      font-weight: 600;
     }
 
     .hero-cta {
@@ -220,7 +234,7 @@
       gap: 16px;
       justify-content: center;
       flex-wrap: wrap;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     .hero-note {
@@ -229,7 +243,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 16px;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     .hero-note span {
@@ -244,7 +259,7 @@
 
     /* Dashboard Preview */
     .dashboard-preview {
-      margin-top: 60px;
+      margin-top: 70px;
       position: relative;
     }
 
@@ -252,336 +267,244 @@
       content: '';
       position: absolute;
       inset: -2px;
-      background: linear-gradient(135deg, var(--accent), var(--purple), var(--blue));
+      background: linear-gradient(135deg, var(--accent) 0%, var(--red) 50%, var(--accent) 100%);
       border-radius: 18px;
-      opacity: 0.3;
-      filter: blur(1px);
+      opacity: 0.7;
     }
 
-    .dashboard-frame {
+    .dashboard-preview img {
       position: relative;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
+      width: 100%;
       border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.7);
+      display: block;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.5);
     }
 
-    .dashboard-chrome {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 16px;
-      background: var(--bg-dark);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .chrome-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-    }
-
-    .chrome-dot.red { background: #ef4444; }
-    .chrome-dot.yellow { background: #eab308; }
-    .chrome-dot.green { background: #22c55e; }
-
-    .chrome-url {
-      flex: 1;
-      text-align: center;
-      font-size: 12px;
-      color: var(--text-dim);
-      background: var(--bg-card);
-      padding: 6px 16px;
-      border-radius: 6px;
-      margin: 0 60px;
-    }
-
-    .dashboard-content {
-      padding: 24px;
-    }
-
-    .dashboard-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 24px;
-    }
-
-    .dashboard-title {
-      font-size: 20px;
-      font-weight: 700;
-    }
-
-    .dashboard-subtitle {
-      font-size: 13px;
-      color: var(--text-dim);
-    }
-
-    .dashboard-controls {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .live-badge {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      background: var(--bg-dark);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 13px;
-    }
-
-    .live-toggle {
-      width: 36px;
-      height: 20px;
-      background: var(--green);
-      border-radius: 10px;
+    .browser-chrome {
       position: relative;
+      background: #1a1a1a;
+      border-radius: 16px;
+      padding-top: 40px;
+      overflow: hidden;
     }
 
-    .live-toggle::after {
+    .browser-chrome::before {
       content: '';
       position: absolute;
-      right: 2px;
-      top: 2px;
-      width: 16px;
-      height: 16px;
-      background: white;
+      top: 12px;
+      left: 16px;
+      width: 12px;
+      height: 12px;
+      background: #ff5f56;
       border-radius: 50%;
+      box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27ca40;
     }
 
-    .live-text {
-      color: var(--green);
-      font-weight: 500;
-    }
-
-    .live-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--green);
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-
-    .date-badge {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      background: var(--bg-dark);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    .stat-card {
-      background: var(--bg-dark);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px;
-    }
-
-    .stat-label {
-      font-size: 11px;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .stat-value {
-      font-size: 28px;
-      font-weight: 700;
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    .stat-value.green { color: var(--green); }
-
-    /* Features Grid */
-    .features {
+    /* ========== PAIN SECTION ========== */
+    .pain-section {
       padding: 120px 0;
-      position: relative;
+      background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-card) 100%);
     }
 
-    .dashboard-screenshot {
-      background: var(--bg-dark);
-    }
-
-    .dashboard-screenshot img {
-      opacity: 0.95;
-      transition: opacity 0.3s;
-    }
-
-    .dashboard-frame:hover .dashboard-screenshot img {
-      opacity: 1;
-    }
-
-    /* Video Demo Section */
-    .video-demo {
-      padding: 100px 0;
-      background: linear-gradient(180deg, var(--bg-dark), rgba(249, 115, 22, 0.03), var(--bg-dark));
-    }
-
-    .video-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .video-content h2 {
-      font-size: 40px;
+    .pain-section h2 {
+      text-align: center;
+      font-size: clamp(28px, 4vw, 42px);
       font-weight: 800;
-      margin-bottom: 16px;
+      margin-bottom: 60px;
       letter-spacing: -1px;
+      line-height: 1.2;
     }
 
-    .video-content p {
-      font-size: 17px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 32px;
+    .pain-section h2 .dim {
+      color: var(--text-dim);
     }
 
-    .video-features {
+    .pain-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto 50px;
+    }
+
+    .pain-item {
       display: flex;
-      flex-direction: column;
+      align-items: flex-start;
       gap: 16px;
+      padding: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition: all 0.2s;
     }
 
-    .video-feature {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 15px;
-      color: var(--text-muted);
+    .pain-item:hover {
+      border-color: var(--border-light);
+      transform: translateY(-2px);
     }
 
-    .video-feature svg {
-      color: var(--green);
+    .pain-item .emoji {
+      font-size: 24px;
       flex-shrink: 0;
     }
 
-    .video-player {
-      aspect-ratio: 16/9;
+    .pain-item p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .pain-closer {
+      text-align: center;
+      font-size: 20px;
+      color: var(--red);
+      font-weight: 600;
+      padding: 24px;
+      background: var(--red-bg);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      border-radius: 12px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ========== INTRO SECTION ========== */
+    .intro-section {
+      padding: 120px 0;
+      text-align: center;
+    }
+
+    .intro-section h2 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 900;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+    }
+
+    .intro-section h2 .brand {
+      color: var(--green);
+    }
+
+    .intro-tagline {
+      font-size: 22px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 32px;
+    }
+
+    .intro-body {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 20px;
+      line-height: 1.8;
+    }
+
+    .intro-body strong {
+      color: var(--text);
+    }
+
+    .intro-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .video-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      cursor: pointer;
-      background: linear-gradient(135deg, var(--bg-card), var(--bg-dark));
-      transition: all 0.3s;
-    }
-
-    .video-placeholder:hover {
-      background: linear-gradient(135deg, var(--bg-card-hover), var(--bg-card));
-    }
-
-    .video-placeholder:hover .play-button {
-      transform: scale(1.1);
-      box-shadow: 0 0 60px var(--accent-glow);
-    }
-
-    .play-button {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, var(--accent), #dc2626);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 40px var(--accent-glow);
-      transition: all 0.3s;
-    }
-
-    .play-button svg {
-      margin-left: 4px;
-    }
-
-    .video-placeholder span {
-      font-size: 14px;
-      color: var(--text-muted);
+      border-radius: 100px;
+      font-size: 15px;
+      color: var(--text);
       font-weight: 500;
+      margin-top: 20px;
+    }
+
+    .intro-highlight svg {
+      color: var(--green);
+    }
+
+    /* ========== WHO FOR SECTION ========== */
+    .who-for {
+      padding: 100px 0;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .who-for h2 {
+      text-align: center;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      margin-bottom: 60px;
+      letter-spacing: -1px;
+    }
+
+    .who-for-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
     }
 
     @media (max-width: 900px) {
-      .video-wrapper {
+      .who-for-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .who-for-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      
-      .video-content {
-        text-align: center;
-      }
-      
-      .video-features {
-        align-items: center;
       }
     }
 
-    .features::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    .who-for-item {
+      text-align: center;
+      padding: 36px 24px;
+      background: var(--bg-dark);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: all 0.2s;
     }
 
-    .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      background: var(--accent-glow);
-      border: 1px solid rgba(249, 115, 22, 0.3);
-      border-radius: 100px;
-      font-size: 12px;
-      color: var(--accent);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    .who-for-item:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .who-for-item .emoji {
+      font-size: 40px;
       margin-bottom: 16px;
+      display: block;
+    }
+
+    .who-for-item .title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .who-for-item .benefit {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ========== FEATURES SECTION ========== */
+    .features {
+      padding: 120px 0;
     }
 
     .features h2 {
-      font-size: 44px;
+      text-align: center;
+      font-size: clamp(28px, 4vw, 40px);
       font-weight: 800;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
       letter-spacing: -1px;
     }
 
     .features-subtitle {
+      text-align: center;
       font-size: 18px;
       color: var(--text-muted);
-      max-width: 600px;
       margin-bottom: 60px;
     }
 
@@ -591,37 +514,64 @@
       gap: 24px;
     }
 
+    @media (max-width: 900px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .feature-card {
+      padding: 32px;
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 28px;
-      transition: all 0.3s;
+      position: relative;
+      transition: all 0.2s;
     }
 
     .feature-card:hover {
       border-color: var(--border-light);
       transform: translateY(-4px);
-      box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5);
+    }
+
+    .feature-card.featured {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.05) 0%, transparent 50%);
+    }
+
+    .feature-card.featured::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(135deg, var(--accent), transparent 50%);
+      border-radius: 16px;
+      z-index: -1;
+      opacity: 0.3;
     }
 
     .feature-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
       font-size: 24px;
+      margin-bottom: 20px;
     }
 
+    .feature-icon.orange { background: rgba(249, 115, 22, 0.15); }
     .feature-icon.green { background: var(--green-bg); }
-    .feature-icon.red { background: var(--red-bg); }
-    .feature-icon.yellow { background: var(--yellow-bg); }
     .feature-icon.blue { background: var(--blue-bg); }
-    .feature-icon.orange { background: var(--accent-glow); }
     .feature-icon.purple { background: rgba(168, 85, 247, 0.1); }
+    .feature-icon.yellow { background: var(--yellow-bg); }
+    .feature-icon.red { background: var(--red-bg); }
 
     .feature-card h3 {
       font-size: 18px;
@@ -636,446 +586,215 @@
     }
 
     .feature-tag {
-      display: inline-block;
+      position: absolute;
+      top: 16px;
+      right: 16px;
       padding: 4px 10px;
-      background: var(--green-bg);
-      border: 1px solid rgba(34, 197, 94, 0.3);
-      border-radius: 6px;
+      background: var(--accent);
+      color: white;
       font-size: 11px;
-      color: var(--green);
-      font-weight: 600;
-      margin-top: 16px;
+      font-weight: 700;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
-    /* Live Demo Section */
-    .live-demo {
-      padding: 100px 0;
-      background: linear-gradient(180deg, transparent, rgba(249, 115, 22, 0.03), transparent);
+    .feature-tag.new {
+      background: var(--green);
     }
 
-    .live-demo h2 {
-      font-size: 44px;
-      font-weight: 800;
+    /* ========== HOW IT WORKS ========== */
+    .how-it-works {
+      padding: 120px 0;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+    }
+
+    .how-it-works h2 {
       text-align: center;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      margin-bottom: 60px;
+      letter-spacing: -1px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .steps {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--accent), var(--red));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 800;
+      margin: 0 auto 24px;
+      color: white;
+      box-shadow: 0 8px 30px var(--accent-glow);
+    }
+
+    .step h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .step p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    /* ========== VERDICT SECTION ========== */
+    .verdicts {
+      padding: 120px 0;
+    }
+
+    .verdicts h2 {
+      text-align: center;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .verdicts-subtitle {
+      text-align: center;
+      font-size: 18px;
+      color: var(--text-muted);
       margin-bottom: 16px;
     }
 
-    .live-demo-subtitle {
-      font-size: 18px;
-      color: var(--text-muted);
+    .verdicts-action {
       text-align: center;
+      font-size: 16px;
+      color: var(--accent);
+      font-weight: 500;
       margin-bottom: 60px;
     }
 
-    .verdict-demo {
-      max-width: 800px;
-      margin: 0 auto;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-    }
-
-    .verdict-header {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr 100px;
-      gap: 16px;
-      padding: 12px 20px;
-      background: var(--bg-dark);
-      border-bottom: 1px solid var(--border);
-      font-size: 12px;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .verdict-row {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr 100px;
-      gap: 16px;
-      padding: 16px 20px;
-      border-bottom: 1px solid var(--border);
-      align-items: center;
-      transition: background 0.2s;
-    }
-
-    .verdict-row:last-child {
-      border-bottom: none;
-    }
-
-    .verdict-row:hover {
-      background: var(--bg-dark);
-    }
-
-    .verdict-name {
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .verdict-name .type-badge {
-      font-size: 9px;
-      padding: 3px 6px;
-      border-radius: 4px;
-      font-weight: 600;
-    }
-
-    .type-badge.campaign { background: rgba(59, 130, 246, 0.2); color: var(--blue); }
-    .type-badge.adset { background: rgba(168, 85, 247, 0.2); color: var(--purple); }
-    .type-badge.ad { background: rgba(113, 113, 122, 0.2); color: var(--text-muted); }
-
-    .verdict-stat {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 14px;
-    }
-
-    .verdict-stat.roas {
-      font-weight: 700;
-    }
-
-    .verdict-stat.roas.high { color: var(--green); }
-    .verdict-stat.roas.mid { color: var(--yellow); }
-    .verdict-stat.roas.low { color: var(--red); }
-
-    .verdict-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .verdict-badge.scale {
-      background: var(--green-bg);
-      color: var(--green);
-      border: 1px solid rgba(34, 197, 94, 0.3);
-    }
-
-    .verdict-badge.watch {
-      background: var(--yellow-bg);
-      color: var(--yellow);
-      border: 1px solid rgba(234, 179, 8, 0.3);
-    }
-
-    .verdict-badge.kill {
-      background: var(--red-bg);
-      color: var(--red);
-      border: 1px solid rgba(239, 68, 68, 0.3);
-    }
-
-    .verdict-badge.learn {
-      background: var(--blue-bg);
-      color: var(--blue);
-      border: 1px solid rgba(59, 130, 246, 0.3);
-    }
-
-    /* Verdict Explainer Cards */
-    .verdict-explainer {
+    .verdict-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-bottom: 40px;
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 900px) {
+      .verdict-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .verdict-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .verdict-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px 20px;
+      padding: 28px;
+      border-radius: 16px;
       text-align: center;
-      transition: all 0.3s;
+      transition: transform 0.2s;
     }
 
     .verdict-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5);
     }
 
-    .verdict-card.scale { border-color: rgba(34, 197, 94, 0.3); }
-    .verdict-card.watch { border-color: rgba(234, 179, 8, 0.3); }
-    .verdict-card.kill { border-color: rgba(239, 68, 68, 0.3); }
-    .verdict-card.learn { border-color: rgba(59, 130, 246, 0.3); }
+    .verdict-card.scale {
+      background: var(--green-bg);
+      border: 1px solid var(--green-border);
+    }
 
-    .verdict-card.scale:hover { border-color: var(--green); box-shadow: 0 20px 40px -20px rgba(34, 197, 94, 0.2); }
-    .verdict-card.watch:hover { border-color: var(--yellow); box-shadow: 0 20px 40px -20px rgba(234, 179, 8, 0.2); }
-    .verdict-card.kill:hover { border-color: var(--red); box-shadow: 0 20px 40px -20px rgba(239, 68, 68, 0.2); }
-    .verdict-card.learn:hover { border-color: var(--blue); box-shadow: 0 20px 40px -20px rgba(59, 130, 246, 0.2); }
+    .verdict-card.watch {
+      background: var(--yellow-bg);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+    }
 
-    .verdict-card-badge {
-      display: inline-block;
+    .verdict-card.kill {
+      background: var(--red-bg);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+    }
+
+    .verdict-card.learn {
+      background: var(--blue-bg);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+    }
+
+    .verdict-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 15px;
+      font-weight: 700;
       padding: 8px 16px;
       border-radius: 8px;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      margin-bottom: 12px;
-    }
-
-    .verdict-card.scale .verdict-card-badge { background: var(--green-bg); color: var(--green); }
-    .verdict-card.watch .verdict-card-badge { background: var(--yellow-bg); color: var(--yellow); }
-    .verdict-card.kill .verdict-card-badge { background: var(--red-bg); color: var(--red); }
-    .verdict-card.learn .verdict-card-badge { background: var(--blue-bg); color: var(--blue); }
-
-    .verdict-card-roas {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    .verdict-card-desc {
-      font-size: 14px;
-      color: var(--text-dim);
-      line-height: 1.5;
-    }
-
-    .verdict-note {
-      text-align: center;
-      font-size: 14px;
-      color: var(--text-dim);
-      margin-bottom: 40px;
-    }
-
-    .verdict-demo-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 20px;
-      background: var(--bg-dark);
-      border-bottom: 1px solid var(--border);
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .verdict-demo-drill {
-      font-size: 12px;
-      color: var(--text-dim);
-    }
-
-    .verdict-row.indent .verdict-name {
-      padding-left: 24px;
-    }
-
-    .verdict-row.indent-2 .verdict-name {
-      padding-left: 48px;
-    }
-
-    /* Before/After Section */
-    .before-after {
-      padding: 80px 0;
-      background: linear-gradient(180deg, transparent, rgba(249, 115, 22, 0.02), transparent);
-    }
-
-    .before-after h2 {
-      font-size: 36px;
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .before-after-grid {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      gap: 32px;
-      align-items: stretch;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .before-card, .after-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px;
-    }
-
-    .before-card {
-      border-color: rgba(239, 68, 68, 0.3);
-    }
-
-    .after-card {
-      border-color: rgba(34, 197, 94, 0.3);
-    }
-
-    .before-card h3, .after-card h3 {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      display: inline-block;
       margin-bottom: 16px;
     }
 
-    .before-card h3 { color: var(--red); }
-    .after-card h3 { color: var(--green); }
-
-    .before-card p, .after-card p {
-      font-size: 16px;
-      line-height: 1.7;
-      color: var(--text-muted);
+    .verdict-card.scale .verdict-badge {
+      background: var(--green);
+      color: white;
     }
 
-    .arrow-divider {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-      color: var(--text-dim);
+    .verdict-card.watch .verdict-badge {
+      background: var(--yellow);
+      color: #1a1a1a;
     }
 
-    /* Who Is This For */
-    .who-for {
-      padding: 80px 0;
+    .verdict-card.kill .verdict-badge {
+      background: var(--red);
+      color: white;
     }
 
-    .who-for h2 {
-      font-size: 36px;
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 48px;
+    .verdict-card.learn .verdict-badge {
+      background: var(--blue);
+      color: white;
     }
 
-    .who-for-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .who-for-item {
-      text-align: center;
-      padding: 24px 16px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-    }
-
-    .who-for-item span {
-      font-size: 32px;
-      display: block;
-      margin-bottom: 12px;
-    }
-
-    .who-for-item p {
+    .verdict-card .desc {
       font-size: 14px;
       color: var(--text-muted);
-      font-weight: 500;
+      line-height: 1.5;
     }
 
-    .who-for-item .who-for-title {
-      font-size: 15px;
-      color: var(--text);
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .who-for-item .who-for-benefit {
-      font-size: 13px;
-      color: var(--text-dim);
-      font-weight: 400;
-      line-height: 1.4;
-    }
-
-    /* Final CTA Note */
-    .final-cta-note {
-      margin-top: 16px;
-      font-size: 13px;
-      color: var(--text-dim);
-    }
-
-    /* Pain Amplifier Section */
-    .pain-section {
-      padding: 80px 0;
-      background: linear-gradient(180deg, transparent, rgba(239, 68, 68, 0.03), transparent);
-    }
-
-    .pain-section h2 {
-      font-size: 32px;
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 40px;
-      color: var(--text-muted);
-    }
-
-    .pain-list {
-      max-width: 600px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .pain-item {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 16px 20px;
-      background: var(--bg-card);
-      border: 1px solid rgba(239, 68, 68, 0.2);
-      border-radius: 12px;
-      font-size: 16px;
-      color: var(--text-muted);
-    }
-
-    .pain-item span {
-      font-size: 20px;
-    }
-
-    .pain-closer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 18px;
-      color: var(--red);
-      font-weight: 600;
-    }
-
-    /* Meet KillScale Section */
-    .intro-section {
-      padding: 80px 0;
-      text-align: center;
-      background: linear-gradient(180deg, transparent, rgba(34, 197, 94, 0.03), transparent);
-    }
-
-    .intro-section h2 {
-      font-size: 40px;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-
-    .intro-section h2 span {
-      color: var(--green);
-    }
-
-    .intro-section p {
-      font-size: 20px;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto 16px;
-      line-height: 1.7;
-    }
-
-    .intro-section .intro-tagline {
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--text);
-      margin-top: 24px;
-    }
-
-    /* Social Proof Section */
+    /* ========== SOCIAL PROOF ========== */
     .social-proof {
-      padding: 80px 0;
+      padding: 120px 0;
       background: var(--bg-card);
+      border-top: 1px solid var(--border);
     }
 
     .social-proof h2 {
-      font-size: 32px;
-      font-weight: 800;
       text-align: center;
-      margin-bottom: 48px;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      margin-bottom: 60px;
+      letter-spacing: -1px;
     }
 
     .testimonials-grid {
@@ -1086,214 +805,114 @@
       margin: 0 auto;
     }
 
-    .testimonial-card {
-      background: var(--bg-dark);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px;
-    }
-
-    .testimonial-text {
-      font-size: 16px;
-      color: var(--text);
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .testimonial-avatar {
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, var(--accent), var(--purple));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .testimonial-info {
-      font-size: 14px;
-    }
-
-    .testimonial-name {
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .testimonial-role {
-      color: var(--text-dim);
-    }
-
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .testimonials-grid {
         grid-template-columns: 1fr;
       }
     }
 
-    /* Pricing Trust Notes */
-    .pricing-trust {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      margin-top: 32px;
-      flex-wrap: wrap;
+    .testimonial-card {
+      padding: 32px;
+      background: var(--bg-dark);
+      border: 1px solid var(--border);
+      border-radius: 16px;
     }
 
-    .pricing-trust span {
+    .testimonial-text {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+
+    .testimonial-text::before {
+      content: '"';
+      color: var(--accent);
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .testimonial-author {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      color: var(--text-dim);
+      gap: 14px;
     }
 
-    .pricing-trust svg {
-      color: var(--green);
-    }
-
-    @media (max-width: 900px) {
-      .verdict-explainer {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .before-after-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-      
-      .arrow-divider {
-        transform: rotate(90deg);
-        padding: 8px 0;
-      }
-      
-      .who-for-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 600px) {
-      .verdict-explainer {
-        grid-template-columns: 1fr;
-      }
-      
-      .who-for-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    /* How It Works */
-    .how-it-works {
-      padding: 120px 0;
-    }
-
-    .how-it-works h2 {
-      font-size: 44px;
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      position: relative;
-    }
-
-    .steps::before {
-      content: '';
-      position: absolute;
-      top: 40px;
-      left: 15%;
-      right: 15%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--border), var(--accent), var(--border));
-    }
-
-    .step {
-      text-align: center;
-      position: relative;
-    }
-
-    .step-number {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, var(--accent), #dc2626);
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--accent), var(--red));
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 32px;
-      font-weight: 800;
-      margin: 0 auto 24px;
-      position: relative;
-      z-index: 1;
-      box-shadow: 0 10px 40px var(--accent-glow);
-    }
-
-    .step h3 {
-      font-size: 20px;
       font-weight: 700;
-      margin-bottom: 12px;
+      font-size: 16px;
     }
 
-    .step p {
-      color: var(--text-muted);
+    .testimonial-name {
+      font-weight: 600;
       font-size: 15px;
-      max-width: 280px;
-      margin: 0 auto;
     }
 
-    /* Pricing */
+    .testimonial-role {
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    /* ========== PRICING ========== */
     .pricing {
       padding: 120px 0;
-      background: linear-gradient(180deg, transparent, rgba(249, 115, 22, 0.02), transparent);
     }
 
     .pricing h2 {
-      font-size: 44px;
-      font-weight: 800;
       text-align: center;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
       margin-bottom: 16px;
+      letter-spacing: -1px;
     }
 
     .pricing-subtitle {
+      text-align: center;
       font-size: 18px;
       color: var(--text-muted);
-      text-align: center;
       margin-bottom: 60px;
     }
 
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 1000px) {
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .pricing-card {
+      padding: 32px;
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px 24px;
+      border-radius: 20px;
       position: relative;
-      transition: all 0.3s;
-    }
-
-    .pricing-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--border-light);
+      display: flex;
+      flex-direction: column;
     }
 
     .pricing-card.featured {
       border-color: var(--accent);
-      box-shadow: 0 0 60px var(--accent-glow);
+      background: linear-gradient(180deg, rgba(249, 115, 22, 0.08) 0%, var(--bg-card) 50%);
     }
 
     .pricing-badge {
@@ -1301,12 +920,13 @@
       top: -12px;
       left: 50%;
       transform: translateX(-50%);
-      background: linear-gradient(135deg, var(--accent), #dc2626);
-      color: white;
       padding: 6px 16px;
-      border-radius: 100px;
+      background: var(--accent);
+      color: white;
       font-size: 12px;
       font-weight: 700;
+      border-radius: 100px;
+      white-space: nowrap;
     }
 
     .pricing-name {
@@ -1316,9 +936,10 @@
     }
 
     .pricing-price {
-      font-size: 48px;
-      font-weight: 800;
+      font-size: 42px;
+      font-weight: 900;
       margin-bottom: 4px;
+      letter-spacing: -2px;
     }
 
     .pricing-price span {
@@ -1329,22 +950,22 @@
 
     .pricing-desc {
       font-size: 14px;
-      color: var(--text-dim);
+      color: var(--text-muted);
       margin-bottom: 24px;
     }
 
     .pricing-features {
       list-style: none;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
+      flex-grow: 1;
     }
 
     .pricing-features li {
       padding: 10px 0;
-      border-bottom: 1px solid var(--border);
       font-size: 14px;
       color: var(--text-muted);
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 10px;
     }
 
@@ -1352,6 +973,7 @@
       content: '✓';
       color: var(--green);
       font-weight: 700;
+      flex-shrink: 0;
     }
 
     .pricing-features li.highlight {
@@ -1359,55 +981,73 @@
       font-weight: 500;
     }
 
-    .pricing-features li.new::after {
-      content: 'NEW';
-      background: var(--green-bg);
-      color: var(--green);
+    .pricing-features li .new-tag {
+      background: var(--green);
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
       padding: 2px 6px;
       border-radius: 4px;
-      font-size: 9px;
-      font-weight: 700;
-      margin-left: auto;
+      margin-left: 6px;
+      text-transform: uppercase;
     }
 
     .pricing-card .btn {
       width: 100%;
     }
 
-    /* Final CTA */
+    .pricing-trust {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+
+    .pricing-trust span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .pricing-trust svg {
+      color: var(--green);
+    }
+
+    /* ========== FINAL CTA ========== */
     .final-cta {
       padding: 120px 0;
       text-align: center;
-      position: relative;
-    }
-
-    .final-cta::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 600px;
-      height: 400px;
-      background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
-      pointer-events: none;
+      background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-card) 100%);
+      border-top: 1px solid var(--border);
     }
 
     .final-cta h2 {
-      font-size: 48px;
-      font-weight: 800;
-      margin-bottom: 16px;
-      position: relative;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+    }
+
+    .final-cta h2 .red {
+      color: var(--red);
     }
 
     .final-cta p {
       font-size: 18px;
       color: var(--text-muted);
-      margin-bottom: 32px;
-      position: relative;
+      max-width: 600px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
     }
 
-    /* Footer */
+    .final-cta p strong {
+      color: var(--text);
+    }
+
+    /* ========== FOOTER ========== */
     footer {
       padding: 40px 0;
       border-top: 1px solid var(--border);
@@ -1417,11 +1057,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
     .footer-text {
-      color: var(--text-dim);
       font-size: 14px;
+      color: var(--text-dim);
     }
 
     .footer-links {
@@ -1430,9 +1072,9 @@
     }
 
     .footer-links a {
+      font-size: 14px;
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 14px;
       transition: color 0.2s;
     }
 
@@ -1440,45 +1082,23 @@
       color: var(--text);
     }
 
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .features-grid,
-      .pricing-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
+    /* ========== RESPONSIVE ========== */
     @media (max-width: 768px) {
       .nav-links {
         display: none;
       }
-      
-      .features-grid,
-      .steps,
-      .pricing-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .steps::before {
-        display: none;
-      }
-      
+
       .hero h1 {
-        font-size: 36px;
-        letter-spacing: -1px;
+        letter-spacing: -2px;
       }
-      
-      .verdict-demo {
-        overflow-x: auto;
+
+      .hero-note {
+        flex-direction: column;
+        gap: 10px;
       }
-      
-      .verdict-header,
-      .verdict-row {
-        min-width: 600px;
+
+      .pain-list {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -1488,37 +1108,39 @@
   <nav>
     <div class="container">
       <a href="/" class="logo">
-        <svg width="180" height="36" viewBox="0 0 240 40">
-          <rect x="4" y="6" width="32" height="28" rx="6" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
-          <path d="M12 15 L12 25 L8 21 M12 25 L16 21" stroke="#ef4444" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M24 25 L24 15 L20 19 M24 15 L28 19" stroke="#22c55e" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          <text x="46" y="27" fill="white" font-family="Inter, sans-serif" font-weight="800" font-size="20">KillScale</text>
+        <svg width="36" height="36" viewBox="0 0 50 50">
+          <rect x="2" y="5" width="46" height="40" rx="8" fill="#141414" stroke="#2a2a30" stroke-width="1"/>
+          <path d="M14 16 L14 34 L8 28 M14 34 L20 28" stroke="#ef4444" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M36 34 L36 16 L30 22 M36 16 L42 22" stroke="#10b981" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
+        <span class="logo-text">KillScale</span>
       </a>
       <div class="nav-links">
         <a href="#features">Features</a>
-        <a href="#how-it-works">How It Works</a>
         <a href="#pricing">Pricing</a>
-        <a href="https://app.killscale.com/login" class="btn btn-secondary">Log In</a>
-        <a href="https://app.killscale.com/signup" class="btn btn-primary">Start Free →</a>
+        <a href="https://app.killscale.com/login">Login</a>
+        <a href="https://app.killscale.com/signup" class="btn btn-primary">Start Free</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- 1. HERO SECTION -->
   <section class="hero">
     <div class="container">
       <div class="hero-badge">
         <span class="pulse"></span>
-        Live sync with Meta Ads API
+        Now with pause, resume & budget controls
       </div>
-      <h1>Meta Ads Are <span style="color: #ef4444;">Chaos</span>.<br>KillScale Brings <span style="color: #22c55e;">Clarity</span>.</h1>
+      <h1>
+        Meta Ads Are <span class="chaos">Chaos</span>.<br>
+        KillScale Brings <span class="clarity">Clarity</span>.
+      </h1>
       <p class="hero-subtitle">
-        Stop guessing. Know exactly which ads are making money and which ones aren't. That's it.
+        Stop guessing. Know exactly which ads are making money—then <strong>pause losers and adjust budgets</strong> without ever opening Ads Manager.
       </p>
       <div class="hero-cta">
-        <a href="https://app.killscale.com/signup" class="btn btn-primary btn-large">Start Free →</a>
-        <a href="#verdicts" class="btn btn-secondary btn-large">See How It Works</a>
+        <a href="https://app.killscale.com/signup" class="btn btn-primary btn-large">See My Verdicts →</a>
+        <a href="#how-it-works" class="btn btn-secondary btn-large">See How It Works</a>
       </div>
       <div class="hero-note">
         <span>
@@ -1527,7 +1149,7 @@
         </span>
         <span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          2 campaigns free forever
+          2 campaigns free
         </span>
         <span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
@@ -1537,131 +1159,145 @@
 
       <!-- Dashboard Preview -->
       <div class="dashboard-preview">
-        <div class="dashboard-frame">
-          <div class="dashboard-chrome">
-            <div class="chrome-dot red"></div>
-            <div class="chrome-dot yellow"></div>
-            <div class="chrome-dot green"></div>
-            <div class="chrome-url">app.killscale.com/dashboard</div>
-          </div>
-          <div class="dashboard-screenshot">
-            <img src="dashboard-screenshot.jpg" alt="KillScale Dashboard showing real Meta Ads performance data" style="width: 100%; display: block;">
-          </div>
+        <div class="browser-chrome">
+          <img src="dashboard-screenshot.jpg" alt="KillScale Dashboard showing campaign verdicts and controls">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 2. Pain Amplifier -->
+  <!-- 2. PAIN SECTION -->
   <section class="pain-section">
     <div class="container">
-      <h2>Meta Ads Manager makes everything harder than it needs to be.</h2>
+      <h2>Meta Ads Manager <span class="dim">makes everything harder than it needs to be.</span></h2>
       <div class="pain-list">
         <div class="pain-item">
-          <span>😵</span>
-          Endless columns of data with no clear answers
+          <span class="emoji">😵</span>
+          <p>Endless columns of data with no clear answers about what's actually working</p>
         </div>
         <div class="pain-item">
-          <span>🧮</span>
-          Mental math for every single decision
+          <span class="emoji">🧮</span>
+          <p>Mental math for every single decision—calculating ROAS in your head</p>
         </div>
         <div class="pain-item">
-          <span>🔍</span>
-          ROAS buried behind 12 clicks
+          <span class="emoji">🔍</span>
+          <p>ROAS buried behind 12 clicks and 3 dropdown menus</p>
         </div>
         <div class="pain-item">
-          <span>📉</span>
-          Ad sets silently draining budget without you realizing
+          <span class="emoji">📉</span>
+          <p>Ad sets silently draining budget without you realizing</p>
         </div>
         <div class="pain-item">
-          <span>❓</span>
-          No clear verdicts on what's working
+          <span class="emoji">🔄</span>
+          <p>Bouncing between tabs just to pause or tweak a single ad</p>
+        </div>
+        <div class="pain-item">
+          <span class="emoji">⏱️</span>
+          <p>Constantly clicking around Ads Manager just to nudge budgets</p>
         </div>
       </div>
-      <p class="pain-closer">You're spending more time analyzing than scaling.</p>
+      <div class="pain-closer">
+        You're spending more time navigating Ads Manager than actually scaling.
+      </div>
     </div>
   </section>
 
-  <!-- 3. Meet KillScale -->
+  <!-- 3. INTRO SECTION -->
   <section class="intro-section">
     <div class="container">
-      <h2>Meet <span>KillScale</span></h2>
-      <p>The clarity engine for your Meta ads.</p>
-      <p>One click. Real-time sync. Instant verdicts on every campaign, ad set, and ad.</p>
-      <p class="intro-tagline">Scale the winners. Kill the losers. Finally.</p>
+      <h2>Meet <span class="brand">KillScale</span></h2>
+      <p class="intro-tagline">The clarity engine for your Meta ads, now with full control built in.</p>
+      <p class="intro-body">
+        See exactly what's profitable, what's burning money, and what's still in learning… then <strong>pause, restart, or adjust budgets instantly</strong> without touching Ads Manager.
+      </p>
+      <p class="intro-body">
+        No more tab-hopping. No more mental math. Just clarity and control.
+      </p>
+      <div class="intro-highlight">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+        …without ever opening Ads Manager
+      </div>
     </div>
   </section>
 
-  <!-- Who Is This For -->
+  <!-- 4. WHO IS THIS FOR -->
   <section class="who-for">
     <div class="container">
-      <h2>Built For</h2>
+      <h2>Built For People Who Run Meta Ads Daily</h2>
       <div class="who-for-grid">
         <div class="who-for-item">
-          <span>🛒</span>
-          <p class="who-for-title">eCom Founders</p>
-          <p class="who-for-benefit">Stop letting bad ads eat your margins.</p>
+          <span class="emoji">🛒</span>
+          <p class="title">eCom Founders</p>
+          <p class="benefit">Stop letting bad ads quietly eat your margins.</p>
         </div>
         <div class="who-for-item">
-          <span>📱</span>
-          <p class="who-for-title">Solo Advertisers</p>
-          <p class="who-for-benefit">Make decisions without hiring a media buyer.</p>
+          <span class="emoji">📱</span>
+          <p class="title">Solo Advertisers</p>
+          <p class="benefit">Run your account without living inside Ads Manager.</p>
         </div>
         <div class="who-for-item">
-          <span>📊</span>
-          <p class="who-for-title">Media Buyers</p>
-          <p class="who-for-benefit">Spend time optimizing, not squinting at columns.</p>
+          <span class="emoji">📊</span>
+          <p class="title">Media Buyers</p>
+          <p class="benefit">Do your daily checks from one screen instead of twenty.</p>
         </div>
         <div class="who-for-item">
-          <span>🏢</span>
-          <p class="who-for-title">Small Agencies</p>
-          <p class="who-for-benefit">Standardize how your team decides what to scale.</p>
+          <span class="emoji">🏢</span>
+          <p class="title">Agencies</p>
+          <p class="benefit">Standardize how juniors decide what to scale, pause, and fund.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 4. Features (Visual, Fast) -->
+  <!-- 5. FEATURES -->
   <section class="features" id="features">
     <div class="container">
+      <h2>Everything You Need to Run Your Ads</h2>
+      <p class="features-subtitle">See what's working, take action, and scale—all from one dashboard.</p>
       <div class="features-grid">
+        <div class="feature-card featured">
+          <span class="feature-tag new">New</span>
+          <div class="feature-icon orange">🎮</div>
+          <h3>Control Your Ads in One Click</h3>
+          <p>Pause, restart, or adjust budgets for any campaign, ad set, or ad directly from KillScale. No more diving into Ads Manager just to make tiny changes.</p>
+        </div>
         <div class="feature-card">
-          <div class="feature-icon orange">⚡</div>
+          <div class="feature-icon green">⚡</div>
           <h3>Instant Verdicts</h3>
-          <p>Scale / Watch / Kill / Learning — no more mental math.</p>
+          <p>Scale / Watch / Kill / Learning — every row gets a verdict so you know what to do in seconds, not hours.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon green">📂</div>
+          <div class="feature-icon purple">📂</div>
           <h3>Drill Down Instantly</h3>
-          <p>Find which ad sets are printing money — and which are silently draining budget.</p>
+          <p>Expand any campaign to see ad sets, then ads. Find which ones are printing money—and which are silently draining budget.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon blue">🔄</div>
-          <h3>Live Sync</h3>
-          <p>Real data from your Meta account in real time.</p>
           <span class="feature-tag">Pro</span>
+          <div class="feature-icon blue">🔄</div>
+          <h3>Live Meta Sync</h3>
+          <p>Real data from your Meta account, synced in real time. Auto-refresh every 5 minutes so you're always current.</p>
         </div>
         <div class="feature-card">
+          <span class="feature-tag">Pro</span>
           <div class="feature-icon purple">📊</div>
           <h3>Trends Explorer</h3>
-          <p>Time series, scatter plots, spend vs ROAS… without spreadsheets.</p>
-          <span class="feature-tag">Pro</span>
+          <p>Time series, scatter plots, spend vs ROAS… without spreadsheets. See how your ads perform over time.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon yellow">📤</div>
           <h3>CSV Upload</h3>
-          <p>Don't want to connect your account? Export from Meta and upload.</p>
+          <p>Don't want to connect your account? Export from Meta Ads Manager and upload. Works in seconds.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon red">🎯</div>
           <h3>Custom Thresholds</h3>
-          <p>Set your own Scale ROAS, Watch ROAS, and learning budget.</p>
+          <p>Set your own Scale ROAS, Watch ROAS, and learning budget. Your margins, your rules.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. How It Works -->
+  <!-- 6. HOW IT WORKS -->
   <section class="how-it-works" id="how-it-works">
     <div class="container">
       <h2>How It Works</h2>
@@ -1669,80 +1305,79 @@
         <div class="step">
           <div class="step-number">1</div>
           <h3>Connect</h3>
-          <p>Link your Meta Ads account with one click — or upload a CSV export.</p>
+          <p>Link your Meta Ads account with one click—or upload a CSV export. Either way, you're set up in 2 minutes.</p>
         </div>
         <div class="step">
           <div class="step-number">2</div>
-          <h3>Analyze</h3>
-          <p>KillScale scans every campaign, ad set, and ad in your account.</p>
+          <h3>Set Rules</h3>
+          <p>Tell KillScale what ROAS counts as a winner vs a loser for your margins. We'll score everything automatically.</p>
         </div>
         <div class="step">
           <div class="step-number">3</div>
-          <h3>Decide</h3>
-          <p>Get instant verdicts so you can scale what's working and kill what isn't.</p>
+          <h3>Act</h3>
+          <p>See what to scale, what to watch, and what to kill—then pause losers, restart winners, and adjust budgets in one click.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Verdict System Demo -->
-  <section class="live-demo" id="verdicts">
+  <!-- 7. VERDICT SYSTEM -->
+  <section class="verdicts" id="verdicts">
     <div class="container">
       <h2>Four Verdicts. Zero Confusion.</h2>
-      <p class="live-demo-subtitle">Every ad in your account gets one of four color-coded verdicts.</p>
-      
-      <!-- Verdict Explainer Cards -->
-      <div class="verdict-explainer">
+      <p class="verdicts-subtitle">Every ad in your account gets one of four color-coded verdicts.</p>
+      <p class="verdicts-action">See the verdict—then pause, restart, or adjust budgets in one click.</p>
+      <div class="verdict-grid">
         <div class="verdict-card scale">
-          <div class="verdict-card-badge">↑ SCALE</div>
-          <div class="verdict-card-desc">Printing money. Increase budget.</div>
+          <div class="verdict-badge">↑ SCALE</div>
+          <p class="desc">Printing money. Increase budget and let it run.</p>
         </div>
         <div class="verdict-card watch">
-          <div class="verdict-card-badge">○ WATCH</div>
-          <div class="verdict-card-desc">Profitable but needs monitoring.</div>
+          <div class="verdict-badge">○ WATCH</div>
+          <p class="desc">Profitable but not insane. Monitor for changes.</p>
         </div>
         <div class="verdict-card kill">
-          <div class="verdict-card-badge">↓ KILL</div>
-          <div class="verdict-card-desc">Losing money. Cut it now.</div>
+          <div class="verdict-badge">↓ KILL</div>
+          <p class="desc">Losing money. Pause it now before it drains more.</p>
         </div>
         <div class="verdict-card learn">
-          <div class="verdict-card-badge">◐ LEARN</div>
-          <div class="verdict-card-desc">Not enough data yet. Let it run.</div>
+          <div class="verdict-badge">◐ LEARN</div>
+          <p class="desc">Not enough data yet. Let it cook a bit longer.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. Social Proof -->
+  <!-- 8. SOCIAL PROOF -->
   <section class="social-proof">
     <div class="container">
       <h2>What Advertisers Are Saying</h2>
       <div class="testimonials-grid">
         <div class="testimonial-card">
-          <div class="testimonial-text">"KillScale saved me from wasting $400 last week on a campaign I thought was working."</div>
+          <p class="testimonial-text">KillScale saved me from wasting $400 last week on ad sets I thought were working. I basically never open Ads Manager anymore.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">M</div>
-            <div class="testimonial-info">
+            <div>
               <div class="testimonial-name">Mike R.</div>
               <div class="testimonial-role">eCom Founder</div>
             </div>
           </div>
         </div>
         <div class="testimonial-card">
-          <div class="testimonial-text">"The verdict system is insanely helpful. I wish Meta built this into their dashboard."</div>
+          <p class="testimonial-text">It's like having a senior media buyer telling you what to do AND giving you the buttons to do it. Game changer.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">S</div>
-            <div class="testimonial-info">
+            <div>
               <div class="testimonial-name">Sarah K.</div>
               <div class="testimonial-role">Media Buyer</div>
             </div>
           </div>
         </div>
         <div class="testimonial-card">
-          <div class="testimonial-text">"Scaling decisions are instant now. What used to take 20 minutes takes 30 seconds."</div>
+          <p class="testimonial-text">Do my daily checks from one screen now. What used to take 20 minutes bouncing between tabs takes 30 seconds.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">J</div>
-            <div class="testimonial-info">
+            <div>
               <div class="testimonial-name">James T.</div>
               <div class="testimonial-role">Agency Owner</div>
             </div>
@@ -1752,18 +1387,18 @@
     </div>
   </section>
 
-  <!-- 7. Pricing -->
+  <!-- 9. PRICING -->
   <section class="pricing" id="pricing">
     <div class="container">
       <h2>Simple Pricing</h2>
-      <p class="pricing-subtitle">Start free. Upgrade when you need more.</p>
+      <p class="pricing-subtitle">Free to analyze. Pro to control. Cancel anytime.</p>
       <div class="pricing-grid">
         <div class="pricing-card">
           <div class="pricing-name">Free</div>
           <div class="pricing-price">$0<span>/mo</span></div>
-          <div class="pricing-desc">Get started</div>
+          <div class="pricing-desc">Get verdicts on a small slice</div>
           <ul class="pricing-features">
-            <li>CSV upload</li>
+            <li>CSV upload only</li>
             <li>2 campaigns</li>
             <li>Full hierarchy drill-down</li>
             <li>Custom thresholds</li>
@@ -1788,14 +1423,14 @@
           <div class="pricing-badge">Most Popular</div>
           <div class="pricing-name">Pro</div>
           <div class="pricing-price">$29<span>/mo</span></div>
-          <div class="pricing-desc">For serious advertisers</div>
+          <div class="pricing-desc">Run your account from here</div>
           <ul class="pricing-features">
-            <li class="highlight new">Live Meta API sync</li>
-            <li class="highlight new">Auto-refresh every 5 min</li>
-            <li class="highlight new">Trends Explorer</li>
+            <li class="highlight">Live Meta API sync</li>
+            <li class="highlight">Pause, resume & adjust budgets <span class="new-tag">New</span></li>
+            <li class="highlight">Trends Explorer</li>
+            <li>Auto-refresh every 5 min</li>
             <li>Unlimited campaigns</li>
             <li>Multi-account dashboard</li>
-            <li>Priority support</li>
           </ul>
           <a href="https://app.killscale.com/signup" class="btn btn-primary">Start Free Trial</a>
         </div>
@@ -1824,25 +1459,27 @@
         </span>
         <span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Switch plans anytime
+          No long-term contracts
         </span>
       </div>
     </div>
   </section>
 
-  <!-- 8. Final CTA -->
+  <!-- 10. FINAL CTA -->
   <section class="final-cta">
     <div class="container">
-      <h2>Ready to Stop Guessing?</h2>
-      <p>Start KillScale today — it takes 30 seconds.</p>
-      <a href="https://app.killscale.com/signup" class="btn btn-primary btn-large">Start Free →</a>
+      <h2>Stop <span class="red">Burning Money</span> on Bad Ads</h2>
+      <p>
+        You already know there are losers hiding in your account. KillScale helps you <strong>find them, pause them, and shift budget to winners</strong>—without opening Ads Manager.
+      </p>
+      <a href="https://app.killscale.com/signup" class="btn btn-primary btn-large">See My Verdicts →</a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
     <div class="container">
-      <div class="footer-text">© 2025 KillScale. Make better ad decisions.</div>
+      <div class="footer-text">© 2025 KillScale. Your Meta Ads command center.</div>
       <div class="footer-links">
         <a href="mailto:support@killscale.com">Support</a>
         <a href="/privacy">Privacy</a>
@@ -1851,19 +1488,4 @@
     </div>
   </footer>
 </body>
-<script>
-  function playVideo() {
-    const placeholder = document.querySelector('.video-placeholder');
-    const iframe = document.getElementById('demo-video');
-    const videoUrl = 'YOUR_VIDEO_EMBED_URL_HERE';
-    
-    if (videoUrl !== 'YOUR_VIDEO_EMBED_URL_HERE') {
-      iframe.src = videoUrl;
-      placeholder.style.display = 'none';
-      iframe.style.display = 'block';
-    } else {
-      alert('Demo video coming soon! Sign up to get early access.');
-    }
-  }
-</script>
 </html>

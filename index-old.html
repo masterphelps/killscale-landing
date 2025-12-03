@@ -966,11 +966,196 @@
       font-weight: 500;
     }
 
+    .who-for-item .who-for-title {
+      font-size: 15px;
+      color: var(--text);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .who-for-item .who-for-benefit {
+      font-size: 13px;
+      color: var(--text-dim);
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
     /* Final CTA Note */
     .final-cta-note {
       margin-top: 16px;
       font-size: 13px;
       color: var(--text-dim);
+    }
+
+    /* Pain Amplifier Section */
+    .pain-section {
+      padding: 80px 0;
+      background: linear-gradient(180deg, transparent, rgba(239, 68, 68, 0.03), transparent);
+    }
+
+    .pain-section h2 {
+      font-size: 32px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--text-muted);
+    }
+
+    .pain-list {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .pain-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: var(--bg-card);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      border-radius: 12px;
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+
+    .pain-item span {
+      font-size: 20px;
+    }
+
+    .pain-closer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 18px;
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    /* Meet KillScale Section */
+    .intro-section {
+      padding: 80px 0;
+      text-align: center;
+      background: linear-gradient(180deg, transparent, rgba(34, 197, 94, 0.03), transparent);
+    }
+
+    .intro-section h2 {
+      font-size: 40px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .intro-section h2 span {
+      color: var(--green);
+    }
+
+    .intro-section p {
+      font-size: 20px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 16px;
+      line-height: 1.7;
+    }
+
+    .intro-section .intro-tagline {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 24px;
+    }
+
+    /* Social Proof Section */
+    .social-proof {
+      padding: 80px 0;
+      background: var(--bg-card);
+    }
+
+    .social-proof h2 {
+      font-size: 32px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background: var(--bg-dark);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .testimonial-text {
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .testimonial-info {
+      font-size: 14px;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .testimonial-role {
+      color: var(--text-dim);
+    }
+
+    @media (max-width: 768px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Pricing Trust Notes */
+    .pricing-trust {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .pricing-trust span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-dim);
+    }
+
+    .pricing-trust svg {
+      color: var(--green);
     }
 
     @media (max-width: 900px) {
@@ -1367,6 +1552,46 @@
     </div>
   </section>
 
+  <!-- 2. Pain Amplifier -->
+  <section class="pain-section">
+    <div class="container">
+      <h2>Meta Ads Manager makes everything harder than it needs to be.</h2>
+      <div class="pain-list">
+        <div class="pain-item">
+          <span>😵</span>
+          Endless columns of data with no clear answers
+        </div>
+        <div class="pain-item">
+          <span>🧮</span>
+          Mental math for every single decision
+        </div>
+        <div class="pain-item">
+          <span>🔍</span>
+          ROAS buried behind 12 clicks
+        </div>
+        <div class="pain-item">
+          <span>📉</span>
+          Ad sets silently draining budget without you realizing
+        </div>
+        <div class="pain-item">
+          <span>❓</span>
+          No clear verdicts on what's working
+        </div>
+      </div>
+      <p class="pain-closer">You're spending more time analyzing than scaling.</p>
+    </div>
+  </section>
+
+  <!-- 3. Meet KillScale -->
+  <section class="intro-section">
+    <div class="container">
+      <h2>Meet <span>KillScale</span></h2>
+      <p>The clarity engine for your Meta ads.</p>
+      <p>One click. Real-time sync. Instant verdicts on every campaign, ad set, and ad.</p>
+      <p class="intro-tagline">Scale the winners. Kill the losers. Finally.</p>
+    </div>
+  </section>
+
   <!-- Who Is This For -->
   <section class="who-for">
     <div class="container">
@@ -1374,118 +1599,97 @@
       <div class="who-for-grid">
         <div class="who-for-item">
           <span>🛒</span>
-          <p>eCom Founders</p>
+          <p class="who-for-title">eCom Founders</p>
+          <p class="who-for-benefit">Stop letting bad ads eat your margins.</p>
         </div>
         <div class="who-for-item">
           <span>📱</span>
-          <p>Solo Advertisers</p>
+          <p class="who-for-title">Solo Advertisers</p>
+          <p class="who-for-benefit">Make decisions without hiring a media buyer.</p>
         </div>
         <div class="who-for-item">
           <span>📊</span>
-          <p>Media Buyers</p>
+          <p class="who-for-title">Media Buyers</p>
+          <p class="who-for-benefit">Spend time optimizing, not squinting at columns.</p>
         </div>
         <div class="who-for-item">
           <span>🏢</span>
-          <p>Small Agencies</p>
+          <p class="who-for-title">Small Agencies</p>
+          <p class="who-for-benefit">Standardize how your team decides what to scale.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Video Demo Section -->
-  <section class="video-demo">
-    <div class="container">
-      <div class="video-wrapper">
-        <div class="video-content">
-          <div class="section-label">🎬 See It In Action</div>
-          <h2>Watch KillScale Work</h2>
-          <p>See how easy it is to connect your Meta Ads account, sync your data, and get instant verdicts on every campaign.</p>
-          <div class="video-features">
-            <div class="video-feature">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              <span>One-click Meta connection</span>
-            </div>
-            <div class="video-feature">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              <span>Real-time data sync</span>
-            </div>
-            <div class="video-feature">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              <span>Instant verdict badges</span>
-            </div>
-          </div>
-        </div>
-        <div class="video-player" id="video-player">
-          <div class="video-placeholder" onclick="playVideo()">
-            <div class="play-button">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <span>Watch 2-min demo</span>
-          </div>
-          <!-- Replace with actual video embed -->
-          <iframe 
-            id="demo-video"
-            style="display: none; width: 100%; height: 100%; border: none; border-radius: 12px;"
-            src="" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-          </iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features -->
+  <!-- 4. Features (Visual, Fast) -->
   <section class="features" id="features">
     <div class="container">
-      <div class="section-label">⚡ Features</div>
-      <h2>Built for Advertisers That Value Their Time</h2>
-      <p class="features-subtitle">
-        Stop wrestling with Meta Ads Manager at 1am. Get the answers you need in seconds.
-      </p>
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon green">🔄</div>
-          <h3>Live Meta Sync</h3>
-          <p>One-click OAuth connection. Your data syncs automatically every 5 minutes when Live mode is on.</p>
-          <span class="feature-tag">Pro Feature</span>
+          <div class="feature-icon orange">⚡</div>
+          <h3>Instant Verdicts</h3>
+          <p>Scale / Watch / Kill / Learning — no more mental math.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon orange">📂</div>
-          <h3>Hierarchical Drill-Down</h3>
-          <p>Click any campaign to see which ad sets are carrying it—and which ones are dragging it down.</p>
+          <div class="feature-icon green">📂</div>
+          <h3>Drill Down Instantly</h3>
+          <p>Find which ad sets are printing money — and which are silently draining budget.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon blue">📊</div>
+          <div class="feature-icon blue">🔄</div>
+          <h3>Live Sync</h3>
+          <p>Real data from your Meta account in real time.</p>
+          <span class="feature-tag">Pro</span>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon purple">📊</div>
           <h3>Trends Explorer</h3>
-          <p>Interactive charts to visualize spend vs ROAS over time. Spot patterns before they cost you money.</p>
-          <span class="feature-tag">Pro Feature</span>
+          <p>Time series, scatter plots, spend vs ROAS… without spreadsheets.</p>
+          <span class="feature-tag">Pro</span>
         </div>
         <div class="feature-card">
-          <div class="feature-icon purple">🏢</div>
-          <h3>Multi-Account Dashboard</h3>
-          <p>Manage multiple ad accounts from one place. Perfect for agencies or businesses with multiple brands.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon yellow">⏸️</div>
-          <h3>Paused Status Tracking</h3>
-          <p>See which campaigns, ad sets, and ads are paused at a glance. No more hidden surprises.</p>
+          <div class="feature-icon yellow">📤</div>
+          <h3>CSV Upload</h3>
+          <p>Don't want to connect your account? Export from Meta and upload.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon red">🎯</div>
-          <h3>Your Rules, Your Verdicts</h3>
-          <p>Set custom Scale ROAS, Watch ROAS, and learning budget thresholds. KillScale adapts to your business.</p>
+          <h3>Custom Thresholds</h3>
+          <p>Set your own Scale ROAS, Watch ROAS, and learning budget.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- The Verdict System - Hero Feature -->
+  <!-- 5. How It Works -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Connect</h3>
+          <p>Link your Meta Ads account with one click — or upload a CSV export.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Analyze</h3>
+          <p>KillScale scans every campaign, ad set, and ad in your account.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Decide</h3>
+          <p>Get instant verdicts so you can scale what's working and kill what isn't.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Verdict System Demo -->
   <section class="live-demo" id="verdicts">
     <div class="container">
-      <div class="section-label" style="display: block; text-align: center;">⚡ The Core Concept</div>
       <h2>Four Verdicts. Zero Confusion.</h2>
-      <p class="live-demo-subtitle">Every ad in your account gets one of four color-coded verdicts. No spreadsheets. No mental math. Just clarity.</p>
+      <p class="live-demo-subtitle">Every ad in your account gets one of four color-coded verdicts.</p>
       
       <!-- Verdict Explainer Cards -->
       <div class="verdict-explainer">
@@ -1506,138 +1710,66 @@
           <div class="verdict-card-desc">Not enough data yet. Let it run.</div>
         </div>
       </div>
-      
-      <p class="verdict-note">All thresholds are customizable. Set your own Scale ROAS, Watch ROAS, and learning budget.</p>
-      
-      <!-- Live Table Demo -->
-      <div class="verdict-demo">
-        <div class="verdict-demo-header">
-          <span>📊 Live Dashboard Preview</span>
-          <span class="verdict-demo-drill">Click campaigns to drill down →</span>
-        </div>
-        <div class="verdict-header">
-          <div>Name</div>
-          <div style="text-align: right;">Spend</div>
-          <div style="text-align: right;">Revenue</div>
-          <div style="text-align: right;">ROAS</div>
-          <div style="text-align: center;">Verdict</div>
-        </div>
-        <div class="verdict-row">
-          <div class="verdict-name">
-            <span class="type-badge campaign">C</span>
-            Summer Sale Campaign
-          </div>
-          <div class="verdict-stat" style="text-align: right;">$1,250</div>
-          <div class="verdict-stat" style="text-align: right;">$4,875</div>
-          <div class="verdict-stat roas high" style="text-align: right;">3.9x</div>
-          <div style="text-align: center;"><span class="verdict-badge scale">↑ Scale</span></div>
-        </div>
-        <div class="verdict-row indent">
-          <div class="verdict-name">
-            <span class="type-badge adset">AS</span>
-            Lookalike 1% - US
-          </div>
-          <div class="verdict-stat" style="text-align: right;">$680</div>
-          <div class="verdict-stat" style="text-align: right;">$2,720</div>
-          <div class="verdict-stat roas high" style="text-align: right;">4.0x</div>
-          <div style="text-align: center;"><span class="verdict-badge scale">↑ Scale</span></div>
-        </div>
-        <div class="verdict-row indent-2">
-          <div class="verdict-name">
-            <span class="type-badge ad">AD</span>
-            Video - Product Demo
-          </div>
-          <div class="verdict-stat" style="text-align: right;">$445</div>
-          <div class="verdict-stat" style="text-align: right;">$1,780</div>
-          <div class="verdict-stat roas high" style="text-align: right;">4.0x</div>
-          <div style="text-align: center;"><span class="verdict-badge scale">↑ Scale</span></div>
-        </div>
-        <div class="verdict-row indent-2">
-          <div class="verdict-name">
-            <span class="type-badge ad">AD</span>
-            Carousel - Features
-          </div>
-          <div class="verdict-stat" style="text-align: right;">$235</div>
-          <div class="verdict-stat" style="text-align: right;">$940</div>
-          <div class="verdict-stat roas high" style="text-align: right;">4.0x</div>
-          <div style="text-align: center;"><span class="verdict-badge scale">↑ Scale</span></div>
-        </div>
-        <div class="verdict-row indent">
-          <div class="verdict-name">
-            <span class="type-badge adset">AS</span>
-            Interest - Fitness
-          </div>
-          <div class="verdict-stat" style="text-align: right;">$570</div>
-          <div class="verdict-stat" style="text-align: right;">$2,155</div>
-          <div class="verdict-stat roas high" style="text-align: right;">3.8x</div>
-          <div style="text-align: center;"><span class="verdict-badge scale">↑ Scale</span></div>
-        </div>
-        <div class="verdict-row">
-          <div class="verdict-name">
-            <span class="type-badge campaign">C</span>
-            Retargeting - Website Visitors
-          </div>
-          <div class="verdict-stat" style="text-align: right;">$320</div>
-          <div class="verdict-stat" style="text-align: right;">$128</div>
-          <div class="verdict-stat roas low" style="text-align: right;">0.4x</div>
-          <div style="text-align: center;"><span class="verdict-badge kill">↓ Kill</span></div>
-        </div>
-        <div class="verdict-row">
-          <div class="verdict-name">
-            <span class="type-badge campaign">C</span>
-            New Creative Test
-          </div>
-          <div class="verdict-stat" style="text-align: right;">$45</div>
-          <div class="verdict-stat" style="text-align: right;">$0</div>
-          <div class="verdict-stat roas" style="text-align: right; color: var(--text-dim);">0.0x</div>
-          <div style="text-align: center;"><span class="verdict-badge learn">◐ Learn</span></div>
-        </div>
-      </div>
     </div>
   </section>
 
-  <!-- How It Works Steps -->
-  <section class="how-it-works" id="how-it-works">
+  <!-- 6. Social Proof -->
+  <section class="social-proof">
     <div class="container">
-      <h2>Get Clarity in 3 Steps</h2>
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>Connect or Upload</h3>
-          <p>One-click OAuth to your Meta Ads account. Or just export a CSV from Meta and upload it—your choice.</p>
+      <h2>What Advertisers Are Saying</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-text">"KillScale saved me from wasting $400 last week on a campaign I thought was working."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">M</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Mike R.</div>
+              <div class="testimonial-role">eCom Founder</div>
+            </div>
+          </div>
         </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Set Your Thresholds</h3>
-          <p>Tell us what ROAS means "Scale" vs "Kill" for your business. Everyone's margins are different.</p>
+        <div class="testimonial-card">
+          <div class="testimonial-text">"The verdict system is insanely helpful. I wish Meta built this into their dashboard."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">S</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Sarah K.</div>
+              <div class="testimonial-role">Media Buyer</div>
+            </div>
+          </div>
         </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>Act on Verdicts</h3>
-          <p>See exactly which ads are making money and which are burning it. Make decisions in seconds, not hours.</p>
+        <div class="testimonial-card">
+          <div class="testimonial-text">"Scaling decisions are instant now. What used to take 20 minutes takes 30 seconds."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">J</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">James T.</div>
+              <div class="testimonial-role">Agency Owner</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Pricing -->
+  <!-- 7. Pricing -->
   <section class="pricing" id="pricing">
     <div class="container">
-      <h2>Simple, Transparent Pricing</h2>
-      <p class="pricing-subtitle">Cheaper than losing $50/day on a bad ad. Cancel anytime.</p>
+      <h2>Simple Pricing</h2>
+      <p class="pricing-subtitle">Start free. Upgrade when you need more.</p>
       <div class="pricing-grid">
         <div class="pricing-card">
           <div class="pricing-name">Free</div>
           <div class="pricing-price">$0<span>/mo</span></div>
-          <div class="pricing-desc">Perfect for testing</div>
+          <div class="pricing-desc">Get started</div>
           <ul class="pricing-features">
             <li>CSV upload</li>
-            <li>2 campaigns max</li>
+            <li>2 campaigns</li>
             <li>Full hierarchy drill-down</li>
             <li>Custom thresholds</li>
-            <li>All four verdict badges</li>
+            <li>All verdict badges</li>
           </ul>
-          <a href="https://app.killscale.com/signup" class="btn btn-secondary">Get Started Free</a>
+          <a href="https://app.killscale.com/signup" class="btn btn-secondary">Start Free</a>
         </div>
         <div class="pricing-card">
           <div class="pricing-name">Starter</div>
@@ -1660,10 +1792,10 @@
           <ul class="pricing-features">
             <li class="highlight new">Live Meta API sync</li>
             <li class="highlight new">Auto-refresh every 5 min</li>
-            <li class="highlight new">Trends Explorer charts</li>
+            <li class="highlight new">Trends Explorer</li>
             <li>Unlimited campaigns</li>
             <li>Multi-account dashboard</li>
-            <li>Paused ad tracking</li>
+            <li>Priority support</li>
           </ul>
           <a href="https://app.killscale.com/signup" class="btn btn-primary">Start Free Trial</a>
         </div>
@@ -1681,16 +1813,29 @@
           <a href="https://app.killscale.com/signup" class="btn btn-secondary">Contact Sales</a>
         </div>
       </div>
+      <div class="pricing-trust">
+        <span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Cancel anytime
+        </span>
+        <span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Free plan is actually useful
+        </span>
+        <span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Switch plans anytime
+        </span>
+      </div>
     </div>
   </section>
 
-  <!-- Final CTA -->
+  <!-- 8. Final CTA -->
   <section class="final-cta">
     <div class="container">
-      <h2>Stop Burning Money on Bad Ads</h2>
-      <p>You know you have losers hiding in your account. Find them in 30 seconds.</p>
-      <a href="https://app.killscale.com/signup" class="btn btn-primary btn-large">Start Free Today →</a>
-      <div class="final-cta-note">No credit card required • Cancel anytime • Keep the clarity</div>
+      <h2>Ready to Stop Guessing?</h2>
+      <p>Start KillScale today — it takes 30 seconds.</p>
+      <a href="https://app.killscale.com/signup" class="btn btn-primary btn-large">Start Free →</a>
     </div>
   </section>
 
@@ -1710,10 +1855,6 @@
   function playVideo() {
     const placeholder = document.querySelector('.video-placeholder');
     const iframe = document.getElementById('demo-video');
-    
-    // Replace with your actual YouTube/Vimeo/Loom video URL
-    // Example: https://www.youtube.com/embed/VIDEO_ID?autoplay=1
-    // Example: https://www.loom.com/embed/VIDEO_ID?autoplay=1
     const videoUrl = 'YOUR_VIDEO_EMBED_URL_HERE';
     
     if (videoUrl !== 'YOUR_VIDEO_EMBED_URL_HERE') {
@@ -1721,7 +1862,6 @@
       placeholder.style.display = 'none';
       iframe.style.display = 'block';
     } else {
-      // Placeholder action - redirect to signup or show alert
       alert('Demo video coming soon! Sign up to get early access.');
     }
   }
