@@ -1015,6 +1015,73 @@
       width: 100%;
     }
 
+    .pricing-yearly {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-top: 2px;
+      margin-bottom: 8px;
+    }
+
+    /* Billing Toggle */
+    .billing-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 50px;
+    }
+
+    .billing-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-dim);
+      transition: color 0.2s;
+    }
+
+    .billing-label.active {
+      color: var(--text);
+    }
+
+    .toggle-btn {
+      position: relative;
+      width: 56px;
+      height: 28px;
+      background: var(--accent);
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .toggle-knob {
+      position: absolute;
+      top: 4px;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+      transition: left 0.2s ease;
+    }
+
+    .toggle-knob.monthly {
+      left: 4px;
+    }
+
+    .toggle-knob.yearly {
+      left: 32px;
+    }
+
+    .save-badge {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 4px 10px;
+      background: var(--green);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 100px;
+    }
+
     .pricing-trust {
       display: flex;
       justify-content: center;
@@ -1411,10 +1478,23 @@
     <div class="container">
       <h2>Simple Pricing</h2>
       <p class="pricing-subtitle">Free to analyze. Pro to control. Cancel anytime.</p>
+
+      <!-- Billing Toggle -->
+      <div class="billing-toggle">
+        <span id="monthly-label" class="billing-label">Monthly</span>
+        <button id="billing-toggle-btn" class="toggle-btn" onclick="toggleBilling()">
+          <span id="toggle-knob" class="toggle-knob yearly"></span>
+        </button>
+        <span id="yearly-label" class="billing-label active">
+          Yearly
+          <span class="save-badge">2 months free</span>
+        </span>
+      </div>
+
       <div class="pricing-grid">
         <div class="pricing-card">
           <div class="pricing-name">Free</div>
-          <div class="pricing-price">$0<span>/mo</span></div>
+          <div class="pricing-price"><span id="free-price">$0</span><span>/mo</span></div>
           <div class="pricing-desc">Get verdicts on a small slice</div>
           <ul class="pricing-features">
             <li>CSV upload only</li>
@@ -1427,7 +1507,8 @@
         </div>
         <div class="pricing-card">
           <div class="pricing-name">Starter</div>
-          <div class="pricing-price">$9<span>/mo</span></div>
+          <div class="pricing-price"><span id="starter-price">$7.50</span><span>/mo</span></div>
+          <div id="starter-yearly" class="pricing-yearly">billed $90/year</div>
           <div class="pricing-desc">For growing advertisers</div>
           <ul class="pricing-features">
             <li>CSV upload</li>
@@ -1441,7 +1522,8 @@
         <div class="pricing-card featured">
           <div class="pricing-badge">Most Popular</div>
           <div class="pricing-name">Pro</div>
-          <div class="pricing-price">$29<span>/mo</span></div>
+          <div class="pricing-price"><span id="pro-price">$24</span><span>/mo</span></div>
+          <div id="pro-yearly" class="pricing-yearly">billed $290/year</div>
           <div class="pricing-desc">Run your account from here</div>
           <ul class="pricing-features">
             <li class="highlight">Live Meta API sync</li>
@@ -1455,7 +1537,8 @@
         </div>
         <div class="pricing-card">
           <div class="pricing-name">Agency</div>
-          <div class="pricing-price">$99<span>/mo</span></div>
+          <div class="pricing-price"><span id="agency-price">$82</span><span>/mo</span></div>
+          <div id="agency-yearly" class="pricing-yearly">billed $990/year</div>
           <div class="pricing-desc">For teams & clients</div>
           <ul class="pricing-features">
             <li>Everything in Pro</li>
@@ -1506,6 +1589,45 @@
       </div>
     </div>
   </footer>
+  <!-- Billing Toggle Script -->
+  <script>
+    let isYearly = true; // Default to yearly
+
+    function toggleBilling() {
+      isYearly = !isYearly;
+      updatePrices();
+    }
+
+    function updatePrices() {
+      const knob = document.getElementById('toggle-knob');
+      const monthlyLabel = document.getElementById('monthly-label');
+      const yearlyLabel = document.getElementById('yearly-label');
+
+      // Update toggle position
+      if (isYearly) {
+        knob.classList.remove('monthly');
+        knob.classList.add('yearly');
+        monthlyLabel.classList.remove('active');
+        yearlyLabel.classList.add('active');
+      } else {
+        knob.classList.remove('yearly');
+        knob.classList.add('monthly');
+        monthlyLabel.classList.add('active');
+        yearlyLabel.classList.remove('active');
+      }
+
+      // Update prices
+      document.getElementById('starter-price').textContent = isYearly ? '$7.50' : '$9';
+      document.getElementById('pro-price').textContent = isYearly ? '$24' : '$29';
+      document.getElementById('agency-price').textContent = isYearly ? '$82' : '$99';
+
+      // Show/hide yearly billing text
+      document.getElementById('starter-yearly').style.display = isYearly ? 'block' : 'none';
+      document.getElementById('pro-yearly').style.display = isYearly ? 'block' : 'none';
+      document.getElementById('agency-yearly').style.display = isYearly ? 'block' : 'none';
+    }
+  </script>
+
   <!-- Vercel Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
 </body>
