@@ -220,12 +220,17 @@
       color: var(--text-dim);
     }
 
-    /* ========== VIDEO DEMO ========== */
-    .video-demo {
+    /* ========== VIDEO/MOBILE DEMO ========== */
+    .demo-container {
       margin-top: 48px;
       max-width: 800px;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    .video-demo {
+      position: relative;
+      display: block;
     }
 
     .video-demo video {
@@ -233,6 +238,62 @@
       border-radius: 12px;
       border: 1px solid var(--border);
       background: var(--bg-card);
+      display: block;
+    }
+
+    .video-controls {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      padding: 8px 12px;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      border-radius: 8px;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .video-demo:hover .video-controls {
+      opacity: 1;
+    }
+
+    .video-btn {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .video-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-preview {
+      display: none;
+    }
+
+    .mobile-preview img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .video-demo {
+        display: none;
+      }
+      .mobile-preview {
+        display: block;
+      }
     }
 
     /* ========== CONTROL PANEL DEMO ========== */
@@ -902,12 +963,29 @@
       </div>
       <p class="hero-note">No credit card required. Free tier available.</p>
 
-      <!-- Video Demo -->
-      <div class="video-demo">
-        <video autoplay muted loop playsinline>
-          <source src="demo.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+      <!-- Video Demo (Desktop) / Image (Mobile) -->
+      <div class="demo-container">
+        <div class="video-demo">
+          <video id="hero-video" autoplay muted loop playsinline>
+            <source src="demo.mp4" type="video/mp4">
+          </video>
+          <div class="video-controls">
+            <button id="play-pause" class="video-btn" title="Play/Pause">
+              <svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+              <svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display:none"><polygon points="5,3 19,12 5,21"/></svg>
+            </button>
+            <button id="restart" class="video-btn" title="Restart">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 1 9 9"/><polyline points="3 12 3 7 8 7"/></svg>
+            </button>
+            <button id="mute-unmute" class="video-btn" title="Unmute">
+              <svg class="icon-muted" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2"/><line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2"/></svg>
+              <svg class="icon-unmuted" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" fill="none"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="mobile-preview">
+          <img src="mobile-preview.png" alt="KillScale Insights Dashboard">
+        </div>
       </div>
 
       <!-- Control Panel Demo -->
@@ -1185,6 +1263,41 @@
       </div>
     </div>
   </footer>
+
+  <!-- Video Controls Script -->
+  <script>
+    const video = document.getElementById('hero-video');
+    const playPauseBtn = document.getElementById('play-pause');
+    const restartBtn = document.getElementById('restart');
+    const muteBtn = document.getElementById('mute-unmute');
+
+    if (video && playPauseBtn) {
+      playPauseBtn.addEventListener('click', () => {
+        if (video.paused) {
+          video.play();
+          playPauseBtn.querySelector('.icon-play').style.display = 'none';
+          playPauseBtn.querySelector('.icon-pause').style.display = 'block';
+        } else {
+          video.pause();
+          playPauseBtn.querySelector('.icon-play').style.display = 'block';
+          playPauseBtn.querySelector('.icon-pause').style.display = 'none';
+        }
+      });
+
+      restartBtn.addEventListener('click', () => {
+        video.currentTime = 0;
+        video.play();
+        playPauseBtn.querySelector('.icon-play').style.display = 'none';
+        playPauseBtn.querySelector('.icon-pause').style.display = 'block';
+      });
+
+      muteBtn.addEventListener('click', () => {
+        video.muted = !video.muted;
+        muteBtn.querySelector('.icon-muted').style.display = video.muted ? 'block' : 'none';
+        muteBtn.querySelector('.icon-unmuted').style.display = video.muted ? 'none' : 'block';
+      });
+    }
+  </script>
 
   <!-- Billing Toggle Script -->
   <script>
