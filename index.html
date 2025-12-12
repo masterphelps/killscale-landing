@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KillScale - Your Meta Ads Command Center</title>
+  <title>KillScale - Your Ads. Your Data. Your Control.</title>
 
   <!-- Meta Pixel Code -->
   <script>
@@ -22,15 +22,10 @@
   src="https://www.facebook.com/tr?id=1552580212607017&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->
-  <meta name="description" content="See which Meta Ads are making money, then pause losers and adjust budgets—all without opening Ads Manager. The clarity engine with full control built in.">
+  <meta name="description" content="Meta Ads Manager is complicated. KillScale isn't. See what's working, kill what's not, and launch new ads—all from one screen. No spreadsheets. No guesswork.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-  <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    @font-face {
-      font-family: 'Satoshi';
-      src: url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap');
-    }
-
     * {
       margin: 0;
       padding: 0;
@@ -38,30 +33,32 @@
     }
 
     :root {
-      --bg-dark: #050506;
-      --bg-card: #0c0c0e;
-      --bg-card-hover: #111113;
-      --border: #1a1a1f;
-      --border-light: #2a2a30;
+      --bg-dark: #0a0a0b;
+      --bg-card: #111113;
+      --bg-card-hover: #18181b;
+      --border: #27272a;
+      --border-light: #3f3f46;
       --accent: #f97316;
       --accent-hover: #fb923c;
-      --accent-glow: rgba(249, 115, 22, 0.2);
-      --green: #10b981;
-      --green-bg: rgba(16, 185, 129, 0.1);
-      --green-border: rgba(16, 185, 129, 0.25);
+      --accent-glow: rgba(249, 115, 22, 0.15);
+      --green: #22c55e;
+      --green-bg: rgba(34, 197, 94, 0.1);
+      --green-border: rgba(34, 197, 94, 0.3);
       --text: #fafafa;
       --text-muted: #a1a1aa;
-      --text-dim: #52525b;
+      --text-dim: #71717a;
       --red: #ef4444;
       --red-bg: rgba(239, 68, 68, 0.1);
-      --yellow: #f59e0b;
-      --yellow-bg: rgba(245, 158, 11, 0.1);
+      --yellow: #eab308;
+      --yellow-bg: rgba(234, 179, 8, 0.1);
       --blue: #3b82f6;
       --blue-bg: rgba(59, 130, 246, 0.1);
+      --purple: #a855f7;
+      --purple-bg: rgba(168, 85, 247, 0.1);
     }
 
     body {
-      font-family: 'Satoshi', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg-dark);
       color: var(--text);
       line-height: 1.6;
@@ -69,7 +66,7 @@
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -82,7 +79,7 @@
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(5, 5, 6, 0.8);
+      background: rgba(10, 10, 11, 0.9);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       z-index: 100;
@@ -97,7 +94,7 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       text-decoration: none;
     }
 
@@ -111,7 +108,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 28px;
     }
 
     .nav-links a {
@@ -132,7 +129,7 @@
       justify-content: center;
       gap: 8px;
       padding: 12px 24px;
-      border-radius: 10px;
+      border-radius: 8px;
       font-weight: 600;
       font-size: 14px;
       text-decoration: none;
@@ -144,458 +141,312 @@
     .btn-primary {
       background: var(--accent);
       color: white;
-      box-shadow: 0 0 30px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,0.1);
     }
 
     .btn-primary:hover {
       background: var(--accent-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 0 40px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,0.15);
+      transform: translateY(-1px);
     }
 
     .btn-secondary {
-      background: var(--bg-card);
+      background: transparent;
       color: var(--text);
       border: 1px solid var(--border);
     }
 
     .btn-secondary:hover {
       border-color: var(--border-light);
-      background: var(--bg-card-hover);
+      background: var(--bg-card);
     }
 
     .btn-large {
-      padding: 18px 36px;
-      font-size: 16px;
-      border-radius: 12px;
+      padding: 16px 32px;
+      font-size: 15px;
     }
 
     /* ========== HERO SECTION ========== */
     .hero {
-      padding: 160px 0 100px;
+      padding: 140px 0 100px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -300px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1200px;
-      height: 1000px;
-      background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 50%);
-      pointer-events: none;
-      opacity: 0.6;
-    }
-
-    .hero-badge {
+    .hero-eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 10px 18px;
-      background: var(--green-bg);
-      border: 1px solid var(--green-border);
+      gap: 8px;
+      padding: 8px 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
       border-radius: 100px;
       font-size: 13px;
-      color: var(--green);
-      margin-bottom: 32px;
-      font-weight: 600;
-      letter-spacing: 0.3px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      font-weight: 500;
     }
 
-    .hero-badge .pulse {
-      width: 8px;
-      height: 8px;
+    .hero-eyebrow .dot {
+      width: 6px;
+      height: 6px;
       background: var(--green);
       border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.3); }
     }
 
     .hero h1 {
-      font-size: clamp(44px, 6vw, 80px);
-      font-weight: 900;
-      line-height: 1.0;
-      margin-bottom: 28px;
-      letter-spacing: -3px;
-    }
-
-    .hero h1 .chaos {
-      color: var(--red);
-    }
-
-    .hero h1 .clarity {
-      color: var(--green);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
     }
 
     .hero-subtitle {
-      font-size: 20px;
+      font-size: 18px;
       color: var(--text-muted);
-      max-width: 680px;
-      margin: 0 auto 44px;
+      max-width: 600px;
+      margin: 0 auto 36px;
       line-height: 1.7;
-    }
-
-    .hero-subtitle strong {
-      color: var(--text);
-      font-weight: 600;
     }
 
     .hero-cta {
       display: flex;
-      gap: 16px;
+      gap: 12px;
       justify-content: center;
       flex-wrap: wrap;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
 
     .hero-note {
       font-size: 13px;
       color: var(--text-dim);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
     }
 
-    .hero-note span {
-      display: flex;
-      align-items: center;
-      gap: 6px;
+    /* ========== CONTROL PANEL DEMO ========== */
+    .control-demo {
+      margin-top: 60px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .hero-note svg {
-      color: var(--green);
-    }
-
-    /* Dashboard Preview */
-    .dashboard-preview {
-      margin-top: 70px;
-      position: relative;
-    }
-
-    .dashboard-preview::before {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--red) 50%, var(--accent) 100%);
-      border-radius: 18px;
-      opacity: 0.7;
-    }
-
-    .dashboard-preview img {
-      position: relative;
-      width: 100%;
+    .control-demo-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
       border-radius: 16px;
-      display: block;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.5);
-    }
-
-    .browser-chrome {
-      position: relative;
-      background: #1a1a1a;
-      border-radius: 16px;
-      padding-top: 40px;
       overflow: hidden;
     }
 
-    .browser-chrome::before {
-      content: '';
-      position: absolute;
-      top: 12px;
-      left: 16px;
-      width: 12px;
-      height: 12px;
-      background: #ff5f56;
-      border-radius: 50%;
-      box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27ca40;
-    }
-
-    /* ========== PAIN SECTION ========== */
-    .pain-section {
-      padding: 120px 0;
-      background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-card) 100%);
-    }
-
-    .pain-section h2 {
-      text-align: center;
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 800;
-      margin-bottom: 60px;
-      letter-spacing: -1px;
-      line-height: 1.2;
-    }
-
-    .pain-section h2 .dim {
-      color: var(--text-dim);
-    }
-
-    .pain-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      max-width: 900px;
-      margin: 0 auto 50px;
-    }
-
-    .pain-item {
+    .control-demo-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
       display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 24px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      transition: all 0.2s;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .pain-item:hover {
-      border-color: var(--border-light);
-      transform: translateY(-2px);
-    }
-
-    .pain-item .emoji {
-      font-size: 24px;
-      flex-shrink: 0;
-    }
-
-    .pain-item p {
-      color: var(--text-muted);
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .pain-closer {
-      text-align: center;
-      font-size: 20px;
-      color: var(--red);
+    .control-demo-title {
+      font-size: 13px;
       font-weight: 600;
-      padding: 24px;
-      background: var(--red-bg);
-      border: 1px solid rgba(239, 68, 68, 0.2);
-      border-radius: 12px;
-      max-width: 600px;
+      color: var(--text-muted);
+    }
+
+    .control-demo-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .control-action-btn {
+      padding: 6px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--bg-dark);
+      color: var(--text-muted);
+    }
+
+    .control-action-btn.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+
+    .control-demo-body {
+      padding: 0;
+    }
+
+    .control-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto auto;
+      gap: 16px;
+      padding: 16px 20px;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .control-row:last-child {
+      border-bottom: none;
+    }
+
+    .control-row.header {
+      background: var(--bg-dark);
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 12px 20px;
+    }
+
+    .ad-name {
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .ad-name span {
+      display: block;
+      font-size: 12px;
+      color: var(--text-dim);
+      font-weight: 400;
+    }
+
+    .metric {
+      font-size: 14px;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    .verdict-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .verdict-badge.scale {
+      background: var(--green);
+      color: white;
+    }
+
+    .verdict-badge.watch {
+      background: var(--yellow);
+      color: #1a1a1a;
+    }
+
+    .verdict-badge.kill {
+      background: var(--red);
+      color: white;
+    }
+
+    .verdict-badge.learn {
+      background: var(--blue);
+      color: white;
+    }
+
+    /* ========== THE TRUTH SECTION ========== */
+    .truth {
+      padding: 100px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .section-header p {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 550px;
       margin: 0 auto;
     }
 
-    /* ========== INTRO SECTION ========== */
-    .intro-section {
-      padding: 120px 0;
-      text-align: center;
+    .truth-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
 
-    .intro-section h2 {
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 900;
-      margin-bottom: 20px;
-      letter-spacing: -2px;
+    @media (max-width: 768px) {
+      .truth-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
     }
 
-    .intro-section h2 .brand {
-      color: var(--green);
-    }
-
-    .intro-tagline {
-      font-size: 22px;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 32px;
-    }
-
-    .intro-body {
-      font-size: 18px;
-      color: var(--text-muted);
-      max-width: 700px;
-      margin: 0 auto 20px;
-      line-height: 1.8;
-    }
-
-    .intro-body strong {
-      color: var(--text);
-    }
-
-    .intro-highlight {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 24px;
+    .truth-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 100px;
+      border-radius: 12px;
+      padding: 28px;
+    }
+
+    .truth-card .label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+
+    .truth-card .agency {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .truth-card .reality {
       font-size: 15px;
       color: var(--text);
       font-weight: 500;
-      margin-top: 20px;
     }
 
-    .intro-highlight svg {
-      color: var(--green);
-    }
-
-    /* ========== WHO FOR SECTION ========== */
-    .who-for {
+    /* ========== WHAT YOU GET ========== */
+    .what-you-get {
       padding: 100px 0;
       background: var(--bg-card);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
 
-    .who-for h2 {
-      text-align: center;
-      font-size: clamp(28px, 4vw, 40px);
-      font-weight: 800;
-      margin-bottom: 60px;
-      letter-spacing: -1px;
-    }
-
-    .who-for-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-
-    @media (max-width: 900px) {
-      .who-for-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 500px) {
-      .who-for-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .who-for-item {
-      text-align: center;
-      padding: 36px 24px;
-      background: var(--bg-dark);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      transition: all 0.2s;
-    }
-
-    .who-for-item:hover {
-      border-color: var(--accent);
-      transform: translateY(-4px);
-    }
-
-    .who-for-item .emoji {
-      font-size: 40px;
-      margin-bottom: 16px;
-      display: block;
-    }
-
-    .who-for-item .title {
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: var(--text);
-    }
-
-    .who-for-item .benefit {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    /* ========== FEATURES SECTION ========== */
-    .features {
-      padding: 120px 0;
-    }
-
-    .features h2 {
-      text-align: center;
-      font-size: clamp(28px, 4vw, 40px);
-      font-weight: 800;
-      margin-bottom: 20px;
-      letter-spacing: -1px;
-    }
-
-    .features-subtitle {
-      text-align: center;
-      font-size: 18px;
-      color: var(--text-muted);
-      margin-bottom: 60px;
-    }
-
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 24px;
     }
 
-    @media (max-width: 900px) {
-      .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       .features-grid {
         grid-template-columns: 1fr;
       }
     }
 
     .feature-card {
-      padding: 32px;
-      background: var(--bg-card);
+      background: var(--bg-dark);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      position: relative;
-      transition: all 0.2s;
+      border-radius: 12px;
+      padding: 28px;
     }
 
-    .feature-card:hover {
-      border-color: var(--border-light);
-      transform: translateY(-4px);
+    .feature-card .icon {
+      font-size: 28px;
+      margin-bottom: 14px;
     }
-
-    .feature-card.featured {
-      border-color: var(--accent);
-      background: linear-gradient(135deg, rgba(249, 115, 22, 0.05) 0%, transparent 50%);
-    }
-
-    .feature-card.featured::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      background: linear-gradient(135deg, var(--accent), transparent 50%);
-      border-radius: 16px;
-      z-index: -1;
-      opacity: 0.3;
-    }
-
-    .feature-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    .feature-icon.orange { background: rgba(249, 115, 22, 0.15); }
-    .feature-icon.green { background: var(--green-bg); }
-    .feature-icon.blue { background: var(--blue-bg); }
-    .feature-icon.purple { background: rgba(168, 85, 247, 0.1); }
-    .feature-icon.yellow { background: var(--yellow-bg); }
-    .feature-icon.red { background: var(--red-bg); }
 
     .feature-card h3 {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .feature-card p {
@@ -604,431 +455,177 @@
       line-height: 1.6;
     }
 
-    .feature-tag {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      padding: 4px 10px;
+    .feature-card .new-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
       background: var(--accent);
       color: white;
-      font-size: 11px;
-      font-weight: 700;
-      border-radius: 6px;
+      border-radius: 4px;
+      margin-left: 8px;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .feature-tag.new {
-      background: var(--green);
+      vertical-align: middle;
     }
 
     /* ========== HOW IT WORKS ========== */
     .how-it-works {
-      padding: 120px 0;
-      background: var(--bg-card);
-      border-top: 1px solid var(--border);
+      padding: 100px 0;
     }
 
-    .how-it-works h2 {
-      text-align: center;
-      font-size: clamp(28px, 4vw, 40px);
-      font-weight: 800;
-      margin-bottom: 60px;
-      letter-spacing: -1px;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    @media (max-width: 768px) {
-      .steps {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-    }
-
-    .step {
-      text-align: center;
-      position: relative;
-    }
-
-    .step-number {
-      width: 64px;
-      height: 64px;
-      background: linear-gradient(135deg, var(--accent), var(--red));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      font-weight: 800;
-      margin: 0 auto 24px;
-      color: white;
-      box-shadow: 0 8px 30px var(--accent-glow);
-    }
-
-    .step h3 {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .step p {
-      font-size: 15px;
-      color: var(--text-muted);
-      line-height: 1.6;
-      max-width: 280px;
-      margin: 0 auto;
-    }
-
-    /* ========== VERDICT SECTION ========== */
-    .verdicts {
-      padding: 120px 0;
-    }
-
-    .verdicts h2 {
-      text-align: center;
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 800;
-      margin-bottom: 16px;
-      letter-spacing: -1px;
-    }
-
-    .verdicts-subtitle {
-      text-align: center;
-      font-size: 18px;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-
-    .verdicts-action {
-      text-align: center;
-      font-size: 16px;
-      color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 60px;
-    }
-
-    .verdict-grid {
+    .steps-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
+      gap: 24px;
     }
 
     @media (max-width: 900px) {
-      .verdict-grid {
+      .steps-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 500px) {
-      .verdict-grid {
+      .steps-grid {
         grid-template-columns: 1fr;
       }
     }
 
-    .verdict-card {
-      padding: 28px;
-      border-radius: 16px;
-      text-align: center;
-      transition: transform 0.2s;
-    }
-
-    .verdict-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .verdict-card.scale {
-      background: var(--green-bg);
-      border: 1px solid var(--green-border);
-    }
-
-    .verdict-card.watch {
-      background: var(--yellow-bg);
-      border: 1px solid rgba(245, 158, 11, 0.25);
-    }
-
-    .verdict-card.kill {
-      background: var(--red-bg);
-      border: 1px solid rgba(239, 68, 68, 0.25);
-    }
-
-    .verdict-card.learn {
-      background: var(--blue-bg);
-      border: 1px solid rgba(59, 130, 246, 0.25);
-    }
-
-    .verdict-badge {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 15px;
-      font-weight: 700;
-      padding: 8px 16px;
-      border-radius: 8px;
-      display: inline-block;
-      margin-bottom: 16px;
-    }
-
-    .verdict-card.scale .verdict-badge {
-      background: var(--green);
-      color: white;
-    }
-
-    .verdict-card.watch .verdict-badge {
-      background: var(--yellow);
-      color: #1a1a1a;
-    }
-
-    .verdict-card.kill .verdict-badge {
-      background: var(--red);
-      color: white;
-    }
-
-    .verdict-card.learn .verdict-badge {
-      background: var(--blue);
-      color: white;
-    }
-
-    .verdict-card .desc {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    /* ========== SOCIAL PROOF ========== */
-    .social-proof {
-      padding: 120px 0;
+    .step-card {
       background: var(--bg-card);
-      border-top: 1px solid var(--border);
-    }
-
-    .social-proof h2 {
-      text-align: center;
-      font-size: clamp(28px, 4vw, 40px);
-      font-weight: 800;
-      margin-bottom: 60px;
-      letter-spacing: -1px;
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    @media (max-width: 900px) {
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .testimonial-card {
-      padding: 32px;
-      background: var(--bg-dark);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
     }
 
-    .testimonial-text {
-      font-size: 16px;
-      line-height: 1.7;
-      margin-bottom: 24px;
-      color: var(--text);
-    }
-
-    .testimonial-text::before {
-      content: '"';
-      color: var(--accent);
-      font-size: 24px;
-      font-weight: 800;
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .testimonial-avatar {
-      width: 44px;
-      height: 44px;
-      background: linear-gradient(135deg, var(--accent), var(--red));
+    .step-number {
+      width: 36px;
+      height: 36px;
+      background: var(--accent);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
-      font-size: 16px;
-    }
-
-    .testimonial-name {
-      font-weight: 600;
       font-size: 15px;
+      font-weight: 700;
+      margin: 0 auto 16px;
     }
 
-    .testimonial-role {
+    .step-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .step-card p {
       font-size: 13px;
-      color: var(--text-dim);
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ========== WHO IT'S FOR ========== */
+    .who-for {
+      padding: 100px 0;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .who-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+
+    .who-card {
+      background: var(--bg-dark);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+    }
+
+    .who-card .emoji {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    .who-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .who-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ========== COMING SOON ========== */
+    .coming-soon {
+      padding: 100px 0;
+    }
+
+    .coming-soon-card {
+      background: linear-gradient(135deg, var(--purple-bg) 0%, var(--blue-bg) 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .coming-soon-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      background: var(--purple);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 100px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+    }
+
+    .coming-soon-card h3 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .coming-soon-card p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 500px;
+      margin: 0 auto;
     }
 
     /* ========== PRICING ========== */
     .pricing {
-      padding: 120px 0;
-    }
-
-    .pricing h2 {
-      text-align: center;
-      font-size: clamp(28px, 4vw, 40px);
-      font-weight: 800;
-      margin-bottom: 16px;
-      letter-spacing: -1px;
-    }
-
-    .pricing-subtitle {
-      text-align: center;
-      font-size: 18px;
-      color: var(--text-muted);
-      margin-bottom: 60px;
-    }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    @media (max-width: 1000px) {
-      .pricing-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 600px) {
-      .pricing-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .pricing-card {
-      padding: 32px;
+      padding: 100px 0;
       background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      position: relative;
-      display: flex;
-      flex-direction: column;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
 
-    .pricing-card.featured {
-      border-color: var(--accent);
-      background: linear-gradient(180deg, rgba(249, 115, 22, 0.08) 0%, var(--bg-card) 50%);
-    }
-
-    .pricing-badge {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 6px 16px;
-      background: var(--accent);
-      color: white;
-      font-size: 12px;
-      font-weight: 700;
-      border-radius: 100px;
-      white-space: nowrap;
-    }
-
-    .pricing-name {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .pricing-price {
-      font-size: 42px;
-      font-weight: 900;
-      margin-bottom: 4px;
-      letter-spacing: -2px;
-    }
-
-    .pricing-price span {
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--text-muted);
-    }
-
-    .pricing-desc {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-    }
-
-    .pricing-features {
-      list-style: none;
-      margin-bottom: 28px;
-      flex-grow: 1;
-    }
-
-    .pricing-features li {
-      padding: 10px 0;
-      font-size: 14px;
-      color: var(--text-muted);
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-
-    .pricing-features li::before {
-      content: '✓';
-      color: var(--green);
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .pricing-features li.highlight {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .pricing-features li .new-tag {
-      background: var(--green);
-      color: white;
-      font-size: 10px;
-      font-weight: 700;
-      padding: 2px 6px;
-      border-radius: 4px;
-      margin-left: 6px;
-      text-transform: uppercase;
-    }
-
-    .pricing-card .btn {
-      width: 100%;
-    }
-
-    .pricing-yearly {
-      font-size: 12px;
-      color: var(--text-dim);
-      margin-top: 2px;
-      margin-bottom: 8px;
-    }
-
-    /* Billing Toggle */
     .billing-toggle {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 16px;
-      margin-bottom: 50px;
+      gap: 14px;
+      margin-bottom: 40px;
     }
 
     .billing-label {
@@ -1044,8 +641,8 @@
 
     .toggle-btn {
       position: relative;
-      width: 56px;
-      height: 28px;
+      width: 48px;
+      height: 26px;
       background: var(--accent);
       border-radius: 100px;
       border: none;
@@ -1055,7 +652,7 @@
 
     .toggle-knob {
       position: absolute;
-      top: 4px;
+      top: 3px;
       width: 20px;
       height: 20px;
       background: white;
@@ -1063,79 +660,143 @@
       transition: left 0.2s ease;
     }
 
-    .toggle-knob.monthly {
-      left: 4px;
-    }
-
-    .toggle-knob.yearly {
-      left: 32px;
-    }
+    .toggle-knob.monthly { left: 3px; }
+    .toggle-knob.yearly { left: 25px; }
 
     .save-badge {
-      display: inline-block;
-      margin-left: 8px;
-      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
       background: var(--green);
+      color: white;
+      border-radius: 4px;
+      margin-left: 6px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 550px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pricing-card {
+      background: var(--bg-dark);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .pricing-card.featured {
+      border-color: var(--accent);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 4px 12px;
+      background: var(--accent);
       color: white;
       font-size: 11px;
       font-weight: 700;
       border-radius: 100px;
+      white-space: nowrap;
     }
 
-    .pricing-trust {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      margin-top: 50px;
-      flex-wrap: wrap;
+    .pricing-name {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
     }
 
-    .pricing-trust span {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .pricing-price {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .pricing-price span {
       font-size: 14px;
+      font-weight: 500;
       color: var(--text-muted);
     }
 
-    .pricing-trust svg {
+    .pricing-yearly {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .pricing-features li {
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 6px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .pricing-features li::before {
+      content: '✓';
       color: var(--green);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .pricing-features li.highlight {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .pricing-card .btn {
+      width: 100%;
     }
 
     /* ========== FINAL CTA ========== */
     .final-cta {
-      padding: 120px 0;
+      padding: 100px 0;
       text-align: center;
-      background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-card) 100%);
-      border-top: 1px solid var(--border);
     }
 
     .final-cta h2 {
-      font-size: clamp(32px, 5vw, 52px);
-      font-weight: 900;
-      margin-bottom: 20px;
-      letter-spacing: -2px;
-    }
-
-    .final-cta h2 .red {
-      color: var(--red);
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
     }
 
     .final-cta p {
-      font-size: 18px;
+      font-size: 16px;
       color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto 36px;
-      line-height: 1.7;
-    }
-
-    .final-cta p strong {
-      color: var(--text);
+      max-width: 500px;
+      margin: 0 auto 28px;
     }
 
     /* ========== FOOTER ========== */
     footer {
-      padding: 40px 0;
+      padding: 32px 0;
       border-top: 1px solid var(--border);
     }
 
@@ -1144,24 +805,23 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 16px;
     }
 
     .footer-text {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-dim);
     }
 
     .footer-links {
       display: flex;
-      gap: 24px;
+      gap: 20px;
     }
 
     .footer-links a {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-muted);
       text-decoration: none;
-      transition: color 0.2s;
     }
 
     .footer-links a:hover {
@@ -1174,17 +834,17 @@
         display: none;
       }
 
-      .hero h1 {
-        letter-spacing: -2px;
+      .control-row {
+        grid-template-columns: 1fr auto;
+        gap: 8px;
       }
 
-      .hero-note {
-        flex-direction: column;
-        gap: 10px;
+      .control-row.header .metric:not(:last-child) {
+        display: none;
       }
 
-      .pain-list {
-        grid-template-columns: 1fr;
+      .control-row:not(.header) .metric:not(:last-child) {
+        display: none;
       }
     }
   </style>
@@ -1194,10 +854,10 @@
   <nav>
     <div class="container">
       <a href="/" class="logo">
-        <svg width="36" height="36" viewBox="0 0 50 50">
-          <rect x="2" y="5" width="46" height="40" rx="8" fill="#141414" stroke="#2a2a30" stroke-width="1"/>
+        <svg width="32" height="32" viewBox="0 0 50 50">
+          <rect x="2" y="5" width="46" height="40" rx="8" fill="#141414" stroke="#27272a" stroke-width="1"/>
           <path d="M14 16 L14 34 L8 28 M14 34 L20 28" stroke="#ef4444" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M36 34 L36 16 L30 22 M36 16 L42 22" stroke="#10b981" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M36 34 L36 16 L30 22 M36 16 L42 22" stroke="#22c55e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <span class="logo-text">KillScale</span>
       </a>
@@ -1210,276 +870,211 @@
     </div>
   </nav>
 
-  <!-- 1. HERO SECTION -->
+  <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <div class="hero-badge">
-        <span class="pulse"></span>
-        Now with pause, resume & budget controls
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        Pro-level control. Zero complexity.
       </div>
-      <h1>
-        Meta Ads Are <span class="chaos">Chaos</span>.<br>
-        KillScale Brings <span class="clarity">Clarity</span>.
-      </h1>
+      <h1>Your Ads. Your Data.<br>Your Control.</h1>
       <p class="hero-subtitle">
-        Stop guessing. Know exactly which ads are making money—then <strong>pause losers and adjust budgets</strong> without ever opening Ads Manager.
+        Meta Ads Manager is a maze. KillScale is a map. Scale what's working, kill what's not, and launch new ads—all from one screen. No certifications required.
       </p>
       <div class="hero-cta">
-        <a href="https://app.killscale.com/signup" class="btn btn-primary btn-large">See My Verdicts →</a>
-        <a href="#how-it-works" class="btn btn-secondary btn-large">See How It Works</a>
+        <a href="https://app.killscale.com/signup" class="btn btn-primary btn-large">Start Free</a>
+        <a href="#features" class="btn btn-secondary btn-large">See What You Get</a>
       </div>
-      <div class="hero-note">
-        <span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          No credit card required
-        </span>
-        <span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          2 campaigns free
-        </span>
-        <span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Setup in 2 minutes
-        </span>
-      </div>
+      <p class="hero-note">No credit card required. Free tier available.</p>
 
-      <!-- Dashboard Preview -->
-      <div class="dashboard-preview">
-        <div class="browser-chrome">
-          <img src="dashboard-screenshot.jpg" alt="KillScale Dashboard showing campaign verdicts and controls">
+      <!-- Control Panel Demo -->
+      <div class="control-demo">
+        <div class="control-demo-card">
+          <div class="control-demo-header">
+            <span class="control-demo-title">Your Ad Performance</span>
+            <div class="control-demo-actions">
+              <span class="control-action-btn">Adjust Budget</span>
+              <span class="control-action-btn primary">+ New Ad</span>
+            </div>
+          </div>
+          <div class="control-demo-body">
+            <div class="control-row header">
+              <span>Campaign</span>
+              <span class="metric">Spend</span>
+              <span class="metric">ROAS</span>
+              <span>Verdict</span>
+            </div>
+            <div class="control-row">
+              <span class="ad-name">Summer Promo<span>3 ad sets · 12 ads</span></span>
+              <span class="metric">$2,841</span>
+              <span class="metric">4.2x</span>
+              <span class="verdict-badge scale">Scale</span>
+            </div>
+            <div class="control-row">
+              <span class="ad-name">Local Services<span>2 ad sets · 6 ads</span></span>
+              <span class="metric">$856</span>
+              <span class="metric">2.1x</span>
+              <span class="verdict-badge watch">Watch</span>
+            </div>
+            <div class="control-row">
+              <span class="ad-name">Brand Awareness<span>1 ad set · 4 ads</span></span>
+              <span class="metric">$1,203</span>
+              <span class="metric">0.8x</span>
+              <span class="verdict-badge kill">Kill</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 2. PAIN SECTION -->
-  <section class="pain-section">
+  <!-- THE PROBLEM -->
+  <section class="truth">
     <div class="container">
-      <h2>Meta Ads Manager <span class="dim">makes everything harder than it needs to be.</span></h2>
-      <div class="pain-list">
-        <div class="pain-item">
-          <span class="emoji">😵</span>
-          <p>Endless columns of data with no clear answers about what's actually working</p>
-        </div>
-        <div class="pain-item">
-          <span class="emoji">🧮</span>
-          <p>Mental math for every single decision—calculating ROAS in your head</p>
-        </div>
-        <div class="pain-item">
-          <span class="emoji">🔍</span>
-          <p>ROAS buried behind 12 clicks and 3 dropdown menus</p>
-        </div>
-        <div class="pain-item">
-          <span class="emoji">📉</span>
-          <p>Ad sets silently draining budget without you realizing</p>
-        </div>
-        <div class="pain-item">
-          <span class="emoji">🔄</span>
-          <p>Bouncing between tabs just to pause or tweak a single ad</p>
-        </div>
-        <div class="pain-item">
-          <span class="emoji">⏱️</span>
-          <p>Constantly clicking around Ads Manager just to nudge budgets</p>
-        </div>
+      <div class="section-header">
+        <h2>Ads Manager Wasn't Built for You</h2>
+        <p>It was built for media buyers who live in spreadsheets. You have a business to run.</p>
       </div>
-      <div class="pain-closer">
-        You're spending more time navigating Ads Manager than actually scaling.
+      <div class="truth-grid">
+        <div class="truth-card">
+          <div class="label">The old way</div>
+          <div class="agency">Click through 5 screens to find one underperforming ad</div>
+          <div class="reality">With KillScale: Every ad has a verdict. Losers are flagged instantly.</div>
+        </div>
+        <div class="truth-card">
+          <div class="label">The old way</div>
+          <div class="agency">Export to spreadsheets to figure out what's actually working</div>
+          <div class="reality">With KillScale: ROAS and verdicts visible at a glance. No exports needed.</div>
+        </div>
+        <div class="truth-card">
+          <div class="label">The old way</div>
+          <div class="agency">47 steps to launch a single ad that follows best practices</div>
+          <div class="reality">With KillScale: Launch optimized ads in 60 seconds. We handle the settings.</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 3. INTRO SECTION -->
-  <section class="intro-section">
+  <!-- WHAT YOU GET -->
+  <section class="what-you-get" id="features">
     <div class="container">
-      <h2>Meet <span class="brand">KillScale</span></h2>
-      <p class="intro-tagline">The clarity engine for your Meta ads, now with full control built in.</p>
-      <p class="intro-body">
-        See exactly what's profitable, what's burning money, and what's still in learning… then <strong>pause, restart, or adjust budgets instantly</strong> without touching Ads Manager.
-      </p>
-      <p class="intro-body">
-        No more tab-hopping. No more mental math. Just clarity and control.
-      </p>
-      <div class="intro-highlight">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-        …without ever opening Ads Manager
+      <div class="section-header">
+        <h2>Everything You Need. Nothing You Don't.</h2>
+        <p>The controls that matter, without the complexity that doesn't.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="icon">⚡</div>
+          <h3>Launch Ads in 60 Seconds <span class="new-badge">New</span></h3>
+          <p>Create compliant, optimized ads without the 47-step Ads Manager flow. Pick your settings, set your budget, go live. Built for Meta's Andromeda algorithm.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🎯</div>
+          <h3>Instant Verdicts</h3>
+          <p>Every campaign, ad set, and ad gets a clear verdict: Scale, Watch, Kill, or Learning. No more staring at spreadsheets wondering what to do.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">⏸️</div>
+          <h3>Pause & Resume in One Click</h3>
+          <p>See a loser? Kill it instantly. Found a winner? Scale it up. No digging through Ads Manager to find the right button.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">💰</div>
+          <h3>Budget Control</h3>
+          <p>Adjust budgets on the fly. Move money from underperformers to winners. See exactly where every dollar is going.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">📊</div>
+          <h3>Drill Down to Every Ad</h3>
+          <p>Click any campaign to see its ad sets. Click any ad set to see its ads. Find exactly where your money is making—or losing—money.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🔔</div>
+          <h3>Alerts When Things Change</h3>
+          <p>Get notified when an ad flips from profitable to losing, or when a new winner emerges. Stay on top without living in the dashboard.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 4. WHO IS THIS FOR -->
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <h2>The Full Loop</h2>
+        <p>Create, monitor, optimize, repeat. All from one place.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Create</h3>
+          <p>Launch new ads in 60 seconds. Compliant and optimized out of the box.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Monitor</h3>
+          <p>See instant verdicts on every ad. Know what's working and what's not.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Optimize</h3>
+          <p>Pause losers, scale winners, adjust budgets. One click each.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3>Grow</h3>
+          <p>Double down on what works. Your ad account gets better over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
   <section class="who-for">
     <div class="container">
-      <h2>Built For People Who Run Meta Ads Daily</h2>
-      <div class="who-for-grid">
-        <div class="who-for-item">
-          <span class="emoji">🛒</span>
-          <p class="title">eCom Founders</p>
-          <p class="benefit">Stop letting bad ads quietly eat your margins.</p>
+      <div class="section-header">
+        <h2>Built for Business Owners</h2>
+        <p>Not media buyers. Not agencies. People who run real businesses and want real results.</p>
+      </div>
+      <div class="who-grid">
+        <div class="who-card">
+          <div class="emoji">🔧</div>
+          <h3>Service Businesses</h3>
+          <p>Plumbers, electricians, cleaners, contractors. You're great at your trade—you shouldn't need to master Meta Ads too.</p>
         </div>
-        <div class="who-for-item">
-          <span class="emoji">📱</span>
-          <p class="title">Solo Advertisers</p>
-          <p class="benefit">Run your account without living inside Ads Manager.</p>
+        <div class="who-card">
+          <div class="emoji">📍</div>
+          <h3>Local Businesses</h3>
+          <p>Restaurants, salons, gyms, retail. You need customers through the door, not a certification in digital marketing.</p>
         </div>
-        <div class="who-for-item">
-          <span class="emoji">📊</span>
-          <p class="title">Media Buyers</p>
-          <p class="benefit">Do your daily checks from one screen instead of twenty.</p>
-        </div>
-        <div class="who-for-item">
-          <span class="emoji">🏢</span>
-          <p class="title">Agencies</p>
-          <p class="benefit">Standardize how juniors decide what to scale, pause, and fund.</p>
+        <div class="who-card">
+          <div class="emoji">💼</div>
+          <h3>Busy Founders</h3>
+          <p>You're running everything. You have 10 minutes for ads, not 10 hours. This is the tool for that.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. FEATURES -->
-  <section class="features" id="features">
+  <!-- COMING SOON -->
+  <section class="coming-soon">
     <div class="container">
-      <h2>Everything You Need to Run Your Ads</h2>
-      <p class="features-subtitle">See what's working, take action, and scale—all from one dashboard.</p>
-      <div class="features-grid">
-        <div class="feature-card featured">
-          <span class="feature-tag new">New</span>
-          <div class="feature-icon orange">🎮</div>
-          <h3>Control Your Ads in One Click</h3>
-          <p>Pause, restart, or adjust budgets for any campaign, ad set, or ad directly from KillScale. No more diving into Ads Manager just to make tiny changes.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon green">⚡</div>
-          <h3>Instant Verdicts</h3>
-          <p>Scale / Watch / Kill / Learning — every row gets a verdict so you know what to do in seconds, not hours.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon purple">📂</div>
-          <h3>Drill Down Instantly</h3>
-          <p>Expand any campaign to see ad sets, then ads. Find which ones are printing money—and which are silently draining budget.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-tag">Pro</span>
-          <div class="feature-icon blue">🔄</div>
-          <h3>Live Meta Sync</h3>
-          <p>Real data from your Meta account, synced in real time. Auto-refresh every 5 minutes so you're always current.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-tag">Pro</span>
-          <div class="feature-icon purple">📊</div>
-          <h3>Trends Explorer</h3>
-          <p>Time series, scatter plots, spend vs ROAS… without spreadsheets. See how your ads perform over time.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon yellow">📤</div>
-          <h3>CSV Upload</h3>
-          <p>Don't want to connect your account? Export from Meta Ads Manager and upload. Works in seconds.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon red">🎯</div>
-          <h3>Custom Thresholds</h3>
-          <p>Set your own Scale ROAS, Watch ROAS, and learning budget. Your margins, your rules.</p>
-        </div>
+      <div class="coming-soon-card">
+        <div class="coming-soon-badge">Coming Soon</div>
+        <h3>Real-World Attribution</h3>
+        <p>Track what actually matters: phone calls, walk-ins, real contacts. Enrich your ad data with what happened in the real world—not just what Meta can see. Built for local businesses who need to know which ads are really working.</p>
       </div>
     </div>
   </section>
 
-  <!-- 6. HOW IT WORKS -->
-  <section class="how-it-works" id="how-it-works">
-    <div class="container">
-      <h2>How It Works</h2>
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>Connect</h3>
-          <p>Link your Meta Ads account with one click—or upload a CSV export. Either way, you're set up in 2 minutes.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Set Rules</h3>
-          <p>Tell KillScale what ROAS counts as a winner vs a loser for your margins. We'll score everything automatically.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>Act</h3>
-          <p>See what to scale, what to watch, and what to kill—then pause losers, restart winners, and adjust budgets in one click.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. VERDICT SYSTEM -->
-  <section class="verdicts" id="verdicts">
-    <div class="container">
-      <h2>Four Verdicts. Zero Confusion.</h2>
-      <p class="verdicts-subtitle">Every ad in your account gets one of four color-coded verdicts.</p>
-      <p class="verdicts-action">See the verdict—then pause, restart, or adjust budgets in one click.</p>
-      <div class="verdict-grid">
-        <div class="verdict-card scale">
-          <div class="verdict-badge">↑ SCALE</div>
-          <p class="desc">Printing money. Increase budget and let it run.</p>
-        </div>
-        <div class="verdict-card watch">
-          <div class="verdict-badge">○ WATCH</div>
-          <p class="desc">Profitable but not insane. Monitor for changes.</p>
-        </div>
-        <div class="verdict-card kill">
-          <div class="verdict-badge">↓ KILL</div>
-          <p class="desc">Losing money. Pause it now before it drains more.</p>
-        </div>
-        <div class="verdict-card learn">
-          <div class="verdict-badge">◐ LEARN</div>
-          <p class="desc">Not enough data yet. Let it cook a bit longer.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8. SOCIAL PROOF -->
-  <section class="social-proof">
-    <div class="container">
-      <h2>What Advertisers Are Saying</h2>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <p class="testimonial-text">KillScale saved me from wasting $400 last week on ad sets I thought were working. I basically never open Ads Manager anymore.</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">M</div>
-            <div>
-              <div class="testimonial-name">Mike R.</div>
-              <div class="testimonial-role">eCom Founder</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <p class="testimonial-text">It's like having a senior media buyer telling you what to do AND giving you the buttons to do it. Game changer.</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">S</div>
-            <div>
-              <div class="testimonial-name">Sarah K.</div>
-              <div class="testimonial-role">Media Buyer</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <p class="testimonial-text">Do my daily checks from one screen now. What used to take 20 minutes bouncing between tabs takes 30 seconds.</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">J</div>
-            <div>
-              <div class="testimonial-name">James T.</div>
-              <div class="testimonial-role">Agency Owner</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 9. PRICING -->
+  <!-- PRICING -->
   <section class="pricing" id="pricing">
     <div class="container">
-      <h2>Simple Pricing</h2>
-      <p class="pricing-subtitle">Free to analyze. Pro to control. Cancel anytime.</p>
+      <div class="section-header">
+        <h2>Simple Pricing</h2>
+        <p>A fraction of what you'd pay an agency. Cancel anytime.</p>
+      </div>
 
-      <!-- Billing Toggle -->
       <div class="billing-toggle">
         <span id="monthly-label" class="billing-label">Monthly</span>
         <button id="billing-toggle-btn" class="toggle-btn" onclick="toggleBilling()">
@@ -1494,94 +1089,72 @@
       <div class="pricing-grid">
         <div class="pricing-card">
           <div class="pricing-name">Free</div>
-          <div class="pricing-price"><span id="free-price">$0</span><span>/mo</span></div>
-          <div class="pricing-desc">Get verdicts on a small slice</div>
+          <div class="pricing-price">$0<span>/mo</span></div>
+          <div class="pricing-yearly">&nbsp;</div>
           <ul class="pricing-features">
-            <li>Meta API sync</li>
-            <li>2 campaigns (auto-selected)</li>
-            <li>1 ad account</li>
-            <li>Full hierarchy drill-down</li>
-            <li>All verdict badges</li>
+            <li>Connect Meta account</li>
+            <li>2 campaigns monitored</li>
+            <li>Verdict badges</li>
+            <li>Drill-down to ads</li>
           </ul>
           <a href="https://app.killscale.com/signup" class="btn btn-secondary">Start Free</a>
         </div>
         <div class="pricing-card">
           <div class="pricing-name">Starter</div>
-          <div class="pricing-price"><span id="starter-price">$7.50</span><span>/mo</span></div>
+          <div class="pricing-price" id="starter-price">$7.50<span>/mo</span></div>
           <div id="starter-yearly" class="pricing-yearly">billed $90/year</div>
-          <div class="pricing-desc">For growing advertisers</div>
           <ul class="pricing-features">
-            <li>Meta API sync</li>
             <li>10 campaigns</li>
             <li>1 ad account</li>
-            <li>Custom rules & thresholds</li>
-            <li>Full hierarchy drill-down</li>
+            <li>Custom thresholds</li>
+            <li>Create new ads</li>
           </ul>
-          <a href="https://app.killscale.com/signup" class="btn btn-secondary">Sign Up</a>
+          <a href="https://app.killscale.com/signup" class="btn btn-secondary">Get Started</a>
         </div>
         <div class="pricing-card featured">
           <div class="pricing-badge">Most Popular</div>
           <div class="pricing-name">Pro</div>
-          <div class="pricing-price"><span id="pro-price">$24</span><span>/mo</span></div>
+          <div class="pricing-price" id="pro-price">$24<span>/mo</span></div>
           <div id="pro-yearly" class="pricing-yearly">billed $290/year</div>
-          <div class="pricing-desc">Run your account from here</div>
           <ul class="pricing-features">
             <li class="highlight">Unlimited campaigns</li>
-            <li class="highlight">2 ad accounts</li>
-            <li class="highlight">Pause, resume & adjust budgets</li>
-            <li class="highlight">Trends Explorer</li>
-            <li>Auto-refresh every 5 min</li>
+            <li class="highlight">Pause, resume, adjust budgets</li>
+            <li>2 ad accounts</li>
             <li>Alerts</li>
+            <li>Priority support</li>
           </ul>
-          <a href="https://app.killscale.com/signup" class="btn btn-primary">Sign Up</a>
+          <a href="https://app.killscale.com/signup" class="btn btn-primary">Get Started</a>
         </div>
         <div class="pricing-card">
           <div class="pricing-name">Agency</div>
-          <div class="pricing-price"><span id="agency-price">$82</span><span>/mo</span></div>
+          <div class="pricing-price" id="agency-price">$82<span>/mo</span></div>
           <div id="agency-yearly" class="pricing-yearly">billed $990/year</div>
-          <div class="pricing-desc">For teams & clients</div>
           <ul class="pricing-features">
             <li>Everything in Pro</li>
-            <li>Unlimited ad accounts</li>
+            <li class="highlight">Unlimited ad accounts</li>
             <li>Team access (coming)</li>
-            <li>White-label reports (coming)</li>
-            <li>Dedicated support</li>
+            <li>White-label (coming)</li>
+            <li>Priority support</li>
           </ul>
-          <a href="https://app.killscale.com/signup" class="btn btn-secondary">Sign Up</a>
+          <a href="https://app.killscale.com/signup" class="btn btn-secondary">Get Started</a>
         </div>
-      </div>
-      <div class="pricing-trust">
-        <span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Cancel anytime
-        </span>
-        <span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Free plan is actually useful
-        </span>
-        <span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          No long-term contracts
-        </span>
       </div>
     </div>
   </section>
 
-  <!-- 10. FINAL CTA -->
+  <!-- FINAL CTA -->
   <section class="final-cta">
     <div class="container">
-      <h2>Stop <span class="red">Burning Money</span> on Bad Ads</h2>
-      <p>
-        You already know there are losers hiding in your account. KillScale helps you <strong>find them, pause them, and shift budget to winners</strong>—without opening Ads Manager.
-      </p>
-      <a href="https://app.killscale.com/signup" class="btn btn-primary btn-large">See My Verdicts →</a>
+      <h2>Take Back Control</h2>
+      <p>Your ads. Your data. Your decisions. No more guessing. No more digging. Just results.</p>
+      <a href="https://app.killscale.com/signup" class="btn btn-primary btn-large">Start Free</a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
     <div class="container">
-      <div class="footer-text">© 2025 KillScale. Your Meta Ads command center.</div>
+      <div class="footer-text">© 2025 KillScale</div>
       <div class="footer-links">
         <a href="mailto:support@killscale.com">Support</a>
         <a href="/privacy">Privacy</a>
@@ -1589,9 +1162,10 @@
       </div>
     </div>
   </footer>
+
   <!-- Billing Toggle Script -->
   <script>
-    let isYearly = true; // Default to yearly
+    let isYearly = true;
 
     function toggleBilling() {
       isYearly = !isYearly;
@@ -1603,7 +1177,6 @@
       const monthlyLabel = document.getElementById('monthly-label');
       const yearlyLabel = document.getElementById('yearly-label');
 
-      // Update toggle position
       if (isYearly) {
         knob.classList.remove('monthly');
         knob.classList.add('yearly');
@@ -1616,12 +1189,10 @@
         yearlyLabel.classList.remove('active');
       }
 
-      // Update prices
-      document.getElementById('starter-price').textContent = isYearly ? '$7.50' : '$9';
-      document.getElementById('pro-price').textContent = isYearly ? '$24' : '$29';
-      document.getElementById('agency-price').textContent = isYearly ? '$82' : '$99';
+      document.getElementById('starter-price').innerHTML = isYearly ? '$7.50<span>/mo</span>' : '$9<span>/mo</span>';
+      document.getElementById('pro-price').innerHTML = isYearly ? '$24<span>/mo</span>' : '$29<span>/mo</span>';
+      document.getElementById('agency-price').innerHTML = isYearly ? '$82<span>/mo</span>' : '$99<span>/mo</span>';
 
-      // Show/hide yearly billing text
       document.getElementById('starter-yearly').style.display = isYearly ? 'block' : 'none';
       document.getElementById('pro-yearly').style.display = isYearly ? 'block' : 'none';
       document.getElementById('agency-yearly').style.display = isYearly ? 'block' : 'none';
