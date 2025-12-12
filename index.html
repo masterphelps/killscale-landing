@@ -220,6 +220,21 @@
       color: var(--text-dim);
     }
 
+    /* ========== VIDEO DEMO ========== */
+    .video-demo {
+      margin-top: 48px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .video-demo video {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+    }
+
     /* ========== CONTROL PANEL DEMO ========== */
     .control-demo {
       margin-top: 60px;
@@ -886,6 +901,14 @@
         <a href="#features" class="btn btn-secondary btn-large">See What You Get</a>
       </div>
       <p class="hero-note">No credit card required. Free tier available.</p>
+
+      <!-- Video Demo -->
+      <div class="video-demo">
+        <video controls playsinline poster="" preload="metadata">
+          <source src="demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
       <!-- Control Panel Demo -->
       <div class="control-demo">
