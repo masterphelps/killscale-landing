@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KillScale - Your Ads. Your Data. Your Control.</title>
+  <title>KillScale - Stop Wasting Ad Spend. Start Scaling What Works.</title>
 
   <!-- Meta Pixel Code -->
   <script>
@@ -22,7 +22,7 @@
   src="https://www.facebook.com/tr?id=1552580212607017&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->
-  <meta name="description" content="Meta Ads Manager is complicated. KillScale isn't. See what's working, kill what's not, and launch new ads—all from one screen. No spreadsheets. No guesswork.">
+  <meta name="description" content="KillScale shows you exactly which Meta Ads are making money and which are wasting it. Create, manage, and scale winning ads from one screen. Stop guessing. Start knowing.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
@@ -296,131 +296,8 @@
       }
     }
 
-    /* ========== CONTROL PANEL DEMO ========== */
-    .control-demo {
-      margin-top: 60px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .control-demo-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-    }
-
-    .control-demo-header {
-      padding: 16px 20px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .control-demo-title {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text-muted);
-    }
-
-    .control-demo-actions {
-      display: flex;
-      gap: 8px;
-    }
-
-    .control-action-btn {
-      padding: 6px 12px;
-      font-size: 11px;
-      font-weight: 600;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      background: var(--bg-dark);
-      color: var(--text-muted);
-    }
-
-    .control-action-btn.primary {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: white;
-    }
-
-    .control-demo-body {
-      padding: 0;
-    }
-
-    .control-row {
-      display: grid;
-      grid-template-columns: 1fr auto auto auto;
-      gap: 16px;
-      padding: 16px 20px;
-      align-items: center;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .control-row:last-child {
-      border-bottom: none;
-    }
-
-    .control-row.header {
-      background: var(--bg-dark);
-      font-size: 11px;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 12px 20px;
-    }
-
-    .ad-name {
-      font-weight: 500;
-      font-size: 14px;
-    }
-
-    .ad-name span {
-      display: block;
-      font-size: 12px;
-      color: var(--text-dim);
-      font-weight: 400;
-    }
-
-    .metric {
-      font-size: 14px;
-      color: var(--text-muted);
-      text-align: right;
-    }
-
-    .verdict-badge {
-      font-size: 11px;
-      font-weight: 700;
-      padding: 5px 10px;
-      border-radius: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
-    }
-
-    .verdict-badge.scale {
-      background: var(--green);
-      color: white;
-    }
-
-    .verdict-badge.watch {
-      background: var(--yellow);
-      color: #1a1a1a;
-    }
-
-    .verdict-badge.kill {
-      background: var(--red);
-      color: white;
-    }
-
-    .verdict-badge.learn {
-      background: var(--blue);
-      color: white;
-    }
-
-    /* ========== THE TRUTH SECTION ========== */
-    .truth {
+    /* ========== RESULTS SECTION ========== */
+    .results {
       padding: 100px 0;
       border-top: 1px solid var(--border);
     }
@@ -444,47 +321,42 @@
       margin: 0 auto;
     }
 
-    .truth-grid {
+    .results-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
 
     @media (max-width: 768px) {
-      .truth-grid {
+      .results-grid {
         grid-template-columns: 1fr;
         gap: 16px;
       }
     }
 
-    .truth-card {
+    .result-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 28px;
+      padding: 32px;
+      text-align: center;
     }
 
-    .truth-card .label {
-      font-size: 11px;
+    .result-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .result-card h3 {
+      font-size: 20px;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--text-dim);
       margin-bottom: 12px;
     }
 
-    .truth-card .agency {
+    .result-card p {
       font-size: 15px;
       color: var(--text-muted);
-      margin-bottom: 16px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .truth-card .reality {
-      font-size: 15px;
-      color: var(--text);
-      font-weight: 500;
+      line-height: 1.6;
     }
 
     /* ========== WHAT YOU GET ========== */
@@ -643,49 +515,6 @@
       font-size: 14px;
       color: var(--text-muted);
       line-height: 1.6;
-    }
-
-    /* ========== COMING SOON ========== */
-    .coming-soon {
-      padding: 100px 0;
-    }
-
-    .coming-soon-card {
-      background: linear-gradient(135deg, var(--purple-bg) 0%, var(--blue-bg) 100%);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 48px;
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .coming-soon-badge {
-      display: inline-block;
-      padding: 6px 12px;
-      background: var(--purple);
-      color: white;
-      font-size: 11px;
-      font-weight: 700;
-      border-radius: 100px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 20px;
-    }
-
-    .coming-soon-card h3 {
-      font-size: 24px;
-      font-weight: 800;
-      margin-bottom: 12px;
-      letter-spacing: -0.5px;
-    }
-
-    .coming-soon-card p {
-      font-size: 15px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      max-width: 500px;
-      margin: 0 auto;
     }
 
     /* ========== PRICING ========== */
@@ -909,19 +738,6 @@
       .nav-links {
         display: none;
       }
-
-      .control-row {
-        grid-template-columns: 1fr auto;
-        gap: 8px;
-      }
-
-      .control-row.header .metric:not(:last-child) {
-        display: none;
-      }
-
-      .control-row:not(.header) .metric:not(:last-child) {
-        display: none;
-      }
     }
   </style>
 </head>
@@ -953,13 +769,12 @@
         <span class="dot"></span>
         Pro-level control. Zero complexity.
       </div>
-      <h1>Your Ads. Your Data.<br>Your Control.</h1>
+      <h1>Stop Wasting Ad Spend.<br>Start Scaling What Works.</h1>
       <p class="hero-subtitle">
-        Meta Ads Manager is a maze. KillScale is a map. Scale what's working, kill what's not, and launch new ads—all from one screen. No certifications required.
+        KillScale shows you exactly which ads are making money and which are bleeding it—then lets you act in one click. Create, manage, and scale Meta Ads without the complexity.
       </p>
       <div class="hero-cta">
-        <a href="https://app.killscale.com/signup" class="btn btn-primary btn-large">Start Free</a>
-        <a href="#features" class="btn btn-secondary btn-large">See What You Get</a>
+        <a href="https://app.killscale.com/signup" class="btn btn-primary btn-large">Start Free — See Your First Verdict in 2 Minutes</a>
       </div>
       <p class="hero-note">No credit card required. Free tier available.</p>
 
@@ -988,69 +803,31 @@
         </div>
       </div>
 
-      <!-- Control Panel Demo -->
-      <div class="control-demo">
-        <div class="control-demo-card">
-          <div class="control-demo-header">
-            <span class="control-demo-title">Your Ad Performance</span>
-            <div class="control-demo-actions">
-              <span class="control-action-btn">Adjust Budget</span>
-              <span class="control-action-btn primary">+ New Ad</span>
-            </div>
-          </div>
-          <div class="control-demo-body">
-            <div class="control-row header">
-              <span>Campaign</span>
-              <span class="metric">Spend</span>
-              <span class="metric">ROAS</span>
-              <span>Verdict</span>
-            </div>
-            <div class="control-row">
-              <span class="ad-name">Summer Promo<span>3 ad sets · 12 ads</span></span>
-              <span class="metric">$2,841</span>
-              <span class="metric">4.2x</span>
-              <span class="verdict-badge scale">Scale</span>
-            </div>
-            <div class="control-row">
-              <span class="ad-name">Local Services<span>2 ad sets · 6 ads</span></span>
-              <span class="metric">$856</span>
-              <span class="metric">2.1x</span>
-              <span class="verdict-badge watch">Watch</span>
-            </div>
-            <div class="control-row">
-              <span class="ad-name">Brand Awareness<span>1 ad set · 4 ads</span></span>
-              <span class="metric">$1,203</span>
-              <span class="metric">0.8x</span>
-              <span class="verdict-badge kill">Kill</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
-  <!-- THE PROBLEM -->
-  <section class="truth">
+  <!-- THE RESULTS -->
+  <section class="results">
     <div class="container">
       <div class="section-header">
-        <h2>Ads Manager Wasn't Built for You</h2>
-        <p>It was built for media buyers who live in spreadsheets. You have a business to run.</p>
+        <h2>What You'll Achieve</h2>
+        <p>Real outcomes for real business owners. Not dashboards—results.</p>
       </div>
-      <div class="truth-grid">
-        <div class="truth-card">
-          <div class="label">The old way</div>
-          <div class="agency">Click through 5 screens to find one underperforming ad</div>
-          <div class="reality">With KillScale: Every ad has a verdict. Losers are flagged instantly.</div>
+      <div class="results-grid">
+        <div class="result-card">
+          <div class="result-icon">💸</div>
+          <h3>Stop Wasting Money</h3>
+          <p>Find and kill losing ads instantly. See exactly where your budget is bleeding—and stop it in one click.</p>
         </div>
-        <div class="truth-card">
-          <div class="label">The old way</div>
-          <div class="agency">Export to spreadsheets to figure out what's actually working</div>
-          <div class="reality">With KillScale: ROAS and verdicts visible at a glance. No exports needed.</div>
+        <div class="result-card">
+          <div class="result-icon">📈</div>
+          <h3>Scale Winners Faster</h3>
+          <p>Identify your best-performing ads and double down immediately. More revenue from the same ad spend.</p>
         </div>
-        <div class="truth-card">
-          <div class="label">The old way</div>
-          <div class="agency">47 steps to launch a single ad that follows best practices</div>
-          <div class="reality">With KillScale: Launch optimized ads in 60 seconds. We handle the settings.</div>
+        <div class="result-card">
+          <div class="result-icon">⏱️</div>
+          <h3>Save Hours Every Week</h3>
+          <p>60-second ad creation. One-click actions. No more digging through Ads Manager. Get your time back.</p>
         </div>
       </div>
     </div>
@@ -1060,39 +837,39 @@
   <section class="what-you-get" id="features">
     <div class="container">
       <div class="section-header">
-        <h2>Everything You Need. Nothing You Don't.</h2>
-        <p>The controls that matter, without the complexity that doesn't.</p>
+        <h2>Everything You Need to Win</h2>
+        <p>Create, manage, and scale Meta Ads from one screen.</p>
       </div>
       <div class="features-grid">
         <div class="feature-card">
           <div class="icon">⚡</div>
-          <h3>Launch Ads in 60 Seconds <span class="new-badge">New</span></h3>
-          <p>Create compliant, optimized ads without the 47-step Ads Manager flow. Pick your settings, set your budget, go live. Built for Meta's Andromeda algorithm.</p>
+          <h3>Launch Winning Ads in 60 Seconds</h3>
+          <p>Skip the 47-step Ads Manager flow. Create algorithm-optimized ads that work with Meta's Andromeda—not against it. Set your budget, go live.</p>
         </div>
         <div class="feature-card">
           <div class="icon">🎯</div>
-          <h3>Instant Verdicts</h3>
-          <p>Every campaign, ad set, and ad gets a clear verdict: Scale, Watch, Kill, or Learning. No more staring at spreadsheets wondering what to do.</p>
+          <h3>Know Exactly What to Do Next</h3>
+          <p>Every campaign, ad set, and ad gets a clear verdict: Scale, Watch, Kill, or Learning. No more guessing. No more spreadsheets.</p>
         </div>
         <div class="feature-card">
           <div class="icon">⏸️</div>
-          <h3>Pause & Resume in One Click</h3>
-          <p>See a loser? Kill it instantly. Found a winner? Scale it up. No digging through Ads Manager to find the right button.</p>
+          <h3>Stop Losses Instantly</h3>
+          <p>See a loser? Kill it in one click. Found a winner? Scale it up. Take action immediately—not after digging through menus.</p>
         </div>
         <div class="feature-card">
           <div class="icon">💰</div>
-          <h3>Budget Control</h3>
-          <p>Adjust budgets on the fly. Move money from underperformers to winners. See exactly where every dollar is going.</p>
+          <h3>Put Every Dollar to Work</h3>
+          <p>Move budget from underperformers to winners. See exactly where every dollar is going—and what it's bringing back.</p>
         </div>
         <div class="feature-card">
           <div class="icon">📊</div>
-          <h3>Drill Down to Every Ad</h3>
-          <p>Click any campaign to see its ad sets. Click any ad set to see its ads. Find exactly where your money is making—or losing—money.</p>
+          <h3>Find Hidden Winners (and Losers)</h3>
+          <p>Drill down from campaign to ad set to individual ad. Find exactly where your money is making—or losing—money.</p>
         </div>
         <div class="feature-card">
           <div class="icon">🔔</div>
-          <h3>Alerts When Things Change</h3>
-          <p>Get notified when an ad flips from profitable to losing, or when a new winner emerges. Stay on top without living in the dashboard.</p>
+          <h3>Never Miss a Turning Point</h3>
+          <p>Get notified when an ad flips from profitable to losing, or when a new winner emerges. Stay ahead without living in the dashboard.</p>
         </div>
       </div>
     </div>
@@ -1157,23 +934,12 @@
     </div>
   </section>
 
-  <!-- COMING SOON -->
-  <section class="coming-soon">
-    <div class="container">
-      <div class="coming-soon-card">
-        <div class="coming-soon-badge">Coming Soon</div>
-        <h3>Real-World Attribution</h3>
-        <p>Track what actually matters: phone calls, walk-ins, real contacts. Enrich your ad data with what happened in the real world—not just what Meta can see. Built for local businesses who need to know which ads are really working.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- PRICING -->
   <section class="pricing" id="pricing">
     <div class="container">
       <div class="section-header">
-        <h2>Simple Pricing</h2>
-        <p>A fraction of what you'd pay an agency. Cancel anytime.</p>
+        <h2>Costs Less Than One Bad Ad</h2>
+        <p>Most users save more in wasted spend than the subscription costs. Cancel anytime.</p>
       </div>
 
       <div class="billing-toggle">
@@ -1246,9 +1012,9 @@
   <!-- FINAL CTA -->
   <section class="final-cta">
     <div class="container">
-      <h2>Take Back Control</h2>
-      <p>Your ads. Your data. Your decisions. No more guessing. No more digging. Just results.</p>
-      <a href="https://app.killscale.com/signup" class="btn btn-primary btn-large">Start Free</a>
+      <h2>Your Ads Are Either Making Money or Losing It</h2>
+      <p>Find out which. Stop the waste. Scale the winners. Get started in 2 minutes.</p>
+      <a href="https://app.killscale.com/signup" class="btn btn-primary btn-large">Start Free — No Credit Card Required</a>
     </div>
   </section>
 
