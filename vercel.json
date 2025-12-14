@@ -2,6 +2,8 @@
   "rewrites": [
     { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/terms", "destination": "/terms.html" },
-    { "source": "/services", "destination": "/services.html" }
+    { "source": "/services", "destination": "/services.html" },
+    { "source": "/signup", "destination": "https://app.killscale.com/signup" },
+    { "source": "/login", "destination": "https://app.killscale.com/login" }
   ]
 }
