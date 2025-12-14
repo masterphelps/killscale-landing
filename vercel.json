@@ -4,6 +4,8 @@
     { "source": "/terms", "destination": "/terms.html" },
     { "source": "/services", "destination": "/services.html" },
     { "source": "/signup", "destination": "https://app.killscale.com/signup" },
-    { "source": "/login", "destination": "https://app.killscale.com/login" }
+    { "source": "/login", "destination": "https://app.killscale.com/login" },
+    { "source": "/_next/:path*", "destination": "https://app.killscale.com/_next/:path*" },
+    { "source": "/api/:path*", "destination": "https://app.killscale.com/api/:path*" }
   ]
 }
