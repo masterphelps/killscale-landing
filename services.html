@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Done-For-You Setup - KillScale</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1552580212607017');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1552580212607017&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <meta name="description" content="Get agency-level Meta Ads setup without the agency retainer. One-time setup fee, then manage it yourself for $49/mo.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #09090b;
+      --bg-elevated: #18181b;
+      --bg-subtle: #0f0f12;
+      --border: #27272a;
+      --border-light: #3f3f46;
+      --accent: #3b82f6;
+      --accent-hover: #60a5fa;
+      --accent-subtle: rgba(59, 130, 246, 0.1);
+      --green: #10b981;
+      --green-subtle: rgba(16, 185, 129, 0.1);
+      --text: #fafafa;
+      --text-secondary: #a1a1aa;
+      --text-tertiary: #71717a;
+      --gradient-1: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .container-narrow {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ========== NAVIGATION ========== */
+    nav {
+      padding: 16px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(9, 9, 11, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 100;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+
+    nav.scrolled {
+      border-bottom-color: var(--border);
+    }
+
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.5px;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--border-light);
+      background: var(--bg-elevated);
+    }
+
+    .btn-large {
+      padding: 16px 32px;
+      font-size: 16px;
+      border-radius: 10px;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-secondary);
+      padding: 10px 16px;
+    }
+
+    .btn-ghost:hover {
+      color: var(--text);
+      background: var(--bg-elevated);
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      padding: 160px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: var(--green-subtle);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: 100px;
+      font-size: 13px;
+      color: var(--green);
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -2px;
+      background: linear-gradient(to bottom, #ffffff 0%, #a1a1aa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    /* ========== COMPARISON ========== */
+    .comparison {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 700px) {
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .comparison-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+    }
+
+    .comparison-card.highlight {
+      border-color: var(--green);
+      background: linear-gradient(to bottom, rgba(16, 185, 129, 0.05), transparent);
+    }
+
+    .comparison-card.dim {
+      opacity: 0.7;
+    }
+
+    .comparison-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-tertiary);
+      margin-bottom: 8px;
+    }
+
+    .comparison-card.highlight .comparison-label {
+      color: var(--green);
+    }
+
+    .comparison-title {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .comparison-price {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -2px;
+      margin-bottom: 4px;
+    }
+
+    .comparison-price span {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .comparison-note {
+      font-size: 14px;
+      color: var(--text-tertiary);
+      margin-bottom: 24px;
+    }
+
+    .comparison-list {
+      list-style: none;
+    }
+
+    .comparison-list li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      padding: 8px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .comparison-list li::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .comparison-card.dim .comparison-list li::before {
+      content: '✓';
+      color: var(--text-tertiary);
+    }
+
+    /* ========== WHAT'S INCLUDED ========== */
+    .included {
+      padding: 100px 0;
+      background: var(--bg-subtle);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .section-header {
+      max-width: 600px;
+      margin-bottom: 64px;
+    }
+
+    .section-header.centered {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-header h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+      line-height: 1.15;
+    }
+
+    .section-header p {
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 600px) {
+      .included-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .included-item {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      gap: 16px;
+    }
+
+    .included-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--accent-subtle);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .included-content h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .included-content p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ========== HOW IT WORKS ========== */
+    .process {
+      padding: 100px 0;
+    }
+
+    .process-steps {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .process-step {
+      display: flex;
+      gap: 24px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .process-step:last-child {
+      border-bottom: none;
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .step-content h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .step-content p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ========== CTA ========== */
+    .cta {
+      padding: 100px 0;
+      text-align: center;
+      background: var(--bg-subtle);
+      border-top: 1px solid var(--border);
+    }
+
+    .cta h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .cta p {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 500px;
+      margin: 0 auto 32px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-text {
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      .nav-links a:not(.btn) {
+        display: none;
+      }
+      .nav-links {
+        gap: 12px;
+      }
+      .hero {
+        padding: 140px 0 80px;
+      }
+      .process-step {
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="container">
+      <a href="/" class="logo">
+        <svg width="32" height="32" viewBox="0 0 50 50">
+          <rect x="2" y="5" width="46" height="40" rx="8" fill="#18181b" stroke="#27272a" stroke-width="1"/>
+          <path d="M14 16 L14 34 L8 28 M14 34 L20 28" stroke="#ef4444" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M36 34 L36 16 L30 22 M36 16 L42 22" stroke="#22c55e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-text">KillScale</span>
+      </a>
+      <div class="nav-links">
+        <a href="/">Platform</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="https://app.killscale.com/login" class="btn btn-ghost">Log in</a>
+        <a href="https://app.killscale.com/signup" class="btn btn-primary">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span>Done-For-You Setup</span>
+        </div>
+        <h1>Agency setup.<br>Without the agency retainer.</h1>
+        <p class="hero-subtitle">
+          We'll build your entire Meta Ads infrastructure—pixel, campaigns, audiences, everything. Then hand you the keys. Pay once, own it forever.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="comparison">
+    <div class="container">
+      <div class="comparison-grid">
+        <div class="comparison-card dim">
+          <div class="comparison-label">Typical agency</div>
+          <div class="comparison-title">Monthly Retainer</div>
+          <div class="comparison-price">$1,500<span>+/mo</span></div>
+          <div class="comparison-note">Locked in. Every month. Forever.</div>
+          <ul class="comparison-list">
+            <li>Initial account setup</li>
+            <li>Campaign creation</li>
+            <li>Ongoing management</li>
+            <li>Monthly reporting</li>
+            <li>You never learn the system</li>
+          </ul>
+        </div>
+        <div class="comparison-card highlight">
+          <div class="comparison-label">KillScale Setup</div>
+          <div class="comparison-title">One-Time Setup</div>
+          <div class="comparison-price">$499<span> once</span></div>
+          <div class="comparison-note">Then $49/mo for the platform. That's it.</div>
+          <ul class="comparison-list">
+            <li>Complete account setup</li>
+            <li>Launch-ready campaigns</li>
+            <li>Full training handoff</li>
+            <li>Platform does the ongoing work</li>
+            <li>You stay in control</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="included">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-label">What's Included</div>
+        <h2>Everything an agency would do. Owned by you.</h2>
+        <p>We don't just set it up and disappear. We build it right, teach you how it works, and give you the tools to run it yourself.</p>
+      </div>
+
+      <div class="included-grid">
+        <div class="included-item">
+          <div class="included-icon">🎯</div>
+          <div class="included-content">
+            <h3>Pixel & Tracking Setup</h3>
+            <p>KillScale pixel installed and configured. Conversion events mapped. Attribution working from day one.</p>
+          </div>
+        </div>
+        <div class="included-item">
+          <div class="included-icon">👥</div>
+          <div class="included-content">
+            <h3>Audience Building</h3>
+            <p>Custom audiences, lookalikes, and retargeting pools built based on your business and customer data.</p>
+          </div>
+        </div>
+        <div class="included-item">
+          <div class="included-icon">📢</div>
+          <div class="included-content">
+            <h3>Campaign Architecture</h3>
+            <p>Full campaign structure designed for your goals. TOF, MOF, BOF—properly organized and ready to scale.</p>
+          </div>
+        </div>
+        <div class="included-item">
+          <div class="included-icon">🎨</div>
+          <div class="included-content">
+            <h3>Ad Creative Setup</h3>
+            <p>Your existing creative loaded and organized. Ad copy written. Variations ready for testing.</p>
+          </div>
+        </div>
+        <div class="included-item">
+          <div class="included-icon">⚙️</div>
+          <div class="included-content">
+            <h3>Rules & Thresholds</h3>
+            <p>Custom ROAS rules configured for your margins. Alerts set up so you know when to act.</p>
+          </div>
+        </div>
+        <div class="included-item">
+          <div class="included-icon">🎓</div>
+          <div class="included-content">
+            <h3>Training & Handoff</h3>
+            <p>45-minute walkthrough of your setup. How to read the data. When to scale. When to kill. You'll know it all.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="process">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-label">How It Works</div>
+        <h2>From zero to running ads in 5 days</h2>
+      </div>
+
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Discovery Call</h3>
+            <p>30-minute call to understand your business, margins, goals, and what you've tried before. We'll map out exactly what we're building.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Setup & Build</h3>
+            <p>We get to work. Pixel installed, audiences built, campaigns structured, ads loaded. Usually 3-4 business days.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Review & Refine</h3>
+            <p>You review everything before it goes live. We adjust based on your feedback. Nothing launches until you're ready.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Training & Launch</h3>
+            <p>45-minute training session. We walk through everything, answer questions, and launch together. You're in control from here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>Ready to stop paying agency fees?</h2>
+      <p>One setup. Full ownership. Ongoing platform for $49/mo.</p>
+      <div class="cta-buttons">
+        <a href="mailto:setup@killscale.com?subject=Done-For-You Setup" class="btn btn-primary btn-large">Book Discovery Call</a>
+        <a href="/" class="btn btn-secondary btn-large">Learn About the Platform</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-text">© 2025 KillScale</div>
+      <div class="footer-links">
+        <a href="mailto:support@killscale.com">Support</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+  <!-- Vercel Analytics -->
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
