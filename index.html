@@ -286,12 +286,15 @@
       position: relative;
     }
 
+    .video-demo {
+      display: none;
+    }
+
     .mobile-preview {
       display: none;
     }
 
     @media (max-width: 768px) {
-      .video-demo { display: none; }
       .mobile-preview { display: block; }
     }
 
@@ -851,11 +854,17 @@
 
     /* ========== RESPONSIVE ========== */
     @media (max-width: 768px) {
-      .nav-links a:not(.btn) {
-        display: none;
-      }
       .nav-links {
-        gap: 12px;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .nav-links a:not(.btn) {
+        font-size: 12px;
+      }
+      .nav-links .btn {
+        padding: 8px 12px;
+        font-size: 12px;
       }
       .hero {
         padding: 140px 0 80px;
