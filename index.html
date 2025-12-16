@@ -63,7 +63,7 @@
 
   <!-- Additional SEO -->
   <meta name="theme-color" content="#09090b">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'><rect x='2' y='5' width='46' height='40' rx='8' fill='%2318181b'/><path d='M14 16 L14 34 L8 28 M14 34 L20 28' stroke='%23ef4444' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/><path d='M36 34 L36 16 L30 22 M36 16 L42 22' stroke='%2322c55e' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -84,9 +84,9 @@
     "offers": {
       "@type": "AggregateOffer",
       "priceCurrency": "USD",
-      "lowPrice": "0",
+      "lowPrice": "29",
       "highPrice": "99",
-      "offerCount": "4"
+      "offerCount": "3"
     }
   }
   </script>
@@ -113,9 +113,9 @@
     "description": "Meta Ads management platform with first-party attribution, instant campaign verdicts, and 60-second ad creation for small businesses.",
     "offers": {
       "@type": "Offer",
-      "price": "0",
+      "price": "29",
       "priceCurrency": "USD",
-      "description": "Free tier available"
+      "description": "7-day free trial"
     },
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -1224,15 +1224,13 @@
 
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
-    @media (max-width: 1000px) {
-      .pricing-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 600px) {
+    @media (max-width: 900px) {
       .pricing-grid { grid-template-columns: 1fr; }
     }
 
@@ -1568,7 +1566,7 @@
           <a href="https://app.killscale.com/signup" class="btn btn-primary btn-large">Start Free</a>
           <a href="#features" class="btn btn-secondary btn-large">See how it works</a>
         </div>
-        <p class="hero-note">Free tier available. No credit card required.</p>
+        <p class="hero-note">7-day free trial. No credit card required.</p>
       </div>
 
       <div class="hero-visual">
@@ -2125,7 +2123,7 @@
       <div class="section-header centered">
         <div class="section-label">Pricing</div>
         <h2>Simple pricing. No surprises.</h2>
-        <p>Start free, upgrade when you need more. Cancel anytime.</p>
+        <p>7-day free trial on all plans. Cancel anytime.</p>
       </div>
 
       <div class="billing-toggle">
@@ -2141,55 +2139,45 @@
 
       <div class="pricing-grid">
         <div class="pricing-card">
-          <div class="pricing-name">Free</div>
-          <div class="pricing-price">$0<span>/mo</span></div>
-          <div class="pricing-yearly">&nbsp;</div>
+          <div class="pricing-name">Launch</div>
+          <div class="pricing-price" id="launch-price">$24<span>/mo</span></div>
+          <div id="launch-yearly" class="pricing-yearly">billed $290/year</div>
           <ul class="pricing-features">
-            <li>Connect Meta account</li>
-            <li>2 campaigns monitored</li>
-            <li>Performance verdicts</li>
-            <li>Basic analytics</li>
-          </ul>
-          <a href="https://app.killscale.com/signup" class="btn btn-secondary">Start Free</a>
-        </div>
-        <div class="pricing-card">
-          <div class="pricing-name">Starter</div>
-          <div class="pricing-price" id="starter-price">$7.50<span>/mo</span></div>
-          <div id="starter-yearly" class="pricing-yearly">billed $90/year</div>
-          <ul class="pricing-features">
-            <li>10 campaigns</li>
+            <li>7-day free trial</li>
+            <li class="highlight">Unlimited campaigns</li>
             <li>1 ad account</li>
-            <li>Campaign creation</li>
-            <li>Custom thresholds</li>
+            <li>Campaign Launcher</li>
+            <li>Insights & Trends</li>
+            <li>Smart alerts</li>
           </ul>
-          <a href="https://app.killscale.com/signup" class="btn btn-secondary">Get Started</a>
+          <a href="https://app.killscale.com/signup" class="btn btn-secondary">Start Free Trial</a>
         </div>
         <div class="pricing-card featured">
           <div class="pricing-badge">Most Popular</div>
-          <div class="pricing-name">Pro</div>
-          <div class="pricing-price" id="pro-price">$24<span>/mo</span></div>
-          <div id="pro-yearly" class="pricing-yearly">billed $290/year</div>
+          <div class="pricing-name">Scale</div>
+          <div class="pricing-price" id="scale-price">$41<span>/mo</span></div>
+          <div id="scale-yearly" class="pricing-yearly">billed $490/year</div>
           <ul class="pricing-features">
-            <li class="highlight">Unlimited campaigns</li>
-            <li class="highlight">Full ad management</li>
+            <li>Everything in Launch</li>
+            <li class="highlight">First-party pixel</li>
+            <li class="highlight">Dynamic Attribution</li>
             <li>2 ad accounts</li>
-            <li>Smart alerts</li>
-            <li>First-party pixel</li>
-            <li>Priority support</li>
+            <li>Workspaces</li>
+            <li>Manual events</li>
           </ul>
-          <a href="https://app.killscale.com/signup" class="btn btn-primary">Get Started</a>
+          <a href="https://app.killscale.com/signup" class="btn btn-primary">Start Free Trial</a>
         </div>
         <div class="pricing-card">
-          <div class="pricing-name">Agency</div>
-          <div class="pricing-price" id="agency-price">$82<span>/mo</span></div>
-          <div id="agency-yearly" class="pricing-yearly">billed $990/year</div>
+          <div class="pricing-name">Pro</div>
+          <div class="pricing-price" id="pro-price">$82<span>/mo</span></div>
+          <div id="pro-yearly" class="pricing-yearly">billed $990/year</div>
           <ul class="pricing-features">
-            <li>Everything in Pro</li>
+            <li>Everything in Scale</li>
             <li class="highlight">Unlimited ad accounts</li>
-            <li>Team workspaces</li>
-            <li>White-label (coming)</li>
+            <li>Workspace reporting</li>
+            <li>Priority support</li>
           </ul>
-          <a href="https://app.killscale.com/signup" class="btn btn-secondary">Get Started</a>
+          <a href="https://app.killscale.com/signup" class="btn btn-secondary">Start Free Trial</a>
         </div>
       </div>
     </div>
@@ -2330,13 +2318,13 @@
         yearlyLabel.classList.remove('active');
       }
 
-      document.getElementById('starter-price').innerHTML = isYearly ? '$7.50<span>/mo</span>' : '$9<span>/mo</span>';
-      document.getElementById('pro-price').innerHTML = isYearly ? '$24<span>/mo</span>' : '$29<span>/mo</span>';
-      document.getElementById('agency-price').innerHTML = isYearly ? '$82<span>/mo</span>' : '$99<span>/mo</span>';
+      document.getElementById('launch-price').innerHTML = isYearly ? '$24<span>/mo</span>' : '$29<span>/mo</span>';
+      document.getElementById('scale-price').innerHTML = isYearly ? '$41<span>/mo</span>' : '$49<span>/mo</span>';
+      document.getElementById('pro-price').innerHTML = isYearly ? '$82<span>/mo</span>' : '$99<span>/mo</span>';
 
-      document.getElementById('starter-yearly').style.display = isYearly ? 'block' : 'none';
+      document.getElementById('launch-yearly').style.display = isYearly ? 'block' : 'none';
+      document.getElementById('scale-yearly').style.display = isYearly ? 'block' : 'none';
       document.getElementById('pro-yearly').style.display = isYearly ? 'block' : 'none';
-      document.getElementById('agency-yearly').style.display = isYearly ? 'block' : 'none';
     }
   </script>
 
