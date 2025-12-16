@@ -878,6 +878,156 @@
       color: var(--green);
     }
 
+    .install-demo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    @media (max-width: 800px) {
+      .install-demo {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .install-arrow {
+        transform: rotate(90deg);
+      }
+    }
+
+    .install-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      flex: 1;
+      max-width: 220px;
+    }
+
+    .step-number {
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-label {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .step-mock {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      position: relative;
+    }
+
+    .mock-code-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mock-line {
+      height: 8px;
+      background: var(--border);
+      border-radius: 4px;
+      width: 100%;
+    }
+
+    .mock-line.short {
+      width: 60%;
+    }
+
+    .mock-line.pasted {
+      background: var(--accent);
+      opacity: 0.4;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .install-arrow {
+      font-size: 24px;
+      color: var(--text-tertiary);
+      flex-shrink: 0;
+    }
+
+    .step-mock.shopify {
+      padding: 12px;
+    }
+
+    .shopify-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .shopify-paste {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .step-mock.success {
+      text-align: center;
+      padding: 20px 16px;
+    }
+
+    .success-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--green);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 auto 12px;
+    }
+
+    .success-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+
+    .success-subtext {
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+
     /* ========== DEEP DIVE SECTIONS ========== */
     .deep-dive {
       padding: 120px 0;
@@ -1783,16 +1933,61 @@
 
       <div class="pixel-code-block">
         <h4>📋 Dead Simple Installation</h4>
-        <code><span class="comment">// Add to your site's &lt;head&gt; — that's it</span>
-&lt;script&gt;
-  <span class="keyword">!function</span>(k,s,p,i,x,e,l){<span class="keyword">if</span>(k.ks)<span class="keyword">return</span>;x=k.ks=<span class="keyword">function</span>(){x.q.push(arguments)};
-  x.q=[];e=s.createElement(p);l=s.getElementsByTagName(p)[0];
-  e.async=1;e.src=<span class="string">'https://pixel.killscale.com/ks.js'</span>;l.parentNode.insertBefore(e,l)
-  }(window,document,<span class="string">'script'</span>);
-
-  ks(<span class="string">'init'</span>, <span class="string">'YOUR-PIXEL-ID'</span>);
-  ks(<span class="string">'pageview'</span>);
-&lt;/script&gt;</code>
+        <div class="install-demo">
+          <div class="install-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <div class="step-label">Copy your pixel code</div>
+              <div class="step-mock">
+                <div class="mock-code-lines">
+                  <div class="mock-line"></div>
+                  <div class="mock-line short"></div>
+                  <div class="mock-line"></div>
+                </div>
+                <div class="copy-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  Copied!
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="install-arrow">→</div>
+          <div class="install-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <div class="step-label">Paste into Shopify</div>
+              <div class="step-mock shopify">
+                <div class="shopify-header">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#96bf48">
+                    <path d="M15.337 3.415c-.084-.124-.224-.187-.377-.187-.153 0-.427.062-.427.062l-.458.125c-.274-.792-.76-1.52-1.615-1.52h-.074c-.243-.312-.545-.5-.907-.5-2.238 0-3.307 2.799-3.642 4.222l-1.557.482c-.484.152-.5.166-.563.622-.05.344-1.316 10.134-1.316 10.134L12.133 19l6.154-1.33S15.42 3.538 15.337 3.415z"/>
+                  </svg>
+                  <span>Settings → Custom code</span>
+                </div>
+                <div class="shopify-paste">
+                  <div class="mock-line pasted"></div>
+                  <div class="mock-line pasted short"></div>
+                  <div class="mock-line pasted"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="install-arrow">→</div>
+          <div class="install-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <div class="step-label">Start tracking</div>
+              <div class="step-mock success">
+                <div class="success-icon">✓</div>
+                <div class="success-text">Pixel Active</div>
+                <div class="success-subtext">Tracking conversions...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p style="text-align: center; color: var(--text-tertiary); font-size: 13px; margin-top: 24px;">Works with Shopify, WooCommerce, Webflow, Squarespace, and any custom site</p>
       </div>
     </div>
   </section>
