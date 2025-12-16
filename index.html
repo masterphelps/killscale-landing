@@ -697,6 +697,187 @@
       line-height: 1.5;
     }
 
+    /* ========== KILLSCALE PIXEL SECTION ========== */
+    .pixel-section {
+      padding: 120px 0;
+      background: linear-gradient(180deg, var(--bg) 0%, rgba(59, 130, 246, 0.03) 50%, var(--bg) 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pixel-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 64px;
+    }
+
+    .pixel-header .eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .pixel-header .eyebrow::before,
+    .pixel-header .eyebrow::after {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.5;
+    }
+
+    .pixel-header h2 {
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    .pixel-header .highlight {
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .pixel-header p {
+      font-size: 18px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .pixel-features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+
+    @media (max-width: 1000px) {
+      .pixel-features { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 650px) {
+      .pixel-features { grid-template-columns: 1fr; }
+    }
+
+    .pixel-feature-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pixel-feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-1);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .pixel-feature-card:hover::before {
+      opacity: 1;
+    }
+
+    .pixel-feature-card .card-number {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .pixel-feature-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .pixel-feature-card .card-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .pixel-feature-card ul {
+      list-style: none;
+    }
+
+    .pixel-feature-card li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      padding: 6px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .pixel-feature-card li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .pixel-code-block {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .pixel-code-block h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pixel-code-block code {
+      display: block;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+      font-size: 13px;
+      color: var(--text-secondary);
+      overflow-x: auto;
+      line-height: 1.6;
+    }
+
+    .pixel-code-block code .comment {
+      color: var(--text-tertiary);
+    }
+
+    .pixel-code-block code .keyword {
+      color: var(--accent);
+    }
+
+    .pixel-code-block code .string {
+      color: var(--green);
+    }
+
     /* ========== DEEP DIVE SECTIONS ========== */
     .deep-dive {
       padding: 120px 0;
@@ -1506,6 +1687,112 @@
           <h4>Not enough data yet</h4>
           <p>Below your learning spend threshold. Let it run before making decisions—Meta's algorithm needs data.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KillScale Pixel Section -->
+  <section class="pixel-section">
+    <div class="container">
+      <div class="pixel-header">
+        <div class="eyebrow">Major Differentiator</div>
+        <h2>Your Own <span class="highlight">First-Party Pixel</span></h2>
+        <p>Meta's pixel is broken. iOS updates block it. Ad blockers strip it. Browser privacy settings neuter it. KillScale gives you your own tracking infrastructure that actually works.</p>
+      </div>
+
+      <div class="pixel-features">
+        <!-- Card 1: Independent First-Party Pixel -->
+        <div class="pixel-feature-card">
+          <div class="card-number">01</div>
+          <h3>Independent First-Party Pixel</h3>
+          <p class="card-desc">Your own JavaScript pixel that works independently of Meta—tracking conversions even when their pixel can't.</p>
+          <ul>
+            <li>JavaScript pixel installed on your site</li>
+            <li>First-party cookies (not third-party like Meta)</li>
+            <li>Works when Meta pixel is blocked</li>
+            <li>Edge-deployed for global low-latency</li>
+          </ul>
+        </div>
+
+        <!-- Card 2: UTM-Based Attribution -->
+        <div class="pixel-feature-card">
+          <div class="card-number">02</div>
+          <h3>UTM-Based Attribution</h3>
+          <p class="card-desc">Granular ad-level tracking using UTM parameters. Know exactly which ad drove every conversion.</p>
+          <ul>
+            <li>Captures utm_source, medium, campaign, content</li>
+            <li>utm_content = ad_id for granular attribution</li>
+            <li>28-day attribution window (configurable)</li>
+            <li>Survives page refreshes and browser sessions</li>
+          </ul>
+        </div>
+
+        <!-- Card 3: Event Tracking -->
+        <div class="pixel-feature-card">
+          <div class="card-number">03</div>
+          <h3>Event Tracking</h3>
+          <p class="card-desc">Automatic and manual event tracking for any conversion type—eCommerce purchases or lead generation.</p>
+          <ul>
+            <li>Automatic: pageview, thank-you page detection</li>
+            <li>Manual: purchase, lead, signup, custom events</li>
+            <li>Revenue tracking for purchases</li>
+            <li>Works for eCommerce AND lead-gen</li>
+          </ul>
+        </div>
+
+        <!-- Card 4: Simple Dashboard -->
+        <div class="pixel-feature-card">
+          <div class="card-number">04</div>
+          <h3>Simple Dashboard</h3>
+          <p class="card-desc">See exactly what your pixel is tracking. No buried reports or complex interfaces.</p>
+          <ul>
+            <li>Conversions by ad</li>
+            <li>Revenue by ad</li>
+            <li>ROAS calculation</li>
+            <li>Date range filtering</li>
+            <li>Compare to Meta's reported numbers</li>
+          </ul>
+        </div>
+
+        <!-- Card 5: Manual Event Logging -->
+        <div class="pixel-feature-card">
+          <div class="card-number">05</div>
+          <h3>Manual Event Logging</h3>
+          <p class="card-desc">Track conversions Meta will never see—walk-ins, phone sales, offline purchases.</p>
+          <ul>
+            <li>Log offline conversions (walk-ins, phone sales)</li>
+            <li>Attribute to specific ads</li>
+            <li>Track results Meta will never see</li>
+            <li>Perfect for local/service businesses</li>
+          </ul>
+        </div>
+
+        <!-- Card 6: Why This Matters -->
+        <div class="pixel-feature-card" style="background: linear-gradient(to bottom, rgba(59, 130, 246, 0.08), transparent); border-color: var(--accent);">
+          <div class="card-number" style="color: var(--accent);">→</div>
+          <h3>Why This Matters</h3>
+          <p class="card-desc">Most platforms just re-skin Meta's data. We give you an independent source of truth.</p>
+          <ul>
+            <li>Meta says $5K revenue, your bank says $8K?</li>
+            <li>Now you'll know which number is real</li>
+            <li>Stop making decisions on broken data</li>
+            <li>See your true ROAS, not Meta's guess</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pixel-code-block">
+        <h4>📋 Dead Simple Installation</h4>
+        <code><span class="comment">// Add to your site's &lt;head&gt; — that's it</span>
+&lt;script&gt;
+  <span class="keyword">!function</span>(k,s,p,i,x,e,l){<span class="keyword">if</span>(k.ks)<span class="keyword">return</span>;x=k.ks=<span class="keyword">function</span>(){x.q.push(arguments)};
+  x.q=[];e=s.createElement(p);l=s.getElementsByTagName(p)[0];
+  e.async=1;e.src=<span class="string">'https://pixel.killscale.com/ks.js'</span>;l.parentNode.insertBefore(e,l)
+  }(window,document,<span class="string">'script'</span>);
+
+  ks(<span class="string">'init'</span>, <span class="string">'YOUR-PIXEL-ID'</span>);
+  ks(<span class="string">'pageview'</span>);
+&lt;/script&gt;</code>
       </div>
     </div>
   </section>
