@@ -36,7 +36,94 @@
   <!-- End KillScale Pixel -->
 
   <meta name="description" content="KillScale is the Meta Ads platform built for growing businesses. Create ads, track attribution, manage budgets, and scale what works—all without the complexity of Ads Manager.">
+
+  <!-- SEO Meta Tags -->
+  <link rel="canonical" href="https://killscale.com/">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="keywords" content="Meta Ads, Facebook Ads, Instagram Ads, ad management, ROAS, small business advertising, Meta Ads Manager alternative, ad attribution, first-party tracking">
+  <meta name="author" content="KillScale">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://killscale.com/">
+  <meta property="og:title" content="KillScale - Meta Ads Management for Growing Businesses">
+  <meta property="og:description" content="The Meta Ads platform built for growing businesses. Create ads in 60 seconds, get instant verdicts on what's working, and scale profitably—without the complexity.">
+  <meta property="og:image" content="https://killscale.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="KillScale">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://killscale.com/">
+  <meta name="twitter:title" content="KillScale - Meta Ads Management for Growing Businesses">
+  <meta name="twitter:description" content="The Meta Ads platform built for growing businesses. Create ads in 60 seconds, get instant verdicts on what's working, and scale profitably.">
+  <meta name="twitter:image" content="https://killscale.com/og-image.png">
+
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#09090b">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "KillScale",
+    "url": "https://killscale.com",
+    "logo": "https://killscale.com/logo.png",
+    "description": "Meta Ads management platform for growing businesses. First-party attribution, instant verdicts, and 60-second ad creation.",
+    "foundingDate": "2024",
+    "sameAs": [],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "support@killscale.com",
+      "contactType": "customer support"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "0",
+      "highPrice": "99",
+      "offerCount": "4"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "KillScale",
+    "url": "https://killscale.com",
+    "description": "Meta Ads management platform for growing businesses",
+    "publisher": {
+      "@type": "Organization",
+      "name": "KillScale"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "KillScale",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Meta Ads management platform with first-party attribution, instant campaign verdicts, and 60-second ad creation for small businesses.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free tier available"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "50"
+    }
+  }
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     * {
@@ -56,6 +143,12 @@
       --accent-subtle: rgba(59, 130, 246, 0.1);
       --green: #10b981;
       --green-subtle: rgba(16, 185, 129, 0.1);
+      --red: #ef4444;
+      --red-subtle: rgba(239, 68, 68, 0.1);
+      --purple: #a855f7;
+      --purple-subtle: rgba(168, 85, 247, 0.1);
+      --amber: #f59e0b;
+      --amber-subtle: rgba(245, 158, 11, 0.1);
       --text: #fafafa;
       --text-secondary: #a1a1aa;
       --text-tertiary: #71717a;
@@ -298,7 +391,7 @@
       .mobile-preview { display: block; }
     }
 
-    /* ========== LOGOS / SOCIAL PROOF ========== */
+    /* ========== SOCIAL PROOF ========== */
     .social-proof {
       padding: 80px 0;
       border-top: 1px solid var(--border);
@@ -341,11 +434,7 @@
       margin-top: 4px;
     }
 
-    /* ========== PLATFORM SECTION ========== */
-    .platform {
-      padding: 120px 0;
-    }
-
+    /* ========== SECTION HEADERS ========== */
     .section-label {
       font-size: 13px;
       font-weight: 600;
@@ -356,7 +445,7 @@
     }
 
     .section-header {
-      max-width: 600px;
+      max-width: 700px;
       margin-bottom: 64px;
     }
 
@@ -380,66 +469,240 @@
       line-height: 1.7;
     }
 
-    .platform-grid {
+    /* ========== PHILOSOPHY SECTION ========== */
+    .philosophy {
+      padding: 100px 0;
+      background: var(--bg-subtle);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .philosophy-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 32px;
     }
 
     @media (max-width: 900px) {
-      .platform-grid { grid-template-columns: repeat(2, 1fr); }
+      .philosophy-grid { grid-template-columns: 1fr; }
+    }
+
+    .philosophy-card {
+      text-align: center;
+      padding: 40px 24px;
+    }
+
+    .philosophy-card .icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .philosophy-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .philosophy-card p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ========== FEATURE CARDS ========== */
+    .features {
+      padding: 120px 0;
+    }
+
+    .feature-category {
+      margin-bottom: 80px;
+    }
+
+    .feature-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .feature-category-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .feature-category-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .feature-category-icon.blue { background: var(--accent-subtle); }
+    .feature-category-icon.green { background: var(--green-subtle); }
+    .feature-category-icon.purple { background: var(--purple-subtle); }
+    .feature-category-icon.amber { background: var(--amber-subtle); }
+    .feature-category-icon.red { background: var(--red-subtle); }
+
+    .feature-category-title {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 1100px) {
+      .feature-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 600px) {
-      .platform-grid { grid-template-columns: 1fr; }
+      .feature-grid { grid-template-columns: 1fr; }
     }
 
-    .platform-card {
+    .feature-card {
       background: var(--bg-elevated);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 32px;
+      padding: 28px;
       transition: border-color 0.2s, transform 0.2s;
     }
 
-    .platform-card:hover {
+    .feature-card:hover {
       border-color: var(--border-light);
       transform: translateY(-2px);
     }
 
-    .platform-card .icon {
-      width: 48px;
-      height: 48px;
+    .feature-card .card-icon {
+      width: 44px;
+      height: 44px;
       background: var(--accent-subtle);
-      border-radius: 12px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
-      font-size: 24px;
+      margin-bottom: 16px;
+      font-size: 20px;
     }
 
-    .platform-card h3 {
-      font-size: 18px;
+    .feature-card h3 {
+      font-size: 16px;
       font-weight: 700;
       margin-bottom: 8px;
     }
 
-    .platform-card p {
-      font-size: 15px;
+    .feature-card p {
+      font-size: 14px;
       color: var(--text-secondary);
       line-height: 1.6;
     }
 
-    /* ========== FEATURE SHOWCASE ========== */
-    .feature-showcase {
+    .feature-card.highlight {
+      border-color: var(--accent);
+      background: linear-gradient(to bottom, rgba(59, 130, 246, 0.05), transparent);
+    }
+
+    /* Mobile breakout cards */
+    @media (max-width: 600px) {
+      .feature-card {
+        margin-left: -24px;
+        margin-right: -24px;
+        width: calc(100% + 48px);
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+      }
+
+      .feature-card:first-child {
+        border-top: 1px solid var(--border);
+      }
+    }
+
+    /* ========== VERDICTS SHOWCASE ========== */
+    .verdicts-showcase {
       padding: 120px 0;
       background: var(--bg-subtle);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
 
-    .feature-row {
+    .verdicts-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 900px) {
+      .verdicts-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 500px) {
+      .verdicts-grid { grid-template-columns: 1fr; }
+    }
+
+    .verdict-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .verdict-badge {
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .verdict-badge.scale {
+      background: var(--green-subtle);
+      color: var(--green);
+    }
+
+    .verdict-badge.watch {
+      background: var(--accent-subtle);
+      color: var(--accent);
+    }
+
+    .verdict-badge.kill {
+      background: var(--red-subtle);
+      color: var(--red);
+    }
+
+    .verdict-badge.learn {
+      background: var(--purple-subtle);
+      color: var(--purple);
+    }
+
+    .verdict-card h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .verdict-card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ========== DEEP DIVE SECTIONS ========== */
+    .deep-dive {
+      padding: 120px 0;
+    }
+
+    .deep-dive-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
@@ -447,63 +710,82 @@
       margin-bottom: 120px;
     }
 
-    .feature-row:last-child {
+    .deep-dive-row:last-child {
       margin-bottom: 0;
     }
 
-    .feature-row.reverse {
+    .deep-dive-row.reverse {
       direction: rtl;
     }
 
-    .feature-row.reverse > * {
+    .deep-dive-row.reverse > * {
       direction: ltr;
     }
 
     @media (max-width: 900px) {
-      .feature-row {
+      .deep-dive-row {
         grid-template-columns: 1fr;
         gap: 48px;
       }
-      .feature-row.reverse {
+      .deep-dive-row.reverse {
         direction: ltr;
       }
     }
 
-    .feature-content h3 {
+    .deep-dive-content .eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .deep-dive-content h3 {
       font-size: 32px;
       font-weight: 800;
       margin-bottom: 16px;
       letter-spacing: -0.5px;
     }
 
-    .feature-content p {
+    .deep-dive-content p {
       font-size: 16px;
       color: var(--text-secondary);
       line-height: 1.7;
       margin-bottom: 24px;
     }
 
-    .feature-list {
+    .deep-dive-list {
       list-style: none;
     }
 
-    .feature-list li {
+    .deep-dive-list li {
       display: flex;
       align-items: flex-start;
       gap: 12px;
-      padding: 8px 0;
+      padding: 10px 0;
       font-size: 15px;
       color: var(--text-secondary);
     }
 
-    .feature-list li::before {
-      content: '✓';
-      color: var(--green);
-      font-weight: 700;
+    .deep-dive-list li::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background: var(--green);
+      border-radius: 50%;
       flex-shrink: 0;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' width='12' height='12'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 12px;
     }
 
-    .feature-visual {
+    .deep-dive-visual {
       background: var(--bg-elevated);
       border: 1px solid var(--border);
       border-radius: 16px;
@@ -512,11 +794,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-
-    .feature-visual img {
-      max-width: 100%;
-      border-radius: 8px;
     }
 
     .mock-ui {
@@ -542,49 +819,11 @@
       padding: 20px;
     }
 
-    .mock-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .mock-row:last-child {
-      border-bottom: none;
-    }
-
-    .mock-campaign {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .mock-status {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-    }
-
-    .mock-status.green { background: var(--green); }
-    .mock-status.blue { background: var(--accent); }
-    .mock-status.yellow { background: #eab308; }
-
-    .mock-name {
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .mock-metric {
-      font-size: 14px;
-      color: var(--text-secondary);
-    }
-
-    .mock-metric.positive { color: var(--green); }
-
     /* ========== PRICING ========== */
     .pricing {
       padding: 120px 0;
+      background: var(--bg-subtle);
+      border-top: 1px solid var(--border);
     }
 
     .billing-toggle {
@@ -730,10 +969,17 @@
     }
 
     .pricing-features li::before {
-      content: '✓';
-      color: var(--green);
-      font-weight: 700;
+      content: '';
+      width: 16px;
+      height: 16px;
+      background: var(--green);
+      border-radius: 50%;
       flex-shrink: 0;
+      margin-top: 2px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' width='10' height='10'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 10px;
     }
 
     .pricing-features li.highlight {
@@ -743,6 +989,70 @@
 
     .pricing-card .btn {
       width: 100%;
+    }
+
+    /* ========== BLOG PREVIEW ========== */
+    .blog-preview {
+      padding: 120px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .blog-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+
+    .blog-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+      display: block;
+    }
+
+    .blog-card:hover {
+      border-color: var(--border-light);
+      transform: translateY(-2px);
+    }
+
+    .blog-card .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .blog-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .blog-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .blog-cta {
+      text-align: center;
+      margin-top: 48px;
     }
 
     /* ========== FAQ ========== */
@@ -891,11 +1201,11 @@
         <span class="logo-text">KillScale</span>
       </a>
       <div class="nav-links">
-        <a href="#platform">Platform</a>
+        <a href="#features">Features</a>
         <a href="#pricing">Pricing</a>
-        <a href="/services">Services</a>
-        <a href="/login" class="btn btn-ghost">Log in</a>
-        <a href="/signup" class="btn btn-primary">Get Started</a>
+        <a href="/blog">Blog</a>
+        <a href="https://app.killscale.com/login" class="btn btn-ghost">Log in</a>
+        <a href="https://app.killscale.com/signup" class="btn btn-primary">Get Started</a>
       </div>
     </div>
   </nav>
@@ -905,15 +1215,15 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge">
-          <span>Meta Ads, simplified</span>
+          <span>Designed in 2025. No legacy cruft.</span>
         </div>
-        <h1>The Meta Ads platform for growing businesses</h1>
+        <h1>Agency-level Meta Ads management. Small business pricing.</h1>
         <p class="hero-subtitle">
           Create campaigns, track real attribution, and manage your ad spend—all without wrestling with Ads Manager. Built for business owners who have better things to do.
         </p>
         <div class="hero-cta">
-          <a href="/signup" class="btn btn-primary btn-large">Start Free</a>
-          <a href="#platform" class="btn btn-secondary btn-large">See how it works</a>
+          <a href="https://app.killscale.com/signup" class="btn btn-primary btn-large">Start Free</a>
+          <a href="#features" class="btn btn-secondary btn-large">See how it works</a>
         </div>
         <p class="hero-note">Free tier available. No credit card required.</p>
       </div>
@@ -952,8 +1262,31 @@
     </div>
   </section>
 
-  <!-- Platform -->
-  <section class="platform" id="platform">
+  <!-- Philosophy -->
+  <section class="philosophy">
+    <div class="container">
+      <div class="philosophy-grid">
+        <div class="philosophy-card">
+          <div class="icon">🎯</div>
+          <h3>Powered by AI, not driven by it</h3>
+          <p>Some platforms feel artificial in everything they do. KillScale uses AI where it helps—attribution, analysis, recommendations—but keeps you in control of the decisions that matter.</p>
+        </div>
+        <div class="philosophy-card">
+          <div class="icon">⚡</div>
+          <h3>Built in 2025, not rebuilt</h3>
+          <p>No re-skinned dashboards from 2015. No clunky workflows inherited from enterprise software. Every screen was designed for how you actually work with Meta Ads today.</p>
+        </div>
+        <div class="philosophy-card">
+          <div class="icon">💼</div>
+          <h3>Small business first</h3>
+          <p>Made by a small business owner who got tired of paying agency prices for basic functionality. You get the same tools the big players use, at a price that makes sense.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features" id="features">
     <div class="container">
       <div class="section-header centered">
         <div class="section-label">Platform</div>
@@ -961,56 +1294,239 @@
         <p>A complete Meta Ads platform designed for clarity, not complexity. Create, monitor, and optimize—all from one place.</p>
       </div>
 
-      <div class="platform-grid">
-        <div class="platform-card">
-          <div class="icon">📊</div>
-          <h3>Real Attribution</h3>
-          <p>See which ads actually drive revenue. First-party tracking that works even when Meta's reporting doesn't.</p>
+      <!-- Core Platform -->
+      <div class="feature-category">
+        <div class="feature-category-header">
+          <div class="feature-category-icon blue">📊</div>
+          <h3 class="feature-category-title">Core Platform</h3>
         </div>
-        <div class="platform-card">
-          <div class="icon">⚡</div>
-          <h3>60-Second Campaigns</h3>
-          <p>Launch new ads in under a minute. No 47-step flows. No guessing at targeting. Just results.</p>
+        <div class="feature-grid">
+          <div class="feature-card highlight">
+            <div class="card-icon">🎯</div>
+            <h3>Performance Verdicts</h3>
+            <p>Every campaign, ad set, and ad gets a clear verdict: Scale, Watch, Kill, or Learning. No more staring at spreadsheets wondering what to do.</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">⚡</div>
+            <h3>60-Second Campaigns</h3>
+            <p>Launch new ads in under a minute. Upload creative, set budget, go live. No 47-step flows or certification required.</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">📈</div>
+            <h3>Dashboard</h3>
+            <p>Campaign, Ad Set, and Ad performance in one view. Real-time stats, spend tracking, and instant drill-down to any level.</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">⏸️</div>
+            <h3>One-Click Actions</h3>
+            <p>Pause losers, scale winners, adjust budgets. Take action immediately—not after digging through five menus.</p>
+          </div>
         </div>
-        <div class="platform-card">
-          <div class="icon">💰</div>
-          <h3>Budget Management</h3>
-          <p>Move spend between campaigns instantly. See exactly where every dollar goes and what it brings back.</p>
+      </div>
+
+      <!-- Attribution & Tracking -->
+      <div class="feature-category">
+        <div class="feature-category-header">
+          <div class="feature-category-icon green">🔗</div>
+          <h3 class="feature-category-title">Attribution & Tracking</h3>
         </div>
-        <div class="platform-card">
-          <div class="icon">🎯</div>
-          <h3>Performance Verdicts</h3>
-          <p>Every campaign gets a clear verdict: Scale, Watch, Kill, or Learning. No more staring at spreadsheets.</p>
+        <div class="feature-grid">
+          <div class="feature-card highlight">
+            <div class="card-icon">🧬</div>
+            <h3>Dynamic Lateral Attribution</h3>
+            <p>Our proprietary multi-touch attribution system with dynamically weighted touchpoints. The most accurate attribution in our space.</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">📍</div>
+            <h3>First-Party Pixel</h3>
+            <p>Your own KillScale pixel captures conversions directly. No more guessing when Meta's reporting lags or misses events.</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">🌐</div>
+            <h3>DNS-Integrated Tracking</h3>
+            <p>Optional server-side tracking through your own domain. First-party data that survives ad blockers and iOS restrictions.</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">🏪</div>
+            <h3>Kiosk Mode</h3>
+            <p>For local businesses: a walk-in attribution system. Log in-store conversions in real-time and see which ads drove them.</p>
+          </div>
         </div>
-        <div class="platform-card">
-          <div class="icon">⏸️</div>
-          <h3>One-Click Actions</h3>
-          <p>Pause losers, scale winners, adjust budgets. Take action immediately—not after digging through menus.</p>
+      </div>
+
+      <!-- AI & Intelligence -->
+      <div class="feature-category">
+        <div class="feature-category-header">
+          <div class="feature-category-icon purple">🧠</div>
+          <h3 class="feature-category-title">AI & Intelligence</h3>
         </div>
-        <div class="platform-card">
-          <div class="icon">🔔</div>
-          <h3>Smart Alerts</h3>
-          <p>Get notified when campaigns need attention. Spend drops, ROAS changes, or budgets run low.</p>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="card-icon">🔬</div>
+            <h3>Andromeda AI Audit</h3>
+            <p>Automatic analysis of your account structure against Meta's Andromeda ML best practices. Know exactly what to fix.</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">💚</div>
+            <h3>Health Score</h3>
+            <p>A 0-100 score measuring budget efficiency, creative fatigue, profitability, and trend direction. See issues before they cost you.</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">💡</div>
+            <h3>AI Recommendations</h3>
+            <p>Auto-generated optimization suggestions for each campaign. Budget scaling, creative refresh, and audience expansion ideas.</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">😴</div>
+            <h3>Fatigue Detection</h3>
+            <p>Per-ad tracking of ROAS and CTR decline. Know when creatives are wearing out before your ROAS tanks.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analytics & Trends -->
+      <div class="feature-category">
+        <div class="feature-category-header">
+          <div class="feature-category-icon amber">📉</div>
+          <h3 class="feature-category-title">Analytics & Trends</h3>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="card-icon">📊</div>
+            <h3>Trends Dashboard</h3>
+            <p>Time-series charts for spend and revenue. Funnel views from impressions to purchases. Spend vs ROAS rankings.</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">🔍</div>
+            <h3>Hierarchy Navigator</h3>
+            <p>Drill down from campaign to ad set to ad. See performance metrics at every level with a collapsible explorer.</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">📋</div>
+            <h3>Complete Metrics</h3>
+            <p>ROAS, CTR, CPC, CPA, AOV, Conversion Rate—all the metrics you need. Compare periods and track trends.</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">🎛️</div>
+            <h3>Date Range Filtering</h3>
+            <p>Today, last 7 days, last 30 days, custom ranges. Filter everything by the time period that matters.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Automation & Alerts -->
+      <div class="feature-category">
+        <div class="feature-category-header">
+          <div class="feature-category-icon red">🚨</div>
+          <h3 class="feature-category-title">Automation & Alerts</h3>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="card-icon">💸</div>
+            <h3>Money Bleeding Alerts</h3>
+            <p>Get notified when campaigns spend without converting. CBO/ABO aware—alerts fire at the budget control level.</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">📉</div>
+            <h3>Below Breakeven Alerts</h3>
+            <p>Instant notification when ROAS drops below your minimum threshold. Stop wasting money on underperformers.</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">🚀</div>
+            <h3>Scale Candidate Alerts</h3>
+            <p>Know when campaigns hit your scale threshold. Don't miss opportunities to pour fuel on winners.</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">⚙️</div>
+            <h3>Custom Rules</h3>
+            <p>Set your own ROAS thresholds per ad account. Scale ROAS, minimum ROAS, learning spend—your rules, your business.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Management & Control -->
+      <div class="feature-category">
+        <div class="feature-category-header">
+          <div class="feature-category-icon blue">🎮</div>
+          <h3 class="feature-category-title">Management & Control</h3>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="card-icon">💰</div>
+            <h3>Budget Management</h3>
+            <p>Move spend between campaigns instantly. See exactly where every dollar goes and what it brings back.</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">👥</div>
+            <h3>Team Workspaces</h3>
+            <p>Multi-tenant workspaces with roles. Owner, Admin, Member, Viewer—give your team the access they need.</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">🔒</div>
+            <h3>Privacy Mode</h3>
+            <p>Mask sensitive campaign names and numbers. Perfect for demos, screenshots, and sharing without exposing data.</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">📤</div>
+            <h3>CSV Import/Export</h3>
+            <p>Import historical data or export reports. Works with your existing spreadsheets and workflows.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Feature Showcase -->
-  <section class="feature-showcase">
+  <!-- Verdicts Showcase -->
+  <section class="verdicts-showcase">
     <div class="container">
-      <div class="feature-row">
-        <div class="feature-content">
+      <div class="section-header centered">
+        <div class="section-label">The Verdict System</div>
+        <h2>Know exactly what to do with every campaign</h2>
+        <p>Every campaign, ad set, and ad gets categorized based on your custom ROAS thresholds. No analysis paralysis—just clear actions.</p>
+      </div>
+
+      <div class="verdicts-grid">
+        <div class="verdict-card">
+          <div class="verdict-badge scale">Scale</div>
+          <h4>Above your scale threshold</h4>
+          <p>These are your winners. Consider increasing budget to capture more of this profitable traffic.</p>
+        </div>
+        <div class="verdict-card">
+          <div class="verdict-badge watch">Watch</div>
+          <h4>Profitable but not crushing it</h4>
+          <p>Above breakeven but below scale. Monitor for improvement or optimize creative and targeting.</p>
+        </div>
+        <div class="verdict-card">
+          <div class="verdict-badge kill">Kill</div>
+          <h4>Below your minimum ROAS</h4>
+          <p>Losing money. Pause immediately or make significant changes. Don't let it drain your budget.</p>
+        </div>
+        <div class="verdict-card">
+          <div class="verdict-badge learn">Learning</div>
+          <h4>Not enough data yet</h4>
+          <p>Below your learning spend threshold. Let it run before making decisions—Meta's algorithm needs data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deep Dive: Attribution -->
+  <section class="deep-dive">
+    <div class="container">
+      <div class="deep-dive-row">
+        <div class="deep-dive-content">
+          <div class="eyebrow">First-Party Attribution</div>
           <h3>Attribution that actually works</h3>
           <p>Meta's attribution is broken. iOS updates, cookie restrictions, and delayed reporting mean you're flying blind. KillScale gives you first-party tracking that shows you what's really driving revenue.</p>
-          <ul class="feature-list">
-            <li>First-party pixel for accurate tracking</li>
-            <li>Real-time revenue attribution</li>
-            <li>Works across iOS 14+ restrictions</li>
-            <li>Compare Meta's numbers vs. reality</li>
+          <ul class="deep-dive-list">
+            <li>Dynamic lateral attribution with weighted touchpoints</li>
+            <li>First-party pixel for accurate conversion tracking</li>
+            <li>Optional DNS-integrated server-side tracking</li>
+            <li>Works across iOS 14+ privacy restrictions</li>
+            <li>Compare Meta's numbers vs. your actual revenue</li>
           </ul>
         </div>
-        <div class="feature-visual">
+        <div class="deep-dive-visual">
           <div class="mock-ui">
             <div class="mock-header">
               <div class="mock-dot"></div>
@@ -1018,44 +1534,79 @@
               <div class="mock-dot"></div>
             </div>
             <div class="mock-content">
-              <div class="mock-row">
-                <div class="mock-campaign">
-                  <div class="mock-status green"></div>
-                  <div class="mock-name">Summer Sale - TOF</div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border);">
+                <div>
+                  <div style="font-size: 12px; color: var(--text-tertiary); margin-bottom: 4px;">Meta Reported</div>
+                  <div style="font-size: 20px; font-weight: 700;">$12,450</div>
                 </div>
-                <div class="mock-metric positive">4.2x ROAS</div>
+                <div>
+                  <div style="font-size: 12px; color: var(--text-tertiary); margin-bottom: 4px;">KillScale Tracked</div>
+                  <div style="font-size: 20px; font-weight: 700; color: var(--green);">$18,230</div>
+                </div>
               </div>
-              <div class="mock-row">
-                <div class="mock-campaign">
-                  <div class="mock-status blue"></div>
-                  <div class="mock-name">Retargeting - Cart</div>
+              <div style="font-size: 13px; color: var(--text-secondary);">
+                <div style="display: flex; justify-content: space-between; padding: 8px 0;">
+                  <span>First Touch</span><span style="color: var(--text);">32%</span>
                 </div>
-                <div class="mock-metric positive">6.8x ROAS</div>
-              </div>
-              <div class="mock-row">
-                <div class="mock-campaign">
-                  <div class="mock-status yellow"></div>
-                  <div class="mock-name">Brand Awareness</div>
+                <div style="display: flex; justify-content: space-between; padding: 8px 0;">
+                  <span>Last Touch</span><span style="color: var(--text);">45%</span>
                 </div>
-                <div class="mock-metric">1.1x ROAS</div>
+                <div style="display: flex; justify-content: space-between; padding: 8px 0;">
+                  <span>Multi-Touch</span><span style="color: var(--text);">23%</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="feature-row reverse">
-        <div class="feature-content">
-          <h3>Campaign creation in 60 seconds</h3>
-          <p>Ads Manager has 47 steps, 200 options, and endless ways to waste money. KillScale strips it down to what matters: your creative, your budget, and your goal. Launch campaigns that work in under a minute.</p>
-          <ul class="feature-list">
-            <li>Guided campaign builder</li>
-            <li>Smart defaults that actually convert</li>
-            <li>Built for Meta's Advantage+ system</li>
-            <li>No certification required</li>
+      <div class="deep-dive-row reverse">
+        <div class="deep-dive-content">
+          <div class="eyebrow">AI Analysis</div>
+          <h3>Intelligence that helps, not overwhelms</h3>
+          <p>AI-powered insights that tell you what's happening and what to do about it. No black boxes. No "trust the algorithm" hand-waving. Just clear recommendations you can act on or ignore.</p>
+          <ul class="deep-dive-list">
+            <li>Andromeda audit scores your account structure</li>
+            <li>Health scores track creative fatigue and trends</li>
+            <li>Auto-generated optimization recommendations</li>
+            <li>Budget scaling suggestions based on performance</li>
+            <li>Issues rated by severity: Critical, Warning, Passing</li>
           </ul>
         </div>
-        <div class="feature-visual">
+        <div class="deep-dive-visual">
+          <div class="mock-ui">
+            <div class="mock-header">
+              <div class="mock-dot"></div>
+              <div class="mock-dot"></div>
+              <div class="mock-dot"></div>
+            </div>
+            <div class="mock-content" style="text-align: center; padding: 30px 20px;">
+              <div style="font-size: 56px; font-weight: 800; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">87</div>
+              <div style="font-size: 14px; color: var(--green); font-weight: 600; margin-bottom: 16px;">Health Score: Good</div>
+              <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+                <span style="background: var(--green-subtle); color: var(--green); padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;">Budget: Optimal</span>
+                <span style="background: var(--amber-subtle); color: var(--amber); padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;">Creative: Refresh Soon</span>
+                <span style="background: var(--green-subtle); color: var(--green); padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;">Trend: Improving</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="deep-dive-row">
+        <div class="deep-dive-content">
+          <div class="eyebrow">Campaign Creation</div>
+          <h3>Launch campaigns in 60 seconds</h3>
+          <p>Ads Manager has 47 steps, 200 options, and endless ways to waste money. KillScale strips it down to what matters: your creative, your budget, and your goal.</p>
+          <ul class="deep-dive-list">
+            <li>Guided campaign builder with smart defaults</li>
+            <li>Upload creative, set budget, go live</li>
+            <li>Built for Meta's Advantage+ optimization</li>
+            <li>No certification or training required</li>
+            <li>CBO and ABO campaign structures supported</li>
+          </ul>
+        </div>
+        <div class="deep-dive-visual">
           <div class="mock-ui">
             <div class="mock-header">
               <div class="mock-dot"></div>
@@ -1065,37 +1616,8 @@
             <div class="mock-content" style="text-align: center; padding: 40px 20px;">
               <div style="font-size: 48px; margin-bottom: 16px;">⚡</div>
               <div style="font-size: 18px; font-weight: 600; margin-bottom: 8px;">New Campaign</div>
-              <div style="font-size: 14px; color: var(--text-secondary);">Upload creative → Set budget → Go live</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="feature-row">
-        <div class="feature-content">
-          <h3>Know exactly what to do next</h3>
-          <p>Every campaign, ad set, and ad gets a clear verdict based on your ROAS targets. No more guessing. No more analysis paralysis. Just clear actions: scale what works, kill what doesn't.</p>
-          <ul class="feature-list">
-            <li>Custom ROAS thresholds per account</li>
-            <li>Automatic performance categorization</li>
-            <li>Drill down from campaign to ad level</li>
-            <li>Historical performance trends</li>
-          </ul>
-        </div>
-        <div class="feature-visual">
-          <div class="mock-ui">
-            <div class="mock-header">
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-            </div>
-            <div class="mock-content">
-              <div style="display: flex; gap: 12px; justify-content: center; padding: 20px 0;">
-                <div style="background: rgba(34, 197, 94, 0.15); color: #22c55e; padding: 8px 16px; border-radius: 6px; font-weight: 600; font-size: 14px;">Scale</div>
-                <div style="background: rgba(59, 130, 246, 0.15); color: #3b82f6; padding: 8px 16px; border-radius: 6px; font-weight: 600; font-size: 14px;">Watch</div>
-                <div style="background: rgba(239, 68, 68, 0.15); color: #ef4444; padding: 8px 16px; border-radius: 6px; font-weight: 600; font-size: 14px;">Kill</div>
-                <div style="background: rgba(168, 85, 247, 0.15); color: #a855f7; padding: 8px 16px; border-radius: 6px; font-weight: 600; font-size: 14px;">Learning</div>
-              </div>
+              <div style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">Upload creative → Set budget → Go live</div>
+              <div style="display: inline-block; background: var(--accent); color: white; padding: 10px 24px; border-radius: 8px; font-size: 14px; font-weight: 600;">Launch Campaign</div>
             </div>
           </div>
         </div>
@@ -1134,7 +1656,7 @@
             <li>Performance verdicts</li>
             <li>Basic analytics</li>
           </ul>
-          <a href="/signup" class="btn btn-secondary">Start Free</a>
+          <a href="https://app.killscale.com/signup" class="btn btn-secondary">Start Free</a>
         </div>
         <div class="pricing-card">
           <div class="pricing-name">Starter</div>
@@ -1146,7 +1668,7 @@
             <li>Campaign creation</li>
             <li>Custom thresholds</li>
           </ul>
-          <a href="/signup" class="btn btn-secondary">Get Started</a>
+          <a href="https://app.killscale.com/signup" class="btn btn-secondary">Get Started</a>
         </div>
         <div class="pricing-card featured">
           <div class="pricing-badge">Most Popular</div>
@@ -1158,9 +1680,10 @@
             <li class="highlight">Full ad management</li>
             <li>2 ad accounts</li>
             <li>Smart alerts</li>
+            <li>First-party pixel</li>
             <li>Priority support</li>
           </ul>
-          <a href="/signup" class="btn btn-primary">Get Started</a>
+          <a href="https://app.killscale.com/signup" class="btn btn-primary">Get Started</a>
         </div>
         <div class="pricing-card">
           <div class="pricing-name">Agency</div>
@@ -1169,11 +1692,44 @@
           <ul class="pricing-features">
             <li>Everything in Pro</li>
             <li class="highlight">Unlimited ad accounts</li>
-            <li>Team access (coming)</li>
+            <li>Team workspaces</li>
             <li>White-label (coming)</li>
           </ul>
-          <a href="/signup" class="btn btn-secondary">Get Started</a>
+          <a href="https://app.killscale.com/signup" class="btn btn-secondary">Get Started</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Preview -->
+  <section class="blog-preview">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-label">From the Blog</div>
+        <h2>Learn to run better Meta Ads</h2>
+        <p>Practical guides for small business owners. No agency jargon. No fluff.</p>
+      </div>
+
+      <div class="blog-grid">
+        <a href="/blog/scale-watch-kill-framework.html" class="blog-card">
+          <span class="tag">Strategy</span>
+          <h3>The Scale/Watch/Kill Framework: A Simple System for Managing Meta Ads</h3>
+          <p>Stop guessing which campaigns to keep and which to cut. A decision framework that works.</p>
+        </a>
+        <a href="/blog/first-party-attribution-explained.html" class="blog-card">
+          <span class="tag">Attribution</span>
+          <h3>First-Party Attribution Explained: Why Meta's Numbers Don't Add Up</h3>
+          <p>Your ROAS looks different in Meta vs. your bank account. Here's why, and how to fix it.</p>
+        </a>
+        <a href="/blog/why-ads-manager-is-overwhelming.html" class="blog-card">
+          <span class="tag">Getting Started</span>
+          <h3>Why Ads Manager Is Overwhelming (And What to Use Instead)</h3>
+          <p>Ads Manager was built for agencies with 100 clients. You need something simpler.</p>
+        </a>
+      </div>
+
+      <div class="blog-cta">
+        <a href="/blog" class="btn btn-secondary">View All Articles</a>
       </div>
     </div>
   </section>
@@ -1196,12 +1752,20 @@
           <p>Yes. Connect your Meta account and we'll pull in all your existing campaigns. You can manage everything from KillScale or keep using Ads Manager—your choice.</p>
         </div>
         <div class="faq-item">
-          <h4>What's the attribution pixel?</h4>
-          <p>It's a first-party tracking pixel you add to your site. It captures conversions directly, so you get accurate revenue data even when Meta's reporting is delayed or incomplete.</p>
+          <h4>What's the first-party attribution pixel?</h4>
+          <p>It's a tracking pixel you add to your site that captures conversions directly, bypassing Meta's restrictions. You get accurate revenue data even when Meta's reporting is delayed or incomplete.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What is dynamic lateral attribution?</h4>
+          <p>Our proprietary multi-touch attribution system. It dynamically weights touchpoints based on their actual contribution to conversions—not just first or last touch.</p>
         </div>
         <div class="faq-item">
           <h4>Can I cancel anytime?</h4>
           <p>Yes. No contracts, no commitments. Cancel from your account settings and you won't be charged again. Your data stays accessible on the free tier.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Do I need to be technical to use this?</h4>
+          <p>No. If you can upload an image and type a number, you can use KillScale. The pixel setup takes 5 minutes with our copy-paste instructions.</p>
         </div>
       </div>
     </div>
@@ -1212,7 +1776,7 @@
     <div class="container">
       <h2>Ready to take control of your Meta Ads?</h2>
       <p>Join hundreds of businesses running smarter campaigns with less effort.</p>
-      <a href="/signup" class="btn btn-primary btn-large">Start Free — No Credit Card Required</a>
+      <a href="https://app.killscale.com/signup" class="btn btn-primary btn-large">Start Free — No Credit Card Required</a>
     </div>
   </section>
 
@@ -1224,6 +1788,7 @@
         <a href="mailto:support@killscale.com">Support</a>
         <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
+        <a href="/blog">Blog</a>
       </div>
     </div>
   </footer>

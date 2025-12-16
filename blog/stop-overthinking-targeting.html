@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stop Overthinking Targeting: Let the Algorithm Do Its Job | KillScale Blog</title>
+  <meta name="description" content="Detailed audience targeting is mostly dead in 2025. Here's why broad targeting often beats narrow, and how to let Meta's algorithm work for you.">
+
+  <!-- SEO Meta Tags -->
+  <link rel="canonical" href="https://killscale.com/blog/stop-overthinking-targeting.html">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="KillScale">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://killscale.com/blog/stop-overthinking-targeting.html">
+  <meta property="og:title" content="Stop Overthinking Targeting: Let the Algorithm Do Its Job">
+  <meta property="og:description" content="Detailed audience targeting is mostly dead in 2025. Here's why broad targeting often beats narrow.">
+  <meta property="og:image" content="https://killscale.com/og-image.png">
+  <meta property="og:site_name" content="KillScale">
+  <meta property="article:published_time" content="2025-12-16">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stop Overthinking Targeting">
+  <meta name="twitter:description" content="Why broad targeting often beats narrow targeting in Meta Ads.">
+  <meta name="twitter:image" content="https://killscale.com/og-image.png">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Stop Overthinking Targeting: Let the Algorithm Do Its Job","description":"Detailed audience targeting is mostly dead in 2025. Here's why broad targeting often beats narrow.","author":{"@type":"Organization","name":"KillScale"},"publisher":{"@type":"Organization","name":"KillScale"},"datePublished":"2025-12-16","mainEntityOfPage":"https://killscale.com/blog/stop-overthinking-targeting.html"}
+  </script>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #09090b; --bg-elevated: #18181b; --border: #27272a; --border-light: #3f3f46;
+      --accent: #3b82f6; --accent-hover: #60a5fa; --accent-subtle: rgba(59, 130, 246, 0.1);
+      --green: #10b981; --green-subtle: rgba(16, 185, 129, 0.1);
+      --amber: #f59e0b; --amber-subtle: rgba(245, 158, 11, 0.1);
+      --text: #fafafa; --text-secondary: #a1a1aa; --text-tertiary: #71717a;
+    }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 16px 0; position: fixed; top: 0; left: 0; right: 0; background: rgba(9, 9, 11, 0.8); backdrop-filter: blur(20px); z-index: 100; border-bottom: 1px solid var(--border); }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-text { font-weight: 700; font-size: 20px; letter-spacing: -0.5px; color: var(--text); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .btn { display: inline-flex; align-items: center; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; transition: all 0.2s; }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-ghost { background: transparent; color: var(--text-secondary); }
+    .btn-ghost:hover { color: var(--text); background: var(--bg-elevated); }
+    .article-header { padding: 140px 0 60px; border-bottom: 1px solid var(--border); }
+    .article-header .container { max-width: 800px; }
+    .breadcrumb { font-size: 14px; color: var(--text-tertiary); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .tag { display: inline-block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 12px; border-radius: 4px; background: var(--amber-subtle); color: var(--amber); margin-bottom: 16px; }
+    .article-header h1 { font-size: clamp(32px, 5vw, 44px); font-weight: 800; letter-spacing: -1px; line-height: 1.2; margin-bottom: 20px; }
+    .article-meta { font-size: 14px; color: var(--text-secondary); }
+    .article-content { padding: 60px 0; }
+    .article-content .container { max-width: 720px; }
+    .article-content h2 { font-size: 28px; font-weight: 700; margin: 48px 0 20px; letter-spacing: -0.5px; }
+    .article-content h3 { font-size: 22px; font-weight: 600; margin: 36px 0 16px; }
+    .article-content p { font-size: 17px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; }
+    .article-content ul, .article-content ol { margin: 0 0 24px 24px; }
+    .article-content li { font-size: 17px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 12px; }
+    .article-content strong { color: var(--text); font-weight: 600; }
+    .article-content blockquote { border-left: 3px solid var(--accent); padding-left: 24px; margin: 32px 0; font-style: italic; color: var(--text); }
+    .highlight-box { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 32px 0; }
+    .highlight-box h4 { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+    .highlight-box p { margin-bottom: 0; font-size: 15px; }
+    .highlight-box ul { margin-bottom: 0; }
+    .highlight-box li { font-size: 15px; margin-bottom: 8px; }
+    .highlight-box li:last-child { margin-bottom: 0; }
+    .cta-box { background: linear-gradient(to bottom, rgba(59, 130, 246, 0.1), transparent); border: 1px solid var(--accent); border-radius: 16px; padding: 40px; text-align: center; margin: 48px 0; }
+    .cta-box h3 { font-size: 24px; font-weight: 700; margin-bottom: 12px; color: var(--text); }
+    .cta-box p { font-size: 16px; color: var(--text-secondary); margin-bottom: 24px; }
+    footer { padding: 40px 0; border-top: 1px solid var(--border); margin-top: 60px; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-text { font-size: 13px; color: var(--text-tertiary); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 13px; color: var(--text-secondary); text-decoration: none; }
+    .footer-links a:hover { color: var(--text); }
+    @media (max-width: 768px) { .nav-links a:not(.btn) { display: none; } .nav-links { gap: 12px; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="/" class="logo">
+        <svg width="32" height="32" viewBox="0 0 50 50">
+          <rect x="2" y="5" width="46" height="40" rx="8" fill="#18181b" stroke="#27272a" stroke-width="1"/>
+          <path d="M14 16 L14 34 L8 28 M14 34 L20 28" stroke="#ef4444" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M36 34 L36 16 L30 22 M36 16 L42 22" stroke="#22c55e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-text">KillScale</span>
+      </a>
+      <div class="nav-links">
+        <a href="/#features">Features</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/blog">Blog</a>
+        <a href="https://app.killscale.com/login" class="btn btn-ghost">Log in</a>
+        <a href="https://app.killscale.com/signup" class="btn btn-primary">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="article-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/blog">Blog</a> / Budgets</div>
+      <span class="tag">Budgets</span>
+      <h1>Stop Overthinking Targeting: Let the Algorithm Do Its Job</h1>
+      <p class="article-meta">9 min read · Updated December 2025</p>
+    </div>
+  </header>
+
+  <article class="article-content">
+    <div class="container">
+      <p>You're about to launch a campaign. You've got your creative ready. Budget set. And now you're staring at the targeting options, trying to figure out the perfect combination of interests, demographics, and behaviors that will reach your ideal customer.</p>
+
+      <p>Here's the thing: you're probably wasting your time.</p>
+
+      <p>In 2025, detailed targeting is largely obsolete. Not because it doesn't work in theory, but because Meta's algorithm has gotten so good at finding buyers that your manual targeting often makes things worse.</p>
+
+      <p>Let me explain why, and what to do instead.</p>
+
+      <h2>How Targeting Used to Work</h2>
+
+      <p>In the early days of Facebook Ads, targeting was everything. The algorithm was simple—it showed your ads to whoever you told it to target. If you picked the wrong interests, you reached the wrong people. If you picked the right ones, you won.</p>
+
+      <p>This made detailed targeting a genuine skill. Experienced media buyers knew which interests performed, which combinations to stack, which behaviors indicated purchase intent. They built elaborate targeting structures with dozens of ad sets, each reaching a carefully defined slice of the audience.</p>
+
+      <p>It was also a lot of work. And it meant that small businesses without targeting expertise were at a massive disadvantage.</p>
+
+      <h2>What Changed</h2>
+
+      <p>Three things fundamentally shifted how targeting works:</p>
+
+      <h3>1. The algorithm got smarter</h3>
+
+      <p>Meta now has billions of data points on user behavior. They know who buys things, when they buy, what they buy before and after. Their machine learning can identify buyers you'd never think to target.</p>
+
+      <p>When you restrict targeting to "people who like yoga," you're telling the algorithm to ignore everyone else—including the person who's never liked a yoga page but buys yoga products every month. The algorithm knows about that person. You don't.</p>
+
+      <h3>2. Privacy changes limited detailed targeting</h3>
+
+      <p>iOS 14+ made many targeting options less accurate. Interest targeting is based partly on app activity that Apple now blocks. Detailed demographics rely on data that's increasingly unavailable.</p>
+
+      <p>The targeting options still exist in Ads Manager, but their accuracy has degraded. You're targeting a fuzzier version of the audience you think you're reaching.</p>
+
+      <h3>3. Broad targeting + good creative wins</h3>
+
+      <p>Meta's Advantage+ campaigns (formerly known as CBO with broad targeting) consistently outperform detailed targeting in test after test. Studies show broad audiences generate 10-20% better ROAS on average than highly specific ones.</p>
+
+      <p>Why? Because the algorithm optimizes toward conversions, not clicks. It learns who actually buys from you and finds more people like them—something no amount of manual interest stacking can match.</p>
+
+      <h2>The New Reality</h2>
+
+      <p>Here's what successful advertisers have learned:</p>
+
+      <blockquote>"Your creative is your targeting now. The algorithm finds buyers; your creative convinces them to buy."</blockquote>
+
+      <p>Think about what this means:</p>
+
+      <ul>
+        <li>A great ad with broad targeting will beat a mediocre ad with perfect targeting</li>
+        <li>Time spent on targeting is often better spent on creative</li>
+        <li>The algorithm needs room to optimize—narrow targeting limits its options</li>
+      </ul>
+
+      <p>This is actually good news for small businesses. You don't need to become a targeting expert. You don't need to spend hours building complex audience structures. You need good creative and patience for the algorithm to learn.</p>
+
+      <h2>When Targeting Still Matters</h2>
+
+      <p>I'm not saying targeting is completely irrelevant. There are situations where manual targeting still makes sense:</p>
+
+      <div class="highlight-box">
+        <h4>Use detailed targeting when:</h4>
+        <ul>
+          <li><strong>You're local:</strong> Geographic targeting to your service area is essential</li>
+          <li><strong>You're B2B:</strong> Job titles and company targeting can still help reach decision-makers</li>
+          <li><strong>You have a niche product:</strong> If you sell to a specific demographic (e.g., left-handed golfers), some targeting makes sense</li>
+          <li><strong>You're excluding audiences:</strong> Excluding existing customers or irrelevant demographics is still valuable</li>
+          <li><strong>You're retargeting:</strong> Custom audiences based on your own data work well</li>
+        </ul>
+      </div>
+
+      <p>But for most prospecting campaigns? Start broad. Let the algorithm find buyers. Refine based on results, not assumptions.</p>
+
+      <h2>How to Actually Set Up Targeting in 2025</h2>
+
+      <p>Here's what I recommend for most small businesses:</p>
+
+      <h3>For prospecting campaigns:</h3>
+
+      <ol>
+        <li><strong>Location:</strong> Set this to wherever you can ship/serve</li>
+        <li><strong>Age:</strong> Leave broad unless you have clear data that certain ages don't convert</li>
+        <li><strong>Gender:</strong> Leave as "all" unless you sell something genuinely gender-specific</li>
+        <li><strong>Detailed targeting:</strong> Leave empty or use Advantage+ targeting expansion</li>
+        <li><strong>Placements:</strong> Use Advantage+ placements (let Meta decide)</li>
+      </ol>
+
+      <p>That's it. No interest stacking. No behavior layering. Just location and let the algorithm work.</p>
+
+      <h3>For retargeting campaigns:</h3>
+
+      <ol>
+        <li>Create custom audiences from your website visitors, email list, and engagers</li>
+        <li>Use these audiences directly—they're already your warmest prospects</li>
+        <li>Consider excluding recent purchasers to avoid wasted spend</li>
+      </ol>
+
+      <h3>For lookalike campaigns:</h3>
+
+      <ol>
+        <li>Create lookalikes from your best customers (purchasers, high-value buyers)</li>
+        <li>Start with 1-2% lookalikes for tighter match, expand to 3-5% for scale</li>
+        <li>Even here, consider testing broad against lookalikes—broad often wins</li>
+      </ol>
+
+      <h2>What to Focus on Instead</h2>
+
+      <p>If targeting isn't where you should spend your energy, what is?</p>
+
+      <h3>Creative quality</h3>
+
+      <p>Your ad's thumb-stopping power matters more than who sees it. A scroll-stopping image or hook will perform in broad audiences. A boring ad won't perform even with perfect targeting.</p>
+
+      <p>Invest time in:</p>
+      <ul>
+        <li>Strong opening hooks (first 3 seconds of video, first line of copy)</li>
+        <li>Clear value proposition</li>
+        <li>Social proof and credibility</li>
+        <li>Multiple creative variations to test</li>
+      </ul>
+
+      <h3>Offer strength</h3>
+
+      <p>The best targeting can't sell a weak offer. Make sure what you're promoting is genuinely compelling:</p>
+      <ul>
+        <li>Clear benefit to the customer</li>
+        <li>Reason to act now (scarcity, urgency, or just a great deal)</li>
+        <li>Risk reduction (guarantees, reviews, social proof)</li>
+      </ul>
+
+      <h3>Conversion tracking</h3>
+
+      <p>The algorithm optimizes toward what you tell it to optimize for. Make sure your pixel is correctly tracking the actions that matter—especially purchases.</p>
+
+      <p>Broken tracking = broken optimization = wasted budget, regardless of targeting.</p>
+
+      <h2>The Mindset Shift</h2>
+
+      <p>The hardest part of accepting this new reality is letting go of control. It feels irresponsible to not specify who should see your ads. It feels like you're leaving money on the table by not using all those targeting options.</p>
+
+      <p>But control is an illusion. You never really controlled who saw your ads—you just narrowed the pool. Now the algorithm can search a bigger pool more intelligently than you ever could.</p>
+
+      <p>Your job isn't to find buyers. Your job is to convince them. Let Meta handle the finding.</p>
+
+      <h2>The Bottom Line</h2>
+
+      <p>Stop spending hours on targeting. Start with broad, let the algorithm learn, and focus your energy on creative and offers.</p>
+
+      <p>This is actually liberating. You don't need to become a targeting expert. You don't need to stay updated on which interests still work. You just need to make good ads for your products and let Meta's billions of data points find the people most likely to buy.</p>
+
+      <p>The playing field has leveled. Small businesses with great creative now compete effectively against big brands with sophisticated targeting—because targeting sophistication matters less than it used to.</p>
+
+      <p>Use that to your advantage.</p>
+
+      <div class="cta-box">
+        <h3>Focus on what matters</h3>
+        <p>KillScale helps you see which campaigns are actually working—regardless of how they're targeted. Clear verdicts, simple actions, accurate attribution.</p>
+        <a href="https://app.killscale.com/signup" class="btn btn-primary">Start Free — No Credit Card Required</a>
+      </div>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <div class="footer-text">© 2025 KillScale</div>
+      <div class="footer-links">
+        <a href="mailto:support@killscale.com">Support</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/blog">Blog</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

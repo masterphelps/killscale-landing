@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Scale/Watch/Kill Framework: A Simple System for Managing Meta Ads | KillScale Blog</title>
+  <meta name="description" content="Stop guessing which campaigns to keep and which to cut. This decision framework eliminates analysis paralysis and gives you clear actions for every campaign.">
+
+  <!-- SEO Meta Tags -->
+  <link rel="canonical" href="https://killscale.com/blog/scale-watch-kill-framework.html">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="KillScale">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://killscale.com/blog/scale-watch-kill-framework.html">
+  <meta property="og:title" content="The Scale/Watch/Kill Framework: A Simple System for Managing Meta Ads">
+  <meta property="og:description" content="Stop guessing which campaigns to keep and which to cut. This decision framework eliminates analysis paralysis.">
+  <meta property="og:image" content="https://killscale.com/og-image.png">
+  <meta property="og:site_name" content="KillScale">
+  <meta property="article:published_time" content="2025-12-16">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Scale/Watch/Kill Framework">
+  <meta name="twitter:description" content="A simple decision framework for managing Meta Ads campaigns.">
+  <meta name="twitter:image" content="https://killscale.com/og-image.png">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"The Scale/Watch/Kill Framework: A Simple System for Managing Meta Ads","description":"Stop guessing which campaigns to keep and which to cut. This decision framework eliminates analysis paralysis.","author":{"@type":"Organization","name":"KillScale"},"publisher":{"@type":"Organization","name":"KillScale"},"datePublished":"2025-12-16","mainEntityOfPage":"https://killscale.com/blog/scale-watch-kill-framework.html"}
+  </script>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #09090b; --bg-elevated: #18181b; --border: #27272a; --border-light: #3f3f46;
+      --accent: #3b82f6; --accent-hover: #60a5fa; --accent-subtle: rgba(59, 130, 246, 0.1);
+      --green: #10b981; --green-subtle: rgba(16, 185, 129, 0.1);
+      --red: #ef4444; --red-subtle: rgba(239, 68, 68, 0.1);
+      --purple: #a855f7; --purple-subtle: rgba(168, 85, 247, 0.1);
+      --text: #fafafa; --text-secondary: #a1a1aa; --text-tertiary: #71717a;
+    }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 16px 0; position: fixed; top: 0; left: 0; right: 0; background: rgba(9, 9, 11, 0.8); backdrop-filter: blur(20px); z-index: 100; border-bottom: 1px solid var(--border); }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-text { font-weight: 700; font-size: 20px; letter-spacing: -0.5px; color: var(--text); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .btn { display: inline-flex; align-items: center; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; transition: all 0.2s; }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-ghost { background: transparent; color: var(--text-secondary); }
+    .btn-ghost:hover { color: var(--text); background: var(--bg-elevated); }
+    .article-header { padding: 140px 0 60px; border-bottom: 1px solid var(--border); }
+    .article-header .container { max-width: 800px; }
+    .breadcrumb { font-size: 14px; color: var(--text-tertiary); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .tag { display: inline-block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 12px; border-radius: 4px; background: var(--accent-subtle); color: var(--accent); margin-bottom: 16px; }
+    .article-header h1 { font-size: clamp(32px, 5vw, 44px); font-weight: 800; letter-spacing: -1px; line-height: 1.2; margin-bottom: 20px; }
+    .article-meta { font-size: 14px; color: var(--text-secondary); }
+    .article-content { padding: 60px 0; }
+    .article-content .container { max-width: 720px; }
+    .article-content h2 { font-size: 28px; font-weight: 700; margin: 48px 0 20px; letter-spacing: -0.5px; }
+    .article-content h3 { font-size: 22px; font-weight: 600; margin: 36px 0 16px; }
+    .article-content p { font-size: 17px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; }
+    .article-content ul, .article-content ol { margin: 0 0 24px 24px; }
+    .article-content li { font-size: 17px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 12px; }
+    .article-content strong { color: var(--text); font-weight: 600; }
+    .article-content blockquote { border-left: 3px solid var(--accent); padding-left: 24px; margin: 32px 0; font-style: italic; color: var(--text); }
+    .highlight-box { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 32px 0; }
+    .highlight-box h4 { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+    .highlight-box p { margin-bottom: 0; font-size: 15px; }
+    .highlight-box ul { margin-bottom: 0; }
+    .highlight-box li { font-size: 15px; margin-bottom: 8px; }
+    .highlight-box li:last-child { margin-bottom: 0; }
+    .verdict-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 32px 0; }
+    @media (max-width: 600px) { .verdict-grid { grid-template-columns: 1fr; } }
+    .verdict-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .verdict-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .verdict-card p { font-size: 14px; color: var(--text-secondary); margin: 0; }
+    .verdict-badge { display: inline-block; padding: 4px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; }
+    .verdict-badge.scale { background: var(--green-subtle); color: var(--green); }
+    .verdict-badge.watch { background: var(--accent-subtle); color: var(--accent); }
+    .verdict-badge.kill { background: var(--red-subtle); color: var(--red); }
+    .verdict-badge.learn { background: var(--purple-subtle); color: var(--purple); }
+    .cta-box { background: linear-gradient(to bottom, rgba(59, 130, 246, 0.1), transparent); border: 1px solid var(--accent); border-radius: 16px; padding: 40px; text-align: center; margin: 48px 0; }
+    .cta-box h3 { font-size: 24px; font-weight: 700; margin-bottom: 12px; color: var(--text); }
+    .cta-box p { font-size: 16px; color: var(--text-secondary); margin-bottom: 24px; }
+    footer { padding: 40px 0; border-top: 1px solid var(--border); margin-top: 60px; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-text { font-size: 13px; color: var(--text-tertiary); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 13px; color: var(--text-secondary); text-decoration: none; }
+    .footer-links a:hover { color: var(--text); }
+    @media (max-width: 768px) { .nav-links a:not(.btn) { display: none; } .nav-links { gap: 12px; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="/" class="logo">
+        <svg width="32" height="32" viewBox="0 0 50 50">
+          <rect x="2" y="5" width="46" height="40" rx="8" fill="#18181b" stroke="#27272a" stroke-width="1"/>
+          <path d="M14 16 L14 34 L8 28 M14 34 L20 28" stroke="#ef4444" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M36 34 L36 16 L30 22 M36 16 L42 22" stroke="#22c55e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-text">KillScale</span>
+      </a>
+      <div class="nav-links">
+        <a href="/#features">Features</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/blog">Blog</a>
+        <a href="https://app.killscale.com/login" class="btn btn-ghost">Log in</a>
+        <a href="https://app.killscale.com/signup" class="btn btn-primary">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="article-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/blog">Blog</a> / Strategy</div>
+      <span class="tag">Strategy</span>
+      <h1>The Scale/Watch/Kill Framework: A Simple System for Managing Meta Ads</h1>
+      <p class="article-meta">12 min read · Updated December 2025</p>
+    </div>
+  </header>
+
+  <article class="article-content">
+    <div class="container">
+      <p>Every day you check your Meta Ads, you face the same questions: Should I increase budget on this campaign? Should I pause that one? Is this ROAS good enough? Should I wait longer before deciding?</p>
+
+      <p>Most advertisers don't have a system for answering these questions. They rely on gut feel, or they overthink every decision, or they make changes too fast and never let campaigns stabilize.</p>
+
+      <p>The Scale/Watch/Kill framework solves this. It's a simple decision system that categorizes every campaign, ad set, and ad into one of four buckets—each with a clear action attached.</p>
+
+      <p>No more analysis paralysis. No more wondering what to do. Just look at the verdict and act.</p>
+
+      <h2>The Four Verdicts</h2>
+
+      <p>Every piece of your advertising gets one of four verdicts based on your custom thresholds:</p>
+
+      <div class="verdict-grid">
+        <div class="verdict-card">
+          <h4><span class="verdict-badge scale">Scale</span></h4>
+          <p>Above your target ROAS. These are winners. Consider increasing budget to capture more of this profitable traffic.</p>
+        </div>
+        <div class="verdict-card">
+          <h4><span class="verdict-badge watch">Watch</span></h4>
+          <p>Profitable but not crushing it. Above breakeven but below your scale threshold. Monitor for improvement or optimize.</p>
+        </div>
+        <div class="verdict-card">
+          <h4><span class="verdict-badge kill">Kill</span></h4>
+          <p>Below your minimum ROAS. Losing money. Pause immediately or make significant changes before continuing.</p>
+        </div>
+        <div class="verdict-card">
+          <h4><span class="verdict-badge learn">Learning</span></h4>
+          <p>Not enough data yet. Below your minimum spend threshold. Let it run before making decisions.</p>
+        </div>
+      </div>
+
+      <p>That's the entire system. Four categories. Four actions. Everything else is just deciding where to set your thresholds.</p>
+
+      <h2>Setting Your Thresholds</h2>
+
+      <p>The framework only works if your thresholds reflect your actual business. Here's how to set them:</p>
+
+      <h3>Minimum ROAS (the "Kill" line)</h3>
+
+      <p>This is your breakeven point—the ROAS below which you're losing money on ad spend.</p>
+
+      <p>To calculate it:</p>
+      <ol>
+        <li>Take your average order value</li>
+        <li>Subtract your cost of goods and fulfillment</li>
+        <li>What's left is your contribution margin</li>
+        <li>Minimum ROAS = AOV / Contribution Margin</li>
+      </ol>
+
+      <div class="highlight-box">
+        <h4>Example Calculation</h4>
+        <p>Average order: $80</p>
+        <p>Cost of goods + fulfillment: $30</p>
+        <p>Contribution margin: $50</p>
+        <p>Minimum ROAS = $80 / $50 = <strong>1.6x</strong></p>
+        <p style="margin-top: 12px;">Anything below 1.6x ROAS and you're losing money. That's your Kill threshold.</p>
+      </div>
+
+      <h3>Scale ROAS (the "Scale" line)</h3>
+
+      <p>This is the ROAS at which you're happy to invest more. It should be meaningfully above breakeven—high enough that you're confident in the profitability even with some fluctuation.</p>
+
+      <p>Most businesses set this at 1.5-2x their minimum ROAS. If your minimum is 1.6x, your scale threshold might be 2.5x or 3x.</p>
+
+      <p>The exact number depends on your risk tolerance and growth goals. Aggressive growth? Set it closer to minimum. Conservative approach? Set it higher.</p>
+
+      <h3>Learning Spend (the "Learning" threshold)</h3>
+
+      <p>New campaigns and ad sets need data before you can judge them. The Learning threshold defines how much you let them spend before making decisions.</p>
+
+      <p>A good rule of thumb: set learning spend at 2-3x your target CPA. If you're aiming for $20 CPA, set learning threshold at $40-60.</p>
+
+      <p>This gives the algorithm enough data to optimize while limiting downside if the campaign isn't going to work.</p>
+
+      <h2>How to Use the Framework Daily</h2>
+
+      <p>Here's the workflow:</p>
+
+      <h3>Step 1: Check your verdicts</h3>
+
+      <p>Look at each campaign, ad set, and ad. What verdict does it have based on the data so far?</p>
+
+      <h3>Step 2: Take the obvious actions</h3>
+
+      <ul>
+        <li><strong>Kill verdicts:</strong> Pause these immediately. Don't wait to see if they improve.</li>
+        <li><strong>Scale verdicts:</strong> Consider increasing budget by 20-30% if they've been consistently scaling for 3+ days.</li>
+        <li><strong>Learning verdicts:</strong> Leave alone. Let them spend to threshold before judging.</li>
+        <li><strong>Watch verdicts:</strong> Monitor but don't change. These need more time or optimization.</li>
+      </ul>
+
+      <h3>Step 3: Review Watch campaigns</h3>
+
+      <p>Watch is the category that requires thought. These campaigns are making money but not enough to scale aggressively. Your options:</p>
+
+      <ul>
+        <li><strong>Wait:</strong> Sometimes campaigns need time to optimize. Give them another few days.</li>
+        <li><strong>Optimize:</strong> Test new creative, adjust audience, or tweak the offer.</li>
+        <li><strong>Reduce:</strong> Lower budget to minimize exposure while keeping data flowing.</li>
+        <li><strong>Accept:</strong> Some campaigns never become "Scale" candidates. A steady 1.8x ROAS might be fine for brand awareness.</li>
+      </ul>
+
+      <h2>Why This Works Better Than Gut Feel</h2>
+
+      <p>Most advertisers make one of two mistakes:</p>
+
+      <p><strong>Mistake 1: Cutting too fast</strong></p>
+      <p>You see a campaign with 0.8x ROAS after one day and pause it. But it only spent $30. That's not enough data. One purchase would have completely changed the numbers. You killed something that might have worked.</p>
+
+      <p><strong>Mistake 2: Letting losers run too long</strong></p>
+      <p>You see a campaign with 0.8x ROAS after two weeks and $500 in spend. "Maybe it'll turn around." It won't. You just burned $500 learning what should have been obvious after $100.</p>
+
+      <p>The framework prevents both mistakes. Learning threshold stops premature cuts. Kill verdict stops wishful thinking.</p>
+
+      <blockquote>"The best advertisers aren't smarter than everyone else. They just have better systems for making decisions. This framework is one of those systems."</blockquote>
+
+      <h2>Applying It at Every Level</h2>
+
+      <p>The framework works at campaign, ad set, and ad level—but with different implications:</p>
+
+      <h3>At campaign level:</h3>
+      <p>Verdicts tell you about overall campaign health. A Kill verdict here means the entire approach needs rethinking, not just tweaking.</p>
+
+      <h3>At ad set level:</h3>
+      <p>Verdicts tell you about audience and bidding. A Kill verdict might mean this audience doesn't convert, even if other ad sets in the same campaign are working.</p>
+
+      <h3>At ad level:</h3>
+      <p>Verdicts tell you about creative performance. A Kill verdict means this creative isn't resonating—try a different approach.</p>
+
+      <p>The key insight: you can have a Scale campaign with Kill ads inside it, or a Kill campaign with one Scale ad set. Looking at each level separately gives you more actionable information.</p>
+
+      <h2>Common Questions</h2>
+
+      <h3>What if everything is in Learning?</h3>
+
+      <p>You're probably not spending enough or being too patient. Either increase budgets to generate data faster, or accept that decisions will take longer at low spend levels.</p>
+
+      <h3>What if everything is in Watch?</h3>
+
+      <p>Your thresholds might be too aggressive. If 80% of campaigns never reach Scale, either you're running mediocre campaigns or your Scale threshold is unrealistically high. Try lowering it temporarily.</p>
+
+      <h3>Should I ever ignore the verdict?</h3>
+
+      <p>Rarely, but yes. Some situations warrant exceptions:</p>
+      <ul>
+        <li>New product launches might run at lower ROAS intentionally for market testing</li>
+        <li>Brand awareness campaigns might have different success metrics</li>
+        <li>Seasonal businesses might accept lower ROAS during off-peak times</li>
+      </ul>
+
+      <p>But if you're constantly ignoring verdicts, you need different thresholds, not exceptions.</p>
+
+      <h3>How often should I check?</h3>
+
+      <p>Daily check-ins, but don't act every day. The algorithm needs stability. Check daily, act 2-3 times per week unless something is severely underperforming.</p>
+
+      <h2>The Meta-Lesson</h2>
+
+      <p>The real value of this framework isn't the specific verdicts—it's the discipline of having a system.</p>
+
+      <p>When you have clear rules for decisions, you:</p>
+      <ul>
+        <li>Spend less mental energy on each decision</li>
+        <li>Make more consistent choices over time</li>
+        <li>Avoid emotional reactions to daily fluctuations</li>
+        <li>Learn faster because you can evaluate your rules, not just your campaigns</li>
+      </ul>
+
+      <p>The framework gives you that system. Adapt it to your business, set your thresholds, and let the verdicts guide your decisions.</p>
+
+      <p>You'll make fewer mistakes, move faster, and probably sleep better knowing exactly what to do with every campaign.</p>
+
+      <div class="cta-box">
+        <h3>Get automatic verdicts for every campaign</h3>
+        <p>KillScale applies the Scale/Watch/Kill/Learn framework automatically. Set your thresholds once, and see instant verdicts for every campaign, ad set, and ad. No more spreadsheets. No more guessing.</p>
+        <a href="https://app.killscale.com/signup" class="btn btn-primary">Start Free — No Credit Card Required</a>
+      </div>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <div class="footer-text">© 2025 KillScale</div>
+      <div class="footer-links">
+        <a href="mailto:support@killscale.com">Support</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/blog">Blog</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

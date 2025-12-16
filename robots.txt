@@ -1,0 +1,11 @@
+# KillScale Robots.txt
+# https://killscale.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://killscale.com/sitemap.xml
+
+# Crawl-delay (optional, be friendly to crawlers)
+Crawl-delay: 1
