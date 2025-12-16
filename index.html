@@ -574,8 +574,8 @@
       transition: border-color 0.2s, transform 0.2s;
     }
 
-    .feature-card:hover {
-      border-color: var(--border-light);
+    a.feature-card:hover {
+      border-color: var(--accent-hover);
       transform: translateY(-2px);
     }
 
@@ -603,7 +603,9 @@
       line-height: 1.6;
     }
 
-    .feature-card.highlight {
+    a.feature-card {
+      text-decoration: none;
+      color: inherit;
       border-color: var(--accent);
       background: linear-gradient(to bottom, rgba(59, 130, 246, 0.05), transparent);
     }
@@ -778,7 +780,12 @@
       overflow: hidden;
     }
 
-    .pixel-feature-card::before {
+    a.pixel-feature-card {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a.pixel-feature-card::before {
       content: '';
       position: absolute;
       top: 0;
@@ -790,8 +797,13 @@
       transition: opacity 0.2s;
     }
 
-    .pixel-feature-card:hover::before {
+    a.pixel-feature-card:hover::before {
       opacity: 1;
+    }
+
+    a.pixel-feature-card:hover {
+      border-color: var(--accent-hover);
+      transform: translateY(-2px);
     }
 
     .pixel-feature-card .card-number {
@@ -1632,11 +1644,11 @@
           <h3 class="feature-category-title">Core Platform</h3>
         </div>
         <div class="feature-grid">
-          <div class="feature-card highlight">
+          <a href="/blog/scale-watch-kill-framework.html" class="feature-card">
             <div class="card-icon">🎯</div>
             <h3>Performance Verdicts</h3>
             <p>Every campaign, ad set, and ad gets a clear verdict: Scale, Watch, Kill, or Learning. No more staring at spreadsheets wondering what to do.</p>
-          </div>
+          </a>
           <div class="feature-card">
             <div class="card-icon">⚡</div>
             <h3>60-Second Campaigns</h3>
@@ -1662,16 +1674,16 @@
           <h3 class="feature-category-title">Attribution & Tracking</h3>
         </div>
         <div class="feature-grid">
-          <div class="feature-card highlight">
+          <div class="feature-card">
             <div class="card-icon">🧬</div>
             <h3>Dynamic Lateral Attribution</h3>
             <p>Our proprietary multi-touch attribution system with dynamically weighted touchpoints. The most accurate attribution in our space.</p>
           </div>
-          <div class="feature-card">
+          <a href="/blog/first-party-attribution-explained.html" class="feature-card">
             <div class="card-icon">📍</div>
             <h3>First-Party Pixel</h3>
             <p>Your own KillScale pixel captures conversions directly. No more guessing when Meta's reporting lags or misses events.</p>
-          </div>
+          </a>
           <div class="feature-card">
             <div class="card-icon">🌐</div>
             <h3>DNS-Integrated Tracking</h3>
@@ -1702,11 +1714,11 @@
             <h3>Health Score</h3>
             <p>A 0-100 score measuring budget efficiency, creative fatigue, profitability, and trend direction. See issues before they cost you.</p>
           </div>
-          <div class="feature-card">
+          <a href="/blog/ai-powered-not-ai-driven.html" class="feature-card">
             <div class="card-icon">💡</div>
             <h3>AI Recommendations</h3>
             <p>Auto-generated optimization suggestions for each campaign. Budget scaling, creative refresh, and audience expansion ideas.</p>
-          </div>
+          </a>
           <div class="feature-card">
             <div class="card-icon">😴</div>
             <h3>Fatigue Detection</h3>
@@ -1732,11 +1744,11 @@
             <h3>Hierarchy Navigator</h3>
             <p>Drill down from campaign to ad set to ad. See performance metrics at every level with a collapsible explorer.</p>
           </div>
-          <div class="feature-card">
+          <a href="/blog/only-4-metrics-that-matter.html" class="feature-card">
             <div class="card-icon">📋</div>
             <h3>Complete Metrics</h3>
             <p>ROAS, CTR, CPC, CPA, AOV, Conversion Rate—all the metrics you need. Compare periods and track trends.</p>
-          </div>
+          </a>
           <div class="feature-card">
             <div class="card-icon">🎛️</div>
             <h3>Date Range Filtering</h3>
@@ -1767,11 +1779,11 @@
             <h3>Scale Candidate Alerts</h3>
             <p>Know when campaigns hit your scale threshold. Don't miss opportunities to pour fuel on winners.</p>
           </div>
-          <div class="feature-card">
+          <a href="/blog/automation-that-actually-helps.html" class="feature-card">
             <div class="card-icon">⚙️</div>
             <h3>Custom Rules</h3>
             <p>Set your own ROAS thresholds per ad account. Scale ROAS, minimum ROAS, learning spend—your rules, your business.</p>
-          </div>
+          </a>
         </div>
       </div>
 
@@ -1782,11 +1794,11 @@
           <h3 class="feature-category-title">Management & Control</h3>
         </div>
         <div class="feature-grid">
-          <div class="feature-card">
+          <a href="/blog/budget-decisions-made-simple.html" class="feature-card">
             <div class="card-icon">💰</div>
             <h3>Budget Management</h3>
             <p>Move spend between campaigns instantly. See exactly where every dollar goes and what it brings back.</p>
-          </div>
+          </a>
           <div class="feature-card">
             <div class="card-icon">👥</div>
             <h3>Team Workspaces</h3>
@@ -1918,7 +1930,7 @@
         </div>
 
         <!-- Card 6: Why This Matters -->
-        <div class="pixel-feature-card" style="background: linear-gradient(to bottom, rgba(59, 130, 246, 0.08), transparent); border-color: var(--accent);">
+        <a href="/blog/first-party-attribution-explained.html" class="pixel-feature-card" style="background: linear-gradient(to bottom, rgba(59, 130, 246, 0.08), transparent); border-color: var(--accent);">
           <div class="card-number" style="color: var(--accent);">→</div>
           <h3>Why This Matters</h3>
           <p class="card-desc">Most platforms just re-skin Meta's data. We give you an independent source of truth.</p>
@@ -1928,7 +1940,7 @@
             <li>Stop making decisions on broken data</li>
             <li>See your true ROAS, not Meta's guess</li>
           </ul>
-        </div>
+        </a>
       </div>
 
       <div class="pixel-code-block">
