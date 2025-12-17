@@ -479,11 +479,15 @@
 
     .philosophy-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 32px;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1100px) {
+      .philosophy-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
       .philosophy-grid { grid-template-columns: 1fr; }
     }
 
@@ -507,6 +511,81 @@
       font-size: 15px;
       color: var(--text-secondary);
       line-height: 1.7;
+    }
+
+    /* ========== MOBILE DIFFERENTIATOR ========== */
+    .mobile-differentiator {
+      padding: 80px 0;
+      background: linear-gradient(180deg, var(--bg-subtle) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mobile-diff-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .mobile-diff-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--purple-subtle);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 100px;
+      font-size: 13px;
+      color: var(--purple);
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+
+    .mobile-diff-content h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+      line-height: 1.2;
+    }
+
+    .mobile-diff-content p {
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .mobile-features-row {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .mobile-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      color: var(--text);
+    }
+
+    .mobile-feature-item .check {
+      width: 24px;
+      height: 24px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .mobile-feature-item .check svg {
+      width: 14px;
+      height: 14px;
+      stroke: white;
+      stroke-width: 3;
     }
 
     /* ========== FEATURE CARDS ========== */
@@ -1622,6 +1701,59 @@
           <h3>Small business first</h3>
           <p>Made by a small business owner who got tired of paying agency prices for basic functionality. You get the same tools the big players use, at a price that makes sense.</p>
         </div>
+        <div class="philosophy-card">
+          <div class="icon">📱</div>
+          <h3>Works on mobile. Actually.</h3>
+          <p>Create campaigns, check performance, pause losers—all from your phone. Not a stripped-down companion app. The real thing, in your pocket.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile Differentiator -->
+  <section class="mobile-differentiator">
+    <div class="container">
+      <div class="mobile-diff-content">
+        <div class="mobile-diff-badge">
+          <span>📱</span>
+          <span>Industry First</span>
+        </div>
+        <h2>The only Meta Ads platform that actually works on mobile</h2>
+        <p>Every other platform is desktop-only. Meta's own app is a nightmare. KillScale is the only tool where you can create, manage, and optimize Meta ads entirely from your phone.</p>
+        <div class="mobile-features-row">
+          <div class="mobile-feature-item">
+            <div class="check">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span>Create campaigns</span>
+          </div>
+          <div class="mobile-feature-item">
+            <div class="check">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span>Check performance</span>
+          </div>
+          <div class="mobile-feature-item">
+            <div class="check">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span>Pause losers</span>
+          </div>
+          <div class="mobile-feature-item">
+            <div class="check">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span>Scale winners</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1650,7 +1782,7 @@
           <div class="feature-card">
             <div class="card-icon">⚡</div>
             <h3>60-Second Campaigns</h3>
-            <p>Launch new ads in under a minute. Upload creative, set budget, go live. No 47-step flows or certification required.</p>
+            <p>Launch new ads in under a minute—from your laptop or your phone. Upload creative, set budget, go live. No 47-step flows required.</p>
           </div>
           <div class="feature-card">
             <div class="card-icon">📈</div>
