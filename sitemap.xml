@@ -18,6 +18,27 @@
     <priority>0.9</priority>
   </url>
 
+  <url>
+    <loc>https://killscale.com/services.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://killscale.com/privacy.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://killscale.com/terms.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
   <!-- Blog Articles - Strategy -->
   <url>
     <loc>https://killscale.com/blog/diy-vs-agency-meta-ads.html</loc>
