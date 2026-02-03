@@ -549,6 +549,173 @@
       margin-top: 4px;
     }
 
+    /* ========== HORIZONTAL WALKTHROUGH ========== */
+    .walkthrough {
+      padding: 60px 0 0;
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    .walkthrough-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 32px;
+      padding: 0 24px;
+    }
+
+    .walkthrough-header .eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 16px;
+    }
+
+    .walkthrough-header h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 42px;
+      color: var(--text);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .walkthrough-header p {
+      color: var(--text-secondary);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .walkthrough-container {
+      position: relative;
+      width: 100%;
+    }
+
+    .walkthrough-track {
+      display: flex;
+      gap: 0;
+      will-change: transform;
+    }
+
+    .walkthrough-step {
+      flex-shrink: 0;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+    }
+
+    .walkthrough-step-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    .walkthrough-step-text {
+      padding-right: 20px;
+    }
+
+    .walkthrough-step-number {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .walkthrough-step-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 32px;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .walkthrough-step-desc {
+      color: var(--text-secondary);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .walkthrough-step-image {
+      position: relative;
+    }
+
+    .walkthrough-step-image img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.10), 0 2px 12px rgba(0,0,0,0.06);
+      border: 1px solid var(--border);
+    }
+
+    .walkthrough-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 24px 0 60px;
+    }
+
+    .walkthrough-arrow {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      color: var(--text);
+    }
+
+    .walkthrough-arrow:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+
+    .walkthrough-arrow:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .walkthrough-arrow:disabled:hover {
+      background: var(--bg-white);
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .walkthrough-arrow svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .walkthrough-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .walkthrough-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .walkthrough-dot.active {
+      background: var(--accent);
+      transform: scale(1.2);
+    }
+
     /* ========== FEATURE SECTIONS (Alternating) ========== */
     .feature-section {
       padding: 120px 0;
@@ -1108,6 +1275,46 @@
         font-size: 26px;
       }
 
+      /* Walkthrough mobile */
+      .walkthrough {
+        padding: 60px 0 0;
+      }
+
+      .walkthrough-header h2 {
+        font-size: 28px;
+      }
+
+      .walkthrough-header p {
+        font-size: 16px;
+      }
+
+      .walkthrough-step-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        text-align: center;
+      }
+
+      .walkthrough-step-text {
+        padding-right: 0;
+        order: 1;
+      }
+
+      .walkthrough-step-image {
+        order: 2;
+      }
+
+      .walkthrough-step-title {
+        font-size: 24px;
+      }
+
+      .walkthrough-step-desc {
+        font-size: 15px;
+      }
+
+      .walkthrough-progress {
+        padding: 30px 0 40px;
+      }
+
       .metrics-bar {
         padding: 56px 0;
       }
@@ -1237,8 +1444,8 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-eyebrow gsap-hero-eyebrow">The Meta Ads Platform for Growing Businesses</div>
-        <h1 class="gsap-hero-h1">Make and Scale Ads<br>Like a Pro</h1>
+        <div class="hero-eyebrow gsap-hero-eyebrow">Welcome To Your New Home for Digital Marketing</div>
+        <h1 class="gsap-hero-h1">Make Ads Like a Pro<br>Scale Them Like a Boss</h1>
         <p class="hero-hook gsap-hero-subtitle">Hook &mdash; Hold &mdash; Click &mdash; Convert</p>
         <p class="hero-subtitle gsap-hero-subtitle">
           Understand how your ad account works like never before
@@ -1299,8 +1506,122 @@
     </div>
   </section>
 
+  <!-- Walkthrough: Create Ads -->
+  <section class="walkthrough" id="features">
+    <div class="walkthrough-header">
+      <div class="eyebrow">Campaign Launcher</div>
+      <h2>Launch pre-optimized ads in less than 60 seconds</h2>
+      <p>Our guided flow handles the complexity so you can focus on creative. No more fumbling through Ads Manager.</p>
+    </div>
+    <div class="walkthrough-container">
+      <div class="walkthrough-track" id="walkthroughTrack">
+        <div class="walkthrough-step">
+          <div class="walkthrough-step-inner">
+            <div class="walkthrough-step-text">
+              <div class="walkthrough-step-number">Step 1</div>
+              <div class="walkthrough-step-title">Launch campaigns in less than 60 seconds</div>
+              <div class="walkthrough-step-desc">Start a new campaign with one click. Our launcher guides you through every step with smart defaults.</div>
+            </div>
+            <div class="walkthrough-step-image">
+              <img src="images/walkthrough-1.png" alt="Campaign Launcher - Start">
+            </div>
+          </div>
+        </div>
+        <div class="walkthrough-step">
+          <div class="walkthrough-step-inner">
+            <div class="walkthrough-step-text">
+              <div class="walkthrough-step-number">Step 2</div>
+              <div class="walkthrough-step-title">Select how to manage your budget</div>
+              <div class="walkthrough-step-desc">Choose between Campaign Budget Optimization (CBO) or Ad Set Budget Optimization (ABO) with clear explanations of each.</div>
+            </div>
+            <div class="walkthrough-step-image">
+              <img src="images/walkthrough-2.png" alt="Budget Selection">
+            </div>
+          </div>
+        </div>
+        <div class="walkthrough-step">
+          <div class="walkthrough-step-inner">
+            <div class="walkthrough-step-text">
+              <div class="walkthrough-step-number">Step 3</div>
+              <div class="walkthrough-step-title">Add campaign details</div>
+              <div class="walkthrough-step-desc">Name your campaign, set your budget, and define your schedule. Everything in one clean view.</div>
+            </div>
+            <div class="walkthrough-step-image">
+              <img src="images/walkthrough-3.png" alt="Campaign Details">
+            </div>
+          </div>
+        </div>
+        <div class="walkthrough-step">
+          <div class="walkthrough-step-inner">
+            <div class="walkthrough-step-text">
+              <div class="walkthrough-step-number">Step 4</div>
+              <div class="walkthrough-step-title">Pre-built templates for targeting</div>
+              <div class="walkthrough-step-desc">Skip the targeting guesswork. Choose from templates optimized for different campaign types and objectives.</div>
+            </div>
+            <div class="walkthrough-step-image">
+              <img src="images/walkthrough-4.png" alt="Targeting Templates">
+            </div>
+          </div>
+        </div>
+        <div class="walkthrough-step">
+          <div class="walkthrough-step-inner">
+            <div class="walkthrough-step-text">
+              <div class="walkthrough-step-number">Step 5</div>
+              <div class="walkthrough-step-title">Media-first creative studio</div>
+              <div class="walkthrough-step-desc">Select or upload your media with built-in ad and placement previews. See exactly how your ads will look before they go live.</div>
+            </div>
+            <div class="walkthrough-step-image">
+              <img src="images/walkthrough-5.png" alt="Creative Studio">
+            </div>
+          </div>
+        </div>
+        <div class="walkthrough-step">
+          <div class="walkthrough-step-inner">
+            <div class="walkthrough-step-text">
+              <div class="walkthrough-step-number">Step 6</div>
+              <div class="walkthrough-step-title">Ad copy and UTM tracking</div>
+              <div class="walkthrough-step-desc">Create or select your ad copy. Add optional UTM tags for more accurate attribution and tracking across your stack.</div>
+            </div>
+            <div class="walkthrough-step-image">
+              <img src="images/walkthrough-6.png" alt="Ad Copy and UTMs">
+            </div>
+          </div>
+        </div>
+        <div class="walkthrough-step">
+          <div class="walkthrough-step-inner">
+            <div class="walkthrough-step-text">
+              <div class="walkthrough-step-number">Step 7</div>
+              <div class="walkthrough-step-title">Deploy your optimized ads</div>
+              <div class="walkthrough-step-desc">Review everything and launch. Your pre-optimized campaign is live on Meta in seconds, not hours.</div>
+            </div>
+            <div class="walkthrough-step-image">
+              <img src="images/walkthrough-7.png" alt="Deploy to Meta">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="walkthrough-controls">
+      <button class="walkthrough-arrow" id="walkthroughPrev" aria-label="Previous step">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="walkthrough-dots" id="walkthroughDots">
+        <div class="walkthrough-dot active" data-step="0"></div>
+        <div class="walkthrough-dot" data-step="1"></div>
+        <div class="walkthrough-dot" data-step="2"></div>
+        <div class="walkthrough-dot" data-step="3"></div>
+        <div class="walkthrough-dot" data-step="4"></div>
+        <div class="walkthrough-dot" data-step="5"></div>
+        <div class="walkthrough-dot" data-step="6"></div>
+      </div>
+      <button class="walkthrough-arrow" id="walkthroughNext" aria-label="Next step">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+  </section>
+
   <!-- Feature A: Creative Intelligence -->
-  <section class="feature-section" id="features">
+  <section class="feature-section">
     <div class="container">
       <div class="feature-row">
         <div class="feature-text gsap-feature-text">
@@ -1663,6 +1984,55 @@
       .fromTo('.gsap-hero-cta', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, 0.8)
       .fromTo('.gsap-hero-note', { opacity: 0 }, { opacity: 1, duration: 0.4 }, 1.0)
       .fromTo('.gsap-hero-visual', { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 1.0 }, 1.0);
+
+    // ========== MANUAL WALKTHROUGH CAROUSEL ==========
+    const walkthroughTrack = document.getElementById('walkthroughTrack');
+    const walkthroughSteps = document.querySelectorAll('.walkthrough-step');
+    const walkthroughDots = document.querySelectorAll('.walkthrough-dot');
+    const prevBtn = document.getElementById('walkthroughPrev');
+    const nextBtn = document.getElementById('walkthroughNext');
+    const stepCount = walkthroughSteps.length;
+    let currentStep = 0;
+
+    function goToStep(index) {
+      // Wrap around
+      if (index < 0) index = stepCount - 1;
+      if (index >= stepCount) index = 0;
+      currentStep = index;
+
+      // Animate track
+      gsap.to(walkthroughTrack, {
+        xPercent: -index * 100,
+        duration: 0.5,
+        ease: 'power2.inOut'
+      });
+
+      // Update dots
+      walkthroughDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    if (walkthroughTrack && stepCount > 0) {
+      // Arrow clicks
+      prevBtn.addEventListener('click', () => goToStep(currentStep - 1));
+      nextBtn.addEventListener('click', () => goToStep(currentStep + 1));
+
+      // Dot clicks
+      walkthroughDots.forEach((dot, i) => {
+        dot.addEventListener('click', () => goToStep(i));
+      });
+
+      // Keyboard navigation when section is in view
+      document.addEventListener('keydown', (e) => {
+        const rect = document.querySelector('.walkthrough').getBoundingClientRect();
+        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+        if (!inView) return;
+
+        if (e.key === 'ArrowLeft') goToStep(currentStep - 1);
+        if (e.key === 'ArrowRight') goToStep(currentStep + 1);
+      });
+    }
 
     // ========== DESKTOP-ONLY ANIMATIONS ==========
     ScrollTrigger.matchMedia({
