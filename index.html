@@ -506,6 +506,7 @@
     .screenshot-showcase {
       padding: 40px 0 0;
       background: #E2DCF0;
+      overflow: hidden;
     }
 
     /* ========== METRICS BAR ========== */
@@ -1032,32 +1033,83 @@
       }
 
       .hero {
-        padding: 130px 0 60px;
+        padding: 120px 0 48px;
       }
 
       .hero h1 {
-        font-size: clamp(32px, 8vw, 48px);
+        font-size: clamp(30px, 8vw, 44px);
+      }
+
+      .hero-hook {
+        font-size: 16px;
+        letter-spacing: 2px;
       }
 
       .hero-subtitle {
-        font-size: 16px;
+        font-size: 15px;
+        margin-bottom: 28px;
+      }
+
+      /* Mobile collage: show only 3 center cards, scale down */
+      .screenshot-showcase {
+        overflow: hidden;
+      }
+
+      .hero-collage-wrapper {
+        margin-top: 40px;
       }
 
       .hero-collage {
-        height: 300px;
+        height: 220px;
+        perspective: 800px;
+        max-width: 100%;
       }
 
       .collage-card {
-        width: 200px !important;
-        height: 140px !important;
+        width: 55% !important;
+        height: 160px !important;
+      }
+
+      .collage-card--center {
+        width: 60% !important;
+        height: 170px !important;
+        margin-left: -30% !important;
+        transform: rotateY(0deg) translateZ(20px);
+      }
+
+      .collage-card--left {
+        margin-left: -70% !important;
+        transform: rotateY(25deg) translateZ(-10px);
+      }
+
+      .collage-card--right {
+        margin-left: 10% !important;
+        transform: rotateY(-25deg) translateZ(-10px);
+      }
+
+      .collage-card--far-left,
+      .collage-card--far-right {
+        display: none;
       }
 
       .hero-scroll-spacer {
         height: 40vh;
       }
 
+      .screenshot-showcase {
+        padding: 40px 0 60px;
+      }
+
       .feature-section {
-        padding: 80px 0;
+        padding: 72px 0;
+      }
+
+      .feature-text h2 {
+        font-size: 26px;
+      }
+
+      .metrics-bar {
+        padding: 56px 0;
       }
 
       .metrics-row {
@@ -1065,11 +1117,19 @@
       }
 
       .metric-value {
-        font-size: 36px;
+        font-size: 32px;
+      }
+
+      .verdicts-section {
+        padding: 80px 0;
       }
 
       .verdicts-grid {
         grid-template-columns: 1fr;
+      }
+
+      .section-header h2 {
+        font-size: 26px;
       }
 
       .feature-image .inset-img {
@@ -1079,9 +1139,34 @@
         width: 60%;
         margin-top: 16px;
       }
+
+      .pricing {
+        padding: 80px 0;
+      }
+
+      .faq {
+        padding: 80px 0;
+      }
+
+      .final-cta {
+        padding: 80px 0;
+      }
+
+      .final-cta h2 {
+        font-size: 26px;
+      }
     }
 
     @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero-hook {
+        font-size: 14px;
+        letter-spacing: 1.5px;
+      }
+
       .hero-cta {
         flex-direction: column;
         align-items: center;
@@ -1090,6 +1175,28 @@
       .hero-cta .btn {
         width: 100%;
         max-width: 280px;
+      }
+
+      .collage-card--center {
+        width: 70% !important;
+        height: 150px !important;
+        margin-left: -35% !important;
+      }
+
+      .collage-card--left {
+        width: 50% !important;
+        height: 130px !important;
+        margin-left: -65% !important;
+      }
+
+      .collage-card--right {
+        width: 50% !important;
+        height: 130px !important;
+        margin-left: 15% !important;
+      }
+
+      .hero-collage {
+        height: 180px;
       }
     }
   </style>
@@ -1547,9 +1654,7 @@
     // ========== GSAP ANIMATIONS ==========
     gsap.registerPlugin(ScrollTrigger);
 
-    // ========== HERO COLLAGE ==========
-
-    // Hero text entrance (on load)
+    // ========== HERO ENTRANCE (all screen sizes) ==========
     const heroTl = gsap.timeline({ defaults: { ease: 'power2.out' } });
 
     heroTl
@@ -1560,175 +1665,212 @@
       .fromTo('.gsap-hero-note', { opacity: 0 }, { opacity: 1, duration: 0.4 }, 1.0)
       .fromTo('.gsap-hero-visual', { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 1.0 }, 1.0);
 
-    // Pinned scroll: wall flattens and cards spread apart
-    const disperseTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.hero-collage-wrapper',
-        start: 'top 20%',
-        end: '+=80%',
-        scrub: 0.6,
-        pin: true,
-        pinSpacing: false,
-        onLeave: () => ScrollTrigger.refresh(),
-      }
-    });
-
-    disperseTl
-      .to('.collage-card--center', {
-        rotateY: 0, y: -100, scale: 0.8, opacity: 0, translateZ: 0,
-        duration: 1, ease: 'power2.in'
-      }, 0)
-      .to('.collage-card--left', {
-        rotateY: 0, x: -300, y: -50, scale: 0.7, opacity: 0, translateZ: 0,
-        duration: 1, ease: 'power2.in'
-      }, 0)
-      .to('.collage-card--right', {
-        rotateY: 0, x: 300, y: -50, scale: 0.7, opacity: 0, translateZ: 0,
-        duration: 1, ease: 'power2.in'
-      }, 0)
-      .to('.collage-card--far-left', {
-        rotateY: 0, x: -400, y: 0, scale: 0.6, opacity: 0, translateZ: 0,
-        duration: 1, ease: 'power2.in'
-      }, 0.05)
-      .to('.collage-card--far-right', {
-        rotateY: 0, x: 400, y: 0, scale: 0.6, opacity: 0, translateZ: 0,
-        duration: 1, ease: 'power2.in'
-      }, 0.05);
-
-    // Metrics stagger
-    gsap.from('.gsap-metric', {
-      scrollTrigger: {
-        trigger: '.metrics-bar',
-        start: 'top 80%',
-        once: true
-      },
-      opacity: 0,
-      y: 30,
-      stagger: 0.15,
-      duration: 0.7,
-      ease: 'power2.out'
-    });
-
-    // Feature sections — detect direction from layout
-    // Use fromTo to guarantee end state, avoiding pin offset issues
-    document.querySelectorAll('.feature-section').forEach(section => {
-      const row = section.querySelector('.feature-row');
-      const isReverse = row && row.classList.contains('reverse');
-      const textEl = section.querySelector('.gsap-feature-text');
-      const imgEl = section.querySelector('.gsap-feature-image');
-
-      if (textEl) {
-        gsap.fromTo(textEl,
-          { opacity: 0, x: isReverse ? 40 : -40 },
-          {
-            scrollTrigger: {
-              trigger: section,
-              start: 'top 85%',
-              once: true,
-              invalidateOnRefresh: true
-            },
-            opacity: 1,
-            x: 0,
-            duration: 0.8,
-            ease: 'power2.out'
+    // ========== DESKTOP-ONLY ANIMATIONS ==========
+    ScrollTrigger.matchMedia({
+      '(min-width: 769px)': function() {
+        // Pinned scroll: wall flattens and cards spread apart
+        const disperseTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.hero-collage-wrapper',
+            start: 'top 20%',
+            end: '+=80%',
+            scrub: 0.6,
+            pin: true,
+            pinSpacing: false,
+            onLeave: () => ScrollTrigger.refresh(),
           }
-        );
+        });
 
-        // Stagger list items
-        const items = textEl.querySelectorAll('.feature-list li');
-        if (items.length) {
-          gsap.fromTo(items,
-            { opacity: 0, y: 15 },
+        disperseTl
+          .to('.collage-card--center', {
+            rotateY: 0, y: -100, scale: 0.8, opacity: 0, translateZ: 0,
+            duration: 1, ease: 'power2.in'
+          }, 0)
+          .to('.collage-card--left', {
+            rotateY: 0, x: -300, y: -50, scale: 0.7, opacity: 0, translateZ: 0,
+            duration: 1, ease: 'power2.in'
+          }, 0)
+          .to('.collage-card--right', {
+            rotateY: 0, x: 300, y: -50, scale: 0.7, opacity: 0, translateZ: 0,
+            duration: 1, ease: 'power2.in'
+          }, 0)
+          .to('.collage-card--far-left', {
+            rotateY: 0, x: -400, y: 0, scale: 0.6, opacity: 0, translateZ: 0,
+            duration: 1, ease: 'power2.in'
+          }, 0.05)
+          .to('.collage-card--far-right', {
+            rotateY: 0, x: 400, y: 0, scale: 0.6, opacity: 0, translateZ: 0,
+            duration: 1, ease: 'power2.in'
+          }, 0.05);
+
+        // Metrics stagger
+        gsap.from('.gsap-metric', {
+          scrollTrigger: {
+            trigger: '.metrics-bar',
+            start: 'top 80%',
+            once: true
+          },
+          opacity: 0,
+          y: 30,
+          stagger: 0.15,
+          duration: 0.7,
+          ease: 'power2.out'
+        });
+
+        // Feature sections — detect direction from layout
+        document.querySelectorAll('.feature-section').forEach(section => {
+          const row = section.querySelector('.feature-row');
+          const isReverse = row && row.classList.contains('reverse');
+          const textEl = section.querySelector('.gsap-feature-text');
+          const imgEl = section.querySelector('.gsap-feature-image');
+
+          if (textEl) {
+            gsap.fromTo(textEl,
+              { opacity: 0, x: isReverse ? 40 : -40 },
+              {
+                scrollTrigger: {
+                  trigger: section,
+                  start: 'top 85%',
+                  once: true,
+                  invalidateOnRefresh: true
+                },
+                opacity: 1,
+                x: 0,
+                duration: 0.8,
+                ease: 'power2.out'
+              }
+            );
+
+            const items = textEl.querySelectorAll('.feature-list li');
+            if (items.length) {
+              gsap.fromTo(items,
+                { opacity: 0, y: 15 },
+                {
+                  scrollTrigger: {
+                    trigger: section,
+                    start: 'top 80%',
+                    once: true,
+                    invalidateOnRefresh: true
+                  },
+                  opacity: 1,
+                  y: 0,
+                  stagger: 0.1,
+                  duration: 0.5,
+                  ease: 'power2.out',
+                  delay: 0.3
+                }
+              );
+            }
+          }
+
+          if (imgEl) {
+            gsap.fromTo(imgEl,
+              { opacity: 0, x: isReverse ? -40 : 40, scale: 0.97 },
+              {
+                scrollTrigger: {
+                  trigger: section,
+                  start: 'top 85%',
+                  once: true,
+                  invalidateOnRefresh: true
+                },
+                opacity: 1,
+                x: 0,
+                scale: 1,
+                duration: 0.8,
+                ease: 'power2.out'
+              }
+            );
+          }
+        });
+
+        // Verdict cards stagger
+        gsap.from('.gsap-verdict-card', {
+          scrollTrigger: {
+            trigger: '.verdicts-section',
+            start: 'top 80%',
+            once: true
+          },
+          opacity: 0,
+          y: 30,
+          stagger: 0.15,
+          duration: 0.7,
+          ease: 'back.out(1.2)'
+        });
+
+        // Pricing cards stagger
+        gsap.from('.gsap-pricing-card', {
+          scrollTrigger: {
+            trigger: '.pricing',
+            start: 'top 80%',
+            once: true
+          },
+          opacity: 0,
+          y: 30,
+          stagger: 0.15,
+          duration: 0.7,
+          ease: 'back.out(1.2)'
+        });
+
+        // FAQ items stagger
+        gsap.from('.gsap-faq-item', {
+          scrollTrigger: {
+            trigger: '.faq',
+            start: 'top 80%',
+            once: true
+          },
+          opacity: 0,
+          y: 20,
+          stagger: 0.1,
+          duration: 0.6,
+          ease: 'power2.out'
+        });
+      },
+
+      // ========== MOBILE: scaled disperse + simpler section animations ==========
+      '(max-width: 768px)': function() {
+        // Mobile disperse: 3 visible cards, smaller movements
+        const mobileDisperse = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.hero-collage-wrapper',
+            start: 'top 30%',
+            end: '+=60%',
+            scrub: 0.5,
+            pin: true,
+            pinSpacing: false,
+            onLeave: () => ScrollTrigger.refresh(),
+          }
+        });
+
+        mobileDisperse
+          .to('.collage-card--center', {
+            rotateY: 0, y: -60, scale: 0.75, opacity: 0, translateZ: 0,
+            duration: 1, ease: 'power2.in'
+          }, 0)
+          .to('.collage-card--left', {
+            rotateY: 0, x: -80, y: -40, scale: 0.65, opacity: 0, translateZ: 0,
+            duration: 1, ease: 'power2.in'
+          }, 0)
+          .to('.collage-card--right', {
+            rotateY: 0, x: 80, y: -40, scale: 0.65, opacity: 0, translateZ: 0,
+            duration: 1, ease: 'power2.in'
+          }, 0);
+
+        // Simple fade-up for other sections on mobile
+        gsap.utils.toArray('.gsap-feature-text, .gsap-feature-image, .gsap-verdict-card, .gsap-pricing-card, .gsap-faq-item, .gsap-metric').forEach(el => {
+          gsap.fromTo(el,
+            { opacity: 0, y: 25 },
             {
               scrollTrigger: {
-                trigger: section,
-                start: 'top 80%',
-                once: true,
-                invalidateOnRefresh: true
+                trigger: el,
+                start: 'top 90%',
+                once: true
               },
               opacity: 1,
               y: 0,
-              stagger: 0.1,
-              duration: 0.5,
-              ease: 'power2.out',
-              delay: 0.3
+              duration: 0.6,
+              ease: 'power2.out'
             }
           );
-        }
-      }
-
-      if (imgEl) {
-        gsap.fromTo(imgEl,
-          { opacity: 0, x: isReverse ? -40 : 40, scale: 0.97 },
-          {
-            scrollTrigger: {
-              trigger: section,
-              start: 'top 85%',
-              once: true,
-              invalidateOnRefresh: true
-            },
-            opacity: 1,
-            x: 0,
-            scale: 1,
-            duration: 0.8,
-            ease: 'power2.out'
-          }
-        );
-      }
-    });
-
-    // Verdict cards stagger
-    gsap.from('.gsap-verdict-card', {
-      scrollTrigger: {
-        trigger: '.verdicts-section',
-        start: 'top 80%',
-        once: true
-      },
-      opacity: 0,
-      y: 30,
-      stagger: 0.15,
-      duration: 0.7,
-      ease: 'back.out(1.2)'
-    });
-
-    // Pricing cards stagger
-    gsap.from('.gsap-pricing-card', {
-      scrollTrigger: {
-        trigger: '.pricing',
-        start: 'top 80%',
-        once: true
-      },
-      opacity: 0,
-      y: 30,
-      stagger: 0.15,
-      duration: 0.7,
-      ease: 'back.out(1.2)'
-    });
-
-    // FAQ items stagger
-    gsap.from('.gsap-faq-item', {
-      scrollTrigger: {
-        trigger: '.faq',
-        start: 'top 80%',
-        once: true
-      },
-      opacity: 0,
-      y: 20,
-      stagger: 0.1,
-      duration: 0.6,
-      ease: 'power2.out'
-    });
-
-    // Mobile: disable complex animations
-    ScrollTrigger.matchMedia({
-      '(max-width: 768px)': function() {
-        ScrollTrigger.getAll().forEach(st => st.kill());
-        gsap.set('.gsap-feature-text, .gsap-feature-image, .gsap-verdict-card, .gsap-pricing-card, .gsap-faq-item, .gsap-metric', {
-          opacity: 1, x: 0, y: 0, scale: 1
-        });
-        // Reset collage cards to stacked (no fan, no disperse)
-        gsap.set('.collage-card', {
-          rotation: 0, x: 0, y: 0, scale: 1, opacity: 1
         });
       }
     });
