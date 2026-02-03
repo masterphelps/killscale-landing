@@ -725,6 +725,36 @@
       object-fit: contain;
     }
 
+    /* Scale step 1 - main image with overlay */
+    .scale-step-1-images {
+      position: relative;
+    }
+
+    .scale-step-1-images .scale-main-img {
+      max-height: 380px;
+    }
+
+    .scale-step-1-images .scale-overlay-img {
+      position: absolute;
+      bottom: -20px;
+      right: -30px;
+      max-height: 140px;
+      border-radius: 12px;
+      box-shadow:
+        0 0 30px rgba(124, 58, 237, 0.3),
+        0 0 60px rgba(124, 58, 237, 0.2),
+        0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Insights walkthrough - smaller images */
+    .walkthrough-insights .walkthrough-step-image img {
+      max-height: 480px;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      margin-left: 40px;
+    }
+
     /* ========== FEATURE SECTIONS (Alternating) ========== */
     .feature-section {
       padding: 120px 0;
@@ -1911,8 +1941,9 @@
               <div class="walkthrough-step-title">See performance at a glance</div>
               <div class="walkthrough-step-desc">Every campaign shows real-time ROAS, spend, and revenue. Instantly spot your winners with color-coded verdicts.</div>
             </div>
-            <div class="walkthrough-step-image">
-              <img src="images/scale-1.png" alt="Campaign Performance Overview">
+            <div class="walkthrough-step-image scale-step-1-images">
+              <img src="images/scale-1.png" alt="Campaign Performance Overview" class="scale-main-img">
+              <img src="images/scale-1-zoomed.png" alt="Verdict Detail" class="scale-overlay-img">
             </div>
           </div>
         </div>
