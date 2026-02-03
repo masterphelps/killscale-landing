@@ -1298,30 +1298,56 @@
         font-size: 26px;
       }
 
-      /* Walkthrough mobile */
+      /* Walkthrough mobile - scroll-driven pinned sections */
       .walkthrough {
-        padding: 60px 0 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .walkthrough-header {
+        padding: 60px 20px 30px;
+        flex-shrink: 0;
       }
 
       .walkthrough-header h2 {
-        font-size: 28px;
+        font-size: 26px;
       }
 
       .walkthrough-header p {
-        font-size: 16px;
+        font-size: 15px;
+      }
+
+      /* Mobile: hide floating arrows - scroll controls navigation */
+      .walkthrough-floating-arrows {
+        display: none;
+      }
+
+      /* Mobile walkthrough container fills remaining space */
+      .walkthrough-container {
+        position: relative;
+        overflow: hidden;
+        flex: 1;
+        display: flex;
+        align-items: center;
+      }
+
+      .walkthrough-track {
+        display: flex;
+        width: max-content;
+        padding-left: 0;
       }
 
       /* Mobile: full-width centered steps for scroll navigation */
       .walkthrough-step {
         width: 100vw;
+        height: auto;
         padding: 0 20px;
         display: flex;
         align-items: center;
         justify-content: center;
-      }
-
-      .walkthrough-track {
-        padding-left: 0;
+        flex-shrink: 0;
       }
 
       .walkthrough-step-inner {
@@ -1341,7 +1367,7 @@
       }
 
       .walkthrough-step-image img {
-        max-height: 45vh;
+        max-height: 42vh;
         width: auto;
         max-width: 100%;
         margin: 0 auto;
@@ -1361,52 +1387,6 @@
       .walkthrough-step-number {
         font-size: 11px;
         margin-bottom: 8px;
-      }
-
-      /* Mobile floating arrows */
-      .walkthrough-floating-arrows {
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        right: 0;
-        transform: translateY(-50%);
-        pointer-events: none;
-        z-index: 10;
-      }
-
-      .walkthrough-floating-arrow {
-        position: absolute;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.95);
-        border: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        pointer-events: auto;
-        color: var(--text);
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-      }
-
-      .walkthrough-floating-arrow:active {
-        background: var(--accent);
-        color: white;
-        border-color: var(--accent);
-      }
-
-      .walkthrough-floating-arrow svg {
-        width: 18px;
-        height: 18px;
-      }
-
-      .walkthrough-floating-arrow.prev {
-        left: 8px;
-      }
-
-      .walkthrough-floating-arrow.next {
-        right: 8px;
       }
 
       .metrics-bar {
@@ -2572,8 +2552,46 @@
           );
         });
 
-        // Mobile: Show floating arrows for manual navigation (scroll-driven removed for stability)
-        // Arrows are shown via CSS, users tap to navigate
+        // ========== MOBILE SCROLL-DRIVEN WALKTHROUGHS ==========
+        function createMobileWalkthrough(sectionSelector, trackSelector, stepCount) {
+          const section = document.querySelector(sectionSelector);
+          const track = document.querySelector(trackSelector);
+          if (!section || !track) return;
+
+          // Calculate how far to move: (stepCount - 1) viewport widths
+          const totalMoveVw = (stepCount - 1) * 100;
+
+          // Scroll distance: give each step ~70vh of scroll
+          const scrollDistance = (stepCount - 1) * window.innerHeight * 0.7;
+
+          gsap.to(track, {
+            x: () => -totalMoveVw + 'vw',
+            ease: 'none',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top top',
+              end: () => '+=' + scrollDistance,
+              pin: true,
+              pinSpacing: true,
+              scrub: 0.5,
+              snap: {
+                snapTo: 1 / (stepCount - 1),
+                duration: { min: 0.2, max: 0.4 },
+                ease: 'power2.inOut'
+              },
+              invalidateOnRefresh: true,
+            }
+          });
+        }
+
+        // Create walkthrough: 7 steps
+        createMobileWalkthrough('.walkthrough-create', '#walkthroughTrack', 7);
+
+        // Insights walkthrough: 4 steps
+        createMobileWalkthrough('.walkthrough-insights', '#insightsWalkthroughTrack', 4);
+
+        // Scale walkthrough: 5 steps
+        createMobileWalkthrough('.walkthrough-scale', '#scaleWalkthroughTrack', 5);
       }
     });
   </script>
