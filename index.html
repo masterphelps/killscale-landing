@@ -439,12 +439,15 @@
       width: 380px;
       height: 260px;
       border-radius: 12px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.10), 0 2px 12px rgba(0,0,0,0.06);
       border: 1px solid var(--border);
       overflow: hidden;
       background: var(--bg-white);
       will-change: transform, opacity;
       transition: box-shadow 0.3s;
+      box-shadow:
+        0 0 30px rgba(124, 58, 237, 0.3),
+        0 0 60px rgba(124, 58, 237, 0.2),
+        0 25px 50px rgba(0, 0, 0, 0.15);
     }
 
     .collage-card img {
@@ -649,8 +652,11 @@
     .walkthrough-step-image img {
       width: 100%;
       border-radius: 12px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.10), 0 2px 12px rgba(0,0,0,0.06);
       border: 1px solid var(--border);
+      box-shadow:
+        0 0 30px rgba(124, 58, 237, 0.3),
+        0 0 60px rgba(124, 58, 237, 0.2),
+        0 25px 50px rgba(0, 0, 0, 0.15);
     }
 
     .walkthrough-controls {
@@ -803,9 +809,12 @@
     .feature-image img {
       width: 100%;
       border-radius: 12px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.08), 0 2px 12px rgba(0,0,0,0.04);
       border: 1px solid var(--border);
       display: block;
+      box-shadow:
+        0 0 30px rgba(124, 58, 237, 0.3),
+        0 0 60px rgba(124, 58, 237, 0.2),
+        0 25px 50px rgba(0, 0, 0, 0.15);
     }
 
     .feature-image .inset-img {
@@ -1288,31 +1297,45 @@
         font-size: 16px;
       }
 
+      /* Mobile carousel: show edges of adjacent slides */
+      .walkthrough-step {
+        width: 85vw;
+        padding: 0 8px;
+      }
+
+      .walkthrough-track {
+        padding-left: 7.5vw;
+      }
+
       .walkthrough-step-inner {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 20px;
         text-align: center;
       }
 
       .walkthrough-step-text {
         padding-right: 0;
-        order: 1;
-      }
-
-      .walkthrough-step-image {
         order: 2;
       }
 
+      .walkthrough-step-image {
+        order: 1;
+      }
+
       .walkthrough-step-title {
-        font-size: 24px;
+        font-size: 20px;
       }
 
       .walkthrough-step-desc {
-        font-size: 15px;
+        font-size: 14px;
       }
 
-      .walkthrough-progress {
-        padding: 30px 0 40px;
+      .walkthrough-step-number {
+        font-size: 11px;
+      }
+
+      .walkthrough-controls {
+        padding: 20px 0 40px;
       }
 
       .metrics-bar {
@@ -2000,9 +2023,13 @@
       if (index >= stepCount) index = 0;
       currentStep = index;
 
+      // Calculate offset - on mobile slides are 85vw, on desktop 100vw
+      const isMobile = window.innerWidth <= 768;
+      const slideWidth = isMobile ? 85 : 100;
+
       // Animate track
       gsap.to(walkthroughTrack, {
-        xPercent: -index * 100,
+        xPercent: -index * slideWidth,
         duration: 0.5,
         ease: 'power2.inOut'
       });
@@ -2032,6 +2059,28 @@
         if (e.key === 'ArrowLeft') goToStep(currentStep - 1);
         if (e.key === 'ArrowRight') goToStep(currentStep + 1);
       });
+
+      // Touch/swipe support
+      let touchStartX = 0;
+      let touchEndX = 0;
+      const minSwipeDistance = 50;
+
+      walkthroughTrack.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      walkthroughTrack.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const distance = touchStartX - touchEndX;
+
+        if (Math.abs(distance) > minSwipeDistance) {
+          if (distance > 0) {
+            goToStep(currentStep + 1); // Swipe left = next
+          } else {
+            goToStep(currentStep - 1); // Swipe right = prev
+          }
+        }
+      }, { passive: true });
     }
 
     // ========== DESKTOP-ONLY ANIMATIONS ==========
