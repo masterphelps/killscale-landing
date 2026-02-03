@@ -554,9 +554,11 @@
 
     /* ========== HORIZONTAL WALKTHROUGH ========== */
     .walkthrough {
-      padding: 60px 0 0;
+      padding: 60px 0 60px;
       background: var(--bg);
       overflow: hidden;
+      position: relative;
+      z-index: 10;
     }
 
     .walkthrough-header {
@@ -592,6 +594,7 @@
     .walkthrough-container {
       position: relative;
       width: 100%;
+      overflow: hidden;
     }
 
     .walkthrough-track {
@@ -659,67 +662,67 @@
         0 25px 50px rgba(0, 0, 0, 0.15);
     }
 
-    .walkthrough-controls {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 24px;
-      padding: 24px 0 60px;
-    }
-
-    .walkthrough-arrow {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: var(--bg-white);
-      border: 1px solid var(--border);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s;
-      color: var(--text);
-    }
-
-    .walkthrough-arrow:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: white;
-    }
-
-    .walkthrough-arrow:disabled {
-      opacity: 0.3;
-      cursor: not-allowed;
-    }
-
-    .walkthrough-arrow:disabled:hover {
-      background: var(--bg-white);
-      border-color: var(--border);
-      color: var(--text);
-    }
-
-    .walkthrough-arrow svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .walkthrough-dots {
-      display: flex;
-      gap: 8px;
-    }
-
-    .walkthrough-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--border);
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
-    }
 
     .walkthrough-dot.active {
       background: var(--accent);
       transform: scale(1.2);
+    }
+
+    /* Floating mobile arrows */
+    /* Desktop: show floating arrows for click navigation */
+    .walkthrough-floating-arrows {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .walkthrough-floating-arrow {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: auto;
+      color: var(--text);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .walkthrough-floating-arrow:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .walkthrough-floating-arrow svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .walkthrough-floating-arrow.prev {
+      left: 24px;
+    }
+
+    .walkthrough-floating-arrow.next {
+      right: 24px;
+    }
+
+    /* Scale walkthrough smaller images */
+    .walkthrough-scale .walkthrough-step-image img {
+      max-height: 340px;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
     }
 
     /* ========== FEATURE SECTIONS (Alternating) ========== */
@@ -831,6 +834,8 @@
     .verdicts-section {
       padding: 120px 0;
       background: var(--bg-alt);
+      position: relative;
+      z-index: 5;
     }
 
     .section-header {
@@ -1213,16 +1218,16 @@
       }
 
       .hero h1 {
-        font-size: clamp(30px, 8vw, 44px);
+        font-size: clamp(36px, 10vw, 52px);
       }
 
       .hero-hook {
-        font-size: 16px;
-        letter-spacing: 2px;
+        font-size: 18px;
+        letter-spacing: 3px;
       }
 
       .hero-subtitle {
-        font-size: 15px;
+        font-size: 17px;
         margin-bottom: 28px;
       }
 
@@ -1236,40 +1241,49 @@
       }
 
       .hero-collage {
-        height: 220px;
-        perspective: 800px;
+        height: 280px;
+        perspective: none;
         max-width: 100%;
       }
 
+      /* Mobile: overlapping pile - positions only, GSAP handles transforms */
       .collage-card {
-        width: 55% !important;
-        height: 160px !important;
+        width: 65%;
+        height: auto;
+        aspect-ratio: 16/10;
+        left: 50%;
+        margin-left: -32.5%;
+        transform: none;
       }
 
       .collage-card--center {
-        width: 60% !important;
-        height: 170px !important;
-        margin-left: -30% !important;
-        transform: rotateY(0deg) translateZ(20px);
+        z-index: 5;
       }
 
       .collage-card--left {
-        margin-left: -70% !important;
-        transform: rotateY(25deg) translateZ(-10px);
+        z-index: 4;
       }
 
       .collage-card--right {
-        margin-left: 10% !important;
-        transform: rotateY(-25deg) translateZ(-10px);
+        z-index: 4;
       }
 
-      .collage-card--far-left,
+      .collage-card--far-left {
+        display: block;
+        z-index: 3;
+        width: 58%;
+        margin-left: -29%;
+      }
+
       .collage-card--far-right {
-        display: none;
+        display: block;
+        z-index: 3;
+        width: 58%;
+        margin-left: -29%;
       }
 
       .hero-scroll-spacer {
-        height: 40vh;
+        display: none;
       }
 
       .screenshot-showcase {
@@ -1297,20 +1311,24 @@
         font-size: 16px;
       }
 
-      /* Mobile carousel: show edges of adjacent slides */
+      /* Mobile: full-width centered steps for scroll navigation */
       .walkthrough-step {
-        width: 85vw;
-        padding: 0 8px;
+        width: 100vw;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .walkthrough-track {
-        padding-left: 7.5vw;
+        padding-left: 0;
       }
 
       .walkthrough-step-inner {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 16px;
         text-align: center;
+        max-width: 340px;
       }
 
       .walkthrough-step-text {
@@ -1322,20 +1340,73 @@
         order: 1;
       }
 
+      .walkthrough-step-image img {
+        max-height: 45vh;
+        width: auto;
+        max-width: 100%;
+        margin: 0 auto;
+        display: block;
+      }
+
       .walkthrough-step-title {
-        font-size: 20px;
+        font-size: 18px;
+        line-height: 1.3;
       }
 
       .walkthrough-step-desc {
-        font-size: 14px;
+        font-size: 13px;
+        line-height: 1.5;
       }
 
       .walkthrough-step-number {
         font-size: 11px;
+        margin-bottom: 8px;
       }
 
-      .walkthrough-controls {
-        padding: 20px 0 40px;
+      /* Mobile floating arrows */
+      .walkthrough-floating-arrows {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        pointer-events: none;
+        z-index: 10;
+      }
+
+      .walkthrough-floating-arrow {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: auto;
+        color: var(--text);
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .walkthrough-floating-arrow:active {
+        background: var(--accent);
+        color: white;
+        border-color: var(--accent);
+      }
+
+      .walkthrough-floating-arrow svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .walkthrough-floating-arrow.prev {
+        left: 8px;
+      }
+
+      .walkthrough-floating-arrow.next {
+        right: 8px;
       }
 
       .metrics-bar {
@@ -1388,12 +1459,12 @@
 
     @media (max-width: 480px) {
       .hero h1 {
-        font-size: 28px;
+        font-size: 32px;
       }
 
       .hero-hook {
-        font-size: 14px;
-        letter-spacing: 1.5px;
+        font-size: 16px;
+        letter-spacing: 2px;
       }
 
       .hero-cta {
@@ -1514,7 +1585,7 @@
       <p class="metrics-bar-text">Built for business owners, by a business owner</p>
       <div class="metrics-row">
         <div class="metric gsap-metric">
-          <div class="metric-value">1,000s</div>
+          <div class="metric-value">1,000's</div>
           <div class="metric-label">hours saved</div>
         </div>
         <div class="metric gsap-metric">
@@ -1522,7 +1593,7 @@
           <div class="metric-label">Meta & first-party data</div>
         </div>
         <div class="metric gsap-metric">
-          <div class="metric-value">60s</div>
+          <div class="metric-value">60 seconds</div>
           <div class="metric-label">campaign setup</div>
         </div>
       </div>
@@ -1530,13 +1601,21 @@
   </section>
 
   <!-- Walkthrough: Create Ads -->
-  <section class="walkthrough" id="features">
+  <section class="walkthrough walkthrough-create" id="features">
     <div class="walkthrough-header">
       <div class="eyebrow">Campaign Launcher</div>
       <h2>Launch pre-optimized ads in less than 60 seconds</h2>
       <p>Our guided flow handles the complexity so you can focus on creative. No more fumbling through Ads Manager.</p>
     </div>
     <div class="walkthrough-container">
+      <div class="walkthrough-floating-arrows">
+        <button class="walkthrough-floating-arrow prev" id="floatingPrev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="walkthrough-floating-arrow next" id="floatingNext" aria-label="Next">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
       <div class="walkthrough-track" id="walkthroughTrack">
         <div class="walkthrough-step">
           <div class="walkthrough-step-inner">
@@ -1624,23 +1703,6 @@
         </div>
       </div>
     </div>
-    <div class="walkthrough-controls">
-      <button class="walkthrough-arrow" id="walkthroughPrev" aria-label="Previous step">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <div class="walkthrough-dots" id="walkthroughDots">
-        <div class="walkthrough-dot active" data-step="0"></div>
-        <div class="walkthrough-dot" data-step="1"></div>
-        <div class="walkthrough-dot" data-step="2"></div>
-        <div class="walkthrough-dot" data-step="3"></div>
-        <div class="walkthrough-dot" data-step="4"></div>
-        <div class="walkthrough-dot" data-step="5"></div>
-        <div class="walkthrough-dot" data-step="6"></div>
-      </div>
-      <button class="walkthrough-arrow" id="walkthroughNext" aria-label="Next step">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
-    </div>
   </section>
 
   <!-- Feature A: Creative Intelligence -->
@@ -1703,6 +1765,75 @@
         <div class="feature-image gsap-feature-image">
           <img src="images/andromeda-writeup.png" alt="KillScale Andromeda Analysis Write-up">
           <img src="images/andromeda-audit.png" alt="KillScale Andromeda Audit Report" class="inset-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Walkthrough: Creative AI Insights -->
+  <section class="walkthrough walkthrough-insights" style="background: var(--bg-alt);">
+    <div class="walkthrough-header">
+      <div class="eyebrow">Creative Intelligence</div>
+      <h2>Hook — Hold — Click — Convert</h2>
+      <p>AI analyzes every creative at each stage of the funnel. Know exactly where you're winning, where you're bleeding, and what to do about it.</p>
+    </div>
+    <div class="walkthrough-container">
+      <div class="walkthrough-floating-arrows">
+        <button class="walkthrough-floating-arrow prev" id="insightsFloatingPrev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="walkthrough-floating-arrow next" id="insightsFloatingNext" aria-label="Next">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+      <div class="walkthrough-track" id="insightsWalkthroughTrack">
+        <div class="walkthrough-step">
+          <div class="walkthrough-step-inner">
+            <div class="walkthrough-step-text">
+              <div class="walkthrough-step-number" style="color: #10b981;">Hook</div>
+              <div class="walkthrough-step-title">Are your first 3 seconds grabbing attention?</div>
+              <div class="walkthrough-step-desc">AI scores every creative's hook performance. See which angles capture attention and which waste budget with weak openings.</div>
+            </div>
+            <div class="walkthrough-step-image">
+              <img src="images/insights-1-hook.png" alt="Hook Analysis">
+            </div>
+          </div>
+        </div>
+        <div class="walkthrough-step">
+          <div class="walkthrough-step-inner">
+            <div class="walkthrough-step-text">
+              <div class="walkthrough-step-number" style="color: #3b82f6;">Hold</div>
+              <div class="walkthrough-step-title">Are viewers staying past the hook?</div>
+              <div class="walkthrough-step-desc">Hold rate analysis reveals which creatives keep viewers engaged through seconds 3-15. Get specific recommendations for pattern interrupts and pacing.</div>
+            </div>
+            <div class="walkthrough-step-image">
+              <img src="images/insights-2-hold.png" alt="Hold Analysis">
+            </div>
+          </div>
+        </div>
+        <div class="walkthrough-step">
+          <div class="walkthrough-step-inner">
+            <div class="walkthrough-step-text">
+              <div class="walkthrough-step-number" style="color: #8b5cf6;">Click</div>
+              <div class="walkthrough-step-title">Which formats drive the most clicks?</div>
+              <div class="walkthrough-step-desc">CTR performance breakdown shows you which creative formats outperform — sometimes static images beat video. Know what to scale.</div>
+            </div>
+            <div class="walkthrough-step-image">
+              <img src="images/insights-3-click.png" alt="Click Analysis">
+            </div>
+          </div>
+        </div>
+        <div class="walkthrough-step">
+          <div class="walkthrough-step-inner">
+            <div class="walkthrough-step-text">
+              <div class="walkthrough-step-number" style="color: #f59e0b;">Convert</div>
+              <div class="walkthrough-step-title">Is your creative aligned with your offer?</div>
+              <div class="walkthrough-step-desc">Conversion analysis reveals offer-creative misalignment. Find which combinations drive efficient conversions and which need A/B testing.</div>
+            </div>
+            <div class="walkthrough-step-image">
+              <img src="images/insights-4-convert.png" alt="Convert Analysis">
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1771,6 +1902,87 @@
         </div>
         <div class="feature-image gsap-feature-image">
           <img src="images/campaign-detail.png" alt="KillScale Campaign Management">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Walkthrough: Scale Ads -->
+  <section class="walkthrough walkthrough-scale" style="background: var(--bg-alt);">
+    <div class="walkthrough-header">
+      <div class="eyebrow">Scaling Made Simple</div>
+      <h2>Scale winners with confidence, not guesswork</h2>
+      <p>See exactly what's working and increase budgets without breaking the algorithm.</p>
+    </div>
+    <div class="walkthrough-container">
+      <div class="walkthrough-floating-arrows">
+        <button class="walkthrough-floating-arrow prev" id="scaleFloatingPrev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="walkthrough-floating-arrow next" id="scaleFloatingNext" aria-label="Next">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+      <div class="walkthrough-track" id="scaleWalkthroughTrack">
+        <div class="walkthrough-step">
+          <div class="walkthrough-step-inner">
+            <div class="walkthrough-step-text">
+              <div class="walkthrough-step-number">Step 1</div>
+              <div class="walkthrough-step-title">See performance at a glance</div>
+              <div class="walkthrough-step-desc">Every campaign shows real-time ROAS, spend, and revenue. Instantly spot your winners with color-coded verdicts.</div>
+            </div>
+            <div class="walkthrough-step-image">
+              <img src="images/scale-1.png" alt="Campaign Performance Overview">
+            </div>
+          </div>
+        </div>
+        <div class="walkthrough-step">
+          <div class="walkthrough-step-inner">
+            <div class="walkthrough-step-text">
+              <div class="walkthrough-step-number">Step 2</div>
+              <div class="walkthrough-step-title">Guided scaling recommendations</div>
+              <div class="walkthrough-step-desc">KillScale analyzes your campaign data and suggests exactly how much to increase your budget for optimal results.</div>
+            </div>
+            <div class="walkthrough-step-image">
+              <img src="images/scale-2.png" alt="Guided Scaling">
+            </div>
+          </div>
+        </div>
+        <div class="walkthrough-step">
+          <div class="walkthrough-step-inner">
+            <div class="walkthrough-step-text">
+              <div class="walkthrough-step-number">Step 3</div>
+              <div class="walkthrough-step-title">Choose your scaling strategy</div>
+              <div class="walkthrough-step-desc">Pick from proven scaling methods — gradual increases, aggressive pushes, or custom amounts based on your risk tolerance.</div>
+            </div>
+            <div class="walkthrough-step-image">
+              <img src="images/scale-3.png" alt="Scaling Strategy">
+            </div>
+          </div>
+        </div>
+        <div class="walkthrough-step">
+          <div class="walkthrough-step-inner">
+            <div class="walkthrough-step-text">
+              <div class="walkthrough-step-number">Step 4</div>
+              <div class="walkthrough-step-title">Protect the learning phase</div>
+              <div class="walkthrough-step-desc">Smart budget guards prevent changes that would reset Meta's learning phase. Scale aggressively without killing performance.</div>
+            </div>
+            <div class="walkthrough-step-image">
+              <img src="images/scale-4.png" alt="Learning Phase Protection">
+            </div>
+          </div>
+        </div>
+        <div class="walkthrough-step">
+          <div class="walkthrough-step-inner">
+            <div class="walkthrough-step-text">
+              <div class="walkthrough-step-number">Step 5</div>
+              <div class="walkthrough-step-title">One-click scaling</div>
+              <div class="walkthrough-step-desc">Apply budget changes instantly. No spreadsheets, no mental math, no Ads Manager tab-hunting.</div>
+            </div>
+            <div class="walkthrough-step-image">
+              <img src="images/scale-5.png" alt="Quick Scale">
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2010,10 +2222,7 @@
 
     // ========== MANUAL WALKTHROUGH CAROUSEL ==========
     const walkthroughTrack = document.getElementById('walkthroughTrack');
-    const walkthroughSteps = document.querySelectorAll('.walkthrough-step');
-    const walkthroughDots = document.querySelectorAll('.walkthrough-dot');
-    const prevBtn = document.getElementById('walkthroughPrev');
-    const nextBtn = document.getElementById('walkthroughNext');
+    const walkthroughSteps = walkthroughTrack ? walkthroughTrack.querySelectorAll('.walkthrough-step') : [];
     const stepCount = walkthroughSteps.length;
     let currentStep = 0;
 
@@ -2034,51 +2243,108 @@
         ease: 'power2.inOut'
       });
 
-      // Update dots
-      walkthroughDots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-      });
     }
 
     if (walkthroughTrack && stepCount > 0) {
-      // Arrow clicks
-      prevBtn.addEventListener('click', () => goToStep(currentStep - 1));
-      nextBtn.addEventListener('click', () => goToStep(currentStep + 1));
-
-      // Dot clicks
-      walkthroughDots.forEach((dot, i) => {
-        dot.addEventListener('click', () => goToStep(i));
-      });
-
-      // Keyboard navigation when section is in view
-      document.addEventListener('keydown', (e) => {
-        const rect = document.querySelector('.walkthrough').getBoundingClientRect();
-        const inView = rect.top < window.innerHeight && rect.bottom > 0;
-        if (!inView) return;
-
-        if (e.key === 'ArrowLeft') goToStep(currentStep - 1);
-        if (e.key === 'ArrowRight') goToStep(currentStep + 1);
-      });
+      // Floating arrow clicks
+      const floatingPrev = document.getElementById('floatingPrev');
+      const floatingNext = document.getElementById('floatingNext');
+      if (floatingPrev) floatingPrev.addEventListener('click', () => goToStep(currentStep - 1));
+      if (floatingNext) floatingNext.addEventListener('click', () => goToStep(currentStep + 1));
 
       // Touch/swipe support
       let touchStartX = 0;
-      let touchEndX = 0;
-      const minSwipeDistance = 50;
-
       walkthroughTrack.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
       }, { passive: true });
 
       walkthroughTrack.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        const distance = touchStartX - touchEndX;
+        const distance = touchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(distance) > 50) {
+          if (distance > 0) goToStep(currentStep + 1);
+          else goToStep(currentStep - 1);
+        }
+      }, { passive: true });
+    }
 
-        if (Math.abs(distance) > minSwipeDistance) {
-          if (distance > 0) {
-            goToStep(currentStep + 1); // Swipe left = next
-          } else {
-            goToStep(currentStep - 1); // Swipe right = prev
-          }
+    // ========== SCALE WALKTHROUGH CAROUSEL ==========
+    const scaleTrack = document.getElementById('scaleWalkthroughTrack');
+    const scaleSteps = scaleTrack ? scaleTrack.querySelectorAll('.walkthrough-step') : [];
+    const scaleStepCount = scaleSteps.length;
+    let scaleCurrentStep = 0;
+
+    function goToScaleStep(index) {
+      if (index < 0) index = scaleStepCount - 1;
+      if (index >= scaleStepCount) index = 0;
+      scaleCurrentStep = index;
+
+      const isMobile = window.innerWidth <= 768;
+      const slideWidth = isMobile ? 85 : 100;
+
+      gsap.to(scaleTrack, {
+        xPercent: -index * slideWidth,
+        duration: 0.5,
+        ease: 'power2.inOut'
+      });
+    }
+
+    if (scaleTrack && scaleStepCount > 0) {
+      const scaleFloatingPrev = document.getElementById('scaleFloatingPrev');
+      const scaleFloatingNext = document.getElementById('scaleFloatingNext');
+      if (scaleFloatingPrev) scaleFloatingPrev.addEventListener('click', () => goToScaleStep(scaleCurrentStep - 1));
+      if (scaleFloatingNext) scaleFloatingNext.addEventListener('click', () => goToScaleStep(scaleCurrentStep + 1));
+
+      let scaleTouchStartX = 0;
+      scaleTrack.addEventListener('touchstart', (e) => {
+        scaleTouchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      scaleTrack.addEventListener('touchend', (e) => {
+        const distance = scaleTouchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(distance) > 50) {
+          if (distance > 0) goToScaleStep(scaleCurrentStep + 1);
+          else goToScaleStep(scaleCurrentStep - 1);
+        }
+      }, { passive: true });
+    }
+
+    // ========== INSIGHTS WALKTHROUGH CAROUSEL ==========
+    const insightsTrack = document.getElementById('insightsWalkthroughTrack');
+    const insightsSteps = insightsTrack ? insightsTrack.querySelectorAll('.walkthrough-step') : [];
+    const insightsStepCount = insightsSteps.length;
+    let insightsCurrentStep = 0;
+
+    function goToInsightsStep(index) {
+      if (index < 0) index = insightsStepCount - 1;
+      if (index >= insightsStepCount) index = 0;
+      insightsCurrentStep = index;
+
+      const isMobile = window.innerWidth <= 768;
+      const slideWidth = isMobile ? 100 : 100;
+
+      gsap.to(insightsTrack, {
+        xPercent: -index * slideWidth,
+        duration: 0.5,
+        ease: 'power2.inOut'
+      });
+    }
+
+    if (insightsTrack && insightsStepCount > 0) {
+      const insightsFloatingPrev = document.getElementById('insightsFloatingPrev');
+      const insightsFloatingNext = document.getElementById('insightsFloatingNext');
+      if (insightsFloatingPrev) insightsFloatingPrev.addEventListener('click', () => goToInsightsStep(insightsCurrentStep - 1));
+      if (insightsFloatingNext) insightsFloatingNext.addEventListener('click', () => goToInsightsStep(insightsCurrentStep + 1));
+
+      let insightsTouchStartX = 0;
+      insightsTrack.addEventListener('touchstart', (e) => {
+        insightsTouchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      insightsTrack.addEventListener('touchend', (e) => {
+        const distance = insightsTouchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(distance) > 50) {
+          if (distance > 0) goToInsightsStep(insightsCurrentStep + 1);
+          else goToInsightsStep(insightsCurrentStep - 1);
         }
       }, { passive: true });
     }
@@ -2246,32 +2512,47 @@
 
       // ========== MOBILE: scaled disperse + simpler section animations ==========
       '(max-width: 768px)': function() {
-        // Mobile disperse: 3 visible cards, smaller movements
+        // Set initial pile positions
+        gsap.set('.collage-card--center', { rotation: 0, x: 0, y: 0 });
+        gsap.set('.collage-card--left', { rotation: -6, xPercent: -15, yPercent: -8 });
+        gsap.set('.collage-card--right', { rotation: 6, xPercent: 15, yPercent: -8 });
+        gsap.set('.collage-card--far-left', { rotation: -12, xPercent: -25, yPercent: -5 });
+        gsap.set('.collage-card--far-right', { rotation: 12, xPercent: 25, yPercent: -5 });
+
+        // Mobile disperse: all 5 cards scatter outward from pile
         const mobileDisperse = gsap.timeline({
           scrollTrigger: {
             trigger: '.hero-collage-wrapper',
-            start: 'top 30%',
-            end: '+=60%',
-            scrub: 0.5,
+            start: 'top 40%',
+            end: '+=40%',
+            scrub: 0.3,
             pin: true,
-            pinSpacing: false,
-            onLeave: () => ScrollTrigger.refresh(),
+            pinSpacing: true,
           }
         });
 
+        // Scatter - each card flies to its own direction
         mobileDisperse
-          .to('.collage-card--center', {
-            rotateY: 0, y: -60, scale: 0.75, opacity: 0, translateZ: 0,
-            duration: 1, ease: 'power2.in'
+          .to('.collage-card--far-left', {
+            xPercent: -120, yPercent: -80, scale: 0.4, opacity: 0, rotation: -45,
+            duration: 1, ease: 'power1.in'
+          }, 0)
+          .to('.collage-card--far-right', {
+            xPercent: 120, yPercent: -80, scale: 0.4, opacity: 0, rotation: 45,
+            duration: 1, ease: 'power1.in'
           }, 0)
           .to('.collage-card--left', {
-            rotateY: 0, x: -80, y: -40, scale: 0.65, opacity: 0, translateZ: 0,
-            duration: 1, ease: 'power2.in'
-          }, 0)
+            xPercent: -80, yPercent: -100, scale: 0.45, opacity: 0, rotation: -30,
+            duration: 1, ease: 'power1.in'
+          }, 0.08)
           .to('.collage-card--right', {
-            rotateY: 0, x: 80, y: -40, scale: 0.65, opacity: 0, translateZ: 0,
-            duration: 1, ease: 'power2.in'
-          }, 0);
+            xPercent: 80, yPercent: -100, scale: 0.45, opacity: 0, rotation: 30,
+            duration: 1, ease: 'power1.in'
+          }, 0.08)
+          .to('.collage-card--center', {
+            yPercent: -120, scale: 0.5, opacity: 0, rotation: 0,
+            duration: 1, ease: 'power1.in'
+          }, 0.15);
 
         // Simple fade-up for other sections on mobile
         gsap.utils.toArray('.gsap-feature-text, .gsap-feature-image, .gsap-verdict-card, .gsap-pricing-card, .gsap-faq-item, .gsap-metric').forEach(el => {
@@ -2290,6 +2571,9 @@
             }
           );
         });
+
+        // Mobile: Show floating arrows for manual navigation (scroll-driven removed for stability)
+        // Arrows are shown via CSS, users tap to navigate
       }
     });
   </script>
