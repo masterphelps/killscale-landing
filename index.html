@@ -82,11 +82,10 @@
       "contactType": "customer support"
     },
     "offers": {
-      "@type": "AggregateOffer",
+      "@type": "Offer",
       "priceCurrency": "USD",
-      "lowPrice": "29",
-      "highPrice": "99",
-      "offerCount": "3"
+      "price": "129",
+      "description": "Pro plan - 7-day free trial"
     }
   }
   </script>
@@ -113,9 +112,9 @@
     "description": "Meta Ads management platform with first-party attribution, instant campaign verdicts, and 60-second ad creation for small businesses.",
     "offers": {
       "@type": "Offer",
-      "price": "29",
+      "price": "129",
       "priceCurrency": "USD",
-      "description": "7-day free trial"
+      "description": "Pro plan - 7-day free trial"
     },
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -1001,9 +1000,9 @@
 
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      max-width: 960px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 720px;
       margin: 0 auto;
     }
 
@@ -1024,7 +1023,8 @@
 
     .pricing-card.featured {
       border-color: var(--accent);
-      border-top: 3px solid var(--accent);
+      border-width: 2px;
+      transform: scale(1.02);
     }
 
     .pricing-badge {
@@ -1233,6 +1233,10 @@
       .pricing-grid {
         grid-template-columns: 1fr;
         max-width: 400px;
+      }
+
+      .pricing-card.featured {
+        transform: none;
       }
 
       .faq-grid {
@@ -2044,8 +2048,8 @@
   <section class="pricing" id="pricing">
     <div class="container">
       <div class="section-header">
-        <h2>Simple pricing. No surprises.</h2>
-        <p>7-day free trial on all plans. Cancel anytime.</p>
+        <h2>One plan. Everything you need.</h2>
+        <p>7-day free trial. No credit card required.</p>
       </div>
 
       <div class="billing-toggle">
@@ -2055,51 +2059,40 @@
         </button>
         <span id="yearly-label" class="billing-label">
           Yearly
-          <span class="save-badge">Save 17%</span>
+          <span class="save-badge">Save 35%</span>
         </span>
       </div>
 
       <div class="pricing-grid">
-        <div class="pricing-card gsap-pricing-card">
-          <div class="pricing-name">Launch</div>
-          <div class="pricing-price" id="launch-price">$29<span>/mo</span></div>
-          <div id="launch-yearly" class="pricing-yearly" style="display:none">billed $290/year</div>
-          <ul class="pricing-features">
-            <li>7-day free trial</li>
-            <li class="highlight">Unlimited campaigns</li>
-            <li>1 ad account</li>
-            <li>Campaign Launcher</li>
-            <li>Insights & Trends</li>
-            <li>Smart alerts</li>
-          </ul>
-          <a href="https://app.killscale.com/signup" class="btn btn-secondary">Start 7-Day Trial</a>
-        </div>
         <div class="pricing-card featured gsap-pricing-card">
-          <div class="pricing-badge">Most Popular</div>
-          <div class="pricing-name">Scale</div>
-          <div class="pricing-price" id="scale-price">$49<span>/mo</span></div>
-          <div id="scale-yearly" class="pricing-yearly" style="display:none">billed $490/year</div>
+          <div class="pricing-name">Pro</div>
+          <div class="pricing-price" id="pro-price">$129<span>/mo</span></div>
+          <div id="pro-yearly" class="pricing-yearly" style="display:none">billed $999/year</div>
           <ul class="pricing-features">
-            <li>Everything in Launch</li>
-            <li class="highlight">First-party pixel</li>
-            <li class="highlight">Dynamic Attribution</li>
-            <li>2 ad accounts</li>
-            <li>Workspaces</li>
-            <li>Manual events</li>
+            <li class="highlight">3 ad accounts</li>
+            <li class="highlight">50 AI image generations/mo</li>
+            <li>Unlimited AI copy generation</li>
+            <li>Unlimited AI account reviews</li>
+            <li>Unlimited AI creative analysis</li>
+            <li>First-party pixel & attribution</li>
+            <li>Campaign Launcher</li>
+            <li>Meta Ad Library search</li>
+            <li>Up to $100k tracked spend</li>
           </ul>
-          <a href="https://app.killscale.com/signup" class="btn btn-primary">Sign Up</a>
+          <a href="https://app.killscale.com/signup" class="btn btn-primary">Start 7-Day Free Trial</a>
         </div>
         <div class="pricing-card gsap-pricing-card">
-          <div class="pricing-name">Pro</div>
-          <div class="pricing-price" id="pro-price">$99<span>/mo</span></div>
-          <div id="pro-yearly" class="pricing-yearly" style="display:none">billed $990/year</div>
+          <div class="pricing-name">Agency</div>
+          <div class="pricing-price">Custom</div>
+          <div class="pricing-yearly">&nbsp;</div>
           <ul class="pricing-features">
-            <li>Everything in Scale</li>
-            <li class="highlight">Unlimited ad accounts</li>
-            <li>Workspace reporting</li>
-            <li>Priority support</li>
+            <li class="highlight">10+ ad accounts</li>
+            <li class="highlight">Custom AI generation limits</li>
+            <li>Unlimited tracked spend</li>
+            <li>Dedicated support + Slack</li>
+            <li>White-label options</li>
           </ul>
-          <a href="https://app.killscale.com/signup" class="btn btn-secondary">Sign Up</a>
+          <a href="mailto:sales@killscale.com" class="btn btn-secondary">Contact Sales</a>
         </div>
       </div>
     </div>
@@ -2136,6 +2129,18 @@
         <div class="faq-item gsap-faq-item">
           <h4>Do I need to be technical to use this?</h4>
           <p>No. If you can upload an image and type a number, you can use KillScale. The pixel setup takes 5 minutes with our copy-paste instructions.</p>
+        </div>
+        <div class="faq-item gsap-faq-item">
+          <h4>What counts as an AI generation?</h4>
+          <p>Creating or editing an ad image uses 1 generation. Copy generation, account reviews, and creative analysis are unlimited and don't count against your limit.</p>
+        </div>
+        <div class="faq-item gsap-faq-item">
+          <h4>What happens if I hit my generation limit?</h4>
+          <p>You can purchase additional generations or wait for your monthly reset. We'll notify you when you're running low so you're never caught off guard.</p>
+        </div>
+        <div class="faq-item gsap-faq-item">
+          <h4>What's the $100k tracked spend limit?</h4>
+          <p>A soft cap for the Pro plan. If you're spending more, contact us for Agency pricing with unlimited tracked spend and dedicated support.</p>
         </div>
       </div>
     </div>
@@ -2216,12 +2221,7 @@
         yearlyLabel.classList.remove('active');
       }
 
-      document.getElementById('launch-price').innerHTML = isYearly ? '$24<span>/mo</span>' : '$29<span>/mo</span>';
-      document.getElementById('scale-price').innerHTML = isYearly ? '$41<span>/mo</span>' : '$49<span>/mo</span>';
-      document.getElementById('pro-price').innerHTML = isYearly ? '$82<span>/mo</span>' : '$99<span>/mo</span>';
-
-      document.getElementById('launch-yearly').style.display = isYearly ? 'block' : 'none';
-      document.getElementById('scale-yearly').style.display = isYearly ? 'block' : 'none';
+      document.getElementById('pro-price').innerHTML = isYearly ? '$83<span>/mo</span>' : '$129<span>/mo</span>';
       document.getElementById('pro-yearly').style.display = isYearly ? 'block' : 'none';
     }
 
