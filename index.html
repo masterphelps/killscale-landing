@@ -1213,38 +1213,6 @@
     }
 
     /* ========== FAQ ========== */
-    .faq {
-      padding: 120px 0;
-      background: var(--bg-alt);
-    }
-
-    .faq-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      background: var(--bg-white);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-    }
-
-    .faq-item h4 {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
-
-    .faq-item p {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
 
     /* ========== FINAL CTA ========== */
     .final-cta {
@@ -1344,9 +1312,6 @@
         transform: none;
       }
 
-      .faq-grid {
-        grid-template-columns: 1fr;
-      }
     }
 
     @media (max-width: 768px) {
@@ -1570,9 +1535,6 @@
         padding: 80px 0;
       }
 
-      .faq {
-        padding: 80px 0;
-      }
 
       .final-cta {
         padding: 80px 0;
@@ -2264,53 +2226,6 @@
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="faq">
-    <div class="container">
-      <div class="section-header">
-        <h2>Questions? Answers.</h2>
-      </div>
-
-      <div class="faq-grid">
-        <div class="faq-item gsap-faq-item">
-          <h4>How is this different from Ads Manager?</h4>
-          <p>Ads Manager is built for agencies with 100+ clients. KillScale is built for business owners who need clarity, not complexity. We show you what's working and let you act on it instantly.</p>
-        </div>
-        <div class="faq-item gsap-faq-item">
-          <h4>Does it work with my existing campaigns?</h4>
-          <p>Yes. Connect your Meta account and we'll pull in all your existing campaigns. You can manage everything from KillScale or keep using Ads Manager — your choice.</p>
-        </div>
-        <div class="faq-item gsap-faq-item">
-          <h4>What's the first-party attribution pixel?</h4>
-          <p>It's a tracking pixel you add to your site that captures conversions directly, bypassing Meta's restrictions. You get accurate revenue data even when Meta's reporting is delayed or incomplete.</p>
-        </div>
-        <div class="faq-item gsap-faq-item">
-          <h4>What is dynamic lateral attribution?</h4>
-          <p>Our proprietary multi-touch attribution system. It dynamically weights touchpoints based on their actual contribution to conversions — not just first or last touch.</p>
-        </div>
-        <div class="faq-item gsap-faq-item">
-          <h4>Can I cancel anytime?</h4>
-          <p>Yes. No contracts, no commitments. Cancel from your account settings and you won't be charged again. Your data stays accessible on the free tier.</p>
-        </div>
-        <div class="faq-item gsap-faq-item">
-          <h4>Do I need to be technical to use this?</h4>
-          <p>No. If you can upload an image and type a number, you can use KillScale. The pixel setup takes 5 minutes with our copy-paste instructions.</p>
-        </div>
-        <div class="faq-item gsap-faq-item">
-          <h4>What counts as an AI generation?</h4>
-          <p>Creating or editing an ad image uses 1 generation. Copy generation, account reviews, and creative analysis are unlimited and don't count against your limit.</p>
-        </div>
-        <div class="faq-item gsap-faq-item">
-          <h4>What happens if I hit my generation limit?</h4>
-          <p>You can purchase additional generations or wait for your monthly reset. We'll notify you when you're running low so you're never caught off guard.</p>
-        </div>
-        <div class="faq-item gsap-faq-item">
-          <h4>What's the $100k tracked spend limit?</h4>
-          <p>A soft cap for the Pro plan. If you're spending more, contact us for Agency pricing with unlimited tracked spend and dedicated support.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Final CTA -->
   <section class="final-cta">
@@ -2724,19 +2639,6 @@
           ease: 'back.out(1.2)'
         });
 
-        // FAQ items stagger
-        gsap.from('.gsap-faq-item', {
-          scrollTrigger: {
-            trigger: '.faq',
-            start: 'top 80%',
-            once: true
-          },
-          opacity: 0,
-          y: 20,
-          stagger: 0.1,
-          duration: 0.6,
-          ease: 'power2.out'
-        });
       },
 
       // ========== MOBILE: scaled disperse + simpler section animations ==========
