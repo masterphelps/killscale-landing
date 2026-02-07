@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Spy on Competitor Facebook Ads (And Clone What Works) | KillScale Blog</title>
+  <meta name="description" content="Learn how to research competitor Facebook ads using Meta's Ad Library, identify winning creative patterns, and build your own high-performing ads with AI.">
+
+  <!-- SEO Meta Tags -->
+  <link rel="canonical" href="https://killscale.com/blog/spy-on-competitor-facebook-ads.html">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="KillScale">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://killscale.com/blog/spy-on-competitor-facebook-ads.html">
+  <meta property="og:title" content="How to Spy on Competitor Facebook Ads (And Clone What Works)">
+  <meta property="og:description" content="Learn how to research competitor Facebook ads using Meta's Ad Library, identify winning creative patterns, and build your own high-performing ads with AI.">
+  <meta property="og:image" content="https://killscale.com/og-image.png">
+  <meta property="og:site_name" content="KillScale">
+  <meta property="article:published_time" content="2026-02-07">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Spy on Competitor Facebook Ads (And Clone What Works)">
+  <meta name="twitter:description" content="Research competitor Facebook ads and build your own high-performing versions with AI.">
+  <meta name="twitter:image" content="https://killscale.com/og-image.png">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"How to Spy on Competitor Facebook Ads (And Clone What Works)","description":"Learn how to research competitor Facebook ads using Meta's Ad Library, identify winning creative patterns, and build your own high-performing ads with AI.","author":{"@type":"Organization","name":"KillScale"},"publisher":{"@type":"Organization","name":"KillScale"},"datePublished":"2026-02-07","mainEntityOfPage":"https://killscale.com/blog/spy-on-competitor-facebook-ads.html"}
+  </script>
+
+  <link rel="icon" href="/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --bg: #FAF8FF; --bg-elevated: #FFFFFF; --border: #E4DFF0; --accent: #7c3aed; --accent-hover: #6d28d9; --accent-subtle: rgba(124, 58, 237, 0.1); --purple: #a855f7; --purple-subtle: rgba(168, 85, 247, 0.1); --text: #1A1A1A; --text-secondary: #6B7280; --text-tertiary: #9CA3AF; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 16px 0; position: fixed; top: 0; left: 0; right: 0; background: rgba(250, 248, 255, 0.9); backdrop-filter: blur(20px); z-index: 100; border-bottom: 1px solid var(--border); }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-text { font-weight: 700; font-size: 20px; letter-spacing: -0.5px; color: var(--text); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); }
+    .btn { display: inline-flex; align-items: center; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-ghost { background: transparent; color: var(--text-secondary); }
+    .article-header { padding: 140px 0 60px; border-bottom: 1px solid var(--border); }
+    .article-header .container { max-width: 800px; }
+    .breadcrumb { font-size: 14px; color: var(--text-tertiary); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .tag { display: inline-block; font-size: 12px; font-weight: 600; text-transform: uppercase; padding: 6px 12px; border-radius: 4px; background: rgba(239, 68, 68, 0.1); color: #ef4444; margin-bottom: 16px; }
+    .article-header h1 { font-size: clamp(32px, 5vw, 44px); font-weight: 800; letter-spacing: -1px; line-height: 1.2; margin-bottom: 20px; }
+    .article-meta { font-size: 14px; color: var(--text-secondary); }
+    .article-content { padding: 60px 0; }
+    .article-content .container { max-width: 720px; }
+    .article-content h2 { font-size: 28px; font-weight: 700; margin: 48px 0 20px; }
+    .article-content h3 { font-size: 22px; font-weight: 600; margin: 36px 0 16px; }
+    .article-content p { font-size: 17px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; }
+    .article-content ul, .article-content ol { margin: 0 0 24px 24px; }
+    .article-content li { font-size: 17px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 12px; }
+    .article-content strong { color: var(--text); font-weight: 600; }
+    .article-content blockquote { border-left: 3px solid var(--accent); padding-left: 24px; margin: 32px 0; font-style: italic; color: var(--text); }
+    .highlight-box { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 32px 0; }
+    .highlight-box h4 { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+    .highlight-box ul { margin-bottom: 0; }
+    .highlight-box li { font-size: 15px; margin-bottom: 8px; }
+    .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px 0; }
+    .comparison-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .comparison-card.bad { border-color: #ef4444; }
+    .comparison-card.good { border-color: #10b981; }
+    .comparison-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+    .comparison-card.bad h4 { color: #ef4444; }
+    .comparison-card.good h4 { color: #10b981; }
+    .comparison-card ul { margin: 0; }
+    .comparison-card li { font-size: 15px; margin-bottom: 8px; color: var(--text-secondary); }
+    .cta-box { background: linear-gradient(to bottom, rgba(59, 130, 246, 0.1), transparent); border: 1px solid var(--accent); border-radius: 16px; padding: 40px; text-align: center; margin: 48px 0; }
+    .cta-box h3 { font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+    .cta-box p { font-size: 16px; color: var(--text-secondary); margin-bottom: 24px; }
+    footer { padding: 40px 0; border-top: 1px solid var(--border); margin-top: 60px; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-text { font-size: 13px; color: var(--text-tertiary); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 13px; color: var(--text-secondary); text-decoration: none; }
+    @media (max-width: 768px) { .nav-links a:not(.btn) { display: none; } .comparison-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav><div class="container"><a href="/" class="logo"><img src="/logo.svg" alt="KillScale" style="height: 32px;"><span class="logo-text">KillScale</span></a><div class="nav-links"><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/blog">Blog</a><a href="https://app.killscale.com/login" class="btn btn-ghost">Log in</a><a href="https://app.killscale.com/signup" class="btn btn-primary">Get Started</a></div></div></nav>
+
+  <header class="article-header"><div class="container"><div class="breadcrumb"><a href="/blog">Blog</a> / Creative</div><span class="tag">Creative</span><h1>How to Spy on Competitor Facebook Ads (And Clone What Works)</h1><p class="article-meta">12 min read · February 2026</p></div></header>
+
+  <article class="article-content"><div class="container">
+    <p>Right now, your competitors are running Facebook ads that are working. They're testing creative angles, copy frameworks, and offers that are converting your shared audience into their customers.</p>
+
+    <p>And you can see every single one of them—for free.</p>
+
+    <p>Meta's Ad Library is one of the most underutilized competitive intelligence tools available to advertisers. It's public, comprehensive, and updated in real time. Yet most brands either don't know it exists or have no idea how to use it strategically.</p>
+
+    <p>This guide will show you how to research competitor ads systematically, identify what's working, and build your own high-performing versions without copying—using pattern recognition and AI to accelerate the process.</p>
+
+    <h2>The Meta Ad Library: Your Free Intelligence Tool</h2>
+
+    <p>Meta's Ad Library was created for transparency—to let anyone see what ads are running on Facebook and Instagram, who's paying for them, and how long they've been active. Originally designed for political ad disclosure, it covers all ads across all verticals.</p>
+
+    <p>You can access it at <strong>facebook.com/ads/library</strong> without even logging into Facebook. Search for any company, brand, or page name, and you'll see every ad they're currently running.</p>
+
+    <h3>What You Can See</h3>
+    <ul>
+      <li>Ad creative (images, videos, carousels, text overlays)</li>
+      <li>Primary text and headline copy</li>
+      <li>Call-to-action button text</li>
+      <li>Landing page URL (where the ad is sending traffic)</li>
+      <li>First seen date (how long the ad has been active)</li>
+      <li>Platforms where it's running (Facebook, Instagram, Audience Network, Messenger)</li>
+    </ul>
+
+    <h3>What You Can't See</h3>
+    <ul>
+      <li>Performance data (impressions, clicks, conversions, ROAS)</li>
+      <li>Budget or spend amounts</li>
+      <li>Targeting criteria (audiences, demographics, interests)</li>
+      <li>Bid strategy or campaign objectives</li>
+      <li>A/B test results or variant performance</li>
+    </ul>
+
+    <p>The lack of performance data is both a limitation and a lesson: you need to infer what's working based on indirect signals, primarily longevity. If an ad has been running for 90+ days, it's almost certainly performing well. Brands don't keep burning budget on losers.</p>
+
+    <h2>What to Look For in Competitor Ads</h2>
+
+    <p>When researching competitor ads, you're not looking for something to copy—you're looking for patterns that indicate proven frameworks. Here's what matters:</p>
+
+    <h3>Creative Format</h3>
+    <p>Is the brand running primarily video, images, or carousels? Video ads that have been live for months suggest video is converting for this audience. Heavy use of user-generated content (UGC) or testimonial-style videos indicates that social proof is effective.</p>
+
+    <p>If a competitor is running mostly static images, they've either found a winning format or haven't cracked video creative yet. If they're running diverse formats, they're in testing mode—which tells you the audience may not have a clear preference yet.</p>
+
+    <h3>Copy Structure</h3>
+    <p>Look for patterns in headlines and primary text:</p>
+    <ul>
+      <li>Are they leading with the problem ("Tired of...") or the solution ("Get [benefit] in [timeframe]")?</li>
+      <li>How long is the primary text? Long-form storytelling or punchy benefit bullets?</li>
+      <li>What's the call-to-action? "Shop Now" vs "Learn More" tells you where they are in the funnel</li>
+      <li>Are they using social proof (testimonials, reviews, case studies)?</li>
+      <li>What pain points or desires are they highlighting?</li>
+    </ul>
+
+    <p>Ads that have run for 60+ days with minimal copy changes are likely using language that resonates. Pay attention to specific phrases, not just general themes.</p>
+
+    <h3>Landing Page Strategy</h3>
+    <p>Click through to the landing pages. Are they sending traffic to:</p>
+    <ul>
+      <li>Product pages (direct response, high intent)</li>
+      <li>Collection pages (browse and discover)</li>
+      <li>Landing pages with lead forms (lead generation)</li>
+      <li>Blog content (top-of-funnel education)</li>
+      <li>Quiz or interactive experiences (engagement and segmentation)</li>
+    </ul>
+
+    <p>The destination tells you the campaign objective and where they think this audience is in the buyer journey. Brands with diverse landing page strategies are often segmenting audiences by intent level.</p>
+
+    <h3>Ad Longevity</h3>
+    <p>This is the most valuable signal in the Ad Library. Sort ads by "Oldest First" to see what's been running the longest.</p>
+
+    <div class="highlight-box">
+      <h4>Ad Longevity as a Performance Proxy</h4>
+      <ul>
+        <li><strong>0-7 days:</strong> New tests. No conclusions yet.</li>
+        <li><strong>7-30 days:</strong> Survived initial testing. Possibly working.</li>
+        <li><strong>30-90 days:</strong> Strong performer. Worthy of analysis.</li>
+        <li><strong>90+ days:</strong> Proven winner. Study this closely.</li>
+      </ul>
+    </div>
+
+    <p>Ads that run for months are generating positive ROAS. Otherwise, they'd be paused. These are the ads you want to deconstruct and learn from.</p>
+
+    <h3>Ad Variations</h3>
+    <p>When you see multiple versions of the same ad with slight variations (different headlines, different opening hooks, different CTAs), the competitor is A/B testing. The versions that survive longest are the winners.</p>
+
+    <p>If you see 10 variations of an ad launch at the same time and only 2 are still running 30 days later, those 2 are your study subjects.</p>
+
+    <h2>The Problem with Manual Research</h2>
+
+    <p>The Ad Library is powerful, but using it manually is tedious and time-consuming:</p>
+
+    <h3>One page at a time</h3>
+    <p>You have to scroll through ads one by one, with no way to see aggregate patterns across all of a competitor's creative. Spotting trends requires opening dozens of ads individually.</p>
+
+    <h3>Limited filtering</h3>
+    <p>You can filter by country and status (active vs inactive), but you can't filter by media type (show me only videos) or by how long an ad has been running (show me only ads older than 90 days).</p>
+
+    <h3>No aggregate insights</h3>
+    <p>Want to know what percentage of a competitor's ads are video vs image? What their most common landing pages are? Which ads have been running the longest? You'd have to manually count and track in a spreadsheet.</p>
+
+    <h3>No bulk actions</h3>
+    <p>If you want to save ads for reference or build a swipe file, you're stuck taking screenshots or bookmarking individual URLs. There's no way to collect and organize ads systematically.</p>
+
+    <p>For analyzing one competitor's one ad, the Ad Library is fine. For strategic competitive research—understanding trends across multiple competitors, media formats, and time periods—it's inefficient.</p>
+
+    <h2>How KillScale's Ad Studio Makes It Effortless</h2>
+
+    <p>KillScale's Ad Studio solves the manual research problem by aggregating Ad Library data into a filterable, analyzable interface. Here's what changes:</p>
+
+    <h3>Company Search with Autocomplete</h3>
+    <p>Instead of navigating to the Ad Library and hoping you get the exact page name right, Ad Studio gives you a search bar with instant autocomplete. Type a brand name and see matching companies, complete with logos and Facebook page IDs.</p>
+
+    <p>This is especially useful for brands with multiple pages (e.g., Nike has dozens of regional and product-specific pages) or ambiguous names (searching "Apple" could return Apple Inc., Apple Bank, or dozens of other businesses).</p>
+
+    <h3>Filterable Ad Grid</h3>
+    <p>Once you select a company, you see all their active ads in a visual grid—similar to browsing an Instagram feed. But unlike the Ad Library's linear scroll, you can filter instantly:</p>
+    <ul>
+      <li><strong>Media type:</strong> Show only videos, only images, only carousels, or text-only ads</li>
+      <li><strong>Days active:</strong> Show only ads running 0-7 days, 7-30 days, 30-90 days, or 90+ days</li>
+      <li><strong>Status:</strong> Active ads only, or include recently paused ads</li>
+    </ul>
+
+    <p>Want to see only the video ads that have been running for 90+ days? One click. That's your list of proven video winners.</p>
+
+    <h3>Aggregate Stats at a Glance</h3>
+    <p>Ad Studio computes insights across all of a competitor's ads automatically:</p>
+
+    <p><strong>Media Mix Chart:</strong> A visual breakdown of what percentage of ads are video, image, carousel, or text. If 70% of a competitor's ads are video, that tells you video is central to their strategy.</p>
+
+    <p><strong>Top Landing Pages:</strong> A ranked list of the most common destination URLs. If 80% of traffic goes to one landing page, that page is worth studying closely. If traffic is evenly distributed across dozens of pages, they're testing broad top-of-funnel targeting.</p>
+
+    <p><strong>Earliest Ad Date:</strong> How long has this brand been consistently advertising on Facebook? Brands that have been running ads for years likely have dialed-in strategies worth emulating.</p>
+
+    <p>These insights would take hours to compile manually. Ad Studio surfaces them in seconds.</p>
+
+    <h3>Click to See Full Ad Details</h3>
+    <p>Click any ad card to see the full ad in a modal with all available details: complete primary text (the Ad Library truncates long copy), full headline, CTA button text, destination URL, platforms it's running on, and first seen date.</p>
+
+    <p>For video ads, you can play the video directly in the modal to watch the full creative without leaving the interface.</p>
+
+    <div class="comparison-grid">
+      <div class="comparison-card bad">
+        <h4>Manual Ad Library Research</h4>
+        <ul>
+          <li>Scroll through ads one by one</li>
+          <li>No media type filtering</li>
+          <li>No longevity filtering</li>
+          <li>Can't see aggregate patterns</li>
+          <li>Manually track insights in spreadsheets</li>
+          <li>Takes hours to analyze one competitor</li>
+        </ul>
+      </div>
+      <div class="comparison-card good">
+        <h4>KillScale Ad Studio</h4>
+        <ul>
+          <li>Visual grid of all ads at once</li>
+          <li>Filter by video, image, carousel</li>
+          <li>Filter by 0-7, 7-30, 30-90, 90+ days</li>
+          <li>Media mix and landing page stats computed</li>
+          <li>All insights visible instantly</li>
+          <li>Analyze competitors in minutes</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>From Research to Action: Cloning What Works</h2>
+
+    <p>Competitive research is only valuable if you turn insights into action. Here's where Ad Studio becomes a creative production tool, not just a research tool.</p>
+
+    <h3>The "Use as Inspiration" Workflow</h3>
+    <p>When you find a competitor ad that's been running for 90+ days (a proven winner), you can click <strong>"Use as Inspiration"</strong> directly in the ad modal.</p>
+
+    <p>This starts a three-step AI generation flow:</p>
+
+    <h3>Step 1: Product Analysis</h3>
+    <p>Ad Studio asks for your product URL. It fetches your product page, analyzes the content, and extracts key information: product name, description, price, features, and product image.</p>
+
+    <p>This gives the AI context about your product so it can generate copy that's relevant and specific—not generic templates.</p>
+
+    <h3>Step 2: Copy Generation</h3>
+    <p>Using the competitor ad as a structural reference and your product info as the subject matter, KillScale's AI (powered by Claude) generates original ad copy variations.</p>
+
+    <p>Crucially, it's not copying the competitor's words. It's learning the competitor's angle—the problem they're highlighting, the benefit they're emphasizing, the emotional hook they're using—and applying that framework to your product.</p>
+
+    <p>For example, if the competitor ad uses a "before and after" transformation angle with testimonial quotes, the AI generates a similar angle for your product with your benefits. If the competitor uses a problem-agitate-solve structure, the AI does the same for your pain points.</p>
+
+    <p>You get 3-5 variations with different angles and tones, each with headline, primary text, and description copy ready to use.</p>
+
+    <h3>Step 3: Image Generation</h3>
+    <p>Here's where it gets powerful: Ad Studio can generate ad images that match the style and format of the competitor ad, but using your product.</p>
+
+    <p>Using Gemini 2.5 Flash Image (Google's multimodal AI), Ad Studio sends three inputs to the image generation model:</p>
+    <ul>
+      <li><strong>Your product image</strong> (from the URL you provided)</li>
+      <li><strong>The competitor ad image</strong> (as a style reference)</li>
+      <li><strong>A prompt</strong> describing the format and style to match</li>
+    </ul>
+
+    <p>The AI generates a new ad image that uses your product in the visual style of the competitor ad. If the competitor used a lifestyle shot with the product held by a model, you get the same. If they used a clean product-on-white-background format, you get that. If they used bold text overlay and high-contrast colors, you get that aesthetic applied to your product.</p>
+
+    <p>You're not stealing their image—you're learning their creative format and applying it to your brand.</p>
+
+    <h3>Style Options</h3>
+    <p>You can choose from multiple image generation styles:</p>
+    <ul>
+      <li><strong>Lifestyle:</strong> Product in use, real-world context, relatable scenarios</li>
+      <li><strong>Product:</strong> Clean, focused product shot with minimal distractions</li>
+      <li><strong>Minimal:</strong> Simple aesthetic, lots of white space, modern and clean</li>
+      <li><strong>Bold:</strong> High contrast, vibrant colors, scroll-stopping and pattern-interrupting</li>
+    </ul>
+
+    <p>If the competitor ad is bold and attention-grabbing, generate a bold version. If it's minimal and elegant, match that aesthetic. You control the output style to match your brand or to match the proven format.</p>
+
+    <h3>Iterate and Refine</h3>
+    <p>Don't love the first generated image? Click "Adjust" to generate a new version with the same prompt, or change the style and regenerate entirely. You can generate multiple image variations per ad copy version until you find something you're excited to launch.</p>
+
+    <blockquote>The goal isn't to produce a carbon copy of a competitor ad. The goal is to learn what's working—the angle, the format, the aesthetic—and apply those principles to your own brand in your own voice.</blockquote>
+
+    <h2>The Ethics of Competitive Research</h2>
+
+    <p>A common objection: "Isn't this just copying?"</p>
+
+    <p>No—and here's why the distinction matters.</p>
+
+    <h3>Copying vs. Learning Patterns</h3>
+    <p>Copying is taking someone's exact words, images, or creative and using them as your own. That's plagiarism and, in many cases, illegal.</p>
+
+    <p>Learning patterns is observing what frameworks, structures, and approaches are resonating with an audience, and applying those frameworks to your own product in your own voice. That's marketing.</p>
+
+    <p>Every industry has proven creative frameworks. Direct response copywriting follows time-tested formulas like PAS (Problem-Agitate-Solve), AIDA (Attention-Interest-Desire-Action), and BAB (Before-After-Bridge). These aren't proprietary secrets—they're shared knowledge built over decades of testing.</p>
+
+    <p>When you see a competitor using a framework successfully, you're not stealing by using the same framework. You're learning what works for your shared audience.</p>
+
+    <h3>The Ad Library Is Public for a Reason</h3>
+    <p>Meta made the Ad Library public intentionally. They want transparency in advertising. They expect advertisers to research what's working and learn from it.</p>
+
+    <p>If Meta didn't want you looking at competitor ads, they wouldn't make them publicly searchable. The fact that they do means this is considered fair play.</p>
+
+    <h3>Everyone Does This</h3>
+    <p>Your competitors are researching your ads. Large brands have entire teams dedicated to competitive intelligence—tracking what competitors are running, what's working, and how to respond.</p>
+
+    <p>The difference is that most small businesses don't have the time, tools, or expertise to do competitive research systematically. KillScale levels the playing field by automating the tedious parts and making insights actionable.</p>
+
+    <h3>Originality Comes from Application, Not Isolation</h3>
+    <p>The brands with the most "original" creative aren't operating in a vacuum. They're students of what works, constantly observing and learning from the market, then applying those lessons in fresh ways.</p>
+
+    <p>Originality doesn't mean ignoring what's proven. It means taking proven frameworks and infusing them with your unique product, brand voice, and audience understanding.</p>
+
+    <h2>A Step-by-Step Competitor Research Workflow</h2>
+
+    <p>Here's a practical workflow for turning competitive research into high-performing ads:</p>
+
+    <h3>1. Identify Your Competitors</h3>
+    <p>Make a list of 3-5 direct competitors—brands selling similar products to the same audience. Also consider aspirational competitors (brands a tier above you) and adjacent competitors (different products, same audience).</p>
+
+    <h3>2. Search Each Competitor in Ad Studio</h3>
+    <p>Use the company search to find each brand's Facebook page. If a brand has multiple pages (regional, product-specific), search all of them—they may be running different strategies per page.</p>
+
+    <h3>3. Filter for Long-Running Ads</h3>
+    <p>Set the "Days Active" filter to show only ads running 90+ days. These are the proven winners. Ignore everything else for now—you want to learn from what's working, not what's being tested.</p>
+
+    <h3>4. Analyze the Media Mix</h3>
+    <p>Look at the media mix chart. Is video dominant? If so, you need to be testing video. Is it mostly images? That tells you the audience may convert better on static creative, or that video hasn't been cracked yet.</p>
+
+    <h3>5. Study the Longest-Running Ads</h3>
+    <p>Click into the ads with the longest run time (120+ days, 180+ days). These are the evergreen winners. Study them closely:</p>
+    <ul>
+      <li>What's the headline structure?</li>
+      <li>What problem or desire is being highlighted?</li>
+      <li>What's the format: testimonial, lifestyle, product demo, educational?</li>
+      <li>What's the tone: urgent, aspirational, educational, playful?</li>
+      <li>What's the CTA: Shop Now, Learn More, Sign Up?</li>
+    </ul>
+
+    <h3>6. Note Patterns Across Multiple Competitors</h3>
+    <p>If multiple competitors are using similar formats (e.g., 3 out of 5 are running UGC-style testimonial videos), that's a strong signal the format is effective for this audience.</p>
+
+    <p>If one competitor is doing something no one else is doing, it's either highly innovative or highly ineffective. Check how long that ad has been running—if it's 120+ days, it's worth testing yourself.</p>
+
+    <h3>7. Select One Ad to Use as Inspiration</h3>
+    <p>Pick the ad that's been running the longest and feels most aligned with your brand and product. Click "Use as Inspiration."</p>
+
+    <h3>8. Enter Your Product URL and Generate Copy</h3>
+    <p>Provide your product page URL so Ad Studio can analyze your product. Review the generated copy variations. Pick the one (or two) that feel most on-brand and compelling.</p>
+
+    <h3>9. Generate Images</h3>
+    <p>Choose the style that matches the competitor ad format (or choose a different style if you want to differentiate). Generate images for your top copy variations. Adjust and regenerate until you have something you're excited about.</p>
+
+    <h3>10. Launch and Test</h3>
+    <p>Create your Facebook ad campaign with the generated copy and images. Launch it and track performance. Competitor research gives you a head start, but you still need to validate results with your specific audience.</p>
+
+    <h3>11. Repeat with Different Competitors and Angles</h3>
+    <p>Don't stop at one ad. Repeat the process with different competitor ads to test different angles, formats, and creative styles. The more tests you run, the faster you learn what works for your audience.</p>
+
+    <div class="highlight-box">
+      <h4>Pro Tip: Build a Swipe File</h4>
+      <ul>
+        <li>Save screenshots or bookmark URLs for competitor ads that run for 90+ days</li>
+        <li>Organize by format (video, image, carousel) and angle (problem-solution, testimonial, education, urgency)</li>
+        <li>When you need creative inspiration, refer to your swipe file of proven ads</li>
+        <li>Over time, you'll recognize patterns and develop intuition for what's likely to work</li>
+      </ul>
+    </div>
+
+    <h2>Common Mistakes to Avoid</h2>
+
+    <h3>Assuming Longer = Better</h3>
+    <p>While ad longevity is a strong signal, it's not perfect. A brand might keep running an ad because it's profitable, not because it's optimal. They might not have creative resources to test new variations. Don't assume the longest-running ad is the best-performing—it's just the one they haven't replaced yet.</p>
+
+    <h3>Copying Without Adapting</h3>
+    <p>If you generate an ad inspired by a competitor and it doesn't perform, don't blame the process. The competitor's audience isn't identical to yours. Their offer might be different. Their brand trust might be higher. You need to adapt the framework to your specific context, not clone it exactly.</p>
+
+    <h3>Ignoring Brand Voice</h3>
+    <p>Just because a competitor uses aggressive urgency language ("Last Chance! Ending Soon!") doesn't mean you should. If that's not your brand voice, it'll feel inauthentic and may backfire. Learn the structure (scarcity as a motivator), but express it in your voice.</p>
+
+    <h3>Skipping Your Own Testing</h3>
+    <p>Competitive research accelerates learning, but it doesn't replace testing. You still need to launch, measure, and iterate. Don't assume a competitor-inspired ad will work just because the competitor's did. Validate with data.</p>
+
+    <h2>Beyond Facebook: Applying These Principles to Other Channels</h2>
+
+    <p>The competitive research principles here apply beyond Facebook ads:</p>
+
+    <p><strong>Google Search Ads:</strong> Search for your target keywords and see what competitors are writing in their ad copy. Which headlines and descriptions appear consistently? Those are likely high performers.</p>
+
+    <p><strong>YouTube Ads:</strong> Watch videos on channels your audience follows. YouTube shows you pre-roll and mid-roll ads from competitors targeting the same audience.</p>
+
+    <p><strong>Email Swipe Files:</strong> Subscribe to competitor email lists. Pay attention to subject lines, email structures, and CTAs. Brands that email frequently have tested and optimized these elements extensively.</p>
+
+    <p><strong>Landing Pages:</strong> Use tools like WayBack Machine or landing page galleries to see how competitor landing pages have evolved. The versions that stick around longest are the ones that convert.</p>
+
+    <p>Competitive research is a skill that compounds. The more you practice observing what works, the better you get at spotting patterns and applying them strategically.</p>
+
+    <h2>The Real Advantage: Speed to Insight</h2>
+
+    <p>The biggest benefit of systematic competitive research isn't just learning what works—it's learning fast.</p>
+
+    <p>Without competitive research, you're running blind tests. You might test 10 ad variations and eventually find a winner, but you have no context for why it worked or what to test next.</p>
+
+    <p>With competitive research, you start with proven frameworks. You're not guessing—you're adapting what's already been validated. This dramatically reduces the time and budget needed to find winning creative.</p>
+
+    <p>Instead of spending weeks testing random ideas, you can launch ads inspired by proven formats and get results in days. Then you iterate based on performance data, building on what works rather than starting from scratch.</p>
+
+    <blockquote>Competitive research doesn't guarantee success, but it stacks the odds in your favor. You're learning from brands that have already spent thousands testing what resonates. That's leverage.</blockquote>
+
+    <h2>Final Thoughts</h2>
+
+    <p>The Meta Ad Library is public. The data is free. The insights are there for anyone willing to look.</p>
+
+    <p>The problem has always been that looking takes time—time most small business owners don't have. Analyzing ads manually is tedious. Aggregating insights across multiple competitors is labor-intensive. And turning research into action requires creative resources most brands lack.</p>
+
+    <p>KillScale's Ad Studio solves all three problems. It makes research fast (search, filter, analyze in minutes). It makes insights clear (media mix charts, longevity filters, top landing pages). And it makes action immediate (generate copy and images inspired by proven ads with AI).</p>
+
+    <p>Your competitors are out there running ads that work. Now you can see them, learn from them, and build your own versions—without the manual grind.</p>
+
+    <div class="cta-box">
+      <h3>Turn competitor research into winning ads</h3>
+      <p>KillScale's Ad Studio lets you research any competitor's Facebook ads, then generate your own ad copy and images with AI—in minutes, not hours.</p>
+      <a href="https://app.killscale.com/signup" class="btn btn-primary">Start Free — No Credit Card Required</a>
+    </div>
+  </div></article>
+
+  <footer><div class="container"><div class="footer-text">© 2026 KillScale</div><div class="footer-links"><a href="mailto:support@killscale.com">Support</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/blog">Blog</a></div></div></footer>
+</body>
+</html>

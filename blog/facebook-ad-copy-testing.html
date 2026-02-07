@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Ad Copy That Actually Converts: How to Track What Words Win | KillScale Blog</title>
+  <meta name="description" content="Most advertisers test images but never isolate which copy drives results. Here's how to track which headlines, primary text, and descriptions perform across all your ads.">
+
+  <!-- SEO Meta Tags -->
+  <link rel="canonical" href="https://killscale.com/blog/facebook-ad-copy-testing.html">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="KillScale">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://killscale.com/blog/facebook-ad-copy-testing.html">
+  <meta property="og:title" content="The Ad Copy That Actually Converts: How to Track What Words Win">
+  <meta property="og:description" content="Most advertisers test images but never isolate which copy drives results. Here's how to track which headlines, primary text, and descriptions perform across all your ads.">
+  <meta property="og:image" content="https://killscale.com/og-image.png">
+  <meta property="og:site_name" content="KillScale">
+  <meta property="article:published_time" content="2026-02-07">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Ad Copy That Actually Converts: How to Track What Words Win">
+  <meta name="twitter:description" content="How to track which headlines, primary text, and descriptions perform across all your ads.">
+  <meta name="twitter:image" content="https://killscale.com/og-image.png">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"The Ad Copy That Actually Converts: How to Track What Words Win","description":"Most advertisers test images but never isolate which copy drives results. Here's how to track which headlines, primary text, and descriptions perform across all your ads.","author":{"@type":"Organization","name":"KillScale"},"publisher":{"@type":"Organization","name":"KillScale"},"datePublished":"2026-02-07","mainEntityOfPage":"https://killscale.com/blog/facebook-ad-copy-testing.html"}
+  </script>
+
+  <link rel="icon" href="/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --bg: #FAF8FF; --bg-elevated: #FFFFFF; --border: #E4DFF0; --accent: #7c3aed; --accent-hover: #6d28d9; --accent-subtle: rgba(124, 58, 237, 0.1); --purple: #a855f7; --purple-subtle: rgba(168, 85, 247, 0.1); --text: #1A1A1A; --text-secondary: #6B7280; --text-tertiary: #9CA3AF; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 16px 0; position: fixed; top: 0; left: 0; right: 0; background: rgba(250, 248, 255, 0.9); backdrop-filter: blur(20px); z-index: 100; border-bottom: 1px solid var(--border); }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-text { font-weight: 700; font-size: 20px; letter-spacing: -0.5px; color: var(--text); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); }
+    .btn { display: inline-flex; align-items: center; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-ghost { background: transparent; color: var(--text-secondary); }
+    .article-header { padding: 140px 0 60px; border-bottom: 1px solid var(--border); }
+    .article-header .container { max-width: 800px; }
+    .breadcrumb { font-size: 14px; color: var(--text-tertiary); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .tag { display: inline-block; font-size: 12px; font-weight: 600; text-transform: uppercase; padding: 6px 12px; border-radius: 4px; background: rgba(239, 68, 68, 0.1); color: #ef4444; margin-bottom: 16px; }
+    .article-header h1 { font-size: clamp(32px, 5vw, 44px); font-weight: 800; letter-spacing: -1px; line-height: 1.2; margin-bottom: 20px; }
+    .article-meta { font-size: 14px; color: var(--text-secondary); }
+    .article-content { padding: 60px 0; }
+    .article-content .container { max-width: 720px; }
+    .article-content h2 { font-size: 28px; font-weight: 700; margin: 48px 0 20px; }
+    .article-content h3 { font-size: 22px; font-weight: 600; margin: 36px 0 16px; }
+    .article-content p { font-size: 17px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; }
+    .article-content ul, .article-content ol { margin: 0 0 24px 24px; }
+    .article-content li { font-size: 17px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 12px; }
+    .article-content strong { color: var(--text); font-weight: 600; }
+    .article-content blockquote { border-left: 3px solid var(--accent); padding-left: 24px; margin: 32px 0; font-style: italic; color: var(--text); }
+    .highlight-box { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 32px 0; }
+    .highlight-box h4 { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+    .highlight-box ul { margin-bottom: 0; }
+    .highlight-box li { font-size: 15px; margin-bottom: 8px; }
+    .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px 0; }
+    .comparison-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .comparison-card.bad { border-color: #ef4444; }
+    .comparison-card.good { border-color: #10b981; }
+    .comparison-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+    .comparison-card.bad h4 { color: #ef4444; }
+    .comparison-card.good h4 { color: #10b981; }
+    .comparison-card ul { margin: 0; }
+    .comparison-card li { font-size: 15px; margin-bottom: 8px; color: var(--text-secondary); }
+    .cta-box { background: linear-gradient(to bottom, rgba(59, 130, 246, 0.1), transparent); border: 1px solid var(--accent); border-radius: 16px; padding: 40px; text-align: center; margin: 48px 0; }
+    .cta-box h3 { font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+    .cta-box p { font-size: 16px; color: var(--text-secondary); margin-bottom: 24px; }
+    footer { padding: 40px 0; border-top: 1px solid var(--border); margin-top: 60px; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-text { font-size: 13px; color: var(--text-tertiary); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 13px; color: var(--text-secondary); text-decoration: none; }
+    @media (max-width: 768px) { .nav-links a:not(.btn) { display: none; } .comparison-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav><div class="container"><a href="/" class="logo"><img src="/logo.svg" alt="KillScale" style="height: 32px;"><span class="logo-text">KillScale</span></a><div class="nav-links"><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/blog">Blog</a><a href="https://app.killscale.com/login" class="btn btn-ghost">Log in</a><a href="https://app.killscale.com/signup" class="btn btn-primary">Get Started</a></div></div></nav>
+
+  <header class="article-header"><div class="container"><div class="breadcrumb"><a href="/blog">Blog</a> / Creative</div><span class="tag">Creative</span><h1>The Ad Copy That Actually Converts: How to Track What Words Win</h1><p class="article-meta">10 min read · February 2026</p></div></header>
+
+  <article class="article-content"><div class="container">
+    <p>You've tested 20 different images. You've tested video versus static. You've tested carousel versus single-image. But here's a question most advertisers never ask: which headline is actually driving your conversions?</p>
+
+    <p>Visual testing is obvious. Different images look different, perform different, and are easy to track. But copy testing requires something harder: isolating variables across multiple ads while accounting for the fact that the same copy often runs with different creatives.</p>
+
+    <p>Most advertisers change copy and creative simultaneously, making it impossible to know which one caused the performance change. Was it the new image or the new headline? The answer is buried in aggregated data you're not looking at.</p>
+
+    <h2>Why Nobody Tests Copy</h2>
+
+    <p>Visual testing is intuitive. You can see the difference between Image A and Image B. Performance differences feel obvious and attributable.</p>
+
+    <p>Copy testing is subtle. The difference between "Get 20% Off Today" and "Limited Time: Save 20%" doesn't look as dramatic. Both headlines seem fine. Both could work. So why bother testing?</p>
+
+    <p>Here's why: small changes in copy can drive massive changes in performance. A single word can shift click-through rates by 30% or more. But you'll never know which words work unless you test them in isolation.</p>
+
+    <h3>The measurement problem</h3>
+
+    <p>The real barrier isn't the importance of copy testing—it's the difficulty of measurement. To test copy properly, you need to:</p>
+
+    <ul>
+      <li>Run the same creative with different copy variations</li>
+      <li>Track performance of each copy variation separately</li>
+      <li>Account for the fact that the same copy might run with multiple creatives</li>
+      <li>Aggregate performance across all instances of the same copy</li>
+    </ul>
+
+    <p>Facebook Ads Manager doesn't make this easy. You can see ad-level performance, but you can't aggregate by copy variation. If you run the same headline with 5 different images, you're looking at 5 separate ads with 5 separate performance reports. Good luck identifying the pattern.</p>
+
+    <h3>The simultaneous change trap</h3>
+
+    <p>Most advertisers fall into this pattern: create a new ad, write new copy, pick a new image, launch. Performance is different from the last ad. Which variable caused the change?</p>
+
+    <p>You don't know. You can't know. You changed too many things at once.</p>
+
+    <p>The scientific method requires changing one variable at a time. But that feels slow when you're trying to launch ads quickly. So you skip it, and you never learn which changes actually drive results.</p>
+
+    <h2>The Copy Variables That Matter</h2>
+
+    <p>Facebook ads have three distinct copy elements, and each serves a different purpose in the conversion funnel:</p>
+
+    <h3>Primary Text</h3>
+
+    <p>This is the long text that appears above the image. It's the first thing users read, and for many, it's the only thing they read. Primary text has the most space to work with—you can go up to 125 characters before it truncates to "See More."</p>
+
+    <p>Primary text serves as the hook. It's where you grab attention, establish relevance, and create curiosity. Good primary text makes people stop scrolling and actually look at your ad.</p>
+
+    <h3>Headline</h3>
+
+    <p>The headline appears below the image in bold text. It's shorter—40 characters is the safe limit before truncation—which means every word counts.</p>
+
+    <p>Headlines serve as the bridge between attention and action. If primary text got them to notice the ad, the headline gives them a reason to click. It's where you communicate the core value proposition or offer.</p>
+
+    <h3>Description</h3>
+
+    <p>Description text appears below the headline in smaller, gray text. It's the least prominent element, but it matters for users who read deeply before clicking.</p>
+
+    <p>Descriptions serve as supporting detail. They add context, overcome objections, or provide additional value points that didn't fit in the headline.</p>
+
+    <div class="highlight-box">
+      <h4>The Three-Layer Copy Framework</h4>
+      <ul>
+        <li><strong>Primary Text:</strong> Hook their attention and establish relevance</li>
+        <li><strong>Headline:</strong> Communicate the core value or offer</li>
+        <li><strong>Description:</strong> Support with details or overcome objections</li>
+      </ul>
+    </div>
+
+    <p>Each element works together, but they can be tested independently. The same image might work with multiple headlines. The same headline might work with multiple descriptions. Testing these combinations is where you find winning formulas.</p>
+
+    <h2>How to Actually Isolate Copy Performance</h2>
+
+    <p>The ideal approach to copy testing follows a simple principle: change one thing at a time.</p>
+
+    <h3>The controlled test</h3>
+
+    <p>Pick your best-performing creative—the image or video you know works. Then run it with multiple copy variations, changing only the element you want to test:</p>
+
+    <ul>
+      <li><strong>Testing headlines:</strong> Same image, same primary text, same description. Only the headline changes.</li>
+      <li><strong>Testing primary text:</strong> Same image, same headline, same description. Only the primary text changes.</li>
+      <li><strong>Testing descriptions:</strong> Same image, same headline, same primary text. Only the description changes.</li>
+    </ul>
+
+    <p>This gives you clean data. When performance differs, you know exactly which variable caused it.</p>
+
+    <h3>The reality of cross-creative copy</h3>
+
+    <p>Here's where theory meets practice: in the real world, you don't always run controlled tests. You create new ads with new combinations. You find a headline that works and start using it across multiple creatives. You test video versus static, and both use the same copy.</p>
+
+    <p>This isn't bad testing—it's efficient scaling. But it makes attribution harder. When the same headline runs with 10 different images, how do you know if the headline is driving performance or if certain image-headline combinations work better than others?</p>
+
+    <p>The answer is aggregation. You need to see performance metrics aggregated by copy variation across all the ads that use it.</p>
+
+    <h2>Aggregating Copy Performance Across Ads</h2>
+
+    <p>This is where most ad platforms fall short. Facebook shows you ad-level performance, but it doesn't aggregate by copy element. If you want to know which headline performs best, you have to manually review every ad using that headline and calculate the aggregate yourself.</p>
+
+    <p>That works for 3 ads. It doesn't work for 30.</p>
+
+    <h3>What copy aggregation looks like</h3>
+
+    <p>Imagine you run 20 different ads, and 8 of them use the headline "Get 20% Off Today." Those 8 ads use different images, different primary text, and ran at different times. But they all share that headline.</p>
+
+    <p>Copy aggregation would show you:</p>
+
+    <ul>
+      <li>Total impressions for all ads using that headline</li>
+      <li>Total clicks for all ads using that headline</li>
+      <li>Aggregate CTR across all instances</li>
+      <li>Total conversions and ROAS attributed to that headline</li>
+      <li>How many different ads used it</li>
+    </ul>
+
+    <p>Now you can compare that to "Limited Time: Save 20%" which appeared in 6 different ads. Which headline drove better results? You have the data to answer that question definitively.</p>
+
+    <h3>Why this matters more than you think</h3>
+
+    <p>When you aggregate copy performance, patterns emerge that you'd never see at the ad level:</p>
+
+    <p>You might discover that a certain primary text drives 2x higher CTR regardless of which image it's paired with. That tells you the hook is strong—use it everywhere.</p>
+
+    <p>You might find that a headline converts at 15% while every other headline converts at 8%. That's a winning message—double down on it.</p>
+
+    <p>You might see that a description drives lower bounce rates on your landing page. That means it's setting accurate expectations—keep it.</p>
+
+    <p>These insights are invisible when you only look at individual ad performance. They become obvious when you aggregate by copy element.</p>
+
+    <h2>What Good Copy Metrics Look Like</h2>
+
+    <p>Once you're tracking copy performance in aggregate, you need to know what to look for. Different copy elements drive different metrics.</p>
+
+    <h3>Primary text: focus on CTR</h3>
+
+    <p>Primary text is your hook. Its job is to make people click. So the key metric is click-through rate.</p>
+
+    <p>Good primary text drives CTR 20-50% higher than baseline. If your average CTR is 1.5%, and a new primary text variation drives 2.2%, you've found a better hook. Use it.</p>
+
+    <p>Watch for patterns in what works: Does specificity drive more clicks? Do questions outperform statements? Does urgency beat curiosity? The data will tell you.</p>
+
+    <h3>Headlines: focus on conversion rate</h3>
+
+    <p>Headlines communicate value. Their job is to convert clicks into actions. So the key metric is conversion rate.</p>
+
+    <p>Two headlines might drive similar CTR, but one converts at twice the rate. That headline is doing a better job of communicating why someone should buy. It's setting the right expectations or hitting the right pain point.</p>
+
+    <p>Good headlines can shift conversion rates 30% or more. That's a bigger impact than most image tests.</p>
+
+    <h3>Descriptions: focus on ROAS</h3>
+
+    <p>Descriptions provide supporting detail. Their job is to qualify traffic—attract the right people and repel the wrong ones. So the key metric is return on ad spend.</p>
+
+    <p>A description that drives lower CTR but higher ROAS is doing its job. It's filtering out low-intent clicks and attracting high-intent buyers. That's exactly what you want.</p>
+
+    <div class="comparison-grid">
+      <div class="comparison-card bad">
+        <h4>Vanity Metrics</h4>
+        <ul>
+          <li>Overall CTR without conversion context</li>
+          <li>Impressions per copy variation</li>
+          <li>Ad-level performance in isolation</li>
+          <li>Most recent performance only</li>
+          <li>Comparing across different audiences</li>
+        </ul>
+      </div>
+      <div class="comparison-card good">
+        <h4>Actionable Metrics</h4>
+        <ul>
+          <li>CTR by primary text variation</li>
+          <li>Conversion rate by headline</li>
+          <li>ROAS by description</li>
+          <li>Aggregate performance over time</li>
+          <li>Same audience, different copy</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Building a Copy Library</h2>
+
+    <p>Once you've identified winning copy variations, you need a system to save and reuse them. Most advertisers don't. They write new copy for every campaign, forgetting what worked last month and reinventing the wheel each time.</p>
+
+    <p>A copy library solves this problem. It's a repository of proven copy variations you can pull from when creating new ads.</p>
+
+    <h3>What to save</h3>
+
+    <p>Save copy variations that meet performance thresholds:</p>
+
+    <ul>
+      <li>Primary text with CTR 20%+ above baseline</li>
+      <li>Headlines with conversion rate 15%+ above baseline</li>
+      <li>Descriptions with ROAS 10%+ above baseline</li>
+    </ul>
+
+    <p>Tag each variation with context: what audience it worked for, what product it promoted, what offer it highlighted. This makes it easy to find relevant copy when you're building new campaigns.</p>
+
+    <h3>How to use it</h3>
+
+    <p>When creating a new campaign, start with your library instead of a blank page. Pull winning headlines from similar campaigns. Adapt primary text that worked for related products. Use descriptions that drove high ROAS in the past.</p>
+
+    <p>This doesn't mean copying blindly—context matters, and what worked for one offer might not work for another. But starting with proven copy and adapting it is faster and more effective than starting from scratch every time.</p>
+
+    <h3>The compounding effect</h3>
+
+    <p>The real power of a copy library is compounding knowledge. Every test you run adds to your library. Every campaign teaches you what works. Over time, you build a collection of proven copy that spans audiences, products, and offers.</p>
+
+    <p>New campaigns get faster because you're not reinventing copy. Performance gets more consistent because you're building on what already works. And you develop an intuition for what copy drives results in your market.</p>
+
+    <h2>AI-Generated Copy That You Can Track</h2>
+
+    <p>AI tools can generate ad copy in seconds. But most advertisers use them wrong: they generate copy, paste it into ads, and never track which AI-generated variations actually perform.</p>
+
+    <p>This wastes the advantage AI offers. The power isn't just that AI can write copy fast—it's that AI can generate multiple variations fast, which means you can test more angles without the manual writing overhead.</p>
+
+    <h3>The right way to use AI copy</h3>
+
+    <p>Generate multiple variations for each copy element. Don't accept the first output—ask for 5 different headlines, 5 different primary text variations, 5 different descriptions. This gives you a testing suite, not a single ad.</p>
+
+    <p>Tag AI-generated copy in your library so you can track it separately. This lets you answer questions like "Does AI-generated copy convert as well as human-written copy?" The answer might surprise you—sometimes AI outperforms, sometimes it doesn't. You won't know unless you track it.</p>
+
+    <p>Treat AI copy as a starting point for testing, not a replacement for tracking. The performance data you collect from AI-generated variations teaches the AI what works in your specific market. Over time, you can guide it toward styles and angles that drive results for your business.</p>
+
+    <h3>Saving AI copy to your library</h3>
+
+    <p>When AI generates copy you want to test, save it directly to your copy library before you even run the ad. This creates a record of what was AI-generated versus what you wrote manually.</p>
+
+    <p>Then, when you actually use that copy in an ad and performance data starts coming in, you can see exactly how each AI-generated variation performs. The ones that work stay in your library. The ones that don't get removed.</p>
+
+    <p>This creates a feedback loop: generate, test, measure, keep winners, discard losers. Your library becomes a collection of proven copy—some AI-generated, some human-written, all performance-validated.</p>
+
+    <h2>A Practical Copy Testing Framework</h2>
+
+    <p>Here's a step-by-step framework you can implement starting today:</p>
+
+    <h3>Step 1: Identify your control creative</h3>
+
+    <p>Find your best-performing image or video—the one that consistently drives results. This becomes your control variable for copy testing.</p>
+
+    <h3>Step 2: Create 3-4 copy variations</h3>
+
+    <p>Write or generate 3-4 variations of the copy element you want to test. If you're testing headlines, write 3-4 different headlines. Keep everything else constant.</p>
+
+    <h3>Step 3: Launch as separate ads</h3>
+
+    <p>Create individual ads for each variation. Same creative, same targeting, same budget. Only the copy changes.</p>
+
+    <h3>Step 4: Let them run</h3>
+
+    <p>Give each variation enough spend to reach statistical significance. For most businesses, that's at least $50-100 per variation. Don't judge performance after $10 spend.</p>
+
+    <h3>Step 5: Check aggregated performance</h3>
+
+    <p>Once you have enough data, look at aggregate metrics for each copy variation. Which one drove the best CTR? Which one converted best? Which one drove the highest ROAS?</p>
+
+    <h3>Step 6: Scale the winner, archive the losers</h3>
+
+    <p>Take the winning copy variation and use it across more creatives. Save it to your copy library. Pause or remove the underperformers.</p>
+
+    <h3>Step 7: Test the next element</h3>
+
+    <p>Once you've identified your best headline, move to testing primary text. Then descriptions. Then test combinations of winners together.</p>
+
+    <p>This iterative approach builds knowledge over time. Each test teaches you something. Each winner goes into your library. Each campaign gets slightly better than the last.</p>
+
+    <blockquote>"The best advertisers don't just test images. They test every element systematically, tracking what works and building libraries of proven copy. That's how you get consistent performance instead of random wins."</blockquote>
+
+    <h2>Common Copy Testing Mistakes</h2>
+
+    <p>Avoid these traps that derail most copy testing efforts:</p>
+
+    <h3>Testing too many variables at once</h3>
+
+    <p>Changing headline, primary text, image, and audience simultaneously makes attribution impossible. Change one thing at a time.</p>
+
+    <h3>Not giving tests enough time</h3>
+
+    <p>Judging performance after 100 impressions or $5 spend is premature. Wait for statistical significance—usually 1000+ link clicks or $50-100 spend per variation.</p>
+
+    <h3>Testing copy on bad creatives</h3>
+
+    <p>If your creative doesn't work, no amount of copy testing will save it. Test copy on proven creatives, not struggling ones.</p>
+
+    <h3>Forgetting to save winners</h3>
+
+    <p>You run a test, find a winner, use it for that campaign, then forget about it. Three months later you're writing new copy from scratch. Save your winners and reuse them.</p>
+
+    <h3>Comparing across different audiences</h3>
+
+    <p>Copy that works for warm audiences might fail for cold traffic. Compare performance within the same audience segment, not across different ones.</p>
+
+    <div class="cta-box">
+      <h3>Start tracking what your words are worth</h3>
+      <p>KillScale's Copy tracking shows you which headlines and text actually drive conversions—across every ad that uses them. See which copy variations perform best, save AI-generated copy to your library, and build a collection of proven winners.</p>
+      <a href="https://app.killscale.com/signup" class="btn btn-primary">Start Free — No Credit Card Required</a>
+    </div>
+  </div></article>
+
+  <footer><div class="container"><div class="footer-text">© 2026 KillScale</div><div class="footer-links"><a href="mailto:support@killscale.com">Support</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/blog">Blog</a></div></div></footer>
+</body>
+</html>

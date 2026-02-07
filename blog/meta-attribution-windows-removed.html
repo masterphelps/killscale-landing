@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meta Removed Your Attribution Windows: Here's What to Do Now | KillScale Blog</title>
+  <meta name="description" content="In January 2026, Meta permanently removed 7-day view and 28-day view attribution windows. Here's what changed, why it matters, and how first-party tracking fills the gap.">
+
+  <!-- SEO Meta Tags -->
+  <link rel="canonical" href="https://killscale.com/blog/meta-attribution-windows-removed.html">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="KillScale">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://killscale.com/blog/meta-attribution-windows-removed.html">
+  <meta property="og:title" content="Meta Removed Your Attribution Windows: Here's What to Do Now">
+  <meta property="og:description" content="In January 2026, Meta removed 7-day view and 28-day view attribution. Here's what changed and how first-party tracking fills the gap.">
+  <meta property="og:image" content="https://killscale.com/og-image.png">
+  <meta property="og:site_name" content="KillScale">
+  <meta property="article:published_time" content="2026-02-07">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Meta Removed Your Attribution Windows: Here's What to Do Now">
+  <meta name="twitter:description" content="Meta's attribution changes in 2026 and the first-party tracking solution.">
+  <meta name="twitter:image" content="https://killscale.com/og-image.png">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Meta Removed Your Attribution Windows: Here's What to Do Now","description":"In January 2026, Meta permanently removed 7-day view and 28-day view attribution windows. Here's what changed, why it matters, and how first-party tracking fills the gap.","author":{"@type":"Organization","name":"KillScale"},"publisher":{"@type":"Organization","name":"KillScale"},"datePublished":"2026-02-07","mainEntityOfPage":"https://killscale.com/blog/meta-attribution-windows-removed.html"}
+  </script>
+
+  <link rel="icon" href="/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --bg: #FAF8FF; --bg-elevated: #FFFFFF; --border: #E4DFF0; --accent: #7c3aed; --accent-hover: #6d28d9; --accent-subtle: rgba(124, 58, 237, 0.1); --purple: #a855f7; --purple-subtle: rgba(168, 85, 247, 0.1); --text: #1A1A1A; --text-secondary: #6B7280; --text-tertiary: #9CA3AF; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 16px 0; position: fixed; top: 0; left: 0; right: 0; background: rgba(250, 248, 255, 0.9); backdrop-filter: blur(20px); z-index: 100; border-bottom: 1px solid var(--border); }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-text { font-weight: 700; font-size: 20px; letter-spacing: -0.5px; color: var(--text); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); }
+    .btn { display: inline-flex; align-items: center; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-ghost { background: transparent; color: var(--text-secondary); }
+    .article-header { padding: 140px 0 60px; border-bottom: 1px solid var(--border); }
+    .article-header .container { max-width: 800px; }
+    .breadcrumb { font-size: 14px; color: var(--text-tertiary); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .tag { display: inline-block; font-size: 12px; font-weight: 600; text-transform: uppercase; padding: 6px 12px; border-radius: 4px; margin-bottom: 16px; }
+    .article-header h1 { font-size: clamp(32px, 5vw, 44px); font-weight: 800; letter-spacing: -1px; line-height: 1.2; margin-bottom: 20px; }
+    .article-meta { font-size: 14px; color: var(--text-secondary); }
+    .article-content { padding: 60px 0; }
+    .article-content .container { max-width: 720px; }
+    .article-content h2 { font-size: 28px; font-weight: 700; margin: 48px 0 20px; }
+    .article-content h3 { font-size: 22px; font-weight: 600; margin: 36px 0 16px; }
+    .article-content p { font-size: 17px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; }
+    .article-content ul, .article-content ol { margin: 0 0 24px 24px; }
+    .article-content li { font-size: 17px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 12px; }
+    .article-content strong { color: var(--text); font-weight: 600; }
+    .article-content blockquote { border-left: 3px solid var(--accent); padding-left: 24px; margin: 32px 0; font-style: italic; color: var(--text); }
+    .highlight-box { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 32px 0; }
+    .highlight-box h4 { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+    .highlight-box ul { margin-bottom: 0; }
+    .highlight-box li { font-size: 15px; margin-bottom: 8px; }
+    .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px 0; }
+    .comparison-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .comparison-card.bad { border-color: #ef4444; }
+    .comparison-card.good { border-color: #10b981; }
+    .comparison-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+    .comparison-card.bad h4 { color: #ef4444; }
+    .comparison-card.good h4 { color: #10b981; }
+    .comparison-card ul { margin: 0; }
+    .comparison-card li { font-size: 15px; margin-bottom: 8px; color: var(--text-secondary); }
+    .cta-box { background: linear-gradient(to bottom, rgba(59, 130, 246, 0.1), transparent); border: 1px solid var(--accent); border-radius: 16px; padding: 40px; text-align: center; margin: 48px 0; }
+    .cta-box h3 { font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+    .cta-box p { font-size: 16px; color: var(--text-secondary); margin-bottom: 24px; }
+    footer { padding: 40px 0; border-top: 1px solid var(--border); margin-top: 60px; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-text { font-size: 13px; color: var(--text-tertiary); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 13px; color: var(--text-secondary); text-decoration: none; }
+    @media (max-width: 768px) { .nav-links a:not(.btn) { display: none; } .comparison-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav><div class="container"><a href="/" class="logo"><img src="/logo.svg" alt="KillScale" style="height: 32px;"><span class="logo-text">KillScale</span></a><div class="nav-links"><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/blog">Blog</a><a href="https://app.killscale.com/login" class="btn btn-ghost">Log in</a><a href="https://app.killscale.com/signup" class="btn btn-primary">Get Started</a></div></div></nav>
+
+  <header class="article-header"><div class="container"><div class="breadcrumb"><a href="/blog">Blog</a> / Attribution & Tracking</div><span class="tag" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Attribution</span><h1>Meta Removed Your Attribution Windows: Here's What to Do Now</h1><p class="article-meta">14 min read · February 2026</p></div></header>
+
+  <article class="article-content"><div class="container">
+    <p>If you woke up in January 2026 to find your Meta Ads conversions had dropped 30-40% overnight, you're not alone. And you're not crazy.</p>
+
+    <p>Meta permanently removed two of their most popular attribution windows: <strong>7-day view</strong> and <strong>28-day view</strong>. Without warning emails or clear announcements, tens of thousands of advertisers saw their reported performance numbers crater—not because their ads stopped working, but because Meta stopped counting a huge portion of the conversions those ads were generating.</p>
+
+    <p>The good news: your actual sales didn't disappear. The bad news: if you're still relying on Meta's attribution windows to measure performance, you're flying blind with shrinking visibility into what your ads are actually doing.</p>
+
+    <p>Here's what changed, why it matters more than you think, and what you need to do to get accurate attribution in 2026 and beyond.</p>
+
+    <h2>What Meta Actually Changed in Their Attribution Windows</h2>
+
+    <p>Meta's attribution windows determine how long after someone sees or clicks your ad, a conversion can still be credited to that ad. Prior to January 2026, advertisers could choose from four options:</p>
+
+    <ul>
+      <li><strong>1-day view:</strong> Conversion within 24 hours of viewing (not clicking) your ad</li>
+      <li><strong>7-day view:</strong> Conversion within 7 days of viewing your ad</li>
+      <li><strong>7-day click:</strong> Conversion within 7 days of clicking your ad</li>
+      <li><strong>28-day view:</strong> Conversion within 28 days of viewing your ad</li>
+    </ul>
+
+    <p>Starting in January 2026, Meta removed the 7-day view and 28-day view options entirely. Now you only get:</p>
+
+    <ul>
+      <li><strong>1-day view:</strong> Still available (but significantly less generous than 7-day)</li>
+      <li><strong>7-day click:</strong> Still available (unchanged)</li>
+    </ul>
+
+    <p>If you were using 7-day view attribution as your primary measurement (and most advertisers were, since it was Meta's default), you suddenly lost visibility into 6 out of every 7 days of view-through conversions. Your dashboard didn't change. Your ads didn't change. But the reported results dropped off a cliff.</p>
+
+    <div class="comparison-grid">
+      <div class="comparison-card bad">
+        <h4>Before January 2026</h4>
+        <ul>
+          <li>1-day view attribution window</li>
+          <li>7-day view attribution window</li>
+          <li>7-day click attribution window</li>
+          <li>28-day view attribution window</li>
+          <li>Generous view-through counting</li>
+          <li>Default: 7-day view (most advertisers used this)</li>
+        </ul>
+      </div>
+      <div class="comparison-card good">
+        <h4>After January 2026</h4>
+        <ul>
+          <li>1-day view attribution window (only)</li>
+          <li><s>7-day view attribution window</s> REMOVED</li>
+          <li>7-day click attribution window (unchanged)</li>
+          <li><s>28-day view attribution window</s> REMOVED</li>
+          <li>Drastically reduced view-through counting</li>
+          <li>Many advertisers saw 30-40% conversion drops</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Why This Matters More Than You Think</h2>
+
+    <p>On the surface, this might seem like a minor reporting change. "So what if view-through attribution gets stricter? Clicks are what matter anyway, right?"</p>
+
+    <p>Not quite. Here's why this change is more significant than it appears:</p>
+
+    <h3>View-through attribution wasn't just padding numbers</h3>
+
+    <p>Yes, view-through conversions are less valuable than click-through conversions—someone who saw your ad and later bought without clicking didn't demonstrate as strong intent. But view-through attribution wasn't meaningless. Brand awareness campaigns, retargeting efforts, and video ads all rely heavily on view-through conversions to measure impact.</p>
+
+    <p>If you were running top-of-funnel awareness campaigns or retargeting audiences who'd already visited your site, you were likely seeing 40-60% of your attributed conversions come from view-through windows. Those conversions didn't vanish—Meta just stopped counting them.</p>
+
+    <h3>The shrinking window changes optimization behavior</h3>
+
+    <p>Meta's algorithm optimizes campaigns based on the conversions it can see. When the attribution window shrinks, Meta's algorithm sees fewer conversions, which changes how it optimizes delivery. Campaigns that were performing well under 7-day view attribution may now look like poor performers to the algorithm—even though the actual business results haven't changed.</p>
+
+    <p>This creates a feedback loop: shorter attribution windows show fewer conversions, the algorithm deprioritizes those campaigns, actual performance degrades, and you're left thinking the campaigns failed when really the measurement failed.</p>
+
+    <h3>You can't compare historical performance anymore</h3>
+
+    <p>If you were tracking a 3.5x ROAS on 7-day view attribution in December 2025, and now you're seeing 2.1x ROAS on 1-day view attribution in February 2026, did your performance drop? Or did the measurement change? You can't tell. Your year-over-year comparisons are now worthless unless you account for the attribution shift.</p>
+
+    <blockquote>The problem isn't that your ads stopped working. The problem is you lost the ability to accurately measure whether they're working.</blockquote>
+
+    <h2>The Real Impact on Your Numbers</h2>
+
+    <p>Let's walk through a concrete example to show how the Meta attribution windows removal affects real campaigns.</p>
+
+    <h3>Scenario: Retargeting Campaign (Before January 2026)</h3>
+
+    <ul>
+      <li><strong>Ad spend:</strong> $5,000</li>
+      <li><strong>Revenue (7-day view):</strong> $17,500</li>
+      <li><strong>ROAS (7-day view):</strong> 3.5x</li>
+      <li><strong>Verdict:</strong> Scale campaign, increase budget</li>
+    </ul>
+
+    <h3>Same Campaign (After January 2026)</h3>
+
+    <ul>
+      <li><strong>Ad spend:</strong> $5,000</li>
+      <li><strong>Revenue (1-day view):</strong> $10,500</li>
+      <li><strong>ROAS (1-day view):</strong> 2.1x</li>
+      <li><strong>Verdict:</strong> Watch or kill campaign based on thresholds</li>
+    </ul>
+
+    <p>Your actual sales didn't drop. Your retargeting audience didn't stop converting. Meta just stopped counting 40% of the conversions that happened between day 2 and day 7 after someone viewed your ad. But if you're making decisions based on Meta's reported ROAS, you'd kill a campaign that's actually still profitable.</p>
+
+    <h3>Why retargeting and awareness campaigns were hit hardest</h3>
+
+    <p>Direct-response campaigns optimized for immediate clicks and conversions see less impact from the attribution window changes. If someone clicks your ad and buys within minutes, the attribution window doesn't matter.</p>
+
+    <p>But if you're running:</p>
+
+    <ul>
+      <li>Brand awareness campaigns that build familiarity over time</li>
+      <li>Retargeting campaigns that remind prospects who aren't ready to buy immediately</li>
+      <li>Video ads that introduce your product to cold audiences</li>
+      <li>Consideration-stage campaigns for higher-ticket products with longer sales cycles</li>
+    </ul>
+
+    <p>...you were relying heavily on view-through attribution over multi-day windows. The removal of 7-day and 28-day view windows effectively makes these campaign types look like failures in Meta's reporting, even when they're contributing meaningfully to revenue.</p>
+
+    <div class="highlight-box">
+      <h4>Real Impact by Campaign Type</h4>
+      <ul>
+        <li><strong>Direct response (buy now):</strong> 10-20% reported conversion drop</li>
+        <li><strong>Retargeting campaigns:</strong> 30-50% reported conversion drop</li>
+        <li><strong>Brand awareness / video:</strong> 50-70% reported conversion drop</li>
+        <li><strong>High-ticket / long sales cycle:</strong> 60-80% reported conversion drop</li>
+      </ul>
+    </div>
+
+    <h2>Why Meta Did This</h2>
+
+    <p>Meta didn't remove attribution windows to hurt advertisers. They did it because they had no choice.</p>
+
+    <h3>iOS 14.5+ and App Tracking Transparency</h3>
+
+    <p>Apple's App Tracking Transparency framework, launched in 2021, allowed iPhone users to opt out of cross-app tracking. The majority did. This gutted Meta's ability to track users across apps and websites, which is exactly what view-through attribution requires.</p>
+
+    <p>When Meta can't see that someone who viewed your ad on Instagram later made a purchase on your website (because Apple blocked the tracking), Meta can't attribute that conversion. For years, Meta patched this with modeled conversions and statistical estimates. But as privacy restrictions tightened, those models became less reliable.</p>
+
+    <h3>European privacy regulations (GDPR, DMA)</h3>
+
+    <p>Europe's GDPR and the newer Digital Markets Act forced Meta to provide even stricter opt-in requirements for tracking. European users could entirely block Meta's tracking pixels, making view-through attribution nearly impossible for EU audiences.</p>
+
+    <h3>Third-party cookie deprecation</h3>
+
+    <p>Google's ongoing phase-out of third-party cookies (delayed multiple times but still coming) further erodes Meta's ability to track users across the web. Even Meta's own pixel can't track users as effectively when browsers block third-party cookies by default.</p>
+
+    <h3>Regulatory pressure and advertiser trust</h3>
+
+    <p>Meta faced increasing scrutiny over inflated conversion numbers. Advertisers were starting to notice that Meta's reported conversions didn't match actual revenue in their Shopify dashboards or Google Analytics. The gap was getting harder to explain.</p>
+
+    <p>By removing the longest attribution windows, Meta is essentially admitting: "We can't reliably track conversions beyond 1 day of view-through anymore, so we're not going to pretend we can."</p>
+
+    <blockquote>Meta removed attribution windows they could no longer measure accurately. The question is: what are you going to use instead?</blockquote>
+
+    <h2>The First-Party Data Solution</h2>
+
+    <p>The answer to Meta's shrinking attribution isn't to hope they bring the windows back (they won't) or to trust their increasingly limited reporting. The answer is to own your attribution data through first-party tracking.</p>
+
+    <h3>What is first-party tracking?</h3>
+
+    <p>First-party tracking means you directly capture data about your customers on your own domain, using your own tools, without relying on Meta (or any other platform) to tell you what happened.</p>
+
+    <p>Instead of asking Meta "did this ad generate a sale?", you directly track:</p>
+
+    <ul>
+      <li>Which ad someone clicked (via UTM parameters)</li>
+      <li>Which product pages they visited</li>
+      <li>What they added to cart</li>
+      <li>What they actually purchased</li>
+    </ul>
+
+    <p>You store this data in your own database, match it to actual revenue from your store (Shopify, WooCommerce, etc.), and attribute sales to specific ads based on source-of-truth order data—not Meta's estimates.</p>
+
+    <h3>Why first-party tracking works when Meta's attribution doesn't</h3>
+
+    <p>First-party tracking isn't subject to Apple's App Tracking Transparency rules because you're not tracking users across third-party apps—you're tracking activity on your own website, which users implicitly consent to by using your site.</p>
+
+    <p>It doesn't rely on third-party cookies because your tracking script runs on your domain and stores data in your database. Browser cookie restrictions don't break your attribution.</p>
+
+    <p>It matches real orders to real ad clicks, not modeled conversions. If someone clicked an ad, came to your site, and made a purchase, you have a complete audit trail linking that order to that specific ad—regardless of what Meta's pixel did or didn't see.</p>
+
+    <h3>The three components you need</h3>
+
+    <p>Building a first-party attribution system requires three pieces:</p>
+
+    <ol>
+      <li><strong>First-party tracking pixel:</strong> A lightweight script on your website that captures UTM parameters (which ad drove the visit) and user behavior (page views, add-to-cart, etc.)</li>
+      <li><strong>E-commerce platform integration:</strong> A connection to Shopify, WooCommerce, or your order system that provides source-of-truth revenue data</li>
+      <li><strong>Attribution matching logic:</strong> A system that matches orders from your store to ad clicks captured by your pixel, giving you accurate per-ad revenue and ROAS</li>
+    </ol>
+
+    <h2>How to Set Up First-Party Tracking</h2>
+
+    <p>Setting up accurate first-party tracking doesn't require a development team or months of integration work. Here's the practical approach:</p>
+
+    <h3>Step 1: Install a first-party tracking pixel</h3>
+
+    <p>Tools like KillScale provide a first-party pixel that takes 10 minutes to install. You add two code snippets to your website:</p>
+
+    <ol>
+      <li><strong>Main pixel (in your <code>&lt;head&gt;</code> tag):</strong> Tracks page views, captures UTM parameters from ad clicks, and stores them in a first-party cookie on your domain</li>
+      <li><strong>Purchase confirmation script (on order confirmation page):</strong> Fires when someone completes a purchase, sending the order ID and revenue to your database along with the UTM parameters that brought them to your site</li>
+    </ol>
+
+    <p>Unlike Meta's pixel (which browsers increasingly block), your first-party pixel runs on your domain and isn't flagged as third-party tracking. It captures the data you need even when users have ad blockers or strict privacy settings.</p>
+
+    <h3>Step 2: Connect your Shopify store</h3>
+
+    <p>The pixel tells you which ad someone clicked. Your Shopify store tells you what they actually bought and how much revenue they generated. The critical step is connecting the two.</p>
+
+    <p>Shopify integration (via OAuth or webhooks) automatically syncs every order into your attribution system. Each order includes:</p>
+
+    <ul>
+      <li>Order ID (unique identifier)</li>
+      <li>Revenue (actual dollars, not Meta's estimates)</li>
+      <li>Timestamp (when the purchase happened)</li>
+      <li>UTM parameters (if the customer came from an ad click)</li>
+    </ul>
+
+    <p>This gives you a complete record of every sale, independent of what Meta reports.</p>
+
+    <h3>Step 3: Let the JOIN model do the work</h3>
+
+    <p>Once your pixel and Shopify are connected, the attribution system automatically matches pixel events to Shopify orders using a JOIN model based on order ID.</p>
+
+    <p>Here's how it works in practice:</p>
+
+    <ul>
+      <li>User clicks your Meta ad with UTM parameters (<code>utm_source=facebook&utm_campaign=retargeting&utm_content=ad_123</code>)</li>
+      <li>Your first-party pixel captures those UTMs and stores them in a cookie on your domain</li>
+      <li>User browses, adds to cart, completes checkout</li>
+      <li>Purchase confirmation script fires with order ID (<code>order_54321</code>) and the stored UTM parameters</li>
+      <li>Shopify webhook sends the same order ID (<code>order_54321</code>) with actual revenue ($127.50)</li>
+      <li>Attribution system matches the two records on order ID: pixel event says "this came from ad_123", Shopify order says "this generated $127.50"</li>
+      <li>Result: $127.50 attributed to ad_123 with complete confidence</li>
+    </ul>
+
+    <p>No estimation. No modeling. Just direct matching of real orders to real ad clicks.</p>
+
+    <h2>The JOIN Model: Matching Orders to Ads</h2>
+
+    <p>The JOIN model is the industry-standard approach used by attribution platforms like Northbeam, Triple Whale, and KillScale. It's called a JOIN model because it uses SQL JOIN logic to match two independent data sources.</p>
+
+    <h3>The two sources of truth</h3>
+
+    <table style="width: 100%; border-collapse: collapse; margin: 24px 0;">
+      <tr style="background: var(--bg-elevated); border-bottom: 2px solid var(--border);">
+        <th style="padding: 12px; text-align: left; font-weight: 600;">Source</th>
+        <th style="padding: 12px; text-align: left; font-weight: 600;">What it provides</th>
+      </tr>
+      <tr style="border-bottom: 1px solid var(--border);">
+        <td style="padding: 12px;"><strong>Shopify Orders</strong></td>
+        <td style="padding: 12px;">Revenue source of truth</td>
+      </tr>
+      <tr style="border-bottom: 1px solid var(--border);">
+        <td style="padding: 12px;"><strong>Pixel Events</strong></td>
+        <td style="padding: 12px;">Attribution source of truth</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px;"><strong>JOIN on order_id</strong></td>
+        <td style="padding: 12px;">= Attributed revenue</td>
+      </tr>
+    </table>
+
+    <h3>Three possible outcomes</h3>
+
+    <p>When the system tries to match pixel events to Shopify orders, three scenarios can occur:</p>
+
+    <ol>
+      <li><strong>ATTRIBUTED:</strong> Pixel event exists + Shopify order exists + order IDs match → Revenue is attributed to the ad in the pixel's UTM parameters. This is the ideal scenario.</li>
+      <li><strong>UNATTRIBUTED:</strong> Shopify order exists, but no matching pixel event → Revenue counts in your totals, but can't be credited to a specific ad. This happens with direct traffic, organic search, email campaigns, or when users block the pixel.</li>
+      <li><strong>ORPHAN:</strong> Pixel event exists, but no matching Shopify order → Ignored (no revenue to attribute). This happens when users click, browse, but don't buy.</li>
+    </ol>
+
+    <p>Your goal is to maximize the percentage of orders in category 1 (ATTRIBUTED). The metric to watch is <strong>pixel match rate</strong>: the percentage of Shopify orders that have a matching pixel event.</p>
+
+    <div class="highlight-box">
+      <h4>Pixel Match Rate Benchmarks</h4>
+      <ul>
+        <li><strong>85%+:</strong> Excellent — most orders are matched to ad clicks</li>
+        <li><strong>70-85%:</strong> Good — some untracked orders but still actionable</li>
+        <li><strong>50-70%:</strong> Needs improvement — check pixel installation</li>
+        <li><strong>Below 50%:</strong> Broken setup — pixel likely not firing correctly</li>
+      </ul>
+    </div>
+
+    <p>A small percentage of unattributed orders is normal and healthy—it means you have traffic from non-ad sources (organic, direct, email). But if more than 15-20% of orders are unattributed, your pixel may not be installed correctly or may be getting blocked more than expected.</p>
+
+    <h2>What Your Dashboard Should Look Like Now</h2>
+
+    <p>Once you've set up first-party tracking with the JOIN model, your attribution dashboard should show a clear waterfall of how revenue gets attributed:</p>
+
+    <h3>The Attribution Waterfall</h3>
+
+    <ol>
+      <li><strong>Shopify UTM Attribution (Primary):</strong> Orders where Shopify captured the <code>utm_content</code> parameter directly (requires UTM parameters in the final checkout URL). Most reliable.</li>
+      <li><strong>KillScale Pixel Attribution (Secondary):</strong> Orders matched via the JOIN model using order ID. Fills gaps where Shopify UTMs didn't persist through checkout.</li>
+      <li><strong>Meta API Attribution (Fallback):</strong> Meta's reported conversions via their pixel and attribution windows. Least reliable but provides a baseline.</li>
+      <li><strong>Unattributed Revenue:</strong> Real revenue that can't be tied to a specific ad (organic, direct, email, etc.). This is normal and expected.</li>
+    </ol>
+
+    <p>When viewing performance in your dashboard, you should see:</p>
+
+    <ul>
+      <li><strong>Revenue:</strong> Total from Shopify (source of truth)</li>
+      <li><strong>Attributed Revenue:</strong> Portion matched to specific ads (via waterfall above)</li>
+      <li><strong>Ad Spend:</strong> Total cost from Meta Ads API</li>
+      <li><strong>True ROAS:</strong> Attributed Revenue ÷ Ad Spend</li>
+      <li><strong>Pixel Match Rate:</strong> Percentage of orders successfully attributed</li>
+    </ul>
+
+    <p>This gives you a complete picture: you know total revenue (from Shopify), ad-driven revenue (from attribution), and true ROAS (the ratio that actually matters for scaling decisions).</p>
+
+    <h3>What good attribution reveals</h3>
+
+    <p>When you switch from Meta's attribution windows to first-party JOIN model attribution, you often discover:</p>
+
+    <ul>
+      <li>Your actual ROAS is different (sometimes higher, sometimes lower) than Meta reported</li>
+      <li>Certain campaigns that looked like winners in Meta's dashboard are break-even at best</li>
+      <li>Other campaigns that looked weak in Meta's reporting are actually profitable</li>
+      <li>Your best ads change when you measure based on actual revenue instead of Meta's view-through conversions</li>
+    </ul>
+
+    <p>The goal isn't to make your numbers look better. The goal is to make your numbers accurate so you can confidently scale what works and kill what doesn't.</p>
+
+    <h2>What About Meta's Conversions API?</h2>
+
+    <p>You might be thinking: "Doesn't Meta's Conversions API (CAPI) solve this problem?"</p>
+
+    <p>Not quite. Meta's Conversions API is valuable for improving campaign optimization and reducing signal loss from browser-based tracking. But it doesn't solve the attribution measurement problem.</p>
+
+    <h3>What CAPI does well</h3>
+
+    <ul>
+      <li>Sends conversion signals directly from your server to Meta (bypassing browser blockers)</li>
+      <li>Helps Meta's algorithm optimize delivery by seeing conversions it would otherwise miss</li>
+      <li>Improves ad performance by giving Meta more complete conversion data</li>
+    </ul>
+
+    <h3>What CAPI doesn't do</h3>
+
+    <ul>
+      <li>Provide you with an independent source of truth for attribution</li>
+      <li>Solve the attribution window removal problem (CAPI uses the same limited windows)</li>
+      <li>Give you visibility beyond Meta's reporting (you're still trusting Meta's numbers)</li>
+      <li>Let you track non-Meta traffic sources with the same pixel</li>
+    </ul>
+
+    <p>CAPI is useful for campaign optimization. First-party tracking is essential for measurement and attribution. You should use both: CAPI to help Meta optimize, and first-party tracking to independently verify performance.</p>
+
+    <h2>The Bottom Line</h2>
+
+    <p>Meta's removal of 7-day view and 28-day view attribution windows in January 2026 wasn't a glitch. It's permanent. And it's only the beginning of a broader shift away from platform-controlled attribution toward advertiser-owned measurement.</p>
+
+    <p>The advertisers who adapt quickly will gain an edge:</p>
+
+    <ul>
+      <li>They'll have accurate ROAS data when competitors are guessing</li>
+      <li>They'll scale winning campaigns with confidence instead of hesitation</li>
+      <li>They'll cut losing campaigns before they burn through budget</li>
+      <li>They'll understand customer behavior beyond what Meta chooses to report</li>
+    </ul>
+
+    <p>First-party tracking isn't optional anymore. It's the baseline for competent advertising measurement in 2026.</p>
+
+    <div class="cta-box">
+      <h3>Stop trusting Meta's shrinking attribution</h3>
+      <p>KillScale's first-party pixel + Shopify integration gives you the real numbers. Set up accurate tracking in 10 minutes.</p>
+      <a href="https://app.killscale.com/signup" class="btn btn-primary">Start Free — No Credit Card Required</a>
+    </div>
+  </div></article>
+
+  <footer><div class="container"><div class="footer-text">© 2026 KillScale</div><div class="footer-links"><a href="mailto:support@killscale.com">Support</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/blog">Blog</a></div></div></footer>
+</body>
+</html>

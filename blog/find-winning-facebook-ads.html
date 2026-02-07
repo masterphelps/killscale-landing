@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Build a Winning Ad from Your Best-Performing Creative | KillScale Blog</title>
+  <meta name="description" content="You have ads running. Some are working. Here's how to systematically identify winners using performance scores and build more of what works.">
+
+  <!-- SEO Meta Tags -->
+  <link rel="canonical" href="https://killscale.com/blog/find-winning-facebook-ads.html">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="KillScale">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://killscale.com/blog/find-winning-facebook-ads.html">
+  <meta property="og:title" content="How to Build a Winning Ad from Your Best-Performing Creative">
+  <meta property="og:description" content="Systematically identify winners using Hook, Hold, Click, and Convert scores to build more of what works.">
+  <meta property="og:image" content="https://killscale.com/og-image.png">
+  <meta property="og:site_name" content="KillScale">
+  <meta property="article:published_time" content="2026-02-07">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Build a Winning Ad from Your Best-Performing Creative">
+  <meta name="twitter:description" content="Systematically identify winners using performance scores to build more of what works.">
+  <meta name="twitter:image" content="https://killscale.com/og-image.png">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"How to Build a Winning Ad from Your Best-Performing Creative","description":"Systematically identify winners using Hook, Hold, Click, and Convert scores to build more of what works.","author":{"@type":"Organization","name":"KillScale"},"publisher":{"@type":"Organization","name":"KillScale"},"datePublished":"2026-02-07","mainEntityOfPage":"https://killscale.com/blog/find-winning-facebook-ads.html"}
+  </script>
+
+  <link rel="icon" href="/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --bg: #FAF8FF; --bg-elevated: #FFFFFF; --border: #E4DFF0; --accent: #7c3aed; --accent-hover: #6d28d9; --accent-subtle: rgba(124, 58, 237, 0.1); --purple: #a855f7; --purple-subtle: rgba(168, 85, 247, 0.1); --text: #1A1A1A; --text-secondary: #6B7280; --text-tertiary: #9CA3AF; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 16px 0; position: fixed; top: 0; left: 0; right: 0; background: rgba(250, 248, 255, 0.9); backdrop-filter: blur(20px); z-index: 100; border-bottom: 1px solid var(--border); }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-text { font-weight: 700; font-size: 20px; letter-spacing: -0.5px; color: var(--text); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); }
+    .btn { display: inline-flex; align-items: center; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-ghost { background: transparent; color: var(--text-secondary); }
+    .article-header { padding: 140px 0 60px; border-bottom: 1px solid var(--border); }
+    .article-header .container { max-width: 800px; }
+    .breadcrumb { font-size: 14px; color: var(--text-tertiary); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .tag { display: inline-block; font-size: 12px; font-weight: 600; text-transform: uppercase; padding: 6px 12px; border-radius: 4px; background: rgba(239, 68, 68, 0.1); color: #ef4444; margin-bottom: 16px; }
+    .article-header h1 { font-size: clamp(32px, 5vw, 44px); font-weight: 800; letter-spacing: -1px; line-height: 1.2; margin-bottom: 20px; }
+    .article-meta { font-size: 14px; color: var(--text-secondary); }
+    .article-content { padding: 60px 0; }
+    .article-content .container { max-width: 720px; }
+    .article-content h2 { font-size: 28px; font-weight: 700; margin: 48px 0 20px; }
+    .article-content h3 { font-size: 22px; font-weight: 600; margin: 36px 0 16px; }
+    .article-content p { font-size: 17px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; }
+    .article-content ul, .article-content ol { margin: 0 0 24px 24px; }
+    .article-content li { font-size: 17px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 12px; }
+    .article-content strong { color: var(--text); font-weight: 600; }
+    .article-content blockquote { border-left: 3px solid var(--accent); padding-left: 24px; margin: 32px 0; font-style: italic; color: var(--text); }
+    .highlight-box { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 32px 0; }
+    .highlight-box h4 { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+    .highlight-box ul { margin-bottom: 0; }
+    .highlight-box li { font-size: 15px; margin-bottom: 8px; }
+    .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px 0; }
+    .comparison-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .comparison-card.bad { border-color: #ef4444; }
+    .comparison-card.good { border-color: #10b981; }
+    .comparison-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+    .comparison-card.bad h4 { color: #ef4444; }
+    .comparison-card.good h4 { color: #10b981; }
+    .comparison-card ul { margin: 0; }
+    .comparison-card li { font-size: 15px; margin-bottom: 8px; color: var(--text-secondary); }
+    .cta-box { background: linear-gradient(to bottom, rgba(59, 130, 246, 0.1), transparent); border: 1px solid var(--accent); border-radius: 16px; padding: 40px; text-align: center; margin: 48px 0; }
+    .cta-box h3 { font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+    .cta-box p { font-size: 16px; color: var(--text-secondary); margin-bottom: 24px; }
+    footer { padding: 40px 0; border-top: 1px solid var(--border); margin-top: 60px; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-text { font-size: 13px; color: var(--text-tertiary); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 13px; color: var(--text-secondary); text-decoration: none; }
+    @media (max-width: 768px) { .nav-links a:not(.btn) { display: none; } .comparison-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav><div class="container"><a href="/" class="logo"><img src="/logo.svg" alt="KillScale" style="height: 32px;"><span class="logo-text">KillScale</span></a><div class="nav-links"><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/blog">Blog</a><a href="https://app.killscale.com/login" class="btn btn-ghost">Log in</a><a href="https://app.killscale.com/signup" class="btn btn-primary">Get Started</a></div></div></nav>
+
+  <header class="article-header"><div class="container"><div class="breadcrumb"><a href="/blog">Blog</a> / Creative</div><span class="tag">Creative</span><h1>How to Build a Winning Ad from Your Best-Performing Creative</h1><p class="article-meta">12 min read · February 2026</p></div></header>
+
+  <article class="article-content"><div class="container">
+    <p>You have 30 ads running across your account. Some are printing money. Some are bleeding it. A few are breaking even and taking up space in the learning phase.</p>
+
+    <p>Here's the question most advertisers can't answer: do you know WHY your winners are winning?</p>
+
+    <p>Is it because they grab attention immediately? Because they hold people's focus? Because they drive clicks at efficient prices? Or because they convert cold traffic into buyers?</p>
+
+    <p>Most people never know. They look at ROAS, see one ad at 4.2x and another at 1.8x, and assume the high-ROAS ad is the winner they should scale. Then they dump budget into it and watch performance collapse because they didn't understand what was actually working—or when it works.</p>
+
+    <h2>The Problem with "Just Scale the Winners"</h2>
+
+    <p>ROAS alone doesn't tell you much. A high-ROAS ad might be coasting on retargeting traffic or showing only to people who already know your brand. It might have terrible reach because the click-through rate is so low Meta barely shows it. It might work brilliantly for warm audiences but fail completely on cold traffic.</p>
+
+    <p>When you scale ads without understanding what makes them work, you're flying blind. Sometimes it works. Usually it doesn't. And when it fails, you can't diagnose why because you never understood what was working in the first place.</p>
+
+    <p>The problem isn't that you need more data—you're drowning in data. The problem is you need the right data, structured in a way that tells you where each ad excels in the customer journey.</p>
+
+    <h2>The Four Scores That Tell the Full Story</h2>
+
+    <p>Every ad moves people through a funnel: attention, interest, action, conversion. Most advertisers only measure the endpoints (impressions and purchases) while ignoring everything in between.</p>
+
+    <p>To understand what makes an ad actually work, you need four distinct measurements that map to each stage:</p>
+
+    <h3>Hook Score: Do people stop scrolling?</h3>
+
+    <p>Hook Score measures thumbstop rate for video ads—the percentage of people who see your ad and stop to watch it. Meta calls this metric "ThruPlays" divided by impressions, but what matters is the benchmark: 30% or higher is excellent, 25-30% is good, 15-25% is average, and below 15% means your ad is invisible.</p>
+
+    <p>High Hook Score means your creative has pattern-interrupt. The opening frame, motion, or concept makes people stop their scroll. This is critical for cold audiences who have never heard of you—if you can't hook them in the first second, nothing else matters.</p>
+
+    <p>But Hook Score alone doesn't mean the ad sells. It just means it gets attention. Some of the best attention-grabbing ads convert terribly because the hook is disconnected from the offer.</p>
+
+    <h3>Hold Score: Do they keep watching?</h3>
+
+    <p>Hold Score measures whether people who start watching your video ad actually finish it. It combines two metrics: 75% for hold rate (ThruPlays divided by 3-second views) and 25% for completion rate (100% video views divided by impressions).</p>
+
+    <p>Hold rate above 40% is excellent—you hooked them AND kept them engaged. Completion rate above 25% is rare and valuable—a quarter of everyone who saw your ad watched the entire thing.</p>
+
+    <p>High Hold Score means your story or value proposition resonates. People aren't just stopping—they're invested enough to hear you out. This correlates strongly with message-market fit. If people stop watching halfway through, your hook made a promise your content didn't deliver.</p>
+
+    <p>Hold Score only applies to video ads. For static images, this metric is irrelevant—which is why you need multiple scores, not a single "creative quality" metric.</p>
+
+    <h3>Click Score: Do they take action?</h3>
+
+    <p>Click Score combines click-through rate (60%) and cost per click (40%). CTR tells you what percentage of people who see your ad click it. CPC tells you how much you're paying for those clicks.</p>
+
+    <p>CTR benchmarks: 4% or higher is excellent, 2.5-4% is good, 1.5-2.5% is average, 0.8-1.5% is below average, and under 0.8% means your ad isn't compelling enough to act on. CPC benchmarks: $0.30 or less is excellent, $0.30-0.80 is good, $0.80-1.50 is average, $1.50-3.00 is expensive, and above $3.00 is bleeding money.</p>
+
+    <p>High Click Score means your creative drives intent. People see it, want what you're offering, and click to learn more. This is where your offer strength shows up. A great Hook and Hold with terrible Click usually means your creative is entertaining but your offer is weak or unclear.</p>
+
+    <p>Click Score applies to all ad formats—images, videos, carousels. It's the universal measure of "does this creative make people want to engage?"</p>
+
+    <h3>Convert Score: Do they buy?</h3>
+
+    <p>Convert Score measures ROAS using the same benchmarks you already know: 5x or higher is excellent, 3-5x is good, 1.5-3x is average, 1-1.5x is below break-even, and under 1x is losing money.</p>
+
+    <p>High Convert Score means your landing page, offer, and product deliver on what the ad promised. This is the only score that directly measures business outcomes—everything else is a proxy for engagement.</p>
+
+    <p>But Convert Score is also the most misleading in isolation. An ad with 10x ROAS on $50 spend might just be showing to your warmest audiences. An ad with 2x ROAS on $5,000 spend might be your actual workhorse. You need spend volume context to interpret Convert Score correctly.</p>
+
+    <div class="highlight-box">
+      <h4>Why All Four Scores Require $50 Minimum Spend</h4>
+      <ul>
+        <li>Statistical significance: Below $50, sample sizes are too small to be meaningful. A 30% thumbstop rate on 200 impressions is noise. A 30% thumbstop rate on 5,000 impressions is signal.</li>
+        <li>Learning phase noise: New ads perform erratically until Meta's algorithm finds the right audience. Under $50, you're measuring Meta's learning, not your creative's true performance.</li>
+        <li>Audience mix matters: Small spend samples often hit unrepresentative audience segments. Sufficient spend ensures your scores reflect actual performance across the target audience.</li>
+      </ul>
+    </div>
+
+    <h2>Reading the Scores: What Each Combination Means</h2>
+
+    <p>Individual scores tell you something. Score combinations tell you everything.</p>
+
+    <h3>High Hook, Low Convert: The Attention Trap</h3>
+
+    <p>Hook Score 82, Convert Score 31. People stop scrolling, but they don't buy. This pattern means your creative grabs attention with a premise that doesn't match your offer. Classic example: "You won't believe what happened next" hooks that lead to a product with no connection to the teaser.</p>
+
+    <p>These ads feel like winners because engagement metrics look great. But they burn budget acquiring clicks from curiosity, not intent. The fix isn't more budget—it's aligning your hook with your offer or finding a different angle.</p>
+
+    <h3>Low Hook, High Convert: The Warm Audience Winner</h3>
+
+    <p>Hook Score 44, Convert Score 88. People who see this ad don't stop scrolling often—but when they do, they buy. This is a retargeting all-star or a product-focused ad that only resonates with people who already understand the problem.</p>
+
+    <p>These ads work brilliantly on warm audiences and fail on cold traffic. If you scale them into prospecting campaigns, performance craters because you're trying to reach people who need the hook you don't have. The fix: keep these ads in retargeting or warm lookalikes, and build different creative for cold acquisition.</p>
+
+    <h3>High Hook, High Hold, Low Click: The Engagement Mirage</h3>
+
+    <p>Hook Score 86, Hold Score 79, Click Score 38. People stop, watch, enjoy—and do nothing. Your creative is entertaining but your call-to-action is weak or your offer isn't compelling enough to leave the platform.</p>
+
+    <p>This is the most frustrating pattern because it feels close. You've nailed storytelling but failed to convert interest into action. The fix: stronger CTA, clearer value proposition, or reducing friction (like "Shop Now" instead of "Learn More").</p>
+
+    <h3>High Across All Four: The True Winner</h3>
+
+    <p>Hook Score 81, Hold Score 73, Click Score 68, Convert Score 84. This ad stops people, keeps them engaged, drives clicks at efficient prices, and converts those clicks into revenue. This is what you're hunting for—creative that works at every stage of the funnel.</p>
+
+    <p>True winners are rare. Most ads excel at one or two stages and struggle with the rest. When you find one, you don't just scale the ad—you study it. What makes the hook work? Why does it hold attention? What about the offer or CTA drives clicks? What's the message-match between ad and landing page?</p>
+
+    <p>Understanding what makes a true winner work lets you replicate the pattern, not just the ad.</p>
+
+    <div class="comparison-grid">
+      <div class="comparison-card bad">
+        <h4>Traditional Approach</h4>
+        <ul>
+          <li>Look at ROAS alone</li>
+          <li>Scale the highest ROAS ads</li>
+          <li>Hope performance holds</li>
+          <li>Can't diagnose why performance dropped</li>
+          <li>Start over when winners stop working</li>
+        </ul>
+      </div>
+      <div class="comparison-card good">
+        <h4>Four-Score Approach</h4>
+        <ul>
+          <li>Understand where each ad excels in funnel</li>
+          <li>Scale ads with balanced scores</li>
+          <li>Predict which ads will scale successfully</li>
+          <li>Know exactly what to optimize when performance drops</li>
+          <li>Replicate winning patterns, not just winning ads</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Finding Your Winners in Creative Studio</h2>
+
+    <p>Understanding the four scores is one thing. Actually using them to find winners in a live account with dozens of ads is another.</p>
+
+    <p>Most ad platforms give you data tables. Columns of metrics you can sort by, one at a time. Want to see which ads have the best CTR? Sort by CTR. Want to see which have the best ROAS? Re-sort by ROAS. But you can't see both at once, and you definitely can't see how Hook, Hold, Click, and Convert interact.</p>
+
+    <p>Creative Studio solves this with visual scoring. Every asset gets four badge scores displayed simultaneously. Gallery view shows thumbnail cards with score badges: H:82 Hd:71 Cl:65 Cv:48. Color-coded so you can scan 30 ads in seconds and spot patterns.</p>
+
+    <p>Green badges (75+) mean excellent performance. Amber badges (50-74) mean good. Orange badges (25-49) mean below average. Red badges (below 25) mean this stage of the funnel is broken.</p>
+
+    <p>Sort by any score to find specific winners: sort by Hook to find attention-grabbers for cold traffic campaigns. Sort by Convert to find efficiency champions for scaling. Sort by Click to find offer-driven creative. Or sort by Hold to find story-driven video that keeps people engaged.</p>
+
+    <p>Filter by funnel stage to narrow down: set Hook filter to 75+ to see only ads with excellent thumbstop rate. Set Convert filter to 50+ to see only profitable creative. Combine filters to find ads that meet multiple criteria—like Hook 75+ AND Convert 75+ to find true winners.</p>
+
+    <p>Every asset is clickable for full detail view: daily performance trends, audience breakdowns, placement performance, exact metric calculations. You can see not just that an ad has Hook Score 81, but that it started at 68, climbed to 81 over five days as Meta found the right audience, and dropped to 74 yesterday as frequency climbed above 3.</p>
+
+    <h2>Starring Your Best Creative</h2>
+
+    <p>Finding winners is step one. Building a collection of proven performers is step two.</p>
+
+    <p>As you review Creative Studio, you'll spot patterns: this video has consistent 80+ Hook Score across multiple ad sets. This image has 4.5x ROAS in three different campaigns. This carousel holds attention better than anything else you've tested.</p>
+
+    <p>Star them. Every asset in Creative Studio has a star button. Click it, and the creative goes into your starred collection—a permanent inventory of proven performers that works across campaigns, ad sets, and time periods.</p>
+
+    <p>Starring is smarter than bookmarking ads in Ads Manager because it tracks the creative itself, not the ad instance. That same video might be running in five different ad sets under different names. Starring deduplicates automatically—you star once, and it knows that creative is a winner everywhere it appears.</p>
+
+    <p>The starred bar at the bottom of Creative Studio shows your collection count and previews. It's always visible as you browse, so you can see what you've selected without losing your place. Click any starred item to unstar if you change your mind. Click "Build Performance Set" when you're ready to launch.</p>
+
+    <p>This isn't just a convenience feature—it's a strategic workflow. You're not building a campaign in the moment based on gut feel. You're curating a collection of data-proven winners over time, then deploying them deliberately when you're ready to scale.</p>
+
+    <h2>Building a Performance Set</h2>
+
+    <p>You've identified your winners across Hook, Hold, Click, and Convert. You've starred 5-8 of your best-performing creatives. Now you need to turn that collection into a scalable campaign structure.</p>
+
+    <p>This is where most people go back to Ads Manager and manually recreate everything—selecting the winning images and videos one by one, setting up ad sets, configuring targeting, writing copy. It's tedious, error-prone, and slow enough that you procrastinate doing it.</p>
+
+    <p>Performance Sets automate the tedious parts while keeping you in control of the strategy. Click "Build Performance Set" in Creative Studio, and you're taken into Launch Wizard with your starred creative pre-selected. You choose account, name the campaign, select targeting and budgets, and KillScale creates the complete campaign structure in one flow.</p>
+
+    <p>But here's what makes Performance Sets different from just launching another campaign: the structure follows Meta's Andromeda recommendations automatically. That means a CBO campaign with all your winning creatives consolidated into one ad set, letting Meta's algorithm optimize delivery across proven performers.</p>
+
+    <p>Andromeda is Meta's internal name for their machine learning best practices. The core principle: fewer ad sets with more creative options in each gives the algorithm more data per ad set and better optimization signal. One ad set with 6 winning ads outperforms 6 ad sets with 1 ad each because the learning happens faster and delivery stabilizes sooner.</p>
+
+    <p>When you build a Performance Set, you're not just grouping ads—you're implementing Meta's recommended campaign architecture using creative you've already validated with data. That's why Performance Sets scale more predictably than manual campaign builds.</p>
+
+    <blockquote>Meta's algorithm optimizes better when it has multiple strong options to choose from within a single ad set, rather than comparing weak options across many ad sets.</blockquote>
+
+    <h2>Why This Works Better Than Manual Testing</h2>
+
+    <p>Traditional creative testing is expensive and slow. You launch 10 new ads, spend $50-100 on each to get statistically significant data, wait 5-7 days for the learning phase to complete, then manually review metrics to decide which ones to keep and which to kill. By the time you have answers, two weeks and $1,000+ are gone.</p>
+
+    <p>Worse, most testing frameworks use blunt metrics. You pick winners based on ROAS or CPA alone, without understanding why they won or whether they'll scale. Then you build new campaigns around those winners and discover that ads optimized for retargeting audiences don't work on cold traffic, or ads with great engagement don't actually drive revenue.</p>
+
+    <p>The four-score system changes the economics and speed of testing because you're not testing ads in isolation—you're evaluating how existing creative performs across the entire funnel. Every ad already running is generating Hook, Hold, Click, and Convert data. You're not creating new tests; you're analyzing results from the tests already happening in your account.</p>
+
+    <p>This means you can identify winners from historical data without additional test budget. You can diagnose why winners work before you scale them. And you can predict which combinations of creative will work together in a Performance Set because you understand each asset's strengths.</p>
+
+    <p>When you combine this data-driven creative selection with Meta's recommended campaign structure (CBO with consolidated ad sets), you're not hoping your test works—you're deploying proven creative in the optimal architecture for algorithmic learning. That's why Performance Sets scale more reliably than traditional campaign builds.</p>
+
+    <h2>The Ongoing Process</h2>
+
+    <p>Finding winners and building Performance Sets isn't a one-time project. It's an ongoing cycle because creative performance decays over time.</p>
+
+    <p>Every ad has a lifecycle. It starts fresh—Hook Scores are high, people haven't seen it before, engagement is strong. As impressions accumulate and frequency climbs, performance degrades. Thumbstop rate drops because your target audience has seen the ad multiple times. Conversion rate declines because you've already reached the most interested buyers.</p>
+
+    <p>This is creative fatigue, and it's inevitable. The question isn't whether your winning ads will fatigue—it's when, and whether you'll catch it before it costs you.</p>
+
+    <p>Creative Studio's fatigue detection tracks this automatically through the Health Score system. Fatigue levels progress from Healthy to Warning to Fatiguing to Fatigued based on frequency metrics and performance trends. When an asset hits Warning, you have time to prepare replacements. When it hits Fatiguing, you should already be testing new creative. When it hits Fatigued, you need to pause or refresh immediately.</p>
+
+    <p>The ongoing process looks like this:</p>
+
+    <ol>
+      <li><strong>Weekly creative review:</strong> Scan Creative Studio scores to see which ads are maintaining performance and which are declining. Check fatigue status on your starred creative.</li>
+      <li><strong>Rotate in new creative:</strong> Star new assets that hit 75+ scores in at least two categories. Don't wait for perfect four-category winners—those are rare. Look for ads strong in Hook+Click or Hold+Convert.</li>
+      <li><strong>Retire fatigued assets:</strong> When starred creative hits Fatigued status or scores drop below 50 in multiple categories, unstar it and pause the ad. Don't let zombie creative burn budget.</li>
+      <li><strong>Rebuild Performance Sets:</strong> Every 4-6 weeks, audit your Performance Set creative. Remove fatigued assets, add newly-starred winners, and relaunch. Campaign structure stays the same; creative rotates.</li>
+      <li><strong>Study patterns:</strong> As you rotate creative, track what works. Are video ads consistently outscoring images on Hook but underperforming on Convert? Are lifestyle shots beating product shots on Click? Use these insights to guide future creative production.</li>
+    </ol>
+
+    <p>This cycle turns creative testing from a occasional project into a continuous system. You're always identifying winners, always rotating in fresh creative, always scaling what works and killing what doesn't. The four-score framework makes this sustainable because you're not guessing—you're following the data.</p>
+
+    <div class="highlight-box">
+      <h4>Red Flags to Watch For</h4>
+      <ul>
+        <li><strong>High-ROAS ads with low spend:</strong> If an ad shows 8x ROAS but only spent $47, it hasn't met the $50 minimum for meaningful scores. Don't star it yet—wait for more data.</li>
+        <li><strong>Declining scores across multiple categories:</strong> When an asset drops from green badges to amber or orange across Hook, Click, and Convert simultaneously, fatigue is setting in. Prepare replacement creative.</li>
+        <li><strong>High Hook with low everything else:</strong> Attention-grab ads that don't convert are budget traps. Don't star them just because Hook Score is green—you need balanced performance.</li>
+        <li><strong>Inconsistent performance across placements:</strong> Check the detail view. An ad might have great scores overall but terrible performance in Feed or Stories specifically. Placement-level data prevents false winners.</li>
+      </ul>
+    </div>
+
+    <h2>Common Mistakes and How to Avoid Them</h2>
+
+    <p>Even with a clear framework, it's easy to misuse creative scoring if you don't understand the nuances.</p>
+
+    <h3>Mistake: Starring based on one score alone</h3>
+
+    <p>Don't star an ad just because it has Hook Score 91 if Click and Convert are both in the 20s. Attention without action is waste. Look for balanced performers or assets that excel in adjacent categories (like Hook+Hold or Click+Convert).</p>
+
+    <h3>Mistake: Ignoring spend volume</h3>
+
+    <p>Scores require $50 minimum for reliability, but $50 isn't enough to validate scaling. An ad with great scores on $50 might be a fluke. An ad with great scores on $500+ is proven. Check spend volume in the detail view before starring.</p>
+
+    <h3>Mistake: Mixing cold and warm creative</h3>
+
+    <p>An ad optimized for retargeting (low Hook, high Convert) doesn't belong in a cold-traffic Performance Set. And a cold-traffic ad (high Hook, lower Convert) will underperform in retargeting. Segment your starred creative by intended audience temperature.</p>
+
+    <h3>Mistake: Building Performance Sets too large</h3>
+
+    <p>6-8 ads per Performance Set is optimal. Below 4, you're not giving Meta enough creative options for algorithmic optimization. Above 10, you're diluting the learning signal and making it harder to diagnose performance issues. If you have 15 starred winners, build two Performance Sets.</p>
+
+    <h3>Mistake: Never retiring creative</h3>
+
+    <p>Starred creative isn't permanent. As assets fatigue, unstar them and remove them from active Performance Sets. Keeping zombie creative in rotation because it "used to work" drags down your overall campaign performance. Be ruthless about retiring underperformers.</p>
+
+    <h2>What This Looks Like in Practice</h2>
+
+    <p>Here's a real example of the workflow in action:</p>
+
+    <p>You log into Creative Studio on Monday morning. You have 42 ads running across 8 campaigns. You filter to assets with at least $50 spend and sort by Convert Score. Three video ads show green Convert badges (75+) with amber or better scores in Hook and Click. You star all three.</p>
+
+    <p>You switch the sort to Hook Score and filter to 80+. Five more assets appear—mostly videos. You click into each one to check detail. Three have strong Hold and Click scores but Convert is orange (under 50). These are attention-grabbers that don't sell. You skip them. The other two have balanced scores across all categories. You star them.</p>
+
+    <p>You now have 5 starred assets. You check fatigue status on each—all showing Healthy. You click "Build Performance Set," which opens Launch Wizard with your 5 starred creatives pre-loaded. You select your main ad account, name the campaign "Performance Set - Feb 2026," choose CBO with $200/day budget, and set targeting to a 1% lookalike of your purchasers.</p>
+
+    <p>Launch Wizard creates the campaign structure: one CBO campaign, one ad set with your targeting, and 5 ads using your starred creative with your best-performing copy variations. The entire campaign goes live in 3 minutes. By Wednesday, the ad set exits learning phase because CBO with multiple strong creatives consolidates data faster than ABO with separate ad sets.</p>
+
+    <p>Two weeks later, you review scores again. One of your starred assets has dropped from green to amber on Click and Convert. Frequency is hitting 3.8—fatigue is setting in. You unstar it and pause the ad in your Performance Set. You filter for new winners and find a carousel ad that's been crushing it in a different campaign for the past 10 days. You star it and add it to the Performance Set to replace the fatigued asset.</p>
+
+    <p>That's the cycle. It's systematic, data-driven, and sustainable because you're working with the information you already have instead of constantly launching expensive tests.</p>
+
+    <div class="cta-box">
+      <h3>Find your winning ads in 5 minutes</h3>
+      <p>KillScale's Creative Studio scores every ad on Hook, Hold, Click, and Convert. Star the winners, build a Performance Set, and let proven creative do the work.</p>
+      <a href="https://app.killscale.com/signup" class="btn btn-primary">Start Free — No Credit Card Required</a>
+    </div>
+  </div></article>
+
+  <footer><div class="container"><div class="footer-text">© 2026 KillScale</div><div class="footer-links"><a href="mailto:support@killscale.com">Support</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/blog">Blog</a></div></div></footer>
+</body>
+</html>
