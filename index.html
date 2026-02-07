@@ -866,6 +866,111 @@
       border: 2px solid var(--bg-white);
     }
 
+    /* ========== AD STUDIO SHOWCASE ========== */
+    .ad-studio-section {
+      padding: 120px 0;
+      background: var(--bg);
+    }
+
+    .ad-studio-section .section-header {
+      margin-bottom: 72px;
+    }
+
+    .ad-studio-section .section-header .eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .ad-studio-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 96px;
+    }
+
+    .ad-studio-step {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .ad-studio-step.reverse .ad-studio-step-text {
+      order: 2;
+    }
+
+    .ad-studio-step.reverse .ad-studio-step-image {
+      order: 1;
+    }
+
+    .ad-studio-step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .ad-studio-step-text h3 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 400;
+      margin-bottom: 12px;
+      line-height: 1.25;
+      color: var(--text);
+    }
+
+    .ad-studio-step-text p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .ad-studio-step-image img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      display: block;
+      box-shadow:
+        0 0 20px rgba(124, 58, 237, 0.15),
+        0 0 40px rgba(124, 58, 237, 0.1),
+        0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 900px) {
+      .ad-studio-step {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .ad-studio-step.reverse .ad-studio-step-text {
+        order: 1;
+      }
+      .ad-studio-step.reverse .ad-studio-step-image {
+        order: 2;
+      }
+      .ad-studio-steps {
+        gap: 64px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .ad-studio-section {
+        padding: 80px 0;
+      }
+      .ad-studio-section .section-header {
+        margin-bottom: 48px;
+      }
+    }
+
     /* ========== VERDICT SYSTEM ========== */
     .verdicts-section {
       padding: 120px 0;
@@ -1622,8 +1727,69 @@
     </div>
   </section>
 
+  <!-- Ad Studio Showcase -->
+  <section class="ad-studio-section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">Ad Studio</div>
+        <h2>Create high-converting ads with AI</h2>
+        <p>Research competitors, clone winning styles, and generate scroll-stopping ad copy and images — all without leaving KillScale.</p>
+      </div>
+
+      <div class="ad-studio-steps">
+        <!-- Step 1: Overview — text left, image right -->
+        <div class="ad-studio-step gsap-ad-studio-step">
+          <div class="ad-studio-step-text">
+            <div class="ad-studio-step-number">1</div>
+            <h3>Four ways to create ads</h3>
+            <p>Generate original ads from your product page, clone a competitor's winning style, browse curated inspiration, or upload your own image. Each path leads to AI-powered ad copy and images in seconds.</p>
+          </div>
+          <div class="ad-studio-step-image">
+            <img src="images/ad-studio-overview.png" alt="Ad Studio — Create, Clone, Inspiration, Upload" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Step 2: Competitor research — text right, image left -->
+        <div class="ad-studio-step reverse gsap-ad-studio-step">
+          <div class="ad-studio-step-text">
+            <div class="ad-studio-step-number">2</div>
+            <h3>Spy on any competitor's ads</h3>
+            <p>Search any brand and instantly see every ad they're running. Filter by media type, duration, and status. See their media mix breakdown and top landing pages — all from Meta's Ad Library.</p>
+          </div>
+          <div class="ad-studio-step-image">
+            <img src="images/ad-studio-competitor.png" alt="Competitor Ad Library Research" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Step 3: Clone — text left, image right -->
+        <div class="ad-studio-step gsap-ad-studio-step">
+          <div class="ad-studio-step-text">
+            <div class="ad-studio-step-number">3</div>
+            <h3>Clone the style, sell your product</h3>
+            <p>Pick a competitor's winning ad as inspiration. AI analyzes the style, angle, and structure — then generates ad copy tailored to your product. Multiple variations with different angles so you can test what resonates.</p>
+          </div>
+          <div class="ad-studio-step-image">
+            <img src="images/ad-studio-clone.png" alt="Clone Competitor Ad Style with AI" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Step 4: Generate — text right, image left -->
+        <div class="ad-studio-step reverse gsap-ad-studio-step">
+          <div class="ad-studio-step-text">
+            <div class="ad-studio-step-number">4</div>
+            <h3>Generate ad images with one click</h3>
+            <p>AI creates scroll-stopping ad images using your product photo in the style of the competitor's ad. Choose from lifestyle, product, minimal, or bold styles. Launch directly to Meta from KillScale.</p>
+          </div>
+          <div class="ad-studio-step-image">
+            <img src="images/ad-studio-generate.png" alt="AI-Generated Ad Image" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Walkthrough: Create Ads -->
-  <section class="walkthrough walkthrough-create" id="features">
+  <section class="walkthrough walkthrough-create">
     <div class="walkthrough-header">
       <div class="eyebrow">Campaign Launcher</div>
       <h2>Launch pre-optimized ads in less than 60 seconds</h2>
@@ -2472,6 +2638,50 @@
               {
                 scrollTrigger: {
                   trigger: section,
+                  start: 'top 85%',
+                  once: true,
+                  invalidateOnRefresh: true
+                },
+                opacity: 1,
+                x: 0,
+                scale: 1,
+                duration: 0.8,
+                ease: 'power2.out'
+              }
+            );
+          }
+        });
+
+        // Ad Studio steps — staggered slide-in from alternating sides
+        document.querySelectorAll('.gsap-ad-studio-step').forEach(step => {
+          const isReverse = step.classList.contains('reverse');
+          const textEl = step.querySelector('.ad-studio-step-text');
+          const imgEl = step.querySelector('.ad-studio-step-image');
+
+          if (textEl) {
+            gsap.fromTo(textEl,
+              { opacity: 0, x: isReverse ? 40 : -40 },
+              {
+                scrollTrigger: {
+                  trigger: step,
+                  start: 'top 85%',
+                  once: true,
+                  invalidateOnRefresh: true
+                },
+                opacity: 1,
+                x: 0,
+                duration: 0.8,
+                ease: 'power2.out'
+              }
+            );
+          }
+
+          if (imgEl) {
+            gsap.fromTo(imgEl,
+              { opacity: 0, x: isReverse ? -40 : 40, scale: 0.97 },
+              {
+                scrollTrigger: {
+                  trigger: step,
                   start: 'top 85%',
                   once: true,
                   invalidateOnRefresh: true
