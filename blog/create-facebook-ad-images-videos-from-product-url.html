@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Create Facebook Ad Images and Videos From a Product URL Using AI | KillScale Blog</title>
+  <meta name="description" content="Learn how to create Facebook ad images and videos from a product URL using AI. Claude writes copy, Gemini generates images, Sora 2 Pro creates video — all in one workflow.">
+
+  <!-- SEO Meta Tags -->
+  <link rel="canonical" href="https://killscale.com/blog/create-facebook-ad-images-videos-from-product-url.html">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="KillScale">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://killscale.com/blog/create-facebook-ad-images-videos-from-product-url.html">
+  <meta property="og:title" content="How to Create Facebook Ad Images and Videos From a Product URL Using AI">
+  <meta property="og:description" content="Claude for copy. Gemini for images. Sora 2 Pro for video. GPT-4o for analysis. See the full AI pipeline behind KillScale's Creative Suite.">
+  <meta property="og:image" content="https://killscale.com/og-image.png">
+  <meta property="og:site_name" content="KillScale">
+  <meta property="article:published_time" content="2026-02-11">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Create Facebook Ad Images and Videos From a Product URL Using AI">
+  <meta name="twitter:description" content="Claude for copy. Gemini for images. Sora 2 Pro for video. GPT-4o for analysis. The full AI pipeline behind KillScale's Creative Suite.">
+  <meta name="twitter:image" content="https://killscale.com/og-image.png">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"How to Create Facebook Ad Images and Videos From a Product URL Using AI","description":"Learn how to create Facebook ad images and videos from a product URL using AI. Claude writes copy, Gemini generates images, Sora 2 Pro creates video — all in one workflow.","author":{"@type":"Organization","name":"KillScale"},"publisher":{"@type":"Organization","name":"KillScale"},"datePublished":"2026-02-11","mainEntityOfPage":"https://killscale.com/blog/create-facebook-ad-images-videos-from-product-url.html"}
+  </script>
+
+  <link rel="icon" href="/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --bg: #FAF8FF; --bg-alt: #F0EDFA; --bg-elevated: #FFFFFF; --border: #E4DFF0; --border-light: #D1C9E0; --accent: #7c3aed; --accent-hover: #6d28d9; --accent-subtle: rgba(124, 58, 237, 0.1); --purple: #a855f7; --purple-subtle: rgba(168, 85, 247, 0.1); --green: #10b981; --green-subtle: rgba(16, 185, 129, 0.1); --amber: #f59e0b; --amber-subtle: rgba(245, 158, 11, 0.1); --red: #ef4444; --red-subtle: rgba(239, 68, 68, 0.1); --blue: #3b82f6; --blue-subtle: rgba(59, 130, 246, 0.1); --text: #1A1A1A; --text-secondary: #6B7280; --text-tertiary: #9CA3AF; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 16px 0; position: fixed; top: 0; left: 0; right: 0; background: rgba(250, 248, 255, 0.9); backdrop-filter: blur(20px); z-index: 100; border-bottom: 1px solid var(--border); }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-text { font-weight: 700; font-size: 20px; letter-spacing: -0.5px; color: var(--text); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); }
+    .btn { display: inline-flex; align-items: center; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-ghost { background: transparent; color: var(--text-secondary); }
+    .article-header { padding: 140px 0 60px; border-bottom: 1px solid var(--border); }
+    .article-header .container { max-width: 800px; }
+    .breadcrumb { font-size: 14px; color: var(--text-tertiary); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .tag { display: inline-block; font-size: 12px; font-weight: 600; text-transform: uppercase; padding: 6px 12px; border-radius: 4px; background: var(--purple-subtle); color: var(--purple); margin-bottom: 16px; }
+    .article-header h1 { font-size: clamp(32px, 5vw, 44px); font-weight: 800; letter-spacing: -1px; line-height: 1.2; margin-bottom: 20px; }
+    .article-meta { font-size: 14px; color: var(--text-secondary); }
+    .article-content { padding: 60px 0; }
+    .article-content .container { max-width: 720px; }
+    .article-content h2 { font-size: 28px; font-weight: 700; margin: 48px 0 20px; }
+    .article-content h3 { font-size: 22px; font-weight: 600; margin: 36px 0 16px; }
+    .article-content p { font-size: 17px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; }
+    .article-content ul, .article-content ol { margin: 0 0 24px 24px; }
+    .article-content li { font-size: 17px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 12px; }
+    .article-content strong { color: var(--text); font-weight: 600; }
+    .article-content blockquote { border-left: 3px solid var(--accent); padding-left: 24px; margin: 32px 0; font-style: italic; color: var(--text); }
+    .highlight-box { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 32px 0; }
+    .highlight-box h4 { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+    .highlight-box ul { margin-bottom: 0; }
+    .highlight-box li { font-size: 15px; margin-bottom: 8px; }
+    .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px 0; }
+    .comparison-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .comparison-card.bad { border-color: var(--red); }
+    .comparison-card.good { border-color: var(--green); }
+    .comparison-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+    .comparison-card.bad h4 { color: var(--red); }
+    .comparison-card.good h4 { color: var(--green); }
+    .comparison-card ul { margin: 0; }
+    .comparison-card li { font-size: 15px; margin-bottom: 8px; color: var(--text-secondary); }
+    .cta-box { background: linear-gradient(to bottom, rgba(124, 58, 237, 0.08), transparent); border: 1px solid var(--accent); border-radius: 16px; padding: 40px; text-align: center; margin: 48px 0; }
+    .cta-box h3 { font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+    .cta-box p { font-size: 16px; color: var(--text-secondary); margin-bottom: 24px; }
+    footer { padding: 40px 0; border-top: 1px solid var(--border); margin-top: 60px; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-text { font-size: 13px; color: var(--text-tertiary); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 13px; color: var(--text-secondary); text-decoration: none; }
+
+    /* ── AI MODEL CHIPS ── */
+    .ai-models-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 32px 0; }
+    .ai-model-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 14px; padding: 24px 20px; text-align: center; transition: all 0.2s; }
+    .ai-model-card:hover { border-color: var(--border-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+    .ai-model-icon { width: 48px; height: 48px; border-radius: 12px; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700; }
+    .ai-model-card .model-name { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+    .ai-model-card .model-company { font-size: 12px; color: var(--text-tertiary); margin-bottom: 8px; }
+    .ai-model-card .model-role { font-size: 13px; color: var(--text-secondary); font-weight: 500; }
+    .ai-model-card.claude .ai-model-icon { background: #FEF3C7; color: #D97706; }
+    .ai-model-card.claude { border-bottom: 3px solid #D97706; }
+    .ai-model-card.gemini .ai-model-icon { background: linear-gradient(135deg, #DBEAFE, #FEE2E2, #FEF9C3, #D1FAE5); color: #059669; }
+    .ai-model-card.gemini { border-bottom: 3px solid #059669; }
+    .ai-model-card.sora .ai-model-icon { background: #EDE9FE; color: #7C3AED; }
+    .ai-model-card.sora { border-bottom: 3px solid #7C3AED; }
+    .ai-model-card.gpt .ai-model-icon { background: #D1FAE5; color: #059669; }
+    .ai-model-card.gpt { border-bottom: 3px solid #10B981; }
+
+    /* ── WORKFLOW DIAGRAM ── */
+    .workflow-diagram { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 20px; padding: 40px 32px; margin: 40px 0; overflow-x: auto; }
+    .workflow-diagram h4 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+    .workflow-diagram h4 .wd-badge { padding: 4px 10px; border-radius: 6px; font-size: 11px; }
+    .wd-blue .wd-badge { background: var(--blue-subtle); color: var(--blue); }
+    .wd-purple .wd-badge { background: var(--purple-subtle); color: var(--purple); }
+    .wd-green .wd-badge { background: var(--green-subtle); color: var(--green); }
+    .wd-amber .wd-badge { background: var(--amber-subtle); color: var(--amber); }
+    .wd-row { display: flex; align-items: center; gap: 0; margin-bottom: 32px; min-width: 700px; }
+    .wd-row:last-child { margin-bottom: 0; }
+    .wd-node { position: relative; flex-shrink: 0; min-width: 100px; max-width: 120px; padding: 14px 10px 12px; background: var(--bg); border: 1.5px solid var(--border); border-radius: 12px; text-align: center; transition: all 0.2s; }
+    .wd-node:hover { border-color: var(--border-light); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+    .wd-node .wd-icon { width: 36px; height: 36px; border-radius: 9px; margin: 0 auto 6px; display: flex; align-items: center; justify-content: center; font-size: 17px; }
+    .wd-node .wd-label { font-size: 11px; font-weight: 600; color: var(--text); line-height: 1.3; }
+    .wd-node .wd-sub { font-size: 9.5px; color: var(--text-tertiary); margin-top: 2px; }
+    .wd-node .wd-tag { position: absolute; top: -8px; right: -6px; font-size: 8px; font-weight: 700; padding: 2px 6px; border-radius: 4px; color: white; letter-spacing: 0.3px; }
+    .wd-arrow { width: 32px; height: 2px; flex-shrink: 0; position: relative; }
+    .wd-arrow::after { content: ''; position: absolute; right: -2px; top: -3.5px; width: 0; height: 0; border-left: 5px solid; border-top: 4.5px solid transparent; border-bottom: 4.5px solid transparent; }
+    /* Node variants */
+    .wd-node.input { border-color: var(--blue); }
+    .wd-node.input .wd-icon { background: var(--blue-subtle); color: var(--blue); }
+    .wd-node.claude { border-color: #D97706; }
+    .wd-node.claude .wd-icon { background: #FEF3C7; color: #D97706; }
+    .wd-node.claude .wd-tag { background: #D97706; }
+    .wd-node.gemini { border-color: #059669; }
+    .wd-node.gemini .wd-icon { background: #D1FAE5; color: #059669; }
+    .wd-node.gemini .wd-tag { background: #059669; }
+    .wd-node.sora { border-color: #7C3AED; }
+    .wd-node.sora .wd-icon { background: #EDE9FE; color: #7C3AED; }
+    .wd-node.sora .wd-tag { background: #7C3AED; }
+    .wd-node.gpt { border-color: #10B981; }
+    .wd-node.gpt .wd-icon { background: #D1FAE5; color: #10B981; }
+    .wd-node.gpt .wd-tag { background: #10B981; }
+    .wd-node.meta { border-color: #0866FF; }
+    .wd-node.meta .wd-icon { background: rgba(8,102,255,0.1); color: #0866FF; }
+    .wd-node.neutral .wd-icon { background: var(--bg-alt); color: var(--text-secondary); }
+    .wd-node.score { border-color: var(--amber); }
+    .wd-node.score .wd-icon { background: var(--amber-subtle); color: var(--amber); }
+    .wd-node.success { border-color: var(--green); }
+    .wd-node.success .wd-icon { background: var(--green-subtle); color: var(--green); }
+    .wd-node.loop { border-color: #D97706; }
+    .wd-node.loop .wd-icon { background: #FEF3C7; color: #D97706; }
+    /* Arrow colors */
+    .wd-arrow.blue { background: linear-gradient(90deg, rgba(59,130,246,0.2), rgba(59,130,246,0.4)); }
+    .wd-arrow.blue::after { border-left-color: rgba(59,130,246,0.5); }
+    .wd-arrow.orange { background: linear-gradient(90deg, rgba(217,119,6,0.2), rgba(217,119,6,0.4)); }
+    .wd-arrow.orange::after { border-left-color: rgba(217,119,6,0.5); }
+    .wd-arrow.green { background: linear-gradient(90deg, rgba(16,185,129,0.2), rgba(16,185,129,0.4)); }
+    .wd-arrow.green::after { border-left-color: rgba(16,185,129,0.5); }
+    .wd-arrow.purple { background: linear-gradient(90deg, rgba(124,58,237,0.2), rgba(124,58,237,0.4)); }
+    .wd-arrow.purple::after { border-left-color: rgba(124,58,237,0.5); }
+
+    /* ── MENU VISUAL ── */
+    .menu-visual { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 28px; margin: 32px 0; max-width: 320px; }
+    .menu-visual h4 { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 16px; letter-spacing: -0.3px; }
+    .mv-item { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 8px; margin-bottom: 3px; font-size: 13.5px; font-weight: 500; color: var(--text-secondary); }
+    .mv-item.active { background: var(--accent-subtle); color: var(--accent); }
+    .mv-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border-light); flex-shrink: 0; }
+    .mv-item.active .mv-dot { background: var(--accent); }
+    .mv-badge { font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 3px; background: linear-gradient(135deg, var(--purple), var(--accent)); color: white; margin-left: auto; }
+
+    /* ── PIPELINE STEP SECTIONS ── */
+    .pipeline-step { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin: 32px 0; }
+    .pipeline-step .step-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .step-number { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 800; color: white; flex-shrink: 0; }
+    .step-number.blue { background: var(--blue); }
+    .step-number.orange { background: #D97706; }
+    .step-number.green { background: var(--green); }
+    .step-number.purple { background: var(--accent); }
+    .pipeline-step h4 { font-size: 18px; font-weight: 700; }
+    .pipeline-step p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 0; }
+    .pipeline-step .model-tag { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 5px; margin-top: 12px; }
+    .model-tag.claude-tag { background: #FEF3C7; color: #92400E; }
+    .model-tag.gemini-tag { background: #D1FAE5; color: #065F46; }
+    .model-tag.sora-tag { background: #EDE9FE; color: #5B21B6; }
+    .model-tag.gpt-tag { background: #D1FAE5; color: #065F46; }
+
+    /* ── WIDE CONTENT OVERRIDE ── */
+    .article-content .wide { max-width: 960px; margin-left: auto; margin-right: auto; position: relative; left: 50%; transform: translateX(-50%); width: 960px; }
+
+    @media (max-width: 1000px) {
+      .article-content .wide { width: calc(100vw - 48px); max-width: 100%; }
+    }
+    @media (max-width: 768px) {
+      .nav-links a:not(.btn) { display: none; }
+      .comparison-grid { grid-template-columns: 1fr; }
+      .ai-models-grid { grid-template-columns: repeat(2, 1fr); }
+      .article-content .wide { left: 0; transform: none; width: 100%; }
+    }
+    @media (max-width: 480px) {
+      .ai-models-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav><div class="container"><a href="/" class="logo"><img src="/logo.svg" alt="KillScale" style="height: 32px;"><span class="logo-text">KillScale</span></a><div class="nav-links"><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/blog">Blog</a><a href="https://app.killscale.com/login" class="btn btn-ghost">Log in</a><a href="https://app.killscale.com/signup" class="btn btn-primary">Get Started</a></div></div></nav>
+
+  <header class="article-header"><div class="container"><div class="breadcrumb"><a href="/blog">Blog</a> / AI & Technology</div><span class="tag">AI & Technology</span><h1>How to Create Facebook Ad Images and Videos From a Product URL Using AI</h1><p class="article-meta">14 min read · February 2026</p></div></header>
+
+  <article class="article-content"><div class="container">
+    <p>Most ad platforms give you one AI model for one task. Write copy here. Generate an image there. Stitch it together yourself. Hope it works.</p>
+
+    <p>KillScale's Creative Suite takes a different approach. Four specialized AI models work together in a single pipeline — each handling the task it's best at — to take you from a product URL to running ads on Meta in minutes. Not hours. Not days. Minutes.</p>
+
+    <p>This article walks through exactly how it works: which models do what, how the image and video pipelines differ, what the Creative Suite menu looks like, and how the monitoring loop feeds performance data back into your next round of creative.</p>
+
+    <h2>The Four AI Models</h2>
+
+    <p>Each model in the pipeline was chosen for a specific strength. No single model does everything well — but together, they cover the entire creative production workflow.</p>
+
+    <!-- AI Models Grid -->
+    <div class="ai-models-grid wide">
+      <div class="ai-model-card claude">
+        <div class="ai-model-icon">C</div>
+        <div class="model-name">Claude</div>
+        <div class="model-company">Anthropic</div>
+        <div class="model-role">Ad Copy & Video Scripts</div>
+      </div>
+      <div class="ai-model-card gemini">
+        <div class="ai-model-icon">G</div>
+        <div class="model-name">Gemini 2.5 Flash</div>
+        <div class="model-company">Google</div>
+        <div class="model-role">Image Generation</div>
+      </div>
+      <div class="ai-model-card sora">
+        <div class="ai-model-icon">S</div>
+        <div class="model-name">Sora 2 Pro</div>
+        <div class="model-company">OpenAI</div>
+        <div class="model-role">Video Generation</div>
+      </div>
+      <div class="ai-model-card gpt">
+        <div class="ai-model-icon">4o</div>
+        <div class="model-name">GPT-4o</div>
+        <div class="model-company">OpenAI</div>
+        <div class="model-role">Product Analysis</div>
+      </div>
+    </div>
+
+    <p><strong>Claude</strong> handles all text generation — ad copy, headlines, descriptions, and video scripts. It's the best model for understanding marketing angles and producing copy that reads like a human wrote it, not a chatbot.</p>
+
+    <p><strong>Gemini 2.5 Flash</strong> generates ad images. It takes two inputs: your product photo and a reference ad (usually from a competitor). It creates a new image using your product in the style of the reference — your product, their proven format.</p>
+
+    <p><strong>Sora 2 Pro</strong> generates video clips from text prompts. It produces 4-12 second clips that can be used as raw footage or layered with text overlays and branding in the editor.</p>
+
+    <p><strong>GPT-4o</strong> runs the initial product analysis. When you paste a URL, it scrapes the page, extracts product details, identifies key features, and downloads the product image. This data feeds into everything else downstream.</p>
+
+    <h2>The Image Ad Pipeline</h2>
+
+    <p>The image pipeline is the most common workflow. It takes a product URL, researches competitors, generates copy and images, and outputs ready-to-launch ad creative.</p>
+
+    <!-- Image Pipeline Diagram -->
+    <div class="workflow-diagram wide">
+      <h4 class="wd-blue"><span class="wd-badge">Image Ad Pipeline</span></h4>
+      <div class="wd-row">
+        <div class="wd-node input">
+          <div class="wd-icon">&#128279;</div>
+          <div class="wd-label">Product URL</div>
+          <div class="wd-sub">Paste your link</div>
+        </div>
+        <div class="wd-arrow blue"></div>
+        <div class="wd-node neutral">
+          <div class="wd-icon">&#128269;</div>
+          <div class="wd-label">Competitor Research</div>
+          <div class="wd-sub">Ad Library scan</div>
+        </div>
+        <div class="wd-arrow orange"></div>
+        <div class="wd-node claude">
+          <div class="wd-tag">CLAUDE</div>
+          <div class="wd-icon">&#9997;&#65039;</div>
+          <div class="wd-label">Generate Ad Copy</div>
+          <div class="wd-sub">4 angle variations</div>
+        </div>
+        <div class="wd-arrow orange"></div>
+        <div class="wd-node gemini">
+          <div class="wd-tag">GEMINI</div>
+          <div class="wd-icon">&#127912;</div>
+          <div class="wd-label">Generate Image</div>
+          <div class="wd-sub">Product + style</div>
+        </div>
+        <div class="wd-arrow green"></div>
+        <div class="wd-node neutral">
+          <div class="wd-icon">&#128190;</div>
+          <div class="wd-label">Save & Edit</div>
+          <div class="wd-sub">Adjust / HD text</div>
+        </div>
+        <div class="wd-arrow blue"></div>
+        <div class="wd-node meta">
+          <div class="wd-icon" style="font-weight:800;font-size:14px;">f</div>
+          <div class="wd-label">Create Ad</div>
+          <div class="wd-sub">Publish to Meta</div>
+        </div>
+      </div>
+    </div>
+
+    <p>Here's what happens at each step:</p>
+
+    <div class="pipeline-step">
+      <div class="step-header">
+        <div class="step-number blue">1</div>
+        <h4>Product URL</h4>
+      </div>
+      <p>Paste any product page URL. The system scrapes the page and extracts the product name, description, price, key features, and downloads the main product image. You can edit anything it gets wrong before moving forward.</p>
+      <span class="model-tag gpt-tag">GPT-4o &mdash; Product Analysis</span>
+    </div>
+
+    <div class="pipeline-step">
+      <div class="step-header">
+        <div class="step-number blue">2</div>
+        <h4>Competitor Research</h4>
+      </div>
+      <p>Search any brand name to browse their entire Facebook Ad Library. Filter by media type (image, video, carousel), days active, and status. Ads that have been running for months are likely winners — those are your best reference points.</p>
+    </div>
+
+    <div class="pipeline-step">
+      <div class="step-header">
+        <div class="step-number orange">3</div>
+        <h4>Generate Ad Copy</h4>
+      </div>
+      <p>Select a competitor ad as inspiration. Claude analyzes the ad's messaging angle, structure, and tone, then generates multiple variations for your product. Each variation includes a headline, primary text, description, and a note explaining why the angle works.</p>
+      <span class="model-tag claude-tag">Claude &mdash; Ad Copy Generation</span>
+    </div>
+
+    <div class="pipeline-step">
+      <div class="step-header">
+        <div class="step-number orange">4</div>
+        <h4>Generate Image</h4>
+      </div>
+      <p>Gemini receives two images — your product photo and the competitor ad — along with the copy. It creates a new ad image featuring your product in a format inspired by the reference. Choose from four styles: Lifestyle, Product, Minimal, or Bold. Toggle HD text for crisp overlaid text on the image.</p>
+      <span class="model-tag gemini-tag">Gemini 2.5 Flash &mdash; Image Generation</span>
+    </div>
+
+    <div class="pipeline-step">
+      <div class="step-header">
+        <div class="step-number green">5</div>
+        <h4>Save & Create Ad</h4>
+      </div>
+      <p>Save the image to your Media Library and the copy to your Copy Library. Then open the Campaign Launcher — your generated creative is pre-loaded. Configure targeting and budget, and launch. The ad is created as Paused so you can review before it goes live.</p>
+    </div>
+
+    <h2>The Video Ad Pipeline</h2>
+
+    <p>The video pipeline follows a similar pattern but uses different models for the visual generation step. Instead of a static image, you get 4-12 second video clips that can be edited with text overlays and branding.</p>
+
+    <!-- Video Pipeline Diagram -->
+    <div class="workflow-diagram wide">
+      <h4 class="wd-purple"><span class="wd-badge">Video Ad Pipeline</span></h4>
+      <div class="wd-row">
+        <div class="wd-node input">
+          <div class="wd-icon">&#128279;</div>
+          <div class="wd-label">Product URL</div>
+          <div class="wd-sub">Paste your link</div>
+        </div>
+        <div class="wd-arrow blue"></div>
+        <div class="wd-node gpt">
+          <div class="wd-tag">GPT-4o</div>
+          <div class="wd-icon">&#129504;</div>
+          <div class="wd-label">Analyze Product</div>
+          <div class="wd-sub">Extract features</div>
+        </div>
+        <div class="wd-arrow green"></div>
+        <div class="wd-node claude">
+          <div class="wd-tag">CLAUDE</div>
+          <div class="wd-icon">&#128221;</div>
+          <div class="wd-label">Video Script</div>
+          <div class="wd-sub">Scene prompts</div>
+        </div>
+        <div class="wd-arrow purple"></div>
+        <div class="wd-node sora">
+          <div class="wd-tag">SORA 2 PRO</div>
+          <div class="wd-icon">&#127909;</div>
+          <div class="wd-label">Generate Video</div>
+          <div class="wd-sub">4-12s clips</div>
+        </div>
+        <div class="wd-arrow purple"></div>
+        <div class="wd-node neutral" style="border-color: var(--accent);">
+          <div class="wd-icon" style="background: var(--accent-subtle); color: var(--accent);">&#9986;&#65039;</div>
+          <div class="wd-label">Overlay Editor</div>
+          <div class="wd-sub">Text + branding</div>
+        </div>
+        <div class="wd-arrow blue"></div>
+        <div class="wd-node meta">
+          <div class="wd-icon" style="font-weight:800;font-size:14px;">f</div>
+          <div class="wd-label">Create Ad</div>
+          <div class="wd-sub">Publish to Meta</div>
+        </div>
+      </div>
+    </div>
+
+    <p>The key differences from the image pipeline:</p>
+
+    <ul>
+      <li><strong>GPT-4o does the analysis.</strong> It extracts product features and builds a structured profile that Claude uses to write scene-by-scene video scripts.</li>
+      <li><strong>Claude writes video scripts, not ad copy.</strong> Each script describes individual scenes — camera movements, product angles, text overlays — as specific prompts that Sora can execute.</li>
+      <li><strong>Sora 2 Pro generates the footage.</strong> It produces photorealistic 4-12 second clips from the scene descriptions. You can generate from a product image or from text prompts alone.</li>
+      <li><strong>The Overlay Editor adds branding.</strong> Built on Remotion, it lets you add text overlays, logos, transitions, and call-to-action frames on top of the generated video. Preview in real-time before exporting.</li>
+    </ul>
+
+    <blockquote>The entire video pipeline — from URL to finished, branded video ad — takes about 5-10 minutes. Compare that to traditional video production: days of shooting, editing, revisions, and rendering.</blockquote>
+
+    <h2>The Creative Suite Menu</h2>
+
+    <p>The Creative Suite isn't a single page — it's a full workspace with seven sections, each handling a different part of the creative lifecycle. Here's what you get:</p>
+
+    <!-- Menu Visual -->
+    <div class="menu-visual">
+      <h4>Creative Suite</h4>
+      <div class="mv-item"><div class="mv-dot"></div> Overview</div>
+      <div class="mv-item active"><div class="mv-dot"></div> Ad Studio</div>
+      <div class="mv-item"><div class="mv-dot"></div> Video Studio <span class="mv-badge">NEW</span></div>
+      <div class="mv-item"><div class="mv-dot"></div> AI Tasks</div>
+      <div class="mv-item"><div class="mv-dot"></div> Ads</div>
+      <div class="mv-item"><div class="mv-dot"></div> Media</div>
+      <div class="mv-item"><div class="mv-dot"></div> Copy</div>
+    </div>
+
+    <h3>Ad Studio</h3>
+    <p>This is where the image pipeline lives. Paste a product URL, research competitors, generate copy and images. Everything starts here for image-based ad creation.</p>
+
+    <h3>Video Studio</h3>
+    <p>The video pipeline. Analyze your product, generate video scripts, create clips with Sora 2 Pro, and edit them with text overlays and branding in the built-in editor.</p>
+
+    <h3>AI Tasks</h3>
+    <p>Every session you start in Ad Studio or Video Studio is automatically saved. AI Tasks shows all your saved sessions so you can revisit generated copy, regenerate images with different styles, adjust and refine, and pick up exactly where you left off.</p>
+
+    <h3>Ads</h3>
+    <p>View all your currently running ads with performance data. See which creative is performing and which is fatiguing. Every ad is scored on four dimensions: Hook, Hold, Click, and Convert.</p>
+
+    <h3>Media</h3>
+    <p>Your complete media library — every image and video you've generated or uploaded. Browse, search, and select media for new campaigns without re-generating.</p>
+
+    <h3>Copy</h3>
+    <p>Your saved ad copy library. Every headline, primary text, and description you've saved from AI generation or imported from existing ads. Search by angle, filter by performance, and reuse proven copy across campaigns.</p>
+
+    <h2>Monitor, Score, Iterate</h2>
+
+    <p>Creating ads is half the story. The other half is knowing what's working so you can make more of it. The Creative Suite closes this loop with automated scoring and a performance feedback cycle.</p>
+
+    <!-- Monitor Pipeline Diagram -->
+    <div class="workflow-diagram wide">
+      <h4 class="wd-green"><span class="wd-badge">Monitor & Optimize</span></h4>
+      <div class="wd-row">
+        <div class="wd-node meta">
+          <div class="wd-icon" style="font-weight:800;font-size:14px;">f</div>
+          <div class="wd-label">Ads Running</div>
+          <div class="wd-sub">Live on Meta</div>
+        </div>
+        <div class="wd-arrow blue"></div>
+        <div class="wd-node success">
+          <div class="wd-icon">&#128200;</div>
+          <div class="wd-label">Dashboard</div>
+          <div class="wd-sub">ROAS & spend</div>
+        </div>
+        <div class="wd-arrow green"></div>
+        <div class="wd-node score">
+          <div class="wd-icon">&#9889;</div>
+          <div class="wd-label">AI Verdicts</div>
+          <div class="wd-sub">Scale / Kill / Watch</div>
+        </div>
+        <div class="wd-arrow green"></div>
+        <div class="wd-node score">
+          <div class="wd-icon">&#127919;</div>
+          <div class="wd-label">Creative Scores</div>
+          <div class="wd-sub">Hook &middot; Hold &middot; Click &middot; Convert</div>
+        </div>
+        <div class="wd-arrow green"></div>
+        <div class="wd-node success">
+          <div class="wd-icon">&#128202;</div>
+          <div class="wd-label">Trends</div>
+          <div class="wd-sub">30-day analysis</div>
+        </div>
+        <div class="wd-arrow orange"></div>
+        <div class="wd-node loop">
+          <div class="wd-icon">&#128260;</div>
+          <div class="wd-label">Iterate</div>
+          <div class="wd-sub">New creatives</div>
+        </div>
+      </div>
+    </div>
+
+    <p>Once your ads are live, the system automatically scores every creative on four metrics:</p>
+
+    <ul>
+      <li><strong>Hook Score</strong> (video only) — Are people stopping to watch? Measured by thumbstop rate.</li>
+      <li><strong>Hold Score</strong> (video only) — Are they watching through? Combines hold rate and completion rate.</li>
+      <li><strong>Click Score</strong> — Are they clicking? Weighted blend of CTR and CPC.</li>
+      <li><strong>Convert Score</strong> — Are they buying? Based on ROAS benchmarks.</li>
+    </ul>
+
+    <p>Each score is 0-100. Green (75+) means performing well. Amber (50+) is average. Orange (25+) needs attention. Red means it's time to replace that creative.</p>
+
+    <p>The Performance Dashboard adds campaign-level verdicts — <strong>Scale</strong>, <strong>Watch</strong>, <strong>Kill</strong>, or <strong>Learn</strong> — based on your ROAS thresholds. And the Trends page shows 30-day performance trajectories so you can spot fatigue before your ROAS craters.</p>
+
+    <p>The loop closes when you take what you learned — which creative scores highest, which angles convert, which styles hook attention — and feed that knowledge back into your next round of AI generation. Use your top-performing ad as the new reference. Let the data tell you what to make next.</p>
+
+    <h2>Session Persistence: Pick Up Where You Left Off</h2>
+
+    <p>One underappreciated feature: every AI session is automatically saved. If you generate ad copy on Monday, you can come back on Thursday, open that session in AI Tasks, and generate images for it. No re-entering product URLs. No re-running competitor research. Everything is preserved.</p>
+
+    <div class="highlight-box">
+      <h4>What's Saved in Every Session</h4>
+      <ul>
+        <li><strong>Product info:</strong> Name, description, price, features, product image</li>
+        <li><strong>Competitor context:</strong> Company name, the specific ad used as inspiration</li>
+        <li><strong>Generated copy:</strong> All variations with headlines, primary text, descriptions</li>
+        <li><strong>Generated images:</strong> Every version, stored persistently in your media library</li>
+        <li><strong>Style settings:</strong> Which image style and options you used</li>
+      </ul>
+    </div>
+
+    <p>This matters because creative production isn't always a straight line. Sometimes you generate copy, then come back the next day to do images. Sometimes you want to try a different image style on existing copy. Session persistence makes all of that seamless.</p>
+
+    <h2>Credits, Not Per-Model Billing</h2>
+
+    <p>The Creative Suite runs on a unified credit system. You don't pay per model or per API call — you get a pool of credits that work across everything.</p>
+
+    <ul>
+      <li><strong>Image generation:</strong> 5 credits per image</li>
+      <li><strong>Video generation:</strong> 50 credits per video</li>
+      <li><strong>Ad copy, analysis, scripts:</strong> Included in your plan (no credit cost)</li>
+    </ul>
+
+    <p>Every plan includes 500 credits. Trial accounts get 25 credits to test the system. If you need more, you can purchase additional credit packs. No surprises, no per-API-call billing, no "you used 47 cents of Sora and 12 cents of Gemini" confusion.</p>
+
+    <h2>Why Four Models Instead of One</h2>
+
+    <p>There's a reason we don't use a single model for everything. Each model has a specific strength that no other model matches:</p>
+
+    <div class="comparison-grid wide">
+      <div class="comparison-card good">
+        <h4>Specialized Pipeline</h4>
+        <ul>
+          <li>Claude: Best-in-class copywriting with real strategic angles</li>
+          <li>Gemini: Can take two reference images as input (product + style)</li>
+          <li>Sora 2 Pro: Highest quality AI video generation available</li>
+          <li>GPT-4o: Fast, reliable product page analysis</li>
+          <li>Each model does one thing extremely well</li>
+        </ul>
+      </div>
+      <div class="comparison-card bad">
+        <h4>Single-Model Approach</h4>
+        <ul>
+          <li>Copy quality drops when image models try to write</li>
+          <li>Can't use dual-image reference (product + competitor)</li>
+          <li>Video quality limited to one provider's capabilities</li>
+          <li>Analysis, copy, and images all competing for context</li>
+          <li>Jack of all trades, master of none</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>The tradeoff is complexity — orchestrating four models is harder than calling one API. But you don't see any of that complexity. The Creative Suite handles the orchestration. You paste a URL and click buttons.</p>
+
+    <h2>The Full Picture</h2>
+
+    <p>Zoom out and the Creative Suite is a closed-loop system:</p>
+
+    <ol>
+      <li><strong>Research</strong> what's working (competitor ads, your own performance data)</li>
+      <li><strong>Generate</strong> new creative (copy, images, video) informed by that research</li>
+      <li><strong>Launch</strong> directly to Meta without leaving the platform</li>
+      <li><strong>Monitor</strong> performance with automated scoring and verdicts</li>
+      <li><strong>Iterate</strong> using performance data to inform the next round of generation</li>
+    </ol>
+
+    <p>Every step feeds into the next. The more you use it, the better your inputs become, because you're constantly learning what works for your specific product and audience.</p>
+
+    <p>This isn't AI replacing your creative instincts. It's AI handling the production so you can focus on strategy. You decide the angle. You pick the reference. You choose the style. The AI executes at a speed and cost that would be impossible with traditional creative production.</p>
+
+    <div class="cta-box">
+      <h3>Try the full Creative Suite pipeline</h3>
+      <p>Paste a product URL. Research competitors. Generate ad copy and images with AI. Launch to Meta. All in one workflow. Free for 7 days — no credit card required.</p>
+      <a href="https://app.killscale.com/signup" class="btn btn-primary">Start Free Trial</a>
+    </div>
+  </div></article>
+
+  <footer><div class="container"><div class="footer-text">&copy; 2026 KillScale</div><div class="footer-links"><a href="mailto:support@killscale.com">Support</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/blog">Blog</a></div></div></footer>
+</body>
+</html>
