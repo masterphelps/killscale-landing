@@ -31,7 +31,7 @@
   {"@context":"https://schema.org","@type":"Article","headline":"Meta Removed Your Attribution Windows: Here's What to Do Now","description":"In January 2026, Meta permanently removed 7-day view and 28-day view attribution windows. Here's what changed, why it matters, and how first-party tracking fills the gap.","author":{"@type":"Organization","name":"KillScale"},"publisher":{"@type":"Organization","name":"KillScale"},"datePublished":"2026-02-07","mainEntityOfPage":"https://killscale.com/blog/meta-attribution-windows-removed.html"}
   </script>
 
-  <link rel="icon" href="/favicon.svg">
+  <link rel="icon" href="/favicon.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -337,24 +337,14 @@
 
     <h3>The two sources of truth</h3>
 
-    <table style="width: 100%; border-collapse: collapse; margin: 24px 0;">
-      <tr style="background: var(--bg-elevated); border-bottom: 2px solid var(--border);">
-        <th style="padding: 12px; text-align: left; font-weight: 600;">Source</th>
-        <th style="padding: 12px; text-align: left; font-weight: 600;">What it provides</th>
-      </tr>
-      <tr style="border-bottom: 1px solid var(--border);">
-        <td style="padding: 12px;"><strong>Shopify Orders</strong></td>
-        <td style="padding: 12px;">Revenue source of truth</td>
-      </tr>
-      <tr style="border-bottom: 1px solid var(--border);">
-        <td style="padding: 12px;"><strong>Pixel Events</strong></td>
-        <td style="padding: 12px;">Attribution source of truth</td>
-      </tr>
-      <tr>
-        <td style="padding: 12px;"><strong>JOIN on order_id</strong></td>
-        <td style="padding: 12px;">= Attributed revenue</td>
-      </tr>
-    </table>
+    <div class="highlight-box">
+      <h4>How Attribution Matching Works</h4>
+      <ul>
+        <li><strong>Shopify Orders</strong> = Revenue source of truth (actual dollars in your bank account)</li>
+        <li><strong>Pixel Events</strong> = Attribution source of truth (which ad drove the visit)</li>
+        <li><strong>JOIN on order_id</strong> = Attributed revenue (real dollars tied to real ads)</li>
+      </ul>
+    </div>
 
     <h3>Three possible outcomes</h3>
 
@@ -418,6 +408,31 @@
 
     <p>The goal isn't to make your numbers look better. The goal is to make your numbers accurate so you can confidently scale what works and kill what doesn't.</p>
 
+    <div class="comparison-grid">
+      <div class="comparison-card bad">
+        <h4>Meta-Only Attribution (2026)</h4>
+        <ul>
+          <li>1-day view + 7-day click only</li>
+          <li>Missing 30-60% of actual conversions</li>
+          <li>Cannot see view-through beyond 24 hours</li>
+          <li>Modeled conversions, not real data</li>
+          <li>No independent verification possible</li>
+          <li>Decisions based on incomplete numbers</li>
+        </ul>
+      </div>
+      <div class="comparison-card good">
+        <h4>First-Party Attribution</h4>
+        <ul>
+          <li>Matches real orders to real ad clicks</li>
+          <li>Shopify revenue = source of truth</li>
+          <li>Not affected by attribution window changes</li>
+          <li>Independent of Meta's tracking limitations</li>
+          <li>Works despite ad blockers and iOS privacy</li>
+          <li>Decisions based on actual revenue data</li>
+        </ul>
+      </div>
+    </div>
+
     <h2>What About Meta's Conversions API?</h2>
 
     <p>You might be thinking: "Doesn't Meta's Conversions API (CAPI) solve this problem?"</p>
@@ -429,7 +444,7 @@
     <ul>
       <li>Sends conversion signals directly from your server to Meta (bypassing browser blockers)</li>
       <li>Helps Meta's algorithm optimize delivery by seeing conversions it would otherwise miss</li>
-      <li>Improves ad performance by giving Meta more complete conversion data</li>
+      <li>Improves ad performance by giving Meta more complete conversion data for its machine learning</li>
     </ul>
 
     <h3>What CAPI doesn't do</h3>
@@ -437,26 +452,28 @@
     <ul>
       <li>Provide you with an independent source of truth for attribution</li>
       <li>Solve the attribution window removal problem (CAPI uses the same limited windows)</li>
-      <li>Give you visibility beyond Meta's reporting (you're still trusting Meta's numbers)</li>
-      <li>Let you track non-Meta traffic sources with the same pixel</li>
+      <li>Give you visibility beyond what Meta chooses to report (you're still trusting their numbers)</li>
+      <li>Let you verify Meta's conversion counts against your actual revenue</li>
     </ul>
 
-    <p>CAPI is useful for campaign optimization. First-party tracking is essential for measurement and attribution. You should use both: CAPI to help Meta optimize, and first-party tracking to independently verify performance.</p>
+    <p>Think of it this way: CAPI helps Meta see your conversions better. First-party tracking helps <strong>you</strong> see your conversions better. These are complementary, not competing solutions. Use CAPI to feed Meta's optimization algorithm. Use first-party tracking to independently measure what's actually working.</p>
 
     <h2>The Bottom Line</h2>
 
-    <p>Meta's removal of 7-day view and 28-day view attribution windows in January 2026 wasn't a glitch. It's permanent. And it's only the beginning of a broader shift away from platform-controlled attribution toward advertiser-owned measurement.</p>
+    <p>Meta's removal of 7-day view and 28-day view attribution windows in January 2026 wasn't a temporary glitch. It's permanent. And it's only the beginning of a broader, irreversible shift away from platform-controlled attribution toward advertiser-owned measurement.</p>
 
-    <p>The advertisers who adapt quickly will gain an edge:</p>
+    <p>The advertisers who adapt quickly will gain a real competitive edge:</p>
 
     <ul>
       <li>They'll have accurate ROAS data when competitors are guessing</li>
       <li>They'll scale winning campaigns with confidence instead of hesitation</li>
-      <li>They'll cut losing campaigns before they burn through budget</li>
-      <li>They'll understand customer behavior beyond what Meta chooses to report</li>
+      <li>They'll cut losing campaigns before they burn through budget on false signals</li>
+      <li>They'll understand their customer journey beyond what Meta chooses to report</li>
     </ul>
 
-    <p>First-party tracking isn't optional anymore. It's the baseline for competent advertising measurement in 2026.</p>
+    <p>The advertisers who don't adapt will keep making scale/kill decisions based on numbers they know are incomplete. Some will kill profitable campaigns. Others will scale unprofitable ones. Both are expensive mistakes that compound over time.</p>
+
+    <p>First-party tracking for Meta ads isn't optional anymore. It's the baseline requirement for competent advertising measurement in 2026.</p>
 
     <div class="cta-box">
       <h3>Stop trusting Meta's shrinking attribution</h3>
