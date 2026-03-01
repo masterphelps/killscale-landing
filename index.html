@@ -142,15 +142,15 @@
       --text:           #1A1A1A;
       --text-secondary: #6B7280;
       --text-tertiary:  #9CA3AF;
-      --accent:         #7c3aed;
-      --accent-hover:   #6d28d9;
+      --accent:         #7C56BA;
+      --accent-hover:   #6A48A0;
       --border:         #D8CEF0;
       --green:          #10b981;
       --red:            #ef4444;
-      --purple:         #a855f7;
+      --purple:         #955FEF;
       --amber:          #f59e0b;
-      --gradient:       linear-gradient(115deg, #7c3aed 0%, #a855f7 25%, #d946a8 48%, #8b5cf6 70%, #3b82f6 100%);
-      --gradient-soft:  linear-gradient(115deg, rgba(124,58,237,0.12) 0%, rgba(168,85,247,0.10) 25%, rgba(217,70,168,0.08) 48%, rgba(139,92,246,0.10) 70%, rgba(59,130,246,0.08) 100%);
+      --gradient:       linear-gradient(115deg, #7C56BA 0%, #8F55D4 25%, #955FEF 45%, #796EE3 70%, #5E7CD8 100%);
+      --gradient-soft:  linear-gradient(115deg, rgba(124,86,186,0.14) 0%, rgba(143,85,212,0.12) 25%, rgba(149,95,239,0.10) 45%, rgba(121,110,227,0.10) 70%, rgba(94,124,216,0.10) 100%);
     }
 
     body {
@@ -250,13 +250,13 @@
     .btn-primary {
       background: var(--gradient);
       color: white;
-      box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+      box-shadow: 0 4px 15px rgba(124, 86, 186, 0.3);
     }
 
     .btn-primary:hover {
       filter: brightness(1.1);
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+      box-shadow: 0 6px 20px rgba(124, 86, 186, 0.4);
     }
 
     .btn-secondary {
@@ -456,8 +456,8 @@
       will-change: transform, opacity;
       transition: box-shadow 0.3s;
       box-shadow:
-        0 0 30px rgba(124, 58, 237, 0.3),
-        0 0 60px rgba(124, 58, 237, 0.2),
+        0 0 30px rgba(124, 86, 186, 0.3),
+        0 0 60px rgba(124, 86, 186, 0.2),
         0 25px 50px rgba(0, 0, 0, 0.15);
     }
 
@@ -526,7 +526,7 @@
     /* ========== HOOK SECTION (formerly Metrics Bar) ========== */
     .metrics-bar {
       padding: 80px 0;
-      background: linear-gradient(135deg, rgba(124,58,237,0.15) 0%, rgba(217,70,168,0.1) 40%, rgba(59,130,246,0.12) 100%);
+      background: linear-gradient(135deg, rgba(124,86,186,0.16) 0%, rgba(149,95,239,0.12) 40%, rgba(94,124,216,0.14) 100%);
       text-align: center;
     }
 
@@ -684,8 +684,8 @@
       border-radius: 12px;
       border: 1px solid var(--border);
       box-shadow:
-        0 0 30px rgba(124, 58, 237, 0.3),
-        0 0 60px rgba(124, 58, 237, 0.2),
+        0 0 30px rgba(124, 86, 186, 0.3),
+        0 0 60px rgba(124, 86, 186, 0.2),
         0 25px 50px rgba(0, 0, 0, 0.15);
     }
 
@@ -768,8 +768,8 @@
       max-height: 140px;
       border-radius: 12px;
       box-shadow:
-        0 0 30px rgba(124, 58, 237, 0.3),
-        0 0 60px rgba(124, 58, 237, 0.2),
+        0 0 30px rgba(124, 86, 186, 0.3),
+        0 0 60px rgba(124, 86, 186, 0.2),
         0 15px 40px rgba(0, 0, 0, 0.2);
     }
 
@@ -788,7 +788,7 @@
     }
 
     .feature-section.alt-bg {
-      background: linear-gradient(160deg, rgba(139,92,246,0.13) 0%, rgba(217,70,168,0.08) 50%, rgba(59,130,246,0.12) 100%);
+      background: linear-gradient(160deg, rgba(124,86,186,0.14) 0%, rgba(143,85,212,0.1) 50%, rgba(94,124,216,0.12) 100%);
     }
 
     .feature-row {
@@ -875,8 +875,8 @@
       border: 1px solid var(--border);
       display: block;
       box-shadow:
-        0 0 30px rgba(124, 58, 237, 0.3),
-        0 0 60px rgba(124, 58, 237, 0.2),
+        0 0 30px rgba(124, 86, 186, 0.3),
+        0 0 60px rgba(124, 86, 186, 0.2),
         0 25px 50px rgba(0, 0, 0, 0.15);
     }
 
@@ -968,8 +968,8 @@
       border: 1px solid var(--border);
       display: block;
       box-shadow:
-        0 0 20px rgba(124, 58, 237, 0.15),
-        0 0 40px rgba(124, 58, 237, 0.1),
+        0 0 20px rgba(124, 86, 186, 0.15),
+        0 0 40px rgba(124, 86, 186, 0.1),
         0 20px 40px rgba(0, 0, 0, 0.1);
     }
 
@@ -1001,7 +1001,7 @@
     /* ========== VERDICT SYSTEM ========== */
     .verdicts-section {
       padding: 120px 0;
-      background: linear-gradient(135deg, rgba(59,130,246,0.12) 0%, rgba(139,92,246,0.15) 40%, rgba(217,70,168,0.1) 100%);
+      background: linear-gradient(135deg, rgba(94,124,216,0.14) 0%, rgba(143,85,212,0.16) 40%, rgba(124,86,186,0.12) 100%);
       position: relative;
       z-index: 5;
     }
@@ -1247,7 +1247,7 @@
     .final-cta {
       padding: 120px 0;
       text-align: center;
-      background: linear-gradient(135deg, rgba(124,58,237,0.06) 0%, rgba(217,70,168,0.04) 40%, rgba(59,130,246,0.06) 100%);
+      background: linear-gradient(135deg, rgba(124,86,186,0.06) 0%, rgba(149,95,239,0.05) 40%, rgba(94,124,216,0.06) 100%);
     }
 
     .final-cta h2 {
@@ -1769,18 +1769,18 @@
       position: relative;
       cursor: default;
       transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.4s ease;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(124,58,237,0.04);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(124,86,186,0.04);
     }
     .fc:hover {
       transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 8px 32px rgba(124,58,237,0.1), 0 2px 8px rgba(0,0,0,0.06);
+      box-shadow: 0 8px 32px rgba(124,86,186,0.1), 0 2px 8px rgba(0,0,0,0.06);
     }
     .fc-border {
       position: absolute;
       inset: 0;
       border-radius: 16px;
       padding: 1px;
-      background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(217,70,168,0.12) 40%, rgba(59,130,246,0.15) 70%, rgba(124,58,237,0.12));
+      background: linear-gradient(135deg, rgba(124,86,186,0.2), rgba(149,95,239,0.14) 40%, rgba(94,124,216,0.15) 70%, rgba(124,86,186,0.12));
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
@@ -1804,7 +1804,7 @@
       content: '';
       position: absolute;
       inset: -50%;
-      background: conic-gradient(from 0deg, transparent 0deg, rgba(124,58,237,0.08) 60deg, rgba(59,130,246,0.06) 120deg, transparent 180deg, rgba(217,70,168,0.06) 240deg, rgba(139,92,246,0.08) 300deg, transparent 360deg);
+      background: conic-gradient(from 0deg, transparent 0deg, rgba(124,86,186,0.1) 60deg, rgba(94,124,216,0.08) 120deg, transparent 180deg, rgba(149,95,239,0.08) 240deg, rgba(121,110,227,0.1) 300deg, transparent 360deg);
       animation: fc-shimmer 10s linear infinite;
     }
     @keyframes fc-shimmer { to { transform: rotate(360deg); } }
@@ -1815,7 +1815,7 @@
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-radius: 16px;
-      border: 1px solid rgba(124,58,237,0.06);
+      border: 1px solid rgba(124,86,186,0.06);
       overflow: hidden;
     }
     .fc-glass .fc-bar {
@@ -1857,10 +1857,10 @@
     .fc-metrics {
       display: flex;
       gap: 2px;
-      background: rgba(124,58,237,0.08);
+      background: rgba(124,86,186,0.08);
       border-radius: 10px;
       overflow: hidden;
-      border: 1px solid rgba(124,58,237,0.05);
+      border: 1px solid rgba(124,86,186,0.05);
     }
     .fc-m {
       flex: 1;
@@ -1874,7 +1874,7 @@
       left: 0;
       top: 20%; bottom: 20%;
       width: 1px;
-      background: rgba(124,58,237,0.08);
+      background: rgba(124,86,186,0.08);
     }
     .fc-m .mv {
       font-size: 0.82rem;
@@ -1914,17 +1914,17 @@
     }
 
     /* Feature card color themes */
-    .fct-perf .fc-icon { background: rgba(124,58,237,0.1); }
-    .fct-perf .fc-icon svg { stroke: #7c3aed; }
-    .fct-perf .fc-bar { background: linear-gradient(90deg, #7c3aed, #3b82f6); }
-    .fct-perf .fc-ico { background: rgba(124,58,237,0.08); }
-    .fct-perf .fc-ico svg { stroke: #7c3aed; }
-    .fct-perf .mv { color: #6d28d9; }
-    .fct-perf .bd { background: #7c3aed; }
+    .fct-perf .fc-icon { background: rgba(124,86,186,0.1); }
+    .fct-perf .fc-icon svg { stroke: #7C56BA; }
+    .fct-perf .fc-bar { background: linear-gradient(90deg, #7C56BA, #5E7CD8); }
+    .fct-perf .fc-ico { background: rgba(124,86,186,0.08); }
+    .fct-perf .fc-ico svg { stroke: #7C56BA; }
+    .fct-perf .mv { color: #6A48A0; }
+    .fct-perf .bd { background: #7C56BA; }
 
     .fct-studio .fc-icon { background: rgba(6,182,212,0.1); }
     .fct-studio .fc-icon svg { stroke: #0891b2; }
-    .fct-studio .fc-bar { background: linear-gradient(90deg, #0891b2, #3b82f6); }
+    .fct-studio .fc-bar { background: linear-gradient(90deg, #0891b2, #5E7CD8); }
     .fct-studio .fc-ico { background: rgba(6,182,212,0.08); }
     .fct-studio .fc-ico svg { stroke: #0891b2; }
     .fct-studio .mv { color: #0e7490; }
@@ -1932,7 +1932,7 @@
 
     .fct-ai .fc-icon { background: rgba(225,29,72,0.1); }
     .fct-ai .fc-icon svg { stroke: #e11d48; }
-    .fct-ai .fc-bar { background: linear-gradient(90deg, #e11d48, #7c3aed); }
+    .fct-ai .fc-bar { background: linear-gradient(90deg, #e11d48, #7C56BA); }
     .fct-ai .fc-ico { background: rgba(225,29,72,0.08); }
     .fct-ai .fc-ico svg { stroke: #e11d48; }
     .fct-ai .mv { color: #be123c; }
@@ -1956,19 +1956,19 @@
 
     .fct-attr .fc-icon { background: rgba(37,99,235,0.1); }
     .fct-attr .fc-icon svg { stroke: #2563eb; }
-    .fct-attr .fc-bar { background: linear-gradient(90deg, #2563eb, #7c3aed); }
+    .fct-attr .fc-bar { background: linear-gradient(90deg, #5E7CD8, #7C56BA); }
     .fct-attr .fc-ico { background: rgba(37,99,235,0.08); }
     .fct-attr .fc-ico svg { stroke: #2563eb; }
     .fct-attr .mv { color: #1d4ed8; }
     .fct-attr .bd { background: #2563eb; }
 
-    .fct-plat .fc-icon { background: rgba(124,58,237,0.1); }
-    .fct-plat .fc-icon svg { stroke: #8b5cf6; }
-    .fct-plat .fc-bar { background: linear-gradient(90deg, #8b5cf6, #ec4899); }
-    .fct-plat .fc-ico { background: rgba(139,92,246,0.08); }
-    .fct-plat .fc-ico svg { stroke: #8b5cf6; }
-    .fct-plat .mv { color: #7c3aed; }
-    .fct-plat .bd { background: #8b5cf6; }
+    .fct-plat .fc-icon { background: rgba(149,95,239,0.1); }
+    .fct-plat .fc-icon svg { stroke: #955FEF; }
+    .fct-plat .fc-bar { background: linear-gradient(90deg, #955FEF, #796EE3); }
+    .fct-plat .fc-ico { background: rgba(149,95,239,0.08); }
+    .fct-plat .fc-ico svg { stroke: #955FEF; }
+    .fct-plat .mv { color: #7C56BA; }
+    .fct-plat .bd { background: #955FEF; }
 
     .fct-work .fc-icon { background: rgba(101,163,13,0.1); }
     .fct-work .fc-icon svg { stroke: #65a30d; }
@@ -2330,7 +2330,7 @@
   </section>
 
   <!-- Walkthrough: Creative AI Insights -->
-  <section class="walkthrough walkthrough-insights" style="background: linear-gradient(135deg, rgba(124,58,237,0.13) 0%, rgba(217,70,168,0.08) 45%, rgba(59,130,246,0.12) 100%);">
+  <section class="walkthrough walkthrough-insights" style="background: linear-gradient(135deg, rgba(124,86,186,0.14) 0%, rgba(149,95,239,0.1) 45%, rgba(94,124,216,0.13) 100%);">
     <div class="walkthrough-header">
       <div class="eyebrow">Creative Intelligence</div>
       <h2>Hook — Hold — Click — Convert</h2>
@@ -2361,7 +2361,7 @@
         <div class="walkthrough-step">
           <div class="walkthrough-step-inner">
             <div class="walkthrough-step-text">
-              <div class="walkthrough-step-number" style="color: #3b82f6;">Hold</div>
+              <div class="walkthrough-step-number" style="color: #5E7CD8;">Hold</div>
               <div class="walkthrough-step-title">Are viewers staying past the hook?</div>
               <div class="walkthrough-step-desc">Hold rate analysis reveals which creatives keep viewers engaged through seconds 3-15. Get specific recommendations for pattern interrupts and pacing.</div>
             </div>
@@ -2373,7 +2373,7 @@
         <div class="walkthrough-step">
           <div class="walkthrough-step-inner">
             <div class="walkthrough-step-text">
-              <div class="walkthrough-step-number" style="color: #8b5cf6;">Click</div>
+              <div class="walkthrough-step-number" style="color: #955FEF;">Click</div>
               <div class="walkthrough-step-title">Which formats drive the most clicks?</div>
               <div class="walkthrough-step-desc">CTR performance breakdown shows you which creative formats outperform — sometimes static images beat video. Know what to scale.</div>
             </div>
@@ -2467,7 +2467,7 @@
   </section>
 
   <!-- Walkthrough: Scale Ads -->
-  <section class="walkthrough walkthrough-scale" style="background: linear-gradient(135deg, rgba(124,58,237,0.13) 0%, rgba(217,70,168,0.08) 45%, rgba(59,130,246,0.12) 100%);">
+  <section class="walkthrough walkthrough-scale" style="background: linear-gradient(135deg, rgba(124,86,186,0.14) 0%, rgba(149,95,239,0.1) 45%, rgba(94,124,216,0.13) 100%);">
     <div class="walkthrough-header">
       <div class="eyebrow">Scaling Made Simple</div>
       <h2>Scale winners with confidence, not guesswork</h2>
