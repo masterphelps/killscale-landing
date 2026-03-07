@@ -185,10 +185,8 @@
     /* ========== NAVIGATION ========== */
     nav {
       padding: 16px 0;
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
       z-index: 100;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
@@ -360,7 +358,7 @@
 
     /* ========== HERO ========== */
     .hero {
-      padding: 140px 0 60px;
+      padding: 48px 0 60px;
       position: relative;
       overflow: visible;
       background: var(--gradient-bg);
@@ -1724,7 +1722,7 @@
       }
 
       .hero {
-        padding: 100px 0 40px;
+        padding: 24px 0 40px;
       }
 
       .hero h1 {
@@ -3172,10 +3170,10 @@
         // Nav only appears/disappears near the top of the page
         // Tied directly to scrollY so it tracks thumb movement
         navOffset = Math.min(navHeight, Math.max(0, window.scrollY));
-        navbar.style.transform = 'translateY(' + (-navOffset) + 'px)';
+        navbar.style.top = (-navOffset) + 'px';
       } else {
         navOffset = 0;
-        navbar.style.transform = '';
+        navbar.style.top = '0px';
       }
       lastScrollY = window.scrollY;
     });
