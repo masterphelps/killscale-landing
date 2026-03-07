@@ -3094,15 +3094,37 @@
         track.style.transform = 'translateX(' + offset + 'px)';
       }
 
+      let isSnapping = false;
+      let snapTarget = 0;
+
+      function getSnapOffset() {
+        // Find which card center is closest to carousel center
+        const carouselRect = carousel.getBoundingClientRect();
+        const centerX = carouselRect.left + carouselRect.width / 2;
+        let bestDist = Infinity;
+        let bestShift = 0;
+        track.querySelectorAll('.video-card').forEach(card => {
+          const r = card.getBoundingClientRect();
+          const cardCenter = r.left + r.width / 2;
+          const dist = cardCenter - centerX;
+          if (Math.abs(dist) < Math.abs(bestDist)) {
+            bestDist = dist;
+            bestShift = dist;
+          }
+        });
+        return offset - bestShift;
+      }
+
       function endDrag() {
         if (!isDragging) return;
         isDragging = false;
         carousel.classList.remove('dragging');
-        if (Math.abs(velocity) > minVelocity) {
+        if (Math.abs(velocity) > 2) {
           isMomentum = true;
         } else {
-          transferSoundToVisible();
-          scheduleResume();
+          // Snap to nearest card
+          snapTarget = getSnapOffset();
+          isSnapping = true;
         }
       }
 
@@ -3151,8 +3173,10 @@
       });
 
       // Animation loop
+      let lastTransferTime = 0;
       function animate() {
-        if (isAutoScrolling && !isDragging && !isMomentum) {
+        const now = performance.now();
+        if (isAutoScrolling && !isDragging && !isMomentum && !isSnapping) {
           offset += autoSpeed;
           wrapOffset();
           track.style.transform = 'translateX(' + offset + 'px)';
@@ -3162,11 +3186,32 @@
           velocity *= friction;
           wrapOffset();
           track.style.transform = 'translateX(' + offset + 'px)';
-          if (Math.abs(velocity) < minVelocity) {
+          if (Math.abs(velocity) < 1.5) {
             isMomentum = false;
+            // Snap after momentum
+            snapTarget = getSnapOffset();
+            isSnapping = true;
+          }
+        }
+        if (isSnapping) {
+          const diff = snapTarget - offset;
+          if (Math.abs(diff) < 0.5) {
+            offset = snapTarget;
+            isSnapping = false;
+            wrapOffset();
+            track.style.transform = 'translateX(' + offset + 'px)';
             transferSoundToVisible();
             scheduleResume();
+          } else {
+            offset += diff * 0.15;
+            wrapOffset();
+            track.style.transform = 'translateX(' + offset + 'px)';
           }
+        }
+        // Transfer audio during drag every 200ms
+        if (isUnmutedMode && isDragging && now - lastTransferTime > 200) {
+          transferSoundToVisible();
+          lastTransferTime = now;
         }
         requestAnimationFrame(animate);
       }
