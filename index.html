@@ -165,7 +165,7 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      overflow-x: hidden;
+      overflow-x: clip;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -3165,8 +3165,9 @@
       }
 
       if (window.innerWidth <= 768) {
-        const delta = window.scrollY - lastScrollY;
-        navOffset = Math.min(navHeight, Math.max(0, navOffset + delta));
+        // Nav only appears/disappears near the top of the page
+        // Tied directly to scrollY so it tracks thumb movement
+        navOffset = Math.min(navHeight, Math.max(0, window.scrollY));
         navbar.style.transform = 'translateY(' + (-navOffset) + 'px)';
       } else {
         navOffset = 0;
