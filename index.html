@@ -299,7 +299,7 @@
 
     .mobile-nav-overlay {
       display: none;
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       right: 0;
@@ -308,27 +308,25 @@
       z-index: 200;
     }
 
-    .mobile-nav-overlay.open {
-      position: fixed;
-    }
-
     .mobile-nav-panel {
-      position: absolute;
+      display: none;
+      position: fixed;
       top: 0;
-      right: -300px;
+      right: 0;
       width: 280px;
       height: 100%;
       background: var(--bg-white);
       z-index: 201;
       padding: 24px;
-      transition: right 0.3s ease;
-      display: flex;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
       flex-direction: column;
       gap: 8px;
     }
 
     .mobile-nav-panel.open {
-      position: fixed;
+      display: flex;
+      transform: translateX(0);
     }
 
     .mobile-nav-panel.open {
@@ -3196,18 +3194,24 @@
 
     // ========== MOBILE NAV ==========
     function openMobileNav() {
-      const overlay = document.getElementById('mobileOverlay');
-      overlay.style.display = 'block';
-      overlay.classList.add('open');
-      document.getElementById('mobilePanel').classList.add('open');
+      document.getElementById('mobileOverlay').style.display = 'block';
+      const panel = document.getElementById('mobilePanel');
+      panel.style.display = 'flex';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          panel.classList.add('open');
+        });
+      });
       document.body.style.overflow = 'hidden';
     }
 
     function closeMobileNav() {
-      const overlay = document.getElementById('mobileOverlay');
-      overlay.style.display = 'none';
-      overlay.classList.remove('open');
-      document.getElementById('mobilePanel').classList.remove('open');
+      document.getElementById('mobileOverlay').style.display = 'none';
+      const panel = document.getElementById('mobilePanel');
+      panel.classList.remove('open');
+      panel.addEventListener('transitionend', () => {
+        if (!panel.classList.contains('open')) panel.style.display = 'none';
+      }, { once: true });
       document.body.style.overflow = '';
     }
 
