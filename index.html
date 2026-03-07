@@ -1551,6 +1551,11 @@
       width: 100%;
       border-radius: 16px;
     }
+    .oracle-video-mobile { display: none; }
+    @media (max-width: 768px) {
+      .oracle-video-desktop { display: none; }
+      .oracle-video-mobile { display: block; }
+    }
     /* Vignette edges */
     .oracle-video-frame::after {
       content: '';
@@ -2478,7 +2483,8 @@
       </div>
       <div class="oracle-video-wrap">
         <div class="oracle-video-frame">
-          <video src="videos/oracle-demo.mp4" autoplay muted loop playsinline></video>
+          <video class="oracle-video-desktop" src="videos/oracle-demo.mp4" autoplay muted loop playsinline></video>
+          <video class="oracle-video-mobile" src="videos/oracle-demo-mobile.mp4" autoplay muted loop playsinline></video>
         </div>
       </div>
       <div class="oracle-workflow">
