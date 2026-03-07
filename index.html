@@ -1585,14 +1585,14 @@
       position: relative;
     }
     .ow-step .ow-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
       margin: 0 auto 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
+      font-size: 32px;
       border: 1px solid rgba(255,255,255,0.1);
       background: rgba(255,255,255,0.04);
       transition: all 0.3s;
@@ -1638,7 +1638,7 @@
       .oracle-workflow { flex-wrap: wrap; gap: 8px; }
       .ow-arrow { flex: 0 0 32px; }
       .ow-step { flex: 0 1 140px; }
-      .ow-step .ow-icon { width: 44px; height: 44px; font-size: 20px; }
+      .ow-step .ow-icon { width: 56px; height: 56px; font-size: 26px; }
     }
     @media (max-width: 480px) {
       .oracle-workflow { flex-direction: column; align-items: center; gap: 16px; }
@@ -2940,6 +2940,7 @@
       if (!carousel || !track) return;
 
       let currentUnmutedVideo = null;
+      let isUnmutedMode = false;
       let offset = 0;
       let autoSpeed = -0.8; // px per frame
       let isAutoScrolling = true;
@@ -2989,10 +2990,14 @@
             video.muted = false;
             btn.innerHTML = unmutedIcon;
             currentUnmutedVideo = video;
+            isUnmutedMode = true;
+            stopAuto();
           } else {
             video.muted = true;
             btn.innerHTML = mutedIcon;
             currentUnmutedVideo = null;
+            isUnmutedMode = false;
+            scheduleResume();
           }
         });
       });
@@ -3008,6 +3013,7 @@
 
       function scheduleResume() {
         clearTimeout(resumeTimer);
+        if (isUnmutedMode) return; // don't auto-scroll while listening
         resumeTimer = setTimeout(() => {
           if (!isDragging && !isHovering) {
             isAutoScrolling = true;
@@ -3019,6 +3025,35 @@
         isAutoScrolling = false;
         isMomentum = false;
         clearTimeout(resumeTimer);
+      }
+
+      // Transfer sound to the most visible video card
+      function transferSoundToVisible() {
+        if (!isUnmutedMode) return;
+        const carouselRect = carousel.getBoundingClientRect();
+        const centerX = carouselRect.left + carouselRect.width / 2;
+        let bestCard = null;
+        let bestDist = Infinity;
+        track.querySelectorAll('.video-card').forEach(card => {
+          const r = card.getBoundingClientRect();
+          const cardCenter = r.left + r.width / 2;
+          const dist = Math.abs(cardCenter - centerX);
+          if (dist < bestDist) { bestDist = dist; bestCard = card; }
+        });
+        if (bestCard) {
+          const video = bestCard.querySelector('video');
+          if (video && video !== currentUnmutedVideo) {
+            if (currentUnmutedVideo) {
+              currentUnmutedVideo.muted = true;
+              const oldBtn = currentUnmutedVideo.closest('.video-card').querySelector('.video-mute-btn');
+              if (oldBtn) oldBtn.innerHTML = mutedIcon;
+            }
+            video.muted = false;
+            const newBtn = bestCard.querySelector('.video-mute-btn');
+            if (newBtn) newBtn.innerHTML = unmutedIcon;
+            currentUnmutedVideo = video;
+          }
+        }
       }
 
       // Hover: pause auto, resume on leave
@@ -3066,6 +3101,7 @@
         if (Math.abs(velocity) > minVelocity) {
           isMomentum = true;
         } else {
+          transferSoundToVisible();
           scheduleResume();
         }
       }
@@ -3128,6 +3164,7 @@
           track.style.transform = 'translateX(' + offset + 'px)';
           if (Math.abs(velocity) < minVelocity) {
             isMomentum = false;
+            transferSoundToVisible();
             scheduleResume();
           }
         }
@@ -3140,6 +3177,7 @@
         entries.forEach(entry => {
           if (!entry.isIntersecting) {
             muteAll();
+            isUnmutedMode = false;
             isAutoScrolling = true;
             isHovering = false;
           }
