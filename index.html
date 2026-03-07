@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KillScale - AI Ad Creation & Performance Platform</title>
 
   <!-- Meta Pixel Code -->
@@ -160,16 +160,16 @@
       --grad-border:    rgba(255,255,255,0.15);
     }
 
-    html {
-      overflow-x: clip;
-    }
-
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+    }
+
+    .page-wrapper {
+      overflow-x: clip;
     }
 
     .serif {
@@ -2349,6 +2349,7 @@
   </style>
 </head>
 <body>
+<div class="page-wrapper">
   <!-- Navigation -->
   <nav id="navbar">
     <div class="container">
@@ -3706,5 +3707,6 @@
 
   <!-- Vercel Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
+</div><!-- .page-wrapper -->
 </body>
 </html>
