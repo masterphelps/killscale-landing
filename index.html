@@ -2990,6 +2990,7 @@
               currentUnmutedVideo.closest('.video-card').querySelector('.video-mute-btn').innerHTML = mutedIcon;
             }
             video.muted = false;
+            video.play().catch(() => {});
             btn.innerHTML = unmutedIcon;
             currentUnmutedVideo = video;
             isUnmutedMode = true;
@@ -3051,9 +3052,14 @@
               if (oldBtn) oldBtn.innerHTML = mutedIcon;
             }
             video.muted = false;
+            video.play().catch(() => {});
             const newBtn = bestCard.querySelector('.video-mute-btn');
             if (newBtn) newBtn.innerHTML = unmutedIcon;
             currentUnmutedVideo = video;
+          }
+          // Ensure current unmuted video is playing
+          if (currentUnmutedVideo && currentUnmutedVideo.paused) {
+            currentUnmutedVideo.play().catch(() => {});
           }
         }
       }
@@ -3099,12 +3105,12 @@
       let isSnapping = false;
       let snapTarget = 0;
 
-      function getSnapOffset() {
-        // Find which card center is closest to carousel center
+      function getNearestSnapShift() {
+        // How far is nearest card center from carousel center
         const carouselRect = carousel.getBoundingClientRect();
         const centerX = carouselRect.left + carouselRect.width / 2;
-        let bestDist = Infinity;
         let bestShift = 0;
+        let bestDist = Infinity;
         track.querySelectorAll('.video-card').forEach(card => {
           const r = card.getBoundingClientRect();
           const cardCenter = r.left + r.width / 2;
@@ -3114,7 +3120,12 @@
             bestShift = dist;
           }
         });
-        return offset - bestShift;
+        return bestShift;
+      }
+
+      function startSnap() {
+        snapTarget = offset - getNearestSnapShift();
+        isSnapping = true;
       }
 
       function endDrag() {
@@ -3124,9 +3135,7 @@
         if (Math.abs(velocity) > 2) {
           isMomentum = true;
         } else {
-          // Snap to nearest card
-          snapTarget = getSnapOffset();
-          isSnapping = true;
+          startSnap();
         }
       }
 
@@ -3190,23 +3199,20 @@
           track.style.transform = 'translateX(' + offset + 'px)';
           if (Math.abs(velocity) < 1.5) {
             isMomentum = false;
-            // Snap after momentum
-            snapTarget = getSnapOffset();
-            isSnapping = true;
+            startSnap();
           }
         }
         if (isSnapping) {
           const diff = snapTarget - offset;
-          if (Math.abs(diff) < 0.5) {
+          if (Math.abs(diff) < 1) {
             offset = snapTarget;
             isSnapping = false;
-            wrapOffset();
             track.style.transform = 'translateX(' + offset + 'px)';
             transferSoundToVisible();
             scheduleResume();
           } else {
-            offset += diff * 0.15;
-            wrapOffset();
+            // Smooth exponential ease — faster when far, gentle when close
+            offset += diff * 0.12;
             track.style.transform = 'translateX(' + offset + 'px)';
           }
         }
