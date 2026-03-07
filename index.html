@@ -1551,10 +1551,10 @@
       width: 100%;
       border-radius: 16px;
     }
-    .oracle-video-mobile { display: none; }
+    .oracle-video-frame .oracle-video-mobile { display: none; }
     @media (max-width: 768px) {
-      .oracle-video-desktop { display: none; }
-      .oracle-video-mobile { display: block; }
+      .oracle-video-frame .oracle-video-desktop { display: none !important; }
+      .oracle-video-frame .oracle-video-mobile { display: block; }
     }
     /* Vignette edges */
     .oracle-video-frame::after {
@@ -2938,7 +2938,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
   <script>
-    // ========== VIDEO CAROUSEL — interactive with drag, hover, unmute ==========
+    // ========== VIDEO CAROUSEL ==========
     (function() {
       const mutedIcon = '<svg viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.94-.5 2.64l1.56 1.56c.65-1.22 1.04-2.6 1.04-4.2 0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>';
       const unmutedIcon = '<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>';
@@ -2947,40 +2947,42 @@
       const track = document.querySelector('.video-carousel-track');
       if (!carousel || !track) return;
 
+      // Force autoplay all videos
+      track.querySelectorAll('video').forEach(v => v.play().catch(() => {}));
+
       let currentUnmutedVideo = null;
       let isUnmutedMode = false;
       let offset = 0;
-      let autoSpeed = -0.8; // px per frame
       let isAutoScrolling = true;
       let isDragging = false;
       let dragStartX = 0;
       let dragOffset = 0;
       let velocity = 0;
-      let isMomentum = false;
-      let lastDragX = 0;
-      let lastDragTime = 0;
       let isHovering = false;
       let resumeTimer = null;
-      const friction = 0.95;
-      const minVelocity = 0.3;
+      let isSnapping = false;
+      let snapVelocity = 0;
 
-      // Calculate half-width for infinite wrap (we duplicated 6 cards)
+      // Card width + gap for snapping math
+      function getCardStep() {
+        const card = track.querySelector('.video-card');
+        if (!card) return 200;
+        return card.offsetWidth + 20; // 20px gap
+      }
+
       function getHalfWidth() {
         const cards = track.querySelectorAll('.video-card');
-        const half = cards.length / 2;
-        if (half < 1) return track.scrollWidth / 2;
-        const card = cards[0];
-        const gap = 20;
-        return half * (card.offsetWidth + gap);
+        return (cards.length / 2) * getCardStep();
       }
 
       function wrapOffset() {
         const hw = getHalfWidth();
-        if (offset <= -hw) offset += hw;
-        if (offset > 0) offset -= hw;
+        if (hw < 1) return;
+        while (offset <= -hw) offset += hw;
+        while (offset > 0) offset -= hw;
       }
 
-      // Add mute buttons
+      // --- Mute/unmute ---
       document.querySelectorAll('.video-card').forEach(card => {
         const video = card.querySelector('video');
         const btn = document.createElement('button');
@@ -2991,10 +2993,7 @@
         btn.addEventListener('click', e => {
           e.stopPropagation();
           if (video.muted) {
-            if (currentUnmutedVideo && currentUnmutedVideo !== video) {
-              currentUnmutedVideo.muted = true;
-              currentUnmutedVideo.closest('.video-card').querySelector('.video-mute-btn').innerHTML = mutedIcon;
-            }
+            muteAll();
             video.muted = false;
             video.play().catch(() => {});
             btn.innerHTML = unmutedIcon;
@@ -3022,67 +3021,52 @@
 
       function scheduleResume() {
         clearTimeout(resumeTimer);
-        if (isUnmutedMode) return; // don't auto-scroll while listening
+        if (isUnmutedMode) return;
         resumeTimer = setTimeout(() => {
-          if (!isDragging && !isHovering) {
-            isAutoScrolling = true;
-          }
+          if (!isDragging && !isHovering) isAutoScrolling = true;
         }, 3000);
       }
 
       function stopAuto() {
         isAutoScrolling = false;
-        isMomentum = false;
+        isSnapping = false;
+        snapVelocity = 0;
         clearTimeout(resumeTimer);
       }
 
-      // Transfer sound to the most visible video card
       function transferSoundToVisible() {
         if (!isUnmutedMode) return;
-        const carouselRect = carousel.getBoundingClientRect();
-        const centerX = carouselRect.left + carouselRect.width / 2;
-        let bestCard = null;
-        let bestDist = Infinity;
+        const cx = carousel.getBoundingClientRect().left + carousel.offsetWidth / 2;
+        let bestCard = null, bestDist = Infinity;
         track.querySelectorAll('.video-card').forEach(card => {
           const r = card.getBoundingClientRect();
-          const cardCenter = r.left + r.width / 2;
-          const dist = Math.abs(cardCenter - centerX);
-          if (dist < bestDist) { bestDist = dist; bestCard = card; }
+          const d = Math.abs(r.left + r.width / 2 - cx);
+          if (d < bestDist) { bestDist = d; bestCard = card; }
         });
-        if (bestCard) {
-          const video = bestCard.querySelector('video');
-          if (video && video !== currentUnmutedVideo) {
-            if (currentUnmutedVideo) {
-              currentUnmutedVideo.muted = true;
-              const oldBtn = currentUnmutedVideo.closest('.video-card').querySelector('.video-mute-btn');
-              if (oldBtn) oldBtn.innerHTML = mutedIcon;
-            }
-            video.muted = false;
-            video.play().catch(() => {});
-            const newBtn = bestCard.querySelector('.video-mute-btn');
-            if (newBtn) newBtn.innerHTML = unmutedIcon;
-            currentUnmutedVideo = video;
-          }
-          // Ensure current unmuted video is playing
-          if (currentUnmutedVideo && currentUnmutedVideo.paused) {
-            currentUnmutedVideo.play().catch(() => {});
-          }
+        if (!bestCard) return;
+        const video = bestCard.querySelector('video');
+        if (video && video !== currentUnmutedVideo) {
+          muteAll();
+          video.muted = false;
+          video.play().catch(() => {});
+          bestCard.querySelector('.video-mute-btn').innerHTML = unmutedIcon;
+          currentUnmutedVideo = video;
+        }
+        if (currentUnmutedVideo && currentUnmutedVideo.paused) {
+          currentUnmutedVideo.play().catch(() => {});
         }
       }
 
-      // Hover: pause auto, resume on leave
-      carousel.addEventListener('mouseenter', () => {
-        isHovering = true;
-        stopAuto();
-      });
+      // --- Hover ---
+      carousel.addEventListener('mouseenter', () => { isHovering = true; stopAuto(); });
       carousel.addEventListener('mouseleave', () => {
         isHovering = false;
-        if (!isDragging && !isMomentum) {
-          scheduleResume();
-        }
+        if (!isDragging) scheduleResume();
       });
 
-      // Drag start
+      // --- Drag ---
+      let lastDragX = 0, lastDragTime = 0;
+
       function startDrag(x) {
         isDragging = true;
         stopAuto();
@@ -3098,9 +3082,7 @@
         if (!isDragging) return;
         const now = performance.now();
         const dt = now - lastDragTime;
-        if (dt > 0) {
-          velocity = (x - lastDragX) / dt * 16;
-        }
+        if (dt > 0) velocity = (x - lastDragX) / dt * 16;
         lastDragX = x;
         lastDragTime = now;
         offset = dragOffset + (x - dragStartX);
@@ -3108,40 +3090,25 @@
         track.style.transform = 'translateX(' + offset + 'px)';
       }
 
-      let isSnapping = false;
-      let snapTarget = 0;
-
-      function getNearestSnapShift() {
-        // How far is nearest card center from carousel center
-        const carouselRect = carousel.getBoundingClientRect();
-        const centerX = carouselRect.left + carouselRect.width / 2;
-        let bestShift = 0;
-        let bestDist = Infinity;
-        track.querySelectorAll('.video-card').forEach(card => {
-          const r = card.getBoundingClientRect();
-          const cardCenter = r.left + r.width / 2;
-          const dist = cardCenter - centerX;
-          if (Math.abs(dist) < Math.abs(bestDist)) {
-            bestDist = dist;
-            bestShift = dist;
-          }
-        });
-        return bestShift;
-      }
-
-      function startSnap() {
-        snapTarget = offset - getNearestSnapShift();
+      function snapToNearest() {
+        // Find nearest card center offset using card step math
+        const step = getCardStep();
+        const snapPos = Math.round(offset / step) * step;
+        const diff = snapPos - offset;
         isSnapping = true;
+        snapVelocity = diff * 0.15; // initial snap speed proportional to distance
       }
 
       function endDrag() {
         if (!isDragging) return;
         isDragging = false;
         carousel.classList.remove('dragging');
-        if (Math.abs(velocity) > 2) {
-          isMomentum = true;
+        // If flung, let momentum run then snap; otherwise snap immediately
+        if (Math.abs(velocity) > 3) {
+          // Don't set isMomentum flag — handled in animate via velocity
         } else {
-          startSnap();
+          velocity = 0;
+          snapToNearest();
         }
       }
 
@@ -3150,10 +3117,8 @@
       window.addEventListener('mousemove', e => { moveDrag(e.clientX); });
       window.addEventListener('mouseup', () => { endDrag(); });
 
-      // Touch events — lock to horizontal to prevent vertical scroll jank
-      let touchStartY = 0;
-      let touchLocked = false; // true = locked horizontal, false = undecided
-      let touchRejected = false; // true = vertical scroll, ignore
+      // Touch events
+      let touchStartY = 0, touchLocked = false, touchRejected = false;
 
       carousel.addEventListener('touchstart', e => {
         touchStartY = e.touches[0].clientY;
@@ -3168,18 +3133,11 @@
           const dx = Math.abs(e.touches[0].clientX - dragStartX);
           const dy = Math.abs(e.touches[0].clientY - touchStartY);
           if (dx + dy > 10) {
-            if (dx > dy) {
-              touchLocked = true; // horizontal swipe — lock it
-            } else {
-              touchRejected = true; // vertical scroll — let browser handle
-              endDrag();
-              return;
-            }
-          } else {
-            return; // not enough movement to decide yet
-          }
+            if (dx > dy) { touchLocked = true; }
+            else { touchRejected = true; endDrag(); return; }
+          } else { return; }
         }
-        e.preventDefault(); // prevent vertical scroll while dragging horizontally
+        e.preventDefault();
         moveDrag(e.touches[0].clientX);
       }, { passive: false });
 
@@ -3189,50 +3147,67 @@
         endDrag();
       });
 
-      // Animation loop
+      // --- Animation loop ---
       let lastTransferTime = 0;
       function animate() {
         const now = performance.now();
-        if (isAutoScrolling && !isDragging && !isMomentum && !isSnapping) {
-          offset += autoSpeed;
+
+        // Auto-scroll
+        if (isAutoScrolling && !isDragging && !isSnapping && Math.abs(velocity) < 0.1) {
+          offset -= 0.8;
           wrapOffset();
           track.style.transform = 'translateX(' + offset + 'px)';
         }
-        if (isMomentum) {
+
+        // Momentum (post-fling)
+        if (!isDragging && Math.abs(velocity) > 0.1) {
           offset += velocity;
-          velocity *= friction;
+          velocity *= 0.92; // heavier friction — decelerates faster
           wrapOffset();
           track.style.transform = 'translateX(' + offset + 'px)';
-          if (Math.abs(velocity) < 1.5) {
-            isMomentum = false;
-            startSnap();
+          if (Math.abs(velocity) < 0.5) {
+            velocity = 0;
+            snapToNearest();
           }
         }
-        if (isSnapping) {
-          const diff = snapTarget - offset;
-          if (Math.abs(diff) < 1) {
-            offset = snapTarget;
+
+        // Snap animation
+        if (isSnapping && !isDragging) {
+          const step = getCardStep();
+          const snapPos = Math.round(offset / step) * step;
+          const diff = snapPos - offset;
+          if (Math.abs(diff) < 0.5) {
+            offset = snapPos;
             isSnapping = false;
             track.style.transform = 'translateX(' + offset + 'px)';
             transferSoundToVisible();
             scheduleResume();
           } else {
-            // Smooth exponential ease — faster when far, gentle when close
-            offset += diff * 0.12;
+            offset += diff * 0.18;
             track.style.transform = 'translateX(' + offset + 'px)';
           }
         }
-        // Transfer audio during drag every 200ms
-        if (isUnmutedMode && isDragging && now - lastTransferTime > 200) {
+
+        // Live audio transfer while dragging
+        if (isUnmutedMode && (isDragging || isSnapping) && now - lastTransferTime > 250) {
           transferSoundToVisible();
           lastTransferTime = now;
         }
+
+        // Keep videos playing
+        if (now - lastTransferTime > 2000) {
+          track.querySelectorAll('video').forEach(v => {
+            if (v.paused) v.play().catch(() => {});
+          });
+          lastTransferTime = now;
+        }
+
         requestAnimationFrame(animate);
       }
       requestAnimationFrame(animate);
 
-      // Mute + resume auto when carousel scrolls out of view
-      const carouselObserver = new IntersectionObserver(entries => {
+      // Mute + resume when scrolled out of view
+      new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (!entry.isIntersecting) {
             muteAll();
@@ -3241,8 +3216,7 @@
             isHovering = false;
           }
         });
-      }, { threshold: 0.1 });
-      carouselObserver.observe(carousel);
+      }, { threshold: 0.1 }).observe(carousel);
     })();
 
     // ========== BEFORE/AFTER SLIDERS ==========
