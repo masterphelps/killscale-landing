@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KillScale - Meta Ads Management for Growing Businesses</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>KillScale - AI Ad Creation & Performance Platform</title>
 
   <!-- Meta Pixel Code -->
   <script>
@@ -35,7 +35,7 @@
   </script>
   <!-- End KillScale Pixel -->
 
-  <meta name="description" content="KillScale is the Meta Ads platform built for growing businesses. Create ads, track attribution, manage budgets, and scale what works—all without the complexity of Ads Manager.">
+  <meta name="description" content="KillScale turns your product photos into stunning video and image ads in seconds. AI-powered ad creation, performance tracking, and scaling — all in one platform.">
 
   <!-- SEO Meta Tags -->
   <link rel="canonical" href="https://killscale.com/">
@@ -46,8 +46,8 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://killscale.com/">
-  <meta property="og:title" content="KillScale - Meta Ads Management for Growing Businesses">
-  <meta property="og:description" content="The Meta Ads platform built for growing businesses. Create ads in 60 seconds, get instant verdicts on what's working, and scale profitably—without the complexity.">
+  <meta property="og:title" content="KillScale - AI Ad Creation & Performance Platform">
+  <meta property="og:description" content="Turn any product photo into scroll-stopping video and image ads in seconds. AI-powered creation, tracking, and scaling.">
   <meta property="og:image" content="https://killscale.com/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -57,8 +57,8 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://killscale.com/">
-  <meta name="twitter:title" content="KillScale - Meta Ads Management for Growing Businesses">
-  <meta name="twitter:description" content="The Meta Ads platform built for growing businesses. Create ads in 60 seconds, get instant verdicts on what's working, and scale profitably.">
+  <meta name="twitter:title" content="KillScale - AI Ad Creation & Performance Platform">
+  <meta name="twitter:description" content="Turn any product photo into scroll-stopping video and image ads in seconds. AI-powered creation, tracking, and scaling.">
   <meta name="twitter:image" content="https://killscale.com/og-image.png">
 
   <!-- Additional SEO -->
@@ -136,21 +136,28 @@
     }
 
     :root {
-      --bg:             #FAF8FF;
-      --bg-alt:         #EDE4FB;
+      --bg:             #FFFFFF;
+      --bg-alt:         #FFFFFF;
       --bg-white:       #FFFFFF;
       --text:           #1A1A1A;
-      --text-secondary: #6B7280;
-      --text-tertiary:  #9CA3AF;
-      --accent:         #7C56BA;
-      --accent-hover:   #6A48A0;
+      --text-secondary: #4B5563;
+      --text-tertiary:  #6B7280;
+      --accent:         #a855f7;
+      --accent-hover:   #9333ea;
       --border:         #D8CEF0;
       --green:          #10b981;
       --red:            #ef4444;
-      --purple:         #955FEF;
+      --purple:         #8B5CF6;
       --amber:          #f59e0b;
-      --gradient:       linear-gradient(115deg, #7C56BA 0%, #8F55D4 25%, #955FEF 45%, #796EE3 70%, #5E7CD8 100%);
-      --gradient-soft:  linear-gradient(115deg, rgba(124,86,186,0.14) 0%, rgba(143,85,212,0.12) 25%, rgba(149,95,239,0.10) 45%, rgba(121,110,227,0.10) 70%, rgba(94,124,216,0.10) 100%);
+      --gradient:       linear-gradient(115deg, #2E1D40 0%, #4A2270 20%, #6B21A8 40%, #6366F1 70%, #5E7CD8 100%);
+      --gradient-bg:    linear-gradient(135deg, #2E1D40 0%, #4A2270 15%, #6B21A8 35%, #6366F1 60%, #5E7CD8 80%, #2E1D40 100%);
+
+      /* Gradient section palette (replaces dark mode) */
+      --grad-text:      #ffffff;
+      --grad-text-sec:  rgba(255,255,255,0.75);
+      --grad-text-tert: rgba(255,255,255,0.50);
+      --grad-surface:   rgba(255,255,255,0.10);
+      --grad-border:    rgba(255,255,255,0.15);
     }
 
     body {
@@ -180,10 +187,6 @@
       left: 0;
       right: 0;
       z-index: 100;
-      transition: background 0.3s, box-shadow 0.3s;
-    }
-
-    nav.scrolled {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
@@ -250,13 +253,13 @@
     .btn-primary {
       background: var(--gradient);
       color: white;
-      box-shadow: 0 4px 15px rgba(124, 86, 186, 0.3);
+      box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
     }
 
     .btn-primary:hover {
       filter: brightness(1.1);
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(124, 86, 186, 0.4);
+      box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
     }
 
     .btn-secondary {
@@ -354,10 +357,33 @@
 
     /* ========== HERO ========== */
     .hero {
-      padding: 160px 0 80px;
+      padding: 140px 0 60px;
       position: relative;
       overflow: visible;
+      background: var(--gradient-bg);
     }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+        transparent 0%,
+        transparent 88%,
+        #ffffff 100%
+      );
+      pointer-events: none;
+      z-index: 2;
+    }
+    .hero > * { position: relative; z-index: 3; }
 
     .hero-content {
       max-width: 800px;
@@ -366,49 +392,25 @@
       position: relative;
     }
 
-    .hero-eyebrow {
-      font-size: 14px;
-      font-weight: 600;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 20px;
-    }
-
     .hero h1 {
       font-family: 'DM Serif Display', Georgia, serif;
       font-size: clamp(42px, 6vw, 72px);
       font-weight: 400;
       line-height: 1.1;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
       letter-spacing: -1px;
-      color: var(--text);
+      color: #ffffff;
     }
 
     .hero h1 em {
       font-style: italic;
     }
 
-    .hero-hook {
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 16px;
-    }
-
     .hero-subtitle {
       font-size: 18px;
-      color: var(--text-secondary);
+      color: rgba(255,255,255,0.80);
       max-width: 600px;
-      margin: 0 auto 36px;
+      margin: 0 auto 28px;
       line-height: 1.7;
     }
 
@@ -420,113 +422,228 @@
       margin-bottom: 14px;
     }
 
+    .hero-cta .btn-primary {
+      background: #ffffff;
+      color: var(--accent);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    .hero-cta .btn-primary:hover {
+      background: #f0f0f0;
+      transform: translateY(-1px);
+    }
+    .hero-cta .btn-secondary {
+      border-color: rgba(255,255,255,0.3);
+      color: #ffffff;
+    }
+    .hero-cta .btn-secondary:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.5);
+    }
+
     .hero-note {
       font-size: 13px;
-      color: var(--text-tertiary);
+      color: rgba(255,255,255,0.55);
     }
 
-    /* ========== HERO COLLAGE ========== */
-    .hero-collage-wrapper {
-      position: relative;
-      width: 100%;
-      margin-top: 72px;
-    }
-
-    .hero-collage {
-      position: relative;
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      height: 480px;
-      perspective: 1200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0;
-    }
-
-    .collage-card {
-      position: absolute;
-      width: 380px;
-      height: 260px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
+    /* ========== VIDEO CAROUSEL ========== */
+    .video-carousel {
+      margin-top: 48px;
       overflow: hidden;
-      background: var(--bg-white);
-      will-change: transform, opacity;
-      transition: box-shadow 0.3s;
-      box-shadow:
-        0 0 30px rgba(124, 86, 186, 0.3),
-        0 0 60px rgba(124, 86, 186, 0.2),
-        0 25px 50px rgba(0, 0, 0, 0.15);
+      padding: 16px 0;
+      cursor: grab;
+    }
+    .video-carousel.dragging {
+      cursor: grabbing;
     }
 
-    .collage-card img {
+    .video-carousel-label {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 20px;
+    }
+
+    .video-carousel-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      will-change: transform;
+    }
+
+    .video-card {
+      flex-shrink: 0;
+      width: 225px;
+      aspect-ratio: 9/16;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid rgba(255,255,255,0.2);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      background: #000;
+      position: relative;
+    }
+
+    .video-card video {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: top left;
       display: block;
     }
 
-    /* 3D curved wall: center flat, sides angled back */
-    .collage-card--center {
+    .video-mute-btn {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.5);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       z-index: 5;
-      left: 50%;
-      width: 420px;
-      height: 290px;
-      margin-left: -210px;
-      transform: rotateY(0deg) translateZ(40px);
+      opacity: 0;
+      transition: opacity 0.2s;
     }
 
-    .collage-card--left {
-      z-index: 4;
-      left: 50%;
-      margin-left: -420px;
-      transform: rotateY(32deg) translateZ(-20px);
+    .video-card:hover .video-mute-btn {
+      opacity: 1;
     }
 
-    .collage-card--right {
-      z-index: 4;
-      left: 50%;
-      margin-left: 40px;
-      transform: rotateY(-32deg) translateZ(-20px);
+    .video-mute-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: #ffffff;
     }
 
-    .collage-card--far-left {
-      z-index: 3;
-      left: 50%;
-      margin-left: -600px;
-      width: 340px;
-      height: 240px;
-      transform: rotateY(50deg) translateZ(-80px);
+    @media (max-width: 768px) {
+      .video-mute-btn { opacity: 0.7 !important; }
     }
 
-    .collage-card--far-right {
-      z-index: 3;
-      left: 50%;
-      margin-left: 260px;
-      width: 340px;
-      height: 240px;
-      transform: rotateY(-50deg) translateZ(-80px);
+    /* ========== BEFORE/AFTER SLIDER ========== */
+    .before-after-section {
+      margin-top: 48px;
+      padding-bottom: 20px;
     }
 
-    /* Scroll spacer for pinned animation */
-    .hero-scroll-spacer {
-      height: 80vh;
+    .before-after-label {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 20px;
     }
 
-    /* ========== SCREENSHOT SHOWCASE ========== */
-    .screenshot-showcase {
-      padding: 40px 0 0;
-      background: #E2DCF0;
+    .before-after-row {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .before-after-card {
+      width: 280px;
+      aspect-ratio: 9/16;
+      border-radius: 16px;
       overflow: hidden;
+      position: relative;
+      cursor: ew-resize;
+      border: 2px solid rgba(255,255,255,0.2);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      background: #000;
+    }
+
+    .before-after-card img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    .before-after-card .after-img {
+      clip-path: inset(0 0 0 50%);
+    }
+
+    .before-after-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 3px;
+      background: #ffffff;
+      transform: translateX(-50%);
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .before-after-handle::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 36px;
+      height: 36px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .before-after-handle::before {
+      content: '\2194';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 18px;
+      color: var(--accent);
+      z-index: 11;
+      pointer-events: none;
+    }
+
+    .before-after-card .label {
+      position: absolute;
+      bottom: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #fff;
+      background: rgba(0,0,0,0.5);
+      padding: 4px 10px;
+      border-radius: 4px;
+      z-index: 5;
+    }
+    .before-after-card .label-before { left: 12px; }
+    .before-after-card .label-after { right: 12px; }
+
+    /* ========== SOCIAL PROOF STRIP ========== */
+    .social-proof-strip {
+      padding: 40px 0;
+      background: #ffffff;
+      text-align: center;
+    }
+
+    .social-proof-strip p {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.3px;
     }
 
     /* ========== HOOK SECTION (formerly Metrics Bar) ========== */
     .metrics-bar {
-      padding: 80px 0;
-      background: linear-gradient(135deg, rgba(124,86,186,0.16) 0%, rgba(149,95,239,0.12) 40%, rgba(94,124,216,0.14) 100%);
+      padding: 60px 0;
+      background: #ffffff;
       text-align: center;
     }
 
@@ -576,7 +693,6 @@
     /* ========== HORIZONTAL WALKTHROUGH ========== */
     .walkthrough {
       padding: 60px 0 60px;
-      background: var(--bg);
       overflow: hidden;
       position: relative;
       z-index: 10;
@@ -684,8 +800,8 @@
       border-radius: 12px;
       border: 1px solid var(--border);
       box-shadow:
-        0 0 30px rgba(124, 86, 186, 0.3),
-        0 0 60px rgba(124, 86, 186, 0.2),
+        0 0 30px rgba(168, 85, 247, 0.3),
+        0 0 60px rgba(168, 85, 247, 0.2),
         0 25px 50px rgba(0, 0, 0, 0.15);
     }
 
@@ -768,8 +884,8 @@
       max-height: 140px;
       border-radius: 12px;
       box-shadow:
-        0 0 30px rgba(124, 86, 186, 0.3),
-        0 0 60px rgba(124, 86, 186, 0.2),
+        0 0 30px rgba(168, 85, 247, 0.3),
+        0 0 60px rgba(168, 85, 247, 0.2),
         0 15px 40px rgba(0, 0, 0, 0.2);
     }
 
@@ -784,11 +900,11 @@
 
     /* ========== FEATURE SECTIONS (Alternating) ========== */
     .feature-section {
-      padding: 120px 0;
+      padding: 80px 0;
     }
 
     .feature-section.alt-bg {
-      background: linear-gradient(160deg, rgba(124,86,186,0.14) 0%, rgba(143,85,212,0.1) 50%, rgba(94,124,216,0.12) 100%);
+      /* Now handled by .gradient-wrapper */
     }
 
     .feature-row {
@@ -872,11 +988,10 @@
     .feature-image img {
       width: 100%;
       border-radius: 12px;
-      border: 1px solid var(--border);
       display: block;
       box-shadow:
-        0 0 30px rgba(124, 86, 186, 0.3),
-        0 0 60px rgba(124, 86, 186, 0.2),
+        0 0 30px rgba(168, 85, 247, 0.3),
+        0 0 60px rgba(168, 85, 247, 0.2),
         0 25px 50px rgba(0, 0, 0, 0.15);
     }
 
@@ -892,12 +1007,11 @@
 
     /* ========== AD STUDIO SHOWCASE ========== */
     .ad-studio-section {
-      padding: 120px 0;
-      background: var(--bg);
+      padding: 80px 0;
     }
 
     .ad-studio-section .section-header {
-      margin-bottom: 72px;
+      margin-bottom: 48px;
     }
 
     .ad-studio-section .section-header .eyebrow {
@@ -968,8 +1082,8 @@
       border: 1px solid var(--border);
       display: block;
       box-shadow:
-        0 0 20px rgba(124, 86, 186, 0.15),
-        0 0 40px rgba(124, 86, 186, 0.1),
+        0 0 20px rgba(168, 85, 247, 0.15),
+        0 0 40px rgba(168, 85, 247, 0.1),
         0 20px 40px rgba(0, 0, 0, 0.1);
     }
 
@@ -1001,7 +1115,7 @@
     /* ========== VERDICT SYSTEM ========== */
     .verdicts-section {
       padding: 120px 0;
-      background: linear-gradient(135deg, rgba(94,124,216,0.14) 0%, rgba(143,85,212,0.16) 40%, rgba(124,86,186,0.12) 100%);
+      background: linear-gradient(135deg, rgba(94,124,216,0.14) 0%, rgba(139,92,246,0.16) 40%, rgba(168,85,247,0.12) 100%);
       position: relative;
       z-index: 5;
     }
@@ -1074,7 +1188,7 @@
 
     /* ========== PRICING ========== */
     .pricing {
-      padding: 120px 0;
+      padding: 80px 0;
     }
 
     .billing-toggle {
@@ -1245,9 +1359,9 @@
 
     /* ========== FINAL CTA ========== */
     .final-cta {
-      padding: 120px 0;
+      padding: 80px 0;
       text-align: center;
-      background: linear-gradient(135deg, rgba(124,86,186,0.06) 0%, rgba(149,95,239,0.05) 40%, rgba(94,124,216,0.06) 100%);
+      /* Now handled by .gradient-wrapper */
     }
 
     .final-cta h2 {
@@ -1266,10 +1380,270 @@
       line-height: 1.7;
     }
 
-    /* ========== FOOTER ========== */
+    /* ========== GRADIENT CARD (contained gradient for feature images) ========== */
+    .gradient-card {
+      background: var(--gradient-bg);
+      border-radius: 24px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .gradient-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 2;
+    }
+    /* Gradient fade to white overlay */
+    .gradient-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .gradient-card.fade-top::after {
+      background: linear-gradient(to bottom, #ffffff 0%, transparent 40%);
+    }
+    .gradient-card.fade-bottom::after {
+      background: linear-gradient(to top, #ffffff 0%, transparent 40%);
+    }
+    .gradient-card.fade-right::after {
+      background: linear-gradient(to left, #ffffff 0%, transparent 40%);
+    }
+    .gradient-card.fade-left::after {
+      background: linear-gradient(to right, #ffffff 0%, transparent 40%);
+    }
+    .gradient-card img {
+      position: relative;
+      z-index: 3;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    /* ========== BOTTOM GRADIENT (CTA + Footer continuous) ========== */
+    .bottom-gradient {
+      background: var(--gradient-bg);
+      position: relative;
+      overflow: hidden;
+    }
+    .bottom-gradient > * { position: relative; z-index: 1; }
+    .bottom-gradient::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.04;
+      pointer-events: none;
+    }
+    .bottom-gradient,
+    .bottom-gradient h2,
+    .bottom-gradient p {
+      color: #ffffff;
+    }
+    .bottom-gradient p {
+      color: rgba(255,255,255,0.75);
+    }
+    .bottom-gradient .btn-primary {
+      background: #ffffff !important;
+      color: var(--accent) !important;
+    }
+
+    /* ========== LIGHT SECTIONS ========== */
+    .orb-section {
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+    .orb-section > * { position: relative; z-index: 1; }
+
+    /* ========== ORACLE SECTION ========== */
+    .oracle-section {
+      background: #0a0a0f;
+      padding: 100px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .oracle-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(168,85,247,0.12) 0%, rgba(99,102,241,0.06) 40%, transparent 70%);
+      pointer-events: none;
+    }
+    .oracle-header {
+      text-align: center;
+      margin-bottom: 48px;
+      position: relative;
+      z-index: 2;
+    }
+    .oracle-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 100px;
+      background: rgba(168,85,247,0.15);
+      border: 1px solid rgba(168,85,247,0.25);
+      font-size: 12px;
+      font-weight: 600;
+      color: #c084fc;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 20px;
+    }
+    .oracle-badge .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #a855f7;
+      animation: oracle-pulse 2s ease-in-out infinite;
+    }
+    .oracle-header h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 400;
+      color: #ffffff;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+    .oracle-header p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.5);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .oracle-video-wrap {
+      position: relative;
+      z-index: 2;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .oracle-video-frame {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow:
+        0 0 80px rgba(168,85,247,0.15),
+        0 0 160px rgba(99,102,241,0.08),
+        0 40px 80px rgba(0,0,0,0.5);
+      animation: oracle-glow 4s ease-in-out infinite;
+    }
+    .oracle-video-frame video {
+      display: block;
+      width: 100%;
+      border-radius: 16px;
+    }
+    /* Vignette edges */
+    .oracle-video-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      box-shadow: inset 0 0 60px 30px #0a0a0f;
+      pointer-events: none;
+    }
+
+    @keyframes oracle-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+    @keyframes oracle-glow {
+      0%, 100% { box-shadow: 0 0 80px rgba(168,85,247,0.15), 0 0 160px rgba(99,102,241,0.08), 0 40px 80px rgba(0,0,0,0.5); }
+      50% { box-shadow: 0 0 120px rgba(168,85,247,0.25), 0 0 200px rgba(99,102,241,0.12), 0 40px 80px rgba(0,0,0,0.5); }
+    }
+
+    /* Workflow steps below oracle */
+    .oracle-workflow {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-top: 64px;
+      position: relative;
+      z-index: 2;
+    }
+    .ow-step {
+      text-align: center;
+      flex: 0 1 180px;
+      position: relative;
+    }
+    .ow-step .ow-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      transition: all 0.3s;
+    }
+    .ow-step:hover .ow-icon {
+      background: rgba(168,85,247,0.15);
+      border-color: rgba(168,85,247,0.3);
+      transform: translateY(-2px);
+    }
+    .ow-step .ow-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .ow-step .ow-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+    }
+    .ow-arrow {
+      flex: 0 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 30px;
+    }
+    .ow-arrow svg {
+      width: 24px;
+      height: 24px;
+      color: rgba(168,85,247,0.3);
+    }
+    .ow-step.active .ow-icon {
+      background: rgba(168,85,247,0.2);
+      border-color: rgba(168,85,247,0.4);
+      box-shadow: 0 0 30px rgba(168,85,247,0.15);
+    }
+    .ow-step.active .ow-label {
+      color: #c084fc;
+    }
+
+    @media (max-width: 768px) {
+      .oracle-section { padding: 64px 0 48px; }
+      .oracle-workflow { flex-wrap: wrap; gap: 8px; }
+      .ow-arrow { flex: 0 0 32px; }
+      .ow-step { flex: 0 1 140px; }
+      .ow-step .ow-icon { width: 44px; height: 44px; font-size: 20px; }
+    }
+    @media (max-width: 480px) {
+      .oracle-workflow { flex-direction: column; align-items: center; gap: 16px; }
+      .ow-arrow { transform: rotate(90deg); flex: 0 0 24px; padding: 0; }
+    }
+
+    /* ========== FOOTER (inside bottom-gradient) ========== */
     footer {
       padding: 40px 0;
-      border-top: 1px solid var(--border);
+      background: transparent;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    footer, footer a, .footer-text {
+      color: rgba(255,255,255,0.5) !important;
+    }
+    footer a:hover {
+      color: rgba(255,255,255,0.8) !important;
     }
 
     footer .container {
@@ -1302,14 +1676,6 @@
     }
 
     /* ========== ANIMATIONS (initial states) ========== */
-    .gsap-hero-eyebrow,
-    .gsap-hero-h1,
-    .gsap-hero-subtitle,
-    .gsap-hero-cta,
-    .gsap-hero-note,
-    .gsap-hero-visual {
-      opacity: 0;
-    }
 
     /* Scroll-triggered elements: GSAP sets initial state via .from()
        so no CSS opacity:0 needed — avoids conflict with gsap.from() */
@@ -1355,80 +1721,22 @@
       }
 
       .hero {
-        padding: 120px 0 48px;
+        padding: 100px 0 40px;
       }
 
       .hero h1 {
-        font-size: clamp(36px, 10vw, 52px);
-      }
-
-      .hero-hook {
-        font-size: 18px;
-        letter-spacing: 3px;
+        font-size: clamp(32px, 9vw, 48px);
+        padding: 0 12px;
       }
 
       .hero-subtitle {
-        font-size: 17px;
-        margin-bottom: 28px;
+        font-size: 15px;
+        margin-bottom: 24px;
+        padding: 0 16px;
       }
 
-      /* Mobile collage: show only 3 center cards, scale down */
-      .screenshot-showcase {
-        overflow: hidden;
-      }
-
-      .hero-collage-wrapper {
-        margin-top: 40px;
-      }
-
-      .hero-collage {
-        height: 280px;
-        perspective: none;
-        max-width: 100%;
-      }
-
-      /* Mobile: overlapping pile - positions only, GSAP handles transforms */
-      .collage-card {
-        width: 65%;
-        height: auto;
-        aspect-ratio: 16/10;
-        left: 50%;
-        margin-left: -32.5%;
-        transform: none;
-      }
-
-      .collage-card--center {
-        z-index: 5;
-      }
-
-      .collage-card--left {
-        z-index: 4;
-      }
-
-      .collage-card--right {
-        z-index: 4;
-      }
-
-      .collage-card--far-left {
-        display: block;
-        z-index: 3;
-        width: 58%;
-        margin-left: -29%;
-      }
-
-      .collage-card--far-right {
-        display: block;
-        z-index: 3;
-        width: 58%;
-        margin-left: -29%;
-      }
-
-      .hero-scroll-spacer {
-        display: none;
-      }
-
-      .screenshot-showcase {
-        padding: 40px 0 60px;
+      .hero-note {
+        font-size: 12px;
       }
 
       .feature-section {
@@ -1531,15 +1839,34 @@
       }
 
       .metrics-bar {
-        padding: 56px 0;
+        padding: 48px 0;
+      }
+
+      .hook-headline {
+        font-size: 28px;
+      }
+
+      .hook-subline {
+        font-size: 16px;
+        margin-bottom: 32px;
       }
 
       .metrics-row {
-        gap: 32px;
+        flex-direction: column;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .metric {
+        max-width: 300px;
       }
 
       .metric-value {
-        font-size: 32px;
+        font-size: 20px;
+      }
+
+      .metric-label {
+        font-size: 13px;
       }
 
       .verdicts-section {
@@ -1573,16 +1900,72 @@
       .final-cta h2 {
         font-size: 26px;
       }
+
+      .social-proof-strip {
+        padding: 28px 20px;
+      }
+
+      .social-proof-strip p {
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      /* New hero components - mobile */
+      .video-card {
+        width: calc(100vw - 80px);
+        max-width: 280px;
+      }
+      .before-after-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+      .before-after-card {
+        width: calc(100vw - 48px);
+        max-width: 360px;
+      }
+      .before-after-label {
+        font-size: 12px;
+      }
+
+      /* Feature images full width on mobile */
+      .gradient-card {
+        padding: 24px;
+        border-radius: 16px;
+      }
+      .gradient-card img {
+        border-radius: 8px;
+      }
+
+      /* Features section tighter on mobile */
+      .features-cards-section {
+        padding: 64px 0 16px;
+      }
+      .features-cards-header {
+        margin-bottom: 32px;
+      }
+      .features-cards-header h2 {
+        font-size: 24px;
+      }
+
+      /* Verdicts cards spacing */
+      .verdict-card {
+        padding: 24px;
+      }
     }
 
     @media (max-width: 480px) {
       .hero h1 {
-        font-size: 32px;
+        font-size: clamp(28px, 8vw, 42px);
       }
 
-      .hero-hook {
-        font-size: 16px;
-        letter-spacing: 2px;
+      .video-card {
+        width: calc(100vw - 60px);
+        max-width: 240px;
+      }
+      .before-after-card {
+        width: calc(100vw - 40px);
+        max-width: 320px;
       }
 
       .hero-cta {
@@ -1593,28 +1976,6 @@
       .hero-cta .btn {
         width: 100%;
         max-width: 280px;
-      }
-
-      .collage-card--center {
-        width: 70% !important;
-        height: 150px !important;
-        margin-left: -35% !important;
-      }
-
-      .collage-card--left {
-        width: 50% !important;
-        height: 130px !important;
-        margin-left: -65% !important;
-      }
-
-      .collage-card--right {
-        width: 50% !important;
-        height: 130px !important;
-        margin-left: 15% !important;
-      }
-
-      .hero-collage {
-        height: 180px;
       }
     }
 
@@ -1690,15 +2051,14 @@
     .fc-category {
       position: relative;
       z-index: 1;
-      margin-top: 52px;
-      padding-bottom: 8px;
+      margin-top: 0;
+      padding-bottom: 0;
+    }
+    .fc-category:first-child {
+      margin-top: 0;
     }
     .fc-cat-label {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 0 48px;
-      margin-bottom: 18px;
+      display: none;
     }
     .fc-cat-label .fc-icon {
       width: 32px;
@@ -1735,10 +2095,14 @@
       position: relative;
       overflow: hidden;
       padding: 4px 0 16px;
+      cursor: grab;
+    }
+    .fc-carousel:active {
+      cursor: grabbing;
     }
     .fc-track {
       display: flex;
-      gap: 16px;
+      gap: 20px;
       width: max-content;
       padding: 0 24px;
       will-change: transform;
@@ -1764,23 +2128,23 @@
     /* Feature card */
     .fc {
       flex-shrink: 0;
-      width: 290px;
+      width: 340px;
       border-radius: 16px;
       position: relative;
-      cursor: default;
+      cursor: grab;
       transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.4s ease;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(124,86,186,0.04);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(168,85,247,0.04);
     }
     .fc:hover {
       transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 8px 32px rgba(124,86,186,0.1), 0 2px 8px rgba(0,0,0,0.06);
+      box-shadow: 0 8px 32px rgba(168,85,247,0.1), 0 2px 8px rgba(0,0,0,0.06);
     }
     .fc-border {
       position: absolute;
       inset: 0;
       border-radius: 16px;
       padding: 1px;
-      background: linear-gradient(135deg, rgba(124,86,186,0.2), rgba(149,95,239,0.14) 40%, rgba(94,124,216,0.15) 70%, rgba(124,86,186,0.12));
+      background: linear-gradient(135deg, rgba(168,85,247,0.2), rgba(139,92,246,0.14) 40%, rgba(94,124,216,0.15) 70%, rgba(168,85,247,0.12));
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
@@ -1804,7 +2168,7 @@
       content: '';
       position: absolute;
       inset: -50%;
-      background: conic-gradient(from 0deg, transparent 0deg, rgba(124,86,186,0.1) 60deg, rgba(94,124,216,0.08) 120deg, transparent 180deg, rgba(149,95,239,0.08) 240deg, rgba(121,110,227,0.1) 300deg, transparent 360deg);
+      background: conic-gradient(from 0deg, transparent 0deg, rgba(168,85,247,0.1) 60deg, rgba(94,124,216,0.08) 120deg, transparent 180deg, rgba(139,92,246,0.08) 240deg, rgba(121,110,227,0.1) 300deg, transparent 360deg);
       animation: fc-shimmer 10s linear infinite;
     }
     @keyframes fc-shimmer { to { transform: rotate(360deg); } }
@@ -1815,7 +2179,7 @@
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-radius: 16px;
-      border: 1px solid rgba(124,86,186,0.06);
+      border: 1px solid rgba(168,85,247,0.06);
       overflow: hidden;
     }
     .fc-glass .fc-bar {
@@ -1857,10 +2221,10 @@
     .fc-metrics {
       display: flex;
       gap: 2px;
-      background: rgba(124,86,186,0.08);
+      background: rgba(168,85,247,0.08);
       border-radius: 10px;
       overflow: hidden;
-      border: 1px solid rgba(124,86,186,0.05);
+      border: 1px solid rgba(168,85,247,0.05);
     }
     .fc-m {
       flex: 1;
@@ -1874,7 +2238,7 @@
       left: 0;
       top: 20%; bottom: 20%;
       width: 1px;
-      background: rgba(124,86,186,0.08);
+      background: rgba(168,85,247,0.08);
     }
     .fc-m .mv {
       font-size: 0.82rem;
@@ -1914,69 +2278,54 @@
     }
 
     /* Feature card color themes */
-    .fct-perf .fc-icon { background: rgba(124,86,186,0.1); }
-    .fct-perf .fc-icon svg { stroke: #7C56BA; }
-    .fct-perf .fc-bar { background: linear-gradient(90deg, #7C56BA, #5E7CD8); }
-    .fct-perf .fc-ico { background: rgba(124,86,186,0.08); }
-    .fct-perf .fc-ico svg { stroke: #7C56BA; }
-    .fct-perf .mv { color: #6A48A0; }
-    .fct-perf .bd { background: #7C56BA; }
+    /* Color cycling for feature cards — 8 colors repeating */
+    .fc:nth-child(8n+1) .fc-bar { background: linear-gradient(90deg, #a855f7, #5E7CD8); }
+    .fc:nth-child(8n+1) .fc-ico { background: rgba(168,85,247,0.08); }
+    .fc:nth-child(8n+1) .fc-ico svg { stroke: #a855f7; }
+    .fc:nth-child(8n+1) .mv { color: #7C3AED; }
+    .fc:nth-child(8n+1) .bd { background: #a855f7; }
 
-    .fct-studio .fc-icon { background: rgba(6,182,212,0.1); }
-    .fct-studio .fc-icon svg { stroke: #0891b2; }
-    .fct-studio .fc-bar { background: linear-gradient(90deg, #0891b2, #5E7CD8); }
-    .fct-studio .fc-ico { background: rgba(6,182,212,0.08); }
-    .fct-studio .fc-ico svg { stroke: #0891b2; }
-    .fct-studio .mv { color: #0e7490; }
-    .fct-studio .bd { background: #0891b2; }
+    .fc:nth-child(8n+2) .fc-bar { background: linear-gradient(90deg, #0891b2, #5E7CD8); }
+    .fc:nth-child(8n+2) .fc-ico { background: rgba(6,182,212,0.08); }
+    .fc:nth-child(8n+2) .fc-ico svg { stroke: #0891b2; }
+    .fc:nth-child(8n+2) .mv { color: #0e7490; }
+    .fc:nth-child(8n+2) .bd { background: #0891b2; }
 
-    .fct-ai .fc-icon { background: rgba(225,29,72,0.1); }
-    .fct-ai .fc-icon svg { stroke: #e11d48; }
-    .fct-ai .fc-bar { background: linear-gradient(90deg, #e11d48, #7C56BA); }
-    .fct-ai .fc-ico { background: rgba(225,29,72,0.08); }
-    .fct-ai .fc-ico svg { stroke: #e11d48; }
-    .fct-ai .mv { color: #be123c; }
-    .fct-ai .bd { background: #e11d48; }
+    .fc:nth-child(8n+3) .fc-bar { background: linear-gradient(90deg, #e11d48, #a855f7); }
+    .fc:nth-child(8n+3) .fc-ico { background: rgba(225,29,72,0.08); }
+    .fc:nth-child(8n+3) .fc-ico svg { stroke: #e11d48; }
+    .fc:nth-child(8n+3) .mv { color: #be123c; }
+    .fc:nth-child(8n+3) .bd { background: #e11d48; }
 
-    .fct-comp .fc-icon { background: rgba(217,119,6,0.1); }
-    .fct-comp .fc-icon svg { stroke: #d97706; }
-    .fct-comp .fc-bar { background: linear-gradient(90deg, #d97706, #dc2626); }
-    .fct-comp .fc-ico { background: rgba(217,119,6,0.08); }
-    .fct-comp .fc-ico svg { stroke: #d97706; }
-    .fct-comp .mv { color: #b45309; }
-    .fct-comp .bd { background: #d97706; }
+    .fc:nth-child(8n+4) .fc-bar { background: linear-gradient(90deg, #d97706, #dc2626); }
+    .fc:nth-child(8n+4) .fc-ico { background: rgba(217,119,6,0.08); }
+    .fc:nth-child(8n+4) .fc-ico svg { stroke: #d97706; }
+    .fc:nth-child(8n+4) .mv { color: #b45309; }
+    .fc:nth-child(8n+4) .bd { background: #d97706; }
 
-    .fct-camp .fc-icon { background: rgba(5,150,105,0.1); }
-    .fct-camp .fc-icon svg { stroke: #059669; }
-    .fct-camp .fc-bar { background: linear-gradient(90deg, #059669, #0891b2); }
-    .fct-camp .fc-ico { background: rgba(5,150,105,0.08); }
-    .fct-camp .fc-ico svg { stroke: #059669; }
-    .fct-camp .mv { color: #047857; }
-    .fct-camp .bd { background: #059669; }
+    .fc:nth-child(8n+5) .fc-bar { background: linear-gradient(90deg, #059669, #0891b2); }
+    .fc:nth-child(8n+5) .fc-ico { background: rgba(5,150,105,0.08); }
+    .fc:nth-child(8n+5) .fc-ico svg { stroke: #059669; }
+    .fc:nth-child(8n+5) .mv { color: #047857; }
+    .fc:nth-child(8n+5) .bd { background: #059669; }
 
-    .fct-attr .fc-icon { background: rgba(37,99,235,0.1); }
-    .fct-attr .fc-icon svg { stroke: #2563eb; }
-    .fct-attr .fc-bar { background: linear-gradient(90deg, #5E7CD8, #7C56BA); }
-    .fct-attr .fc-ico { background: rgba(37,99,235,0.08); }
-    .fct-attr .fc-ico svg { stroke: #2563eb; }
-    .fct-attr .mv { color: #1d4ed8; }
-    .fct-attr .bd { background: #2563eb; }
+    .fc:nth-child(8n+6) .fc-bar { background: linear-gradient(90deg, #5E7CD8, #a855f7); }
+    .fc:nth-child(8n+6) .fc-ico { background: rgba(37,99,235,0.08); }
+    .fc:nth-child(8n+6) .fc-ico svg { stroke: #2563eb; }
+    .fc:nth-child(8n+6) .mv { color: #1d4ed8; }
+    .fc:nth-child(8n+6) .bd { background: #2563eb; }
 
-    .fct-plat .fc-icon { background: rgba(149,95,239,0.1); }
-    .fct-plat .fc-icon svg { stroke: #955FEF; }
-    .fct-plat .fc-bar { background: linear-gradient(90deg, #955FEF, #796EE3); }
-    .fct-plat .fc-ico { background: rgba(149,95,239,0.08); }
-    .fct-plat .fc-ico svg { stroke: #955FEF; }
-    .fct-plat .mv { color: #7C56BA; }
-    .fct-plat .bd { background: #955FEF; }
+    .fc:nth-child(8n+7) .fc-bar { background: linear-gradient(90deg, #8B5CF6, #796EE3); }
+    .fc:nth-child(8n+7) .fc-ico { background: rgba(139,92,246,0.08); }
+    .fc:nth-child(8n+7) .fc-ico svg { stroke: #8B5CF6; }
+    .fc:nth-child(8n+7) .mv { color: #a855f7; }
+    .fc:nth-child(8n+7) .bd { background: #8B5CF6; }
 
-    .fct-work .fc-icon { background: rgba(101,163,13,0.1); }
-    .fct-work .fc-icon svg { stroke: #65a30d; }
-    .fct-work .fc-bar { background: linear-gradient(90deg, #65a30d, #ca8a04); }
-    .fct-work .fc-ico { background: rgba(101,163,13,0.08); }
-    .fct-work .fc-ico svg { stroke: #65a30d; }
-    .fct-work .mv { color: #4d7c0f; }
-    .fct-work .bd { background: #65a30d; }
+    .fc:nth-child(8n) .fc-bar { background: linear-gradient(90deg, #65a30d, #ca8a04); }
+    .fc:nth-child(8n) .fc-ico { background: rgba(101,163,13,0.08); }
+    .fc:nth-child(8n) .fc-ico svg { stroke: #65a30d; }
+    .fc:nth-child(8n) .mv { color: #4d7c0f; }
+    .fc:nth-child(8n) .bd { background: #65a30d; }
 
     .features-cards-cta {
       text-align: center;
@@ -1989,7 +2338,7 @@
     }
 
     @media (max-width: 640px) {
-      .fc { width: 260px; }
+      .fc { width: 300px; }
       .features-stat-bar { gap: 28px; }
       .fc-cat-label { padding: 0 24px; }
       .features-cards-header h2 { font-size: 26px; }
@@ -2035,45 +2384,106 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-eyebrow gsap-hero-eyebrow">Welcome To Your New Home for Digital Marketing</div>
-        <h1 class="gsap-hero-h1">Make Ads Like a Pro<br>Scale Them Like a Boss</h1>
-        <p class="hero-hook gsap-hero-subtitle">Hook &mdash; Hold &mdash; Click &mdash; Convert</p>
-        <p class="hero-subtitle gsap-hero-subtitle">
-          Understand how your ad account works like never before
+        <h1>Make Ads Like a Pro<br>Scale Them Like a Boss</h1>
+        <p class="hero-subtitle">
+          AI-generated video and image ads.<br>Start with an image, URL, or idea.
         </p>
-        <div class="hero-cta gsap-hero-cta">
-          <a href="https://app.killscale.com/signup" class="btn btn-primary btn-large">Start Free</a>
+        <div class="hero-cta">
+          <a href="https://app.killscale.com/signup" class="btn btn-primary btn-large">Launch your best ad ever today — free</a>
           <a href="/blog/create-facebook-ad-images-videos-from-product-url.html" class="btn btn-secondary btn-large">See how it works</a>
         </div>
-        <p class="hero-note gsap-hero-note">7-day free trial. No credit card required.</p>
+        <p class="hero-note">7-day free trial. No credit card required.</p>
+      </div>
+
+      <!-- Video Carousel -->
+      <div class="video-carousel">
+        <p class="video-carousel-label">AI-generated video ads</p>
+        <div class="video-carousel-track">
+          <div class="video-card"><video src="videos/ad-1.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-2.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-3.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-4.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-5.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-6.mp4" autoplay muted loop playsinline></video></div>
+          <!-- Duplicate set for infinite scroll illusion -->
+          <div class="video-card"><video src="videos/ad-1.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-2.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-3.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-4.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-5.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-6.mp4" autoplay muted loop playsinline></video></div>
+        </div>
+      </div>
+
+      <!-- Before/After Image Ads -->
+      <div class="before-after-section">
+        <p class="before-after-label">Image ads from a photo</p>
+        <div class="before-after-row">
+          <div class="before-after-card" data-slider>
+            <img src="images/before-after/date-before.jpg" alt="Product photo before" class="before-img">
+            <img src="images/before-after/date-after.png" alt="AI-generated ad after" class="after-img">
+            <div class="before-after-handle"></div>
+            <span class="label label-before">Before</span>
+            <span class="label label-after">After</span>
+          </div>
+          <div class="before-after-card" data-slider>
+            <img src="images/before-after/rind-before.jpg" alt="Product photo before" class="before-img">
+            <img src="images/before-after/rind-after.png" alt="AI-generated ad after" class="after-img">
+            <div class="before-after-handle"></div>
+            <span class="label label-before">Before</span>
+            <span class="label label-after">After</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Screenshot Showcase -->
-  <section class="screenshot-showcase">
+  <!-- Social Proof -->
+  <section class="social-proof-strip">
     <div class="container">
-      <div class="hero-collage-wrapper gsap-hero-visual">
-        <div class="hero-collage" id="heroCollage">
-          <div class="collage-card collage-card--far-left">
-            <img src="images/media-metrics.png" alt="KillScale Performance Metrics Over Time">
-          </div>
-          <div class="collage-card collage-card--left">
-            <img src="images/account-health-audit.png" alt="KillScale AI Account Health Audit">
-          </div>
-          <div class="collage-card collage-card--center">
-            <img src="images/creative-studio.png" alt="KillScale Creative Suite">
-          </div>
-          <div class="collage-card collage-card--right">
-            <img src="images/dashboard.png" alt="KillScale Performance Dashboard">
-          </div>
-          <div class="collage-card collage-card--far-right">
-            <img src="images/trends.png" alt="KillScale Trends & Analytics">
-          </div>
+      <p>Built on the strategies behind millions in profitable ad spend</p>
+    </div>
+  </section>
+
+  <!-- Oracle: The AI Brain -->
+  <section class="oracle-section">
+    <div class="container">
+      <div class="oracle-header">
+        <div class="oracle-badge"><span class="pulse-dot"></span> KS Oracle</div>
+        <h2>The AI Brain Behind Your Ads</h2>
+        <p>KS Oracle is your creative director. It researches, strategizes, writes, and directs every piece of creative — then hands off to the best AI models to execute.</p>
+      </div>
+      <div class="oracle-video-wrap">
+        <div class="oracle-video-frame">
+          <video src="videos/oracle-demo.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+      <div class="oracle-workflow">
+        <div class="ow-step active">
+          <div class="ow-icon">&#128161;</div>
+          <div class="ow-label">Create</div>
+          <div class="ow-sub">Oracle directs AI</div>
+        </div>
+        <div class="ow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-4-4l4 4-4 4"/></svg></div>
+        <div class="ow-step">
+          <div class="ow-icon">&#9997;&#65039;</div>
+          <div class="ow-label">Edit</div>
+          <div class="ow-sub">Image & video editor</div>
+        </div>
+        <div class="ow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-4-4l4 4-4 4"/></svg></div>
+        <div class="ow-step">
+          <div class="ow-icon">&#128640;</div>
+          <div class="ow-label">Launch</div>
+          <div class="ow-sub">Directly to Meta</div>
+        </div>
+        <div class="ow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-4-4l4 4-4 4"/></svg></div>
+        <div class="ow-step">
+          <div class="ow-icon">&#128200;</div>
+          <div class="ow-label">Monitor</div>
+          <div class="ow-sub">Score & optimize</div>
         </div>
       </div>
     </div>
-    <div class="hero-scroll-spacer"></div>
   </section>
 
   <!-- Hook Section -->
@@ -2098,174 +2508,8 @@
     </div>
   </section>
 
-  <!-- Ad Studio Showcase -->
-  <section class="ad-studio-section" id="features">
-    <div class="container">
-      <div class="section-header">
-        <div class="eyebrow">Ad Studio</div>
-        <h2>Create high-converting ads with AI</h2>
-        <p>Research competitors, clone winning styles, and generate scroll-stopping ad copy and images — all without leaving KillScale.</p>
-      </div>
-
-      <div class="ad-studio-steps">
-        <!-- Step 1: Overview — text left, image right -->
-        <div class="ad-studio-step gsap-ad-studio-step">
-          <div class="ad-studio-step-text">
-            <div class="ad-studio-step-number">1</div>
-            <h3>Four ways to create ads</h3>
-            <p>Generate original ads from your product page, clone a competitor's winning style, browse curated inspiration, or upload your own image. Each path leads to AI-powered ad copy and images in seconds.</p>
-          </div>
-          <div class="ad-studio-step-image">
-            <img src="images/ad-studio-overview.png" alt="Ad Studio — Create, Clone, Inspiration, Upload" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Step 2: Competitor research — text right, image left -->
-        <div class="ad-studio-step reverse gsap-ad-studio-step">
-          <div class="ad-studio-step-text">
-            <div class="ad-studio-step-number">2</div>
-            <h3>Spy on any competitor's ads</h3>
-            <p>Search any brand and instantly see every ad they're running. Filter by media type, duration, and status. See their media mix breakdown and top landing pages — all from Meta's Ad Library.</p>
-          </div>
-          <div class="ad-studio-step-image">
-            <img src="images/ad-studio-competitor.png" alt="Competitor Ad Library Research" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Step 3: Clone — text left, image right -->
-        <div class="ad-studio-step gsap-ad-studio-step">
-          <div class="ad-studio-step-text">
-            <div class="ad-studio-step-number">3</div>
-            <h3>Clone the style, sell your product</h3>
-            <p>Pick a competitor's winning ad as inspiration. AI analyzes the style, angle, and structure — then generates ad copy tailored to your product. Multiple variations with different angles so you can test what resonates.</p>
-          </div>
-          <div class="ad-studio-step-image">
-            <img src="images/ad-studio-clone.png" alt="Clone Competitor Ad Style with AI" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Step 4: Generate — text right, image left -->
-        <div class="ad-studio-step reverse gsap-ad-studio-step">
-          <div class="ad-studio-step-text">
-            <div class="ad-studio-step-number">4</div>
-            <h3>Generate ad images with one click</h3>
-            <p>AI creates scroll-stopping ad images using your product photo in the style of the competitor's ad. Choose from lifestyle, product, minimal, or bold styles. Launch directly to Meta from KillScale.</p>
-          </div>
-          <div class="ad-studio-step-image">
-            <img src="images/ad-studio-generate.png" alt="AI-Generated Ad Image" loading="lazy">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Walkthrough: Create Ads -->
-  <section class="walkthrough walkthrough-create">
-    <div class="walkthrough-header">
-      <div class="eyebrow">Campaign Launcher</div>
-      <h2>Launch pre-optimized ads in less than 60 seconds</h2>
-      <p>Our guided flow handles the complexity so you can focus on creative. No more fumbling through Ads Manager.</p>
-    </div>
-    <div class="walkthrough-container">
-      <div class="walkthrough-floating-arrows">
-        <button class="walkthrough-floating-arrow prev" id="floatingPrev" aria-label="Previous">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <button class="walkthrough-floating-arrow next" id="floatingNext" aria-label="Next">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
-      </div>
-      <div class="walkthrough-track" id="walkthroughTrack">
-        <div class="walkthrough-step">
-          <div class="walkthrough-step-inner">
-            <div class="walkthrough-step-text">
-              <div class="walkthrough-step-number">Step 1</div>
-              <div class="walkthrough-step-title">Launch campaigns in less than 60 seconds</div>
-              <div class="walkthrough-step-desc">Start a new campaign with one click. Our launcher guides you through every step with smart defaults.</div>
-            </div>
-            <div class="walkthrough-step-image">
-              <img src="images/walkthrough-1.png" alt="Campaign Launcher - Start">
-            </div>
-          </div>
-        </div>
-        <div class="walkthrough-step">
-          <div class="walkthrough-step-inner">
-            <div class="walkthrough-step-text">
-              <div class="walkthrough-step-number">Step 2</div>
-              <div class="walkthrough-step-title">Select how to manage your budget</div>
-              <div class="walkthrough-step-desc">Choose between Campaign Budget Optimization (CBO) or Ad Set Budget Optimization (ABO) with clear explanations of each.</div>
-            </div>
-            <div class="walkthrough-step-image">
-              <img src="images/walkthrough-2.png" alt="Budget Selection">
-            </div>
-          </div>
-        </div>
-        <div class="walkthrough-step">
-          <div class="walkthrough-step-inner">
-            <div class="walkthrough-step-text">
-              <div class="walkthrough-step-number">Step 3</div>
-              <div class="walkthrough-step-title">Add campaign details</div>
-              <div class="walkthrough-step-desc">Name your campaign, set your budget, and define your schedule. Everything in one clean view.</div>
-            </div>
-            <div class="walkthrough-step-image">
-              <img src="images/walkthrough-3.png" alt="Campaign Details">
-            </div>
-          </div>
-        </div>
-        <div class="walkthrough-step">
-          <div class="walkthrough-step-inner">
-            <div class="walkthrough-step-text">
-              <div class="walkthrough-step-number">Step 4</div>
-              <div class="walkthrough-step-title">Pre-built templates for targeting</div>
-              <div class="walkthrough-step-desc">Skip the targeting guesswork. Choose from templates optimized for different campaign types and objectives.</div>
-            </div>
-            <div class="walkthrough-step-image">
-              <img src="images/walkthrough-4.png" alt="Targeting Templates">
-            </div>
-          </div>
-        </div>
-        <div class="walkthrough-step">
-          <div class="walkthrough-step-inner">
-            <div class="walkthrough-step-text">
-              <div class="walkthrough-step-number">Step 5</div>
-              <div class="walkthrough-step-title">Media-first creative studio</div>
-              <div class="walkthrough-step-desc">Select or upload your media with built-in ad and placement previews. See exactly how your ads will look before they go live.</div>
-            </div>
-            <div class="walkthrough-step-image">
-              <img src="images/walkthrough-5.png" alt="Creative Suite">
-            </div>
-          </div>
-        </div>
-        <div class="walkthrough-step">
-          <div class="walkthrough-step-inner">
-            <div class="walkthrough-step-text">
-              <div class="walkthrough-step-number">Step 6</div>
-              <div class="walkthrough-step-title">Ad copy and UTM tracking</div>
-              <div class="walkthrough-step-desc">Create or select your ad copy. Add optional UTM tags for more accurate attribution and tracking across your stack.</div>
-            </div>
-            <div class="walkthrough-step-image">
-              <img src="images/walkthrough-6.png" alt="Ad Copy and UTMs">
-            </div>
-          </div>
-        </div>
-        <div class="walkthrough-step">
-          <div class="walkthrough-step-inner">
-            <div class="walkthrough-step-text">
-              <div class="walkthrough-step-number">Step 7</div>
-              <div class="walkthrough-step-title">Deploy your optimized ads</div>
-              <div class="walkthrough-step-desc">Review everything and launch. Your pre-optimized campaign is live on Meta in seconds, not hours.</div>
-            </div>
-            <div class="walkthrough-step-image">
-              <img src="images/walkthrough-7.png" alt="Deploy to Meta">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Feature A: Creative Intelligence -->
-  <section class="feature-section">
+  <section class="feature-section orb-section">
     <div class="container">
       <div class="feature-row">
         <div class="feature-text gsap-feature-text">
@@ -2288,14 +2532,16 @@
           </ul>
         </div>
         <div class="feature-image gsap-feature-image">
-          <img src="images/creative-studio.png" alt="KillScale Creative Suite">
+          <div class="gradient-card fade-top">
+            <img src="images/creative-studio.png" alt="KillScale Creative Suite">
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Feature B: AI-Powered Optimization -->
-  <section class="feature-section alt-bg">
+  <section class="feature-section">
     <div class="container">
       <div class="feature-row reverse">
         <div class="feature-text gsap-feature-text">
@@ -2322,76 +2568,9 @@
           </ul>
         </div>
         <div class="feature-image gsap-feature-image">
-          <img src="images/andromeda-writeup.png" alt="KillScale Andromeda Analysis Write-up">
-          <img src="images/andromeda-audit.png" alt="KillScale Andromeda Audit Report" class="inset-img">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Walkthrough: Creative AI Insights -->
-  <section class="walkthrough walkthrough-insights" style="background: linear-gradient(135deg, rgba(124,86,186,0.14) 0%, rgba(149,95,239,0.1) 45%, rgba(94,124,216,0.13) 100%);">
-    <div class="walkthrough-header">
-      <div class="eyebrow">Creative Intelligence</div>
-      <h2>Hook — Hold — Click — Convert</h2>
-      <p>AI analyzes every creative at each stage of the funnel. Know exactly where you're winning, where you're bleeding, and what to do about it.</p>
-    </div>
-    <div class="walkthrough-container">
-      <div class="walkthrough-floating-arrows">
-        <button class="walkthrough-floating-arrow prev" id="insightsFloatingPrev" aria-label="Previous">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <button class="walkthrough-floating-arrow next" id="insightsFloatingNext" aria-label="Next">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
-      </div>
-      <div class="walkthrough-track" id="insightsWalkthroughTrack">
-        <div class="walkthrough-step">
-          <div class="walkthrough-step-inner">
-            <div class="walkthrough-step-text">
-              <div class="walkthrough-step-number" style="color: #10b981;">Hook</div>
-              <div class="walkthrough-step-title">Are your first 3 seconds grabbing attention?</div>
-              <div class="walkthrough-step-desc">AI scores every creative's hook performance. See which angles capture attention and which waste budget with weak openings.</div>
-            </div>
-            <div class="walkthrough-step-image">
-              <img src="images/insights-1-hook.png" alt="Hook Analysis">
-            </div>
-          </div>
-        </div>
-        <div class="walkthrough-step">
-          <div class="walkthrough-step-inner">
-            <div class="walkthrough-step-text">
-              <div class="walkthrough-step-number" style="color: #5E7CD8;">Hold</div>
-              <div class="walkthrough-step-title">Are viewers staying past the hook?</div>
-              <div class="walkthrough-step-desc">Hold rate analysis reveals which creatives keep viewers engaged through seconds 3-15. Get specific recommendations for pattern interrupts and pacing.</div>
-            </div>
-            <div class="walkthrough-step-image">
-              <img src="images/insights-2-hold.png" alt="Hold Analysis">
-            </div>
-          </div>
-        </div>
-        <div class="walkthrough-step">
-          <div class="walkthrough-step-inner">
-            <div class="walkthrough-step-text">
-              <div class="walkthrough-step-number" style="color: #955FEF;">Click</div>
-              <div class="walkthrough-step-title">Which formats drive the most clicks?</div>
-              <div class="walkthrough-step-desc">CTR performance breakdown shows you which creative formats outperform — sometimes static images beat video. Know what to scale.</div>
-            </div>
-            <div class="walkthrough-step-image">
-              <img src="images/insights-3-click.png" alt="Click Analysis">
-            </div>
-          </div>
-        </div>
-        <div class="walkthrough-step">
-          <div class="walkthrough-step-inner">
-            <div class="walkthrough-step-text">
-              <div class="walkthrough-step-number" style="color: #f59e0b;">Convert</div>
-              <div class="walkthrough-step-title">Is your creative aligned with your offer?</div>
-              <div class="walkthrough-step-desc">Conversion analysis reveals offer-creative misalignment. Find which combinations drive efficient conversions and which need A/B testing.</div>
-            </div>
-            <div class="walkthrough-step-image">
-              <img src="images/insights-4-convert.png" alt="Convert Analysis">
-            </div>
+          <div class="gradient-card fade-bottom">
+            <img src="images/andromeda-writeup.png" alt="KillScale Andromeda Analysis Write-up">
+            <img src="images/andromeda-audit.png" alt="KillScale Andromeda Audit Report" class="inset-img">
           </div>
         </div>
       </div>
@@ -2399,7 +2578,7 @@
   </section>
 
   <!-- Feature C: Performance Analytics -->
-  <section class="feature-section">
+  <section class="feature-section orb-section">
     <div class="container">
       <div class="feature-row">
         <div class="feature-text gsap-feature-text">
@@ -2426,14 +2605,16 @@
           </ul>
         </div>
         <div class="feature-image gsap-feature-image">
-          <img src="images/trends.png" alt="KillScale Trends & Analytics">
+          <div class="gradient-card fade-right">
+            <img src="images/trends.png" alt="KillScale Trends & Analytics">
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Feature D: Campaign Management -->
-  <section class="feature-section alt-bg">
+  <section class="feature-section">
     <div class="container">
       <div class="feature-row reverse">
         <div class="feature-text gsap-feature-text">
@@ -2460,14 +2641,16 @@
           </ul>
         </div>
         <div class="feature-image gsap-feature-image">
-          <img src="images/campaign-detail.png" alt="KillScale Campaign Management">
+          <div class="gradient-card fade-left">
+            <img src="images/campaign-detail.png" alt="KillScale Campaign Management">
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Walkthrough: Scale Ads -->
-  <section class="walkthrough walkthrough-scale" style="background: linear-gradient(135deg, rgba(124,86,186,0.14) 0%, rgba(149,95,239,0.1) 45%, rgba(94,124,216,0.13) 100%);">
+  <section class="walkthrough walkthrough-scale">
     <div class="walkthrough-header">
       <div class="eyebrow">Scaling Made Simple</div>
       <h2>Scale winners with confidence, not guesswork</h2>
@@ -2551,26 +2734,12 @@
   <!-- Feature Cards Section -->
   <section class="features-cards-section">
     <div class="features-cards-header">
-      <div class="eyebrow">Everything Under The Hood</div>
-      <h2>44 features built for teams who refuse to guess</h2>
-      <p>From first-party attribution to AI video generation. One platform, zero guesswork.</p>
-      <div class="features-stat-bar">
-        <div class="fs-item"><div class="fs-val">44</div><div class="fs-label">Features</div></div>
-        <div class="fs-item"><div class="fs-val">88+</div><div class="fs-label">API Endpoints</div></div>
-        <div class="fs-item"><div class="fs-val">5</div><div class="fs-label">AI Models</div></div>
-        <div class="fs-item"><div class="fs-val">48K</div><div class="fs-label">Lines of Code</div></div>
-      </div>
+      <h2>The complete toolkit for modern advertisers</h2>
+      <p>One platform. Zero guesswork.</p>
     </div>
 
-    <!-- 1. Performance Intelligence -->
-    <div class="fc-category fct-perf">
-      <div class="fc-cat-label">
-        <div class="fc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-        <h3>Performance Intelligence</h3>
-        <span class="fc-pill">7 features</span>
-      </div>
-      <div class="fc-carousel">
-        <div class="fc-track" data-speed="35" data-dir="-1">
+        <div class="fc-carousel">
+      <div class="fc-track" data-speed="30" data-dir="-1">
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="fc-name">Instant Verdicts</div><div class="fc-desc">Know exactly what to do with every campaign — scale, watch, kill, or learn.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">4</div><div class="ml">Verdicts</div></div><div class="fc-m"><div class="mv">2</div><div class="ml">Modes</div></div><div class="fc-m"><div class="mv">&lt;1s</div><div class="ml">Speed</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>ROAS-based or CPR-based scoring</div><div class="fc-b"><span class="bd"></span>Configurable thresholds per workspace</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div class="fc-name">Performance Dashboard</div><div class="fc-desc">Every metric at every level — campaign, ad set, ad — in one drill-down view.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">12+</div><div class="ml">Metrics</div></div><div class="fc-m"><div class="mv">3</div><div class="ml">Levels</div></div><div class="fc-m"><div class="mv">&infin;</div><div class="ml">Drill-down</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Spend, Revenue, ROAS, CPA, AOV, CTR</div><div class="fc-b"><span class="bd"></span>Date range filtering with presets</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div><div class="fc-name">Health Score</div><div class="fc-desc">4-factor performance diagnosis: efficiency, fatigue, profitability, and trend.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">4</div><div class="ml">Factors</div></div><div class="fc-m"><div class="mv">0–100</div><div class="ml">Score</div></div><div class="fc-m"><div class="mv">AI</div><div class="ml">Powered</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Budget efficiency 30% · Fatigue 25%</div><div class="fc-b"><span class="bd"></span>AI-powered optimization recommendations</div></div></div></div></div>
@@ -2578,38 +2747,12 @@
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="fc-name">Trends & Analytics</div><div class="fc-desc">30-day time series with revenue vs spend, ROAS, CTR, CPC, and more.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">30d</div><div class="ml">Range</div></div><div class="fc-m"><div class="mv">6+</div><div class="ml">Charts</div></div><div class="fc-m"><div class="mv">CSV</div><div class="ml">Export</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Area charts, treemaps, funnels</div><div class="fc-b"><span class="bd"></span>Hierarchical drilldown by entity</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="18" height="12" rx="2"/><line x1="23" y1="13" x2="23" y2="11"/></svg></div><div class="fc-name">Fatigue Detection</div><div class="fc-desc">Know when your ads are wearing out before performance craters.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">4</div><div class="ml">Levels</div></div><div class="fc-m"><div class="mv">Live</div><div class="ml">Tracking</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Healthy &rarr; Warning &rarr; Fatiguing &rarr; Fatigued</div><div class="fc-b"><span class="bd"></span>Thumbstop rate decay curves</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><div class="fc-name">Smart Alerts</div><div class="fc-desc">8 alert types with priority levels. Never miss money bleeding again.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">8</div><div class="ml">Types</div></div><div class="fc-m"><div class="mv">3</div><div class="ml">Priorities</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Money bleeding, breakeven, scale alerts</div><div class="fc-b"><span class="bd"></span>Bulk actions: pause, scale, dismiss</div></div></div></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 2. Creative Studio -->
-    <div class="fc-category fct-studio">
-      <div class="fc-cat-label">
-        <div class="fc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
-        <h3>Creative Studio</h3>
-        <span class="fc-pill">6 features</span>
-      </div>
-      <div class="fc-carousel">
-        <div class="fc-track" data-speed="30" data-dir="1">
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 10-5.12 5.12-2.88-2.88"/></svg></div><div class="fc-name">Creative Scoring</div><div class="fc-desc">Hook, Hold, Click, Convert — every creative scored 0 to 100 on each stage.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">4</div><div class="ml">Scores</div></div><div class="fc-m"><div class="mv">$50</div><div class="ml">Min Spend</div></div><div class="fc-m"><div class="mv">0–100</div><div class="ml">Range</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Color-coded: green, amber, orange, red</div><div class="fc-b"><span class="bd"></span>Filter gallery by score range</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="fc-name">Media Gallery</div><div class="fc-desc">Masonry grid or sortable table. Scroll-to-play on mobile, hover on desktop.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">2</div><div class="ml">Views</div></div><div class="fc-m"><div class="mv">Auto</div><div class="ml">Play</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Funnel filter bar with score sliders</div><div class="fc-b"><span class="bd"></span>Responsive mobile-first design</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="fc-name">Theater Mode</div><div class="fc-desc">Full-screen creative detail with video player, audience data, and daily trends.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">Full</div><div class="ml">Detail</div></div><div class="fc-m"><div class="mv">Daily</div><div class="ml">Breakdown</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Multi-panel stats alongside video</div><div class="fc-b"><span class="bd"></span>Audience breakdown by demo & geo</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 6 8 12 8 12s8-6 8-12a8 8 0 0 0-8-8Z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="fc-name">Video Analysis</div><div class="fc-desc">Gemini 2.0 Flash watches your video and scores every second of the funnel.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">AI</div><div class="ml">Gemini</div></div><div class="fc-m"><div class="mv">4</div><div class="ml">Stages</div></div><div class="fc-m"><div class="mv">Auto</div><div class="ml">Transcript</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Timestamped funnel stage scores</div><div class="fc-b"><span class="bd"></span>Script rewrites and quick wins</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="fc-name">Starred Ads</div><div class="fc-desc">Star winners from any view. Build CBO Performance Sets from your top creatives.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">1-Click</div><div class="ml">Star</div></div><div class="fc-m"><div class="mv">CBO</div><div class="ml">Auto-Build</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Inventory popover with quick preview</div><div class="fc-b"><span class="bd"></span>Build Performance Sets instantly</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="fc-name">Copy Library</div><div class="fc-desc">Every ad copy variation ranked by ROAS. AI-generated copies tagged with badges.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">Dedup</div><div class="ml">Variations</div></div><div class="fc-m"><div class="mv">AI</div><div class="ml">+ Manual</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Unique variations with real metrics</div><div class="fc-b"><span class="bd"></span>Save from Ad Studio or AI Tasks</div></div></div></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3. AI Generation -->
-    <div class="fc-category fct-ai">
-      <div class="fc-cat-label">
-        <div class="fc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="m8 6 4-3 4 3"/><path d="m8 18 4 3 4-3"/><path d="M3 12h18"/><path d="m6 8-3 4 3 4"/><path d="m18 8 3 4-3 4"/></svg></div>
-        <h3>AI Generation</h3>
-        <span class="fc-pill">8 features</span>
-      </div>
-      <div class="fc-carousel">
-        <div class="fc-track" data-speed="38" data-dir="-1">
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg></div><div class="fc-name">Ad Copy Generation</div><div class="fc-desc">Claude writes 3 ad variations from competitor inspiration with angle tagging.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">3</div><div class="ml">Variations</div></div><div class="fc-m"><div class="mv">Claude</div><div class="ml">Sonnet 4</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Headline + Primary + Description</div><div class="fc-b"><span class="bd"></span>"Why it works" explanations</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="fc-name">Image Generation</div><div class="fc-desc">Gemini creates ads using your product photo in 4 styles. Dual-image mode.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">4</div><div class="ml">Styles</div></div><div class="fc-m"><div class="mv">5cr</div><div class="ml">Cost</div></div><div class="fc-m"><div class="mv">Gemini</div><div class="ml">2.5 Flash</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Lifestyle, Product, Minimal, Bold</div><div class="fc-b"><span class="bd"></span>Your product + competitor style</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div><div class="fc-name">Video Generation</div><div class="fc-desc">3 providers, 4–12 second ads. Sora, Veo, Runway — pick your engine.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">3</div><div class="ml">Providers</div></div><div class="fc-m"><div class="mv">50cr</div><div class="ml">Cost</div></div><div class="fc-m"><div class="mv">4–12s</div><div class="ml">Duration</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Sora 2 Pro · Veo 3.1 · Runway Gen-4.5</div><div class="fc-b"><span class="bd"></span>Inline generation with progress</div></div></div></div></div>
@@ -2618,95 +2761,29 @@
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg></div><div class="fc-name">AI Voiceover</div><div class="fc-desc">6 professional voices via OpenAI TTS. Synced to overlay timeline.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">6</div><div class="ml">Voices</div></div><div class="fc-m"><div class="mv">TTS</div><div class="ml">OpenAI</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Choose voice per video clip</div><div class="fc-b"><span class="bd"></span>Whisper transcription for sync</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 13v-2Z"/></svg></div><div class="fc-name">Image Editor</div><div class="fc-desc">Claude Vision detects text blocks. Edit headline, subtext, CTA inline.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">AI</div><div class="ml">Vision</div></div><div class="fc-m"><div class="mv">&infin;</div><div class="ml">Versions</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Smart text detection + editing</div><div class="fc-b"><span class="bd"></span>Prompt-based image refinement</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div><div class="fc-name">Product Analysis</div><div class="fc-desc">Paste a URL. AI extracts name, price, features, image. Feeds all tools.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">Auto</div><div class="ml">Extract</div></div><div class="fc-m"><div class="mv">7</div><div class="ml">Fields</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Pill selector for attribute control</div><div class="fc-b"><span class="bd"></span>Feeds copy, image, and video gen</div></div></div></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 4. Competitor Research -->
-    <div class="fc-category fct-comp">
-      <div class="fc-cat-label">
-        <div class="fc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <h3>Competitor Research</h3>
-        <span class="fc-pill">5 features</span>
-      </div>
-      <div class="fc-carousel">
-        <div class="fc-track" data-speed="32" data-dir="1">
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div><div class="fc-name">Ad Library Search</div><div class="fc-desc">Search any brand. Autocomplete with company logo and name.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">Any</div><div class="ml">Brand</div></div><div class="fc-m"><div class="mv">Auto</div><div class="ml">Complete</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Type-ahead search across Ad Library</div><div class="fc-b"><span class="bd"></span>Company logo + name results</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div><div class="fc-name">Ad Grid</div><div class="fc-desc">Masonry layout. Hover-to-play video. Days active badge. Infinite scroll.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">&infin;</div><div class="ml">Scroll</div></div><div class="fc-m"><div class="mv">Video</div><div class="ml">Preview</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Filter by media type, days, status</div><div class="fc-b"><span class="bd"></span>Full ad detail modal</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></div><div class="fc-name">Media Mix</div><div class="fc-desc">Video, image, carousel, text — see the exact format split any competitor uses.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">4</div><div class="ml">Formats</div></div><div class="fc-m"><div class="mv">%</div><div class="ml">Split</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Interactive donut chart</div><div class="fc-b"><span class="bd"></span>Filter ads by format type</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div class="fc-name">Landing Pages</div><div class="fc-desc">See where competitors funnel traffic. Top pages ranked by frequency.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">Top</div><div class="ml">Pages</div></div><div class="fc-m"><div class="mv">%</div><div class="ml">Frequency</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>URL breakdown per campaign</div><div class="fc-b"><span class="bd"></span>Identify winning funnels</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"/><path d="m14 7 3 3"/></svg></div><div class="fc-name">Clone & Create</div><div class="fc-desc">One click: their ad becomes your ad. Your product, their proven format.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">1-Click</div><div class="ml">Clone</div></div><div class="fc-m"><div class="mv">AI</div><div class="ml">Powered</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Generates copy + image instantly</div><div class="fc-b"><span class="bd"></span>Launch directly to Meta</div></div></div></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 5. Campaign Management -->
-    <div class="fc-category fct-camp">
-      <div class="fc-cat-label">
-        <div class="fc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09Z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z"/></svg></div>
-        <h3>Campaign Management</h3>
-        <span class="fc-pill">5 features</span>
-      </div>
-      <div class="fc-carousel">
-        <div class="fc-track" data-speed="33" data-dir="-1">
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><div class="fc-name">Campaign Launcher</div><div class="fc-desc">8-step wizard. Campaigns, ad sets, ads, or Performance Sets. Under 60 seconds.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">4</div><div class="ml">Types</div></div><div class="fc-m"><div class="mv">8</div><div class="ml">Steps</div></div><div class="fc-m"><div class="mv">&lt;60s</div><div class="ml">Launch</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>CBO (Andromeda) or ABO</div><div class="fc-b"><span class="bd"></span>Created as PAUSED for review</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="fc-name">Bulk Operations</div><div class="fc-desc">Andromeda-safe scaling. Batch 5 at a time with cooldown tracking.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">Batch</div><div class="ml">Process</div></div><div class="fc-m"><div class="mv">Safe</div><div class="ml">Scaling</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Pause, resume, delete in bulk</div><div class="fc-b"><span class="bd"></span>Budget change cooldown tracking</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div><div class="fc-name">Direct Upload</div><div class="fc-desc">Videos up to 1GB. Images to 30MB. Chunked upload, direct to Meta.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">1GB</div><div class="ml">Video</div></div><div class="fc-m"><div class="mv">30MB</div><div class="ml">Image</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Chunked upload bypasses limits</div><div class="fc-b"><span class="bd"></span>Drag-drop with progress tracking</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></div><div class="fc-name">Media Library</div><div class="fc-desc">Browse existing account media. Search, filter, multi-select for campaigns.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">Search</div><div class="ml">& Filter</div></div><div class="fc-m"><div class="mv">Multi</div><div class="ml">Select</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Video preview + image lightbox</div><div class="fc-b"><span class="bd"></span>Integrated into Launch Wizard</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4Z"/></svg></div><div class="fc-name">Inline Management</div><div class="fc-desc">Edit, duplicate, delete — all from the dashboard table. Ad copy editing on clone.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">Inline</div><div class="ml">Actions</div></div><div class="fc-m"><div class="mv">Copy</div><div class="ml">Editing</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Overflow menu on every row</div><div class="fc-b"><span class="bd"></span>Edit budgets, names, status</div></div></div></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 6. Attribution -->
-    <div class="fc-category fct-attr">
-      <div class="fc-cat-label">
-        <div class="fc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div>
-        <h3>Attribution & Tracking</h3>
-        <span class="fc-pill">5 features</span>
-      </div>
-      <div class="fc-carousel">
-        <div class="fc-track" data-speed="34" data-dir="1">
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h6"/><path d="M22 12h-6"/><path d="M12 2v6"/><path d="M12 22v-6"/><circle cx="12" cy="12" r="4"/></svg></div><div class="fc-name">First-Party Pixel</div><div class="fc-desc">Your own KS-XXXXXXX tracking. Edge runtime. UTM capture + cookies.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">1st</div><div class="ml">Party</div></div><div class="fc-m"><div class="mv">Edge</div><div class="ml">Runtime</div></div><div class="fc-m"><div class="mv">10+</div><div class="ml">Events</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Two-snippet: pageview + purchase</div><div class="fc-b"><span class="bd"></span>Independent of Meta's pixel</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div class="fc-name">Shopify Attribution</div><div class="fc-desc">JOIN model. Match orders to ads via order_id. Industry-standard accuracy.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">JOIN</div><div class="ml">Model</div></div><div class="fc-m"><div class="mv">85%+</div><div class="ml">Match</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Like Northbeam / Triple Whale</div><div class="fc-b"><span class="bd"></span>Order-level deduplication</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8a2 2 0 0 1 1.6-.8h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15"/><circle cx="12" cy="17" r="5"/><path d="M12 18v-2h-.5"/></svg></div><div class="fc-name">Attribution Waterfall</div><div class="fc-desc">Shopify UTM &rarr; Pixel &rarr; Meta API &rarr; Unattributed. No double-counting.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">4</div><div class="ml">Layers</div></div><div class="fc-m"><div class="mv">2</div><div class="ml">Models</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>First Touch or Last Touch</div><div class="fc-b"><span class="bd"></span>Prevents revenue double-counting</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg></div><div class="fc-name">Affiliate Costs</div><div class="fc-desc">True ROAS: Revenue &divide; (Ad Spend + UpPromote commissions).</div><div class="fc-metrics"><div class="fc-m"><div class="mv">True</div><div class="ml">ROAS</div></div><div class="fc-m"><div class="mv">Auto</div><div class="ml">Sync</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>UpPromote API integration</div><div class="fc-b"><span class="bd"></span>Total Costs card on dashboard</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><rect x="2" y="7" width="20" height="5"/></svg></div><div class="fc-name">Sales Kiosk</div><div class="fc-desc">Public URL for walk-in sales. PIN-protected. Ad picker. Mobile-first.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">Public</div><div class="ml">URL</div></div><div class="fc-m"><div class="mv">PIN</div><div class="ml">Secure</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Campaign &rarr; Ad Set &rarr; Ad picker</div><div class="fc-b"><span class="bd"></span>Optimized for tablets</div></div></div></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 7. Platform -->
-    <div class="fc-category fct-plat">
-      <div class="fc-cat-label">
-        <div class="fc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div>
-        <h3>Platform & Integrations</h3>
-        <span class="fc-pill">4 features</span>
-      </div>
-      <div class="fc-carousel">
-        <div class="fc-track" data-speed="28" data-dir="-1">
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div><div class="fc-name">Meta Ads</div><div class="fc-desc">Full integration. 29 API endpoints. OAuth, batch sync, rate-limit safe.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">29</div><div class="ml">Endpoints</div></div><div class="fc-m"><div class="mv">OAuth</div><div class="ml">+ Refresh</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Create, edit, pause, scale, delete</div><div class="fc-b"><span class="bd"></span>Batch API: 50 requests per call</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div class="fc-name">Google Ads</div><div class="fc-desc">Unified with Meta. Campaign sync, budgets, status — with platform badges.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">OAuth</div><div class="ml">Connect</div></div><div class="fc-m"><div class="mv">Unified</div><div class="ml">View</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Side-by-side with Meta data</div><div class="fc-b"><span class="bd"></span>Pause, resume, budget editing</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div><div class="fc-name">Shopify</div><div class="fc-desc">Revenue source of truth. Webhook sync. UTM extraction. Backfill.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">Webhook</div><div class="ml">Sync</div></div><div class="fc-m"><div class="mv">Real</div><div class="ml">Revenue</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Order-level webhook sync</div><div class="fc-b"><span class="bd"></span>Historical order backfill</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg></div><div class="fc-name">Credit System</div><div class="fc-desc">500/month, rollover. Failed gens refunded. Top-up packs from $20.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">500</div><div class="ml">Monthly</div></div><div class="fc-m"><div class="mv">Roll</div><div class="ml">Over</div></div><div class="fc-m"><div class="mv">4</div><div class="ml">Packs</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Images: 5cr &middot; Videos: 50cr</div><div class="fc-b"><span class="bd"></span>100/$20 to 1000/$200</div></div></div></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 8. Workspace -->
-    <div class="fc-category fct-work">
-      <div class="fc-cat-label">
-        <div class="fc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>Workspace & Team</h3>
-        <span class="fc-pill">4 features</span>
-      </div>
-      <div class="fc-carousel">
-        <div class="fc-track" data-speed="26" data-dir="1">
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><div class="fc-name">Multi-Tenant Workspaces</div><div class="fc-desc">One account, multiple businesses. Scoped rules, pixels, and settings.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">&infin;</div><div class="ml">Workspaces</div></div><div class="fc-m"><div class="mv">Scoped</div><div class="ml">Settings</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Business type per workspace</div><div class="fc-b"><span class="bd"></span>Separate ad account linking</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div><div class="fc-name">Team Roles</div><div class="fc-desc">Owner, Admin, Member, Viewer. Email invites with token acceptance.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">4</div><div class="ml">Roles</div></div><div class="fc-m"><div class="mv">Email</div><div class="ml">Invites</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Token-based invite acceptance</div><div class="fc-b"><span class="bd"></span>Granular access control</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="M12 22v-8.3a4 4 0 0 0-1.172-2.872L3 3"/><path d="m15 9 6-6"/></svg></div><div class="fc-name">Business Modes</div><div class="fc-desc">E-commerce (ROAS) or Lead Gen (CPR). Different metrics, different verdicts.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">2</div><div class="ml">Modes</div></div><div class="fc-m"><div class="mv">Custom</div><div class="ml">Thresholds</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>Revenue or cost-per-result focus</div><div class="fc-b"><span class="bd"></span>Configurable verdict thresholds</div></div></div></div></div>
           <div class="fc"><div class="fc-border"></div><div class="fc-shimmer"></div><div class="fc-glass"><div class="fc-bar"></div><div class="fc-body"><div class="fc-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div><div class="fc-name">7-Day Free Trial</div><div class="fc-desc">Full Pro access. No credit card. 3-step onboarding. Everything unlocked.</div><div class="fc-metrics"><div class="fc-m"><div class="mv">7</div><div class="ml">Days</div></div><div class="fc-m"><div class="mv">Full</div><div class="ml">Pro</div></div><div class="fc-m"><div class="mv">$0</div><div class="ml">No Card</div></div></div><div class="fc-bullets"><div class="fc-b"><span class="bd"></span>3-step onboarding wizard</div><div class="fc-b"><span class="bd"></span>Upgrade CTA when trial ends</div></div></div></div></div>
-        </div>
       </div>
     </div>
 
@@ -2717,7 +2794,7 @@
   </section>
 
   <!-- Verdicts Showcase -->
-  <section class="verdicts-section">
+  <section class="verdicts-section orb-section">
     <div class="container">
       <div class="section-header">
         <h2>Know exactly what to do with every campaign</h2>
@@ -2804,41 +2881,298 @@
   </section>
 
 
-  <!-- Final CTA -->
-  <section class="final-cta">
-    <div class="container">
-      <h2>Ready to take control of your Meta Ads?</h2>
-      <p>Join hundreds of businesses running smarter campaigns with less effort.</p>
-      <a href="https://app.killscale.com/signup" class="btn btn-primary btn-large">Start Free — No Credit Card Required</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-text">&copy; 2025 KillScale</div>
-      <div class="footer-links">
-        <a href="mailto:support@killscale.com">Support</a>
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
-        <a href="/blog">Blog</a>
+  <!-- Final CTA + Footer (continuous gradient) -->
+  <div class="bottom-gradient">
+    <section class="final-cta">
+      <div class="container">
+        <h2>Ready to take control of your Meta Ads?</h2>
+        <p>Join hundreds of businesses running smarter campaigns with less effort.</p>
+        <a href="https://app.killscale.com/signup" class="btn btn-primary btn-large">Start Free — No Credit Card Required</a>
       </div>
-    </div>
-  </footer>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-text">&copy; 2025 KillScale</div>
+        <div class="footer-links">
+          <a href="mailto:support@killscale.com">Support</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/blog">Blog</a>
+        </div>
+      </div>
+    </footer>
+  </div>
 
   <!-- GSAP + ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
   <script>
+    // ========== VIDEO CAROUSEL — interactive with drag, hover, unmute ==========
+    (function() {
+      const mutedIcon = '<svg viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.94-.5 2.64l1.56 1.56c.65-1.22 1.04-2.6 1.04-4.2 0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>';
+      const unmutedIcon = '<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>';
+
+      const carousel = document.querySelector('.video-carousel');
+      const track = document.querySelector('.video-carousel-track');
+      if (!carousel || !track) return;
+
+      let currentUnmutedVideo = null;
+      let offset = 0;
+      let autoSpeed = -0.8; // px per frame
+      let isAutoScrolling = true;
+      let isDragging = false;
+      let dragStartX = 0;
+      let dragOffset = 0;
+      let velocity = 0;
+      let isMomentum = false;
+      let lastDragX = 0;
+      let lastDragTime = 0;
+      let isHovering = false;
+      let resumeTimer = null;
+      const friction = 0.95;
+      const minVelocity = 0.3;
+
+      // Calculate half-width for infinite wrap (we duplicated 6 cards)
+      function getHalfWidth() {
+        const cards = track.querySelectorAll('.video-card');
+        const half = cards.length / 2;
+        if (half < 1) return track.scrollWidth / 2;
+        const card = cards[0];
+        const gap = 20;
+        return half * (card.offsetWidth + gap);
+      }
+
+      function wrapOffset() {
+        const hw = getHalfWidth();
+        if (offset <= -hw) offset += hw;
+        if (offset > 0) offset -= hw;
+      }
+
+      // Add mute buttons
+      document.querySelectorAll('.video-card').forEach(card => {
+        const video = card.querySelector('video');
+        const btn = document.createElement('button');
+        btn.className = 'video-mute-btn';
+        btn.innerHTML = mutedIcon;
+        card.appendChild(btn);
+
+        btn.addEventListener('click', e => {
+          e.stopPropagation();
+          if (video.muted) {
+            if (currentUnmutedVideo && currentUnmutedVideo !== video) {
+              currentUnmutedVideo.muted = true;
+              currentUnmutedVideo.closest('.video-card').querySelector('.video-mute-btn').innerHTML = mutedIcon;
+            }
+            video.muted = false;
+            btn.innerHTML = unmutedIcon;
+            currentUnmutedVideo = video;
+          } else {
+            video.muted = true;
+            btn.innerHTML = mutedIcon;
+            currentUnmutedVideo = null;
+          }
+        });
+      });
+
+      function muteAll() {
+        if (currentUnmutedVideo) {
+          currentUnmutedVideo.muted = true;
+          const btn = currentUnmutedVideo.closest('.video-card').querySelector('.video-mute-btn');
+          if (btn) btn.innerHTML = mutedIcon;
+          currentUnmutedVideo = null;
+        }
+      }
+
+      function scheduleResume() {
+        clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(() => {
+          if (!isDragging && !isHovering) {
+            isAutoScrolling = true;
+          }
+        }, 3000);
+      }
+
+      function stopAuto() {
+        isAutoScrolling = false;
+        isMomentum = false;
+        clearTimeout(resumeTimer);
+      }
+
+      // Hover: pause auto, resume on leave
+      carousel.addEventListener('mouseenter', () => {
+        isHovering = true;
+        stopAuto();
+      });
+      carousel.addEventListener('mouseleave', () => {
+        isHovering = false;
+        if (!isDragging && !isMomentum) {
+          scheduleResume();
+        }
+      });
+
+      // Drag start
+      function startDrag(x) {
+        isDragging = true;
+        stopAuto();
+        carousel.classList.add('dragging');
+        dragStartX = x;
+        dragOffset = offset;
+        lastDragX = x;
+        lastDragTime = performance.now();
+        velocity = 0;
+      }
+
+      function moveDrag(x) {
+        if (!isDragging) return;
+        const now = performance.now();
+        const dt = now - lastDragTime;
+        if (dt > 0) {
+          velocity = (x - lastDragX) / dt * 16;
+        }
+        lastDragX = x;
+        lastDragTime = now;
+        offset = dragOffset + (x - dragStartX);
+        wrapOffset();
+        track.style.transform = 'translateX(' + offset + 'px)';
+      }
+
+      function endDrag() {
+        if (!isDragging) return;
+        isDragging = false;
+        carousel.classList.remove('dragging');
+        if (Math.abs(velocity) > minVelocity) {
+          isMomentum = true;
+        } else {
+          scheduleResume();
+        }
+      }
+
+      // Mouse events
+      carousel.addEventListener('mousedown', e => { e.preventDefault(); startDrag(e.clientX); });
+      window.addEventListener('mousemove', e => { moveDrag(e.clientX); });
+      window.addEventListener('mouseup', () => { endDrag(); });
+
+      // Touch events — lock to horizontal to prevent vertical scroll jank
+      let touchStartY = 0;
+      let touchLocked = false; // true = locked horizontal, false = undecided
+      let touchRejected = false; // true = vertical scroll, ignore
+
+      carousel.addEventListener('touchstart', e => {
+        touchStartY = e.touches[0].clientY;
+        touchLocked = false;
+        touchRejected = false;
+        startDrag(e.touches[0].clientX);
+      }, { passive: true });
+
+      carousel.addEventListener('touchmove', e => {
+        if (touchRejected) return;
+        if (!touchLocked) {
+          const dx = Math.abs(e.touches[0].clientX - dragStartX);
+          const dy = Math.abs(e.touches[0].clientY - touchStartY);
+          if (dx + dy > 10) {
+            if (dx > dy) {
+              touchLocked = true; // horizontal swipe — lock it
+            } else {
+              touchRejected = true; // vertical scroll — let browser handle
+              endDrag();
+              return;
+            }
+          } else {
+            return; // not enough movement to decide yet
+          }
+        }
+        e.preventDefault(); // prevent vertical scroll while dragging horizontally
+        moveDrag(e.touches[0].clientX);
+      }, { passive: false });
+
+      window.addEventListener('touchend', () => {
+        touchLocked = false;
+        touchRejected = false;
+        endDrag();
+      });
+
+      // Animation loop
+      function animate() {
+        if (isAutoScrolling && !isDragging && !isMomentum) {
+          offset += autoSpeed;
+          wrapOffset();
+          track.style.transform = 'translateX(' + offset + 'px)';
+        }
+        if (isMomentum) {
+          offset += velocity;
+          velocity *= friction;
+          wrapOffset();
+          track.style.transform = 'translateX(' + offset + 'px)';
+          if (Math.abs(velocity) < minVelocity) {
+            isMomentum = false;
+            scheduleResume();
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+      requestAnimationFrame(animate);
+
+      // Mute + resume auto when carousel scrolls out of view
+      const carouselObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            muteAll();
+            isAutoScrolling = true;
+            isHovering = false;
+          }
+        });
+      }, { threshold: 0.1 });
+      carouselObserver.observe(carousel);
+    })();
+
+    // ========== BEFORE/AFTER SLIDERS ==========
+    document.querySelectorAll('[data-slider]').forEach(card => {
+      const afterImg = card.querySelector('.after-img');
+      const handle = card.querySelector('.before-after-handle');
+      let isDragging = false;
+
+      function updateSlider(x) {
+        const rect = card.getBoundingClientRect();
+        let pct = ((x - rect.left) / rect.width) * 100;
+        pct = Math.max(5, Math.min(95, pct));
+        afterImg.style.clipPath = 'inset(0 0 0 ' + pct + '%)';
+        handle.style.left = pct + '%';
+      }
+
+      card.addEventListener('mousedown', e => { isDragging = true; updateSlider(e.clientX); });
+      card.addEventListener('touchstart', e => { isDragging = true; updateSlider(e.touches[0].clientX); }, { passive: true });
+
+      window.addEventListener('mousemove', e => { if (isDragging) updateSlider(e.clientX); });
+      window.addEventListener('touchmove', e => { if (isDragging) updateSlider(e.touches[0].clientX); }, { passive: true });
+
+      window.addEventListener('mouseup', () => { isDragging = false; });
+      window.addEventListener('touchend', () => { isDragging = false; });
+    });
+
     // ========== NAVBAR ==========
     const navbar = document.getElementById('navbar');
+    let navOffset = 0; // how far nav is pushed up (0 = fully visible)
+    let lastScrollY = window.scrollY;
+    const navHeight = navbar.offsetHeight;
+
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
       }
+
+      if (window.innerWidth <= 768) {
+        const delta = window.scrollY - lastScrollY;
+        navOffset = Math.min(navHeight, Math.max(0, navOffset + delta));
+        navbar.style.transform = 'translateY(' + (-navOffset) + 'px)';
+      } else {
+        navOffset = 0;
+        navbar.style.transform = '';
+      }
+      lastScrollY = window.scrollY;
     });
 
     // ========== MOBILE NAV ==========
@@ -2885,17 +3219,6 @@
 
     // ========== GSAP ANIMATIONS ==========
     gsap.registerPlugin(ScrollTrigger);
-
-    // ========== HERO ENTRANCE (all screen sizes) ==========
-    const heroTl = gsap.timeline({ defaults: { ease: 'power2.out' } });
-
-    heroTl
-      .fromTo('.gsap-hero-eyebrow', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, 0.2)
-      .fromTo('.gsap-hero-h1', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 }, 0.4)
-      .fromTo('.gsap-hero-subtitle', { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.6)
-      .fromTo('.gsap-hero-cta', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, 0.8)
-      .fromTo('.gsap-hero-note', { opacity: 0 }, { opacity: 1, duration: 0.4 }, 1.0)
-      .fromTo('.gsap-hero-visual', { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 1.0 }, 1.0);
 
     // ========== MANUAL WALKTHROUGH CAROUSEL ==========
     const walkthroughTrack = document.getElementById('walkthroughTrack');
@@ -3029,41 +3352,6 @@
     // ========== DESKTOP-ONLY ANIMATIONS ==========
     ScrollTrigger.matchMedia({
       '(min-width: 769px)': function() {
-        // Pinned scroll: wall flattens and cards spread apart
-        const disperseTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.hero-collage-wrapper',
-            start: 'top 20%',
-            end: '+=80%',
-            scrub: 0.6,
-            pin: true,
-            pinSpacing: false,
-            onLeave: () => ScrollTrigger.refresh(),
-          }
-        });
-
-        disperseTl
-          .to('.collage-card--center', {
-            rotateY: 0, y: -100, scale: 0.8, opacity: 0, translateZ: 0,
-            duration: 1, ease: 'power2.in'
-          }, 0)
-          .to('.collage-card--left', {
-            rotateY: 0, x: -300, y: -50, scale: 0.7, opacity: 0, translateZ: 0,
-            duration: 1, ease: 'power2.in'
-          }, 0)
-          .to('.collage-card--right', {
-            rotateY: 0, x: 300, y: -50, scale: 0.7, opacity: 0, translateZ: 0,
-            duration: 1, ease: 'power2.in'
-          }, 0)
-          .to('.collage-card--far-left', {
-            rotateY: 0, x: -400, y: 0, scale: 0.6, opacity: 0, translateZ: 0,
-            duration: 1, ease: 'power2.in'
-          }, 0.05)
-          .to('.collage-card--far-right', {
-            rotateY: 0, x: 400, y: 0, scale: 0.6, opacity: 0, translateZ: 0,
-            duration: 1, ease: 'power2.in'
-          }, 0.05);
-
         // Metrics stagger
         gsap.from('.gsap-metric', {
           scrollTrigger: {
@@ -3218,50 +3506,8 @@
 
       },
 
-      // ========== MOBILE: scaled disperse + simpler section animations ==========
+      // ========== MOBILE: simpler section animations ==========
       '(max-width: 768px)': function() {
-        // Set initial pile positions
-        gsap.set('.collage-card--center', { rotation: 0, x: 0, y: 0 });
-        gsap.set('.collage-card--left', { rotation: -6, xPercent: -15, yPercent: -8 });
-        gsap.set('.collage-card--right', { rotation: 6, xPercent: 15, yPercent: -8 });
-        gsap.set('.collage-card--far-left', { rotation: -12, xPercent: -25, yPercent: -5 });
-        gsap.set('.collage-card--far-right', { rotation: 12, xPercent: 25, yPercent: -5 });
-
-        // Mobile disperse: all 5 cards scatter outward from pile
-        const mobileDisperse = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.hero-collage-wrapper',
-            start: 'top 40%',
-            end: '+=40%',
-            scrub: 0.3,
-            pin: true,
-            pinSpacing: true,
-          }
-        });
-
-        // Scatter - each card flies to its own direction
-        mobileDisperse
-          .to('.collage-card--far-left', {
-            xPercent: -120, yPercent: -80, scale: 0.4, opacity: 0, rotation: -45,
-            duration: 1, ease: 'power1.in'
-          }, 0)
-          .to('.collage-card--far-right', {
-            xPercent: 120, yPercent: -80, scale: 0.4, opacity: 0, rotation: 45,
-            duration: 1, ease: 'power1.in'
-          }, 0)
-          .to('.collage-card--left', {
-            xPercent: -80, yPercent: -100, scale: 0.45, opacity: 0, rotation: -30,
-            duration: 1, ease: 'power1.in'
-          }, 0.08)
-          .to('.collage-card--right', {
-            xPercent: 80, yPercent: -100, scale: 0.45, opacity: 0, rotation: 30,
-            duration: 1, ease: 'power1.in'
-          }, 0.08)
-          .to('.collage-card--center', {
-            yPercent: -120, scale: 0.5, opacity: 0, rotation: 0,
-            duration: 1, ease: 'power1.in'
-          }, 0.15);
-
         // Simple fade-up for other sections on mobile
         gsap.utils.toArray('.gsap-feature-text, .gsap-feature-image, .gsap-verdict-card, .gsap-pricing-card, .gsap-faq-item, .gsap-metric').forEach(el => {
           gsap.fromTo(el,
@@ -3327,6 +3573,7 @@
   <!-- Feature Cards Carousel Engine -->
   <script>
     document.querySelectorAll('.fc-track').forEach((track) => {
+      const carousel = track.closest('.fc-carousel');
       const originals = Array.from(track.querySelectorAll('.fc'));
       for (let i = 0; i < 3; i++) {
         originals.forEach(card => {
@@ -3335,7 +3582,7 @@
           track.appendChild(clone);
         });
       }
-      const gap = 16;
+      const gap = 20;
       const setWidth = originals.reduce((sum, c) => sum + c.offsetWidth + gap, 0);
       const direction = parseInt(track.dataset.dir) || -1;
       const maxSpeed = parseFloat(track.dataset.speed) || 35;
@@ -3345,23 +3592,107 @@
       let lastTime = null;
       const easeRate = 2.5;
 
-      track.closest('.fc-carousel').addEventListener('mouseenter', () => { targetSpeed = 0; });
-      track.closest('.fc-carousel').addEventListener('mouseleave', () => { targetSpeed = maxSpeed; lastTime = null; });
+      // Drag + momentum state
+      let isDragging = false;
+      let dragStartX = 0;
+      let dragOffset = 0;
+      let resumeTimer = null;
+      let velocity = 0;
+      let isMomentum = false;
+      const friction = 0.95; // deceleration per frame
+      const minVelocity = 0.5;
+      // Velocity tracking — sample last few moves
+      let lastDragX = 0;
+      let lastDragTime = 0;
+
+      function wrapOffset() {
+        if (offset <= -setWidth) offset += setWidth;
+        else if (offset >= 0) offset -= setWidth;
+      }
+
+      function startDrag(x) {
+        isDragging = true;
+        isMomentum = false;
+        velocity = 0;
+        dragStartX = x;
+        lastDragX = x;
+        lastDragTime = performance.now();
+        dragOffset = offset;
+        targetSpeed = 0;
+        currentSpeed = 0;
+        if (resumeTimer) clearTimeout(resumeTimer);
+      }
+
+      function moveDrag(x) {
+        if (!isDragging) return;
+        const now = performance.now();
+        const dt = now - lastDragTime;
+        if (dt > 0) {
+          velocity = (x - lastDragX) / dt * 16; // px per frame (~16ms)
+        }
+        lastDragX = x;
+        lastDragTime = now;
+        offset = dragOffset + (x - dragStartX);
+        wrapOffset();
+        track.style.transform = `translateX(${offset}px)`;
+      }
+
+      function endDrag() {
+        if (!isDragging) return;
+        isDragging = false;
+        // If flicked fast enough, start momentum
+        if (Math.abs(velocity) > 1) {
+          isMomentum = true;
+        } else {
+          scheduleResume();
+        }
+      }
+
+      function scheduleResume() {
+        resumeTimer = setTimeout(() => {
+          targetSpeed = maxSpeed;
+          lastTime = null;
+        }, 3000);
+      }
+
+      // Mouse events
+      carousel.addEventListener('mousedown', (e) => { e.preventDefault(); startDrag(e.clientX); });
+      window.addEventListener('mousemove', (e) => { if (isDragging) moveDrag(e.clientX); });
+      window.addEventListener('mouseup', endDrag);
+
+      // Touch events
+      carousel.addEventListener('touchstart', (e) => { startDrag(e.touches[0].clientX); }, { passive: true });
+      carousel.addEventListener('touchmove', (e) => { moveDrag(e.touches[0].clientX); }, { passive: true });
+      carousel.addEventListener('touchend', endDrag);
 
       function animate(now) {
-        if (lastTime === null) lastTime = now;
-        const delta = (now - lastTime) / 1000;
-        lastTime = now;
-        if (currentSpeed !== targetSpeed) {
-          const diff = targetSpeed - currentSpeed;
-          currentSpeed += diff * Math.min(1, easeRate * delta);
-          if (Math.abs(currentSpeed - targetSpeed) < 0.3) currentSpeed = targetSpeed;
-        }
-        if (currentSpeed > 0.05) {
-          offset += direction * currentSpeed * delta;
-          if (direction === -1 && offset <= -setWidth) offset += setWidth;
-          else if (direction === 1 && offset >= 0) offset -= setWidth;
+        if (isDragging) {
+          // Dragging — position set in moveDrag
+        } else if (isMomentum) {
+          // Momentum coast after flick
+          offset += velocity;
+          velocity *= friction;
+          wrapOffset();
           track.style.transform = `translateX(${offset}px)`;
+          if (Math.abs(velocity) < minVelocity) {
+            isMomentum = false;
+            scheduleResume();
+          }
+        } else {
+          // Auto-scroll
+          if (lastTime === null) lastTime = now;
+          const delta = (now - lastTime) / 1000;
+          lastTime = now;
+          if (currentSpeed !== targetSpeed) {
+            const diff = targetSpeed - currentSpeed;
+            currentSpeed += diff * Math.min(1, easeRate * delta);
+            if (Math.abs(currentSpeed - targetSpeed) < 0.3) currentSpeed = targetSpeed;
+          }
+          if (currentSpeed > 0.05) {
+            offset += direction * currentSpeed * delta;
+            wrapOffset();
+            track.style.transform = `translateX(${offset}px)`;
+          }
         }
         requestAnimationFrame(animate);
       }
