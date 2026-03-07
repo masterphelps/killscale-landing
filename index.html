@@ -168,9 +168,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    .page-wrapper {
-      overflow-x: clip;
-    }
 
     .serif {
       font-family: 'DM Serif Display', Georgia, serif;
@@ -302,7 +299,7 @@
 
     .mobile-nav-overlay {
       display: none;
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
       right: 0;
@@ -311,8 +308,12 @@
       z-index: 200;
     }
 
-    .mobile-nav-panel {
+    .mobile-nav-overlay.open {
       position: fixed;
+    }
+
+    .mobile-nav-panel {
+      position: absolute;
       top: 0;
       right: -300px;
       width: 280px;
@@ -324,6 +325,10 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
+    }
+
+    .mobile-nav-panel.open {
+      position: fixed;
     }
 
     .mobile-nav-panel.open {
@@ -3192,13 +3197,17 @@
 
     // ========== MOBILE NAV ==========
     function openMobileNav() {
-      document.getElementById('mobileOverlay').style.display = 'block';
+      const overlay = document.getElementById('mobileOverlay');
+      overlay.style.display = 'block';
+      overlay.classList.add('open');
       document.getElementById('mobilePanel').classList.add('open');
       document.body.style.overflow = 'hidden';
     }
 
     function closeMobileNav() {
-      document.getElementById('mobileOverlay').style.display = 'none';
+      const overlay = document.getElementById('mobileOverlay');
+      overlay.style.display = 'none';
+      overlay.classList.remove('open');
       document.getElementById('mobilePanel').classList.remove('open');
       document.body.style.overflow = '';
     }
