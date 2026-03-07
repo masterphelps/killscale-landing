@@ -2947,8 +2947,17 @@
       const track = document.querySelector('.video-carousel-track');
       if (!carousel || !track) return;
 
-      // Force autoplay all videos
-      track.querySelectorAll('video').forEach(v => v.play().catch(() => {}));
+      // Force autoplay all videos — retry until they play
+      function ensureAllPlaying() {
+        track.querySelectorAll('video').forEach(v => {
+          if (v.paused) v.play().catch(() => {});
+        });
+      }
+      ensureAllPlaying();
+      // Retry a few times for slow-loading videos
+      setTimeout(ensureAllPlaying, 500);
+      setTimeout(ensureAllPlaying, 1500);
+      setTimeout(ensureAllPlaying, 3000);
 
       let currentUnmutedVideo = null;
       let isUnmutedMode = false;
@@ -3194,17 +3203,12 @@
           lastTransferTime = now;
         }
 
-        // Keep videos playing
-        if (now - lastTransferTime > 2000) {
-          track.querySelectorAll('video').forEach(v => {
-            if (v.paused) v.play().catch(() => {});
-          });
-          lastTransferTime = now;
-        }
-
         requestAnimationFrame(animate);
       }
       requestAnimationFrame(animate);
+
+      // Keep videos playing — check every 3s
+      setInterval(ensureAllPlaying, 3000);
 
       // Mute + resume when scrolled out of view
       new IntersectionObserver(entries => {
