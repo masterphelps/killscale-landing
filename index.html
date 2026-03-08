@@ -165,6 +165,7 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -2373,7 +2374,6 @@
   </style>
 </head>
 <body>
-<div class="page-wrapper">
   <!-- Navigation -->
   <nav id="navbar">
     <div class="container">
@@ -2427,19 +2427,19 @@
       <div class="video-carousel">
         <p class="video-carousel-label">AI-generated video ads</p>
         <div class="video-carousel-track">
-          <div class="video-card"><video src="videos/ad-1.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-          <div class="video-card"><video src="videos/ad-2.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-          <div class="video-card"><video src="videos/ad-3.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-          <div class="video-card"><video src="videos/ad-4.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-          <div class="video-card"><video src="videos/ad-5.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-          <div class="video-card"><video src="videos/ad-6.mp4" autoplay muted loop playsinline preload="auto"></video></div>
+          <div class="video-card"><video src="videos/ad-1.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-2.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-3.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-4.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-5.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-6.mp4" autoplay muted loop playsinline></video></div>
           <!-- Duplicate set for infinite scroll illusion -->
-          <div class="video-card"><video src="videos/ad-1.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-          <div class="video-card"><video src="videos/ad-2.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-          <div class="video-card"><video src="videos/ad-3.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-          <div class="video-card"><video src="videos/ad-4.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-          <div class="video-card"><video src="videos/ad-5.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-          <div class="video-card"><video src="videos/ad-6.mp4" autoplay muted loop playsinline preload="auto"></video></div>
+          <div class="video-card"><video src="videos/ad-1.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-2.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-3.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-4.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-5.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-6.mp4" autoplay muted loop playsinline></video></div>
         </div>
       </div>
 
@@ -2938,7 +2938,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
   <script>
-    // ========== VIDEO CAROUSEL ==========
+    // ========== VIDEO CAROUSEL — interactive with drag, hover, unmute ==========
     (function() {
       const mutedIcon = '<svg viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.94-.5 2.64l1.56 1.56c.65-1.22 1.04-2.6 1.04-4.2 0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>';
       const unmutedIcon = '<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>';
@@ -2950,36 +2950,49 @@
       let currentUnmutedVideo = null;
       let isUnmutedMode = false;
       let offset = 0;
+      let autoSpeed = -0.8;
       let isAutoScrolling = true;
       let isDragging = false;
       let dragStartX = 0;
       let dragOffset = 0;
       let velocity = 0;
+      let isMomentum = false;
+      let lastDragX = 0;
+      let lastDragTime = 0;
       let isHovering = false;
       let resumeTimer = null;
       let isSnapping = false;
-      let snapVelocity = 0;
+      const friction = 0.92;
 
-      // Card width + gap for snapping math
+      // Calculate half-width for infinite wrap (we duplicated 6 cards)
+      function getHalfWidth() {
+        const cards = track.querySelectorAll('.video-card');
+        const half = cards.length / 2;
+        if (half < 1) return track.scrollWidth / 2;
+        const card = cards[0];
+        const gap = 20;
+        return half * (card.offsetWidth + gap);
+      }
+
       function getCardStep() {
         const card = track.querySelector('.video-card');
         if (!card) return 200;
-        return card.offsetWidth + 20; // 20px gap
+        return card.offsetWidth + 20;
       }
 
-      function getHalfWidth() {
-        const cards = track.querySelectorAll('.video-card');
-        return (cards.length / 2) * getCardStep();
+      function getCenterOffset() {
+        const card = track.querySelector('.video-card');
+        if (!card) return 0;
+        return (carousel.offsetWidth - card.offsetWidth) / 2;
       }
 
       function wrapOffset() {
         const hw = getHalfWidth();
-        if (hw < 1) return;
-        while (offset <= -hw) offset += hw;
-        while (offset > 0) offset -= hw;
+        if (offset <= -hw) offset += hw;
+        if (offset > 0) offset -= hw;
       }
 
-      // --- Mute/unmute ---
+      // Add mute buttons
       document.querySelectorAll('.video-card').forEach(card => {
         const video = card.querySelector('video');
         const btn = document.createElement('button');
@@ -2990,9 +3003,11 @@
         btn.addEventListener('click', e => {
           e.stopPropagation();
           if (video.muted) {
-            muteAll();
+            if (currentUnmutedVideo && currentUnmutedVideo !== video) {
+              currentUnmutedVideo.muted = true;
+              currentUnmutedVideo.closest('.video-card').querySelector('.video-mute-btn').innerHTML = mutedIcon;
+            }
             video.muted = false;
-            video.play().catch(() => {});
             btn.innerHTML = unmutedIcon;
             currentUnmutedVideo = video;
             isUnmutedMode = true;
@@ -3016,21 +3031,6 @@
         }
       }
 
-      function scheduleResume() {
-        clearTimeout(resumeTimer);
-        if (isUnmutedMode) return;
-        resumeTimer = setTimeout(() => {
-          if (!isDragging && !isHovering) isAutoScrolling = true;
-        }, 3000);
-      }
-
-      function stopAuto() {
-        isAutoScrolling = false;
-        isSnapping = false;
-        snapVelocity = 0;
-        clearTimeout(resumeTimer);
-      }
-
       function transferSoundToVisible() {
         if (!isUnmutedMode) return;
         const cx = carousel.getBoundingClientRect().left + carousel.offsetWidth / 2;
@@ -3045,25 +3045,41 @@
         if (video && video !== currentUnmutedVideo) {
           muteAll();
           video.muted = false;
-          video.play().catch(() => {});
           bestCard.querySelector('.video-mute-btn').innerHTML = unmutedIcon;
           currentUnmutedVideo = video;
         }
-        if (currentUnmutedVideo && currentUnmutedVideo.paused) {
-          currentUnmutedVideo.play().catch(() => {});
-        }
       }
 
-      // --- Hover ---
-      carousel.addEventListener('mouseenter', () => { isHovering = true; stopAuto(); });
+      function scheduleResume() {
+        clearTimeout(resumeTimer);
+        if (isUnmutedMode) return;
+        resumeTimer = setTimeout(() => {
+          if (!isDragging && !isHovering) {
+            isAutoScrolling = true;
+          }
+        }, 3000);
+      }
+
+      function stopAuto() {
+        isAutoScrolling = false;
+        isMomentum = false;
+        isSnapping = false;
+        clearTimeout(resumeTimer);
+      }
+
+      // Hover: pause auto, resume on leave
+      carousel.addEventListener('mouseenter', () => {
+        isHovering = true;
+        stopAuto();
+      });
       carousel.addEventListener('mouseleave', () => {
         isHovering = false;
-        if (!isDragging) scheduleResume();
+        if (!isDragging && !isMomentum) {
+          scheduleResume();
+        }
       });
 
-      // --- Drag ---
-      let lastDragX = 0, lastDragTime = 0;
-
+      // Drag start
       function startDrag(x) {
         isDragging = true;
         stopAuto();
@@ -3079,7 +3095,9 @@
         if (!isDragging) return;
         const now = performance.now();
         const dt = now - lastDragTime;
-        if (dt > 0) velocity = (x - lastDragX) / dt * 16;
+        if (dt > 0) {
+          velocity = (x - lastDragX) / dt * 16;
+        }
         lastDragX = x;
         lastDragTime = now;
         offset = dragOffset + (x - dragStartX);
@@ -3087,30 +3105,16 @@
         track.style.transform = 'translateX(' + offset + 'px)';
       }
 
-      function getCenterOffset() {
-        // Offset needed so card center aligns with carousel center
-        const card = track.querySelector('.video-card');
-        if (!card) return 0;
-        return (carousel.offsetWidth - card.offsetWidth) / 2;
-      }
-
       function snapToNearest() {
-        const step = getCardStep();
-        const co = getCenterOffset();
-        // Adjust offset so we snap to centered positions
-        const adjusted = offset - co;
-        const snapped = Math.round(adjusted / step) * step;
         isSnapping = true;
-        snapVelocity = 0; // not used, animation loop handles it
       }
 
       function endDrag() {
         if (!isDragging) return;
         isDragging = false;
         carousel.classList.remove('dragging');
-        // If flung, let momentum run then snap; otherwise snap immediately
-        if (Math.abs(velocity) > 3) {
-          // Don't set isMomentum flag — handled in animate via velocity
+        if (Math.abs(velocity) > 2) {
+          isMomentum = true;
         } else {
           velocity = 0;
           snapToNearest();
@@ -3122,8 +3126,10 @@
       window.addEventListener('mousemove', e => { moveDrag(e.clientX); });
       window.addEventListener('mouseup', () => { endDrag(); });
 
-      // Touch events
-      let touchStartY = 0, touchLocked = false, touchRejected = false;
+      // Touch events — lock to horizontal to prevent vertical scroll jank
+      let touchStartY = 0;
+      let touchLocked = false;
+      let touchRejected = false;
 
       carousel.addEventListener('touchstart', e => {
         touchStartY = e.touches[0].clientY;
@@ -3138,9 +3144,16 @@
           const dx = Math.abs(e.touches[0].clientX - dragStartX);
           const dy = Math.abs(e.touches[0].clientY - touchStartY);
           if (dx + dy > 10) {
-            if (dx > dy) { touchLocked = true; }
-            else { touchRejected = true; endDrag(); return; }
-          } else { return; }
+            if (dx > dy) {
+              touchLocked = true;
+            } else {
+              touchRejected = true;
+              endDrag();
+              return;
+            }
+          } else {
+            return;
+          }
         }
         e.preventDefault();
         moveDrag(e.touches[0].clientX);
@@ -3152,31 +3165,25 @@
         endDrag();
       });
 
-      // --- Animation loop ---
+      // Animation loop
       let lastTransferTime = 0;
       function animate() {
         const now = performance.now();
-
-        // Auto-scroll
-        if (isAutoScrolling && !isDragging && !isSnapping && Math.abs(velocity) < 0.1) {
-          offset -= 0.8;
+        if (isAutoScrolling && !isDragging && !isMomentum && !isSnapping) {
+          offset += autoSpeed;
           wrapOffset();
           track.style.transform = 'translateX(' + offset + 'px)';
         }
-
-        // Momentum (post-fling)
-        if (!isDragging && Math.abs(velocity) > 0.1) {
+        if (isMomentum) {
           offset += velocity;
-          velocity *= 0.92; // heavier friction — decelerates faster
+          velocity *= friction;
           wrapOffset();
           track.style.transform = 'translateX(' + offset + 'px)';
           if (Math.abs(velocity) < 0.5) {
-            velocity = 0;
+            isMomentum = false;
             snapToNearest();
           }
         }
-
-        // Snap animation — centers card in carousel
         if (isSnapping && !isDragging) {
           const step = getCardStep();
           const co = getCenterOffset();
@@ -3194,19 +3201,17 @@
             track.style.transform = 'translateX(' + offset + 'px)';
           }
         }
-
         // Live audio transfer while dragging
         if (isUnmutedMode && (isDragging || isSnapping) && now - lastTransferTime > 250) {
           transferSoundToVisible();
           lastTransferTime = now;
         }
-
         requestAnimationFrame(animate);
       }
       requestAnimationFrame(animate);
 
-      // Mute + resume when scrolled out of view
-      new IntersectionObserver(entries => {
+      // Mute + resume auto when carousel scrolls out of view
+      const carouselObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (!entry.isIntersecting) {
             muteAll();
@@ -3215,7 +3220,8 @@
             isHovering = false;
           }
         });
-      }, { threshold: 0.1 }).observe(carousel);
+      }, { threshold: 0.1 });
+      carouselObserver.observe(carousel);
     })();
 
     // ========== BEFORE/AFTER SLIDERS ==========
@@ -3799,6 +3805,5 @@
 
   <!-- Vercel Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
-</div><!-- .page-wrapper -->
 </body>
 </html>
