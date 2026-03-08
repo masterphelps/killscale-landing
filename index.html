@@ -2947,23 +2947,6 @@
       const track = document.querySelector('.video-carousel-track');
       if (!carousel || !track) return;
 
-      // Play visible videos — use IntersectionObserver on the carousel container
-      const allVideos = track.querySelectorAll('video');
-      function playAllVideos() {
-        allVideos.forEach(v => { if (v.paused) v.play().catch(() => {}); });
-      }
-
-      // Try autoplay immediately
-      playAllVideos();
-
-      // Also play on first scroll/touch/click (Chrome needs user gesture for many videos)
-      const gestureEvents = ['scroll', 'touchstart', 'click', 'mousemove'];
-      function onFirstGesture() {
-        playAllVideos();
-        gestureEvents.forEach(evt => window.removeEventListener(evt, onFirstGesture));
-      }
-      gestureEvents.forEach(evt => window.addEventListener(evt, onFirstGesture, { once: false, passive: true }));
-
       let currentUnmutedVideo = null;
       let isUnmutedMode = false;
       let offset = 0;
