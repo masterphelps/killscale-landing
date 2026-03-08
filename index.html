@@ -1232,6 +1232,18 @@
         grid-column: 1 / -1;
       }
 
+      .pipeline-col.flipped {
+        grid-template-columns: 1fr 160px;
+      }
+
+      .pipeline-col.flipped .step-media {
+        order: 2;
+      }
+
+      .pipeline-col.flipped .ks-prompt {
+        order: 1;
+      }
+
       .pipeline-col .step-media {
         width: 100%;
         max-width: 160px;
@@ -1260,6 +1272,10 @@
     @media (max-width: 480px) {
       .pipeline-col {
         grid-template-columns: 130px 1fr;
+      }
+
+      .pipeline-col.flipped {
+        grid-template-columns: 1fr 130px;
       }
 
       .pipeline-col .step-media {
@@ -2819,7 +2835,7 @@
       </div>
 
       <!-- Column 2: Model + Video Prompt -->
-      <div class="pipeline-col">
+      <div class="pipeline-col flipped">
         <p class="pipeline-col-label">AI Image</p>
         <div class="step-media">
           <img src="images/demo-hat-model.png" alt="AI-generated model image">
