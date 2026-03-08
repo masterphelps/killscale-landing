@@ -3210,6 +3210,19 @@
       }
       requestAnimationFrame(animate);
 
+      // Ensure visible videos are playing (browsers drop autoplay for offscreen videos)
+      function ensureVideosPlaying() {
+        const rect = carousel.getBoundingClientRect();
+        track.querySelectorAll('.video-card video').forEach(v => {
+          const vr = v.getBoundingClientRect();
+          const visible = vr.right > rect.left && vr.left < rect.right;
+          if (visible && v.paused) {
+            v.play().catch(() => {});
+          }
+        });
+      }
+      setInterval(ensureVideosPlaying, 1000);
+
       // Mute + resume auto when carousel scrolls out of view
       const carouselObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
