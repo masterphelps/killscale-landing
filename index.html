@@ -455,10 +455,39 @@
       margin-top: 48px;
       overflow: hidden;
       padding: 16px 0;
-      cursor: grab;
+      position: relative;
     }
-    .video-carousel.dragging {
-      cursor: grabbing;
+
+    .vc-arrow {
+      display: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.3);
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.2s, background 0.2s;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .vc-arrow-left { left: 16px; }
+    .vc-arrow-right { right: 16px; }
+    .vc-arrow:hover { background: rgba(255,255,255,0.15); }
+
+    @media (min-width: 769px) {
+      .video-carousel:hover .vc-arrow {
+        display: flex;
+        opacity: 1;
+        pointer-events: auto;
+      }
     }
 
     .video-carousel-label {
@@ -1749,7 +1778,7 @@
       }
 
       .hero h1 {
-        font-size: clamp(32px, 9vw, 48px);
+        font-size: clamp(36px, 10vw, 52px);
         padding: 0 12px;
       }
 
@@ -1984,7 +2013,7 @@
 
     @media (max-width: 480px) {
       .hero h1 {
-        font-size: clamp(28px, 8vw, 42px);
+        font-size: clamp(32px, 9vw, 46px);
       }
 
       .video-card {
@@ -2426,20 +2455,22 @@
       <!-- Video Carousel -->
       <div class="video-carousel">
         <p class="video-carousel-label">AI-generated video ads</p>
+        <button class="vc-arrow vc-arrow-left" aria-label="Previous"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="currentColor"/></svg></button>
+        <button class="vc-arrow vc-arrow-right" aria-label="Next"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" fill="currentColor"/></svg></button>
         <div class="video-carousel-track">
-          <div class="video-card"><video src="videos/ad-1.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-          <div class="video-card"><video src="videos/ad-2.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-          <div class="video-card"><video src="videos/ad-3.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-          <div class="video-card"><video src="videos/ad-4.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-          <div class="video-card"><video src="videos/ad-5.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-          <div class="video-card"><video src="videos/ad-6.mp4" autoplay muted loop playsinline preload="auto"></video></div>
+          <div class="video-card"><video src="videos/ad-1.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+          <div class="video-card"><video src="videos/ad-2.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+          <div class="video-card"><video src="videos/ad-3.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+          <div class="video-card"><video src="videos/ad-4.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+          <div class="video-card"><video src="videos/ad-5.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+          <div class="video-card"><video src="videos/ad-6.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
           <!-- Duplicate set for infinite scroll illusion -->
-          <div class="video-card"><video src="videos/ad-1.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-          <div class="video-card"><video src="videos/ad-2.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-          <div class="video-card"><video src="videos/ad-3.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-          <div class="video-card"><video src="videos/ad-4.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-          <div class="video-card"><video src="videos/ad-5.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-          <div class="video-card"><video src="videos/ad-6.mp4" autoplay muted loop playsinline preload="auto"></video></div>
+          <div class="video-card"><video src="videos/ad-1.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+          <div class="video-card"><video src="videos/ad-2.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+          <div class="video-card"><video src="videos/ad-3.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+          <div class="video-card"><video src="videos/ad-4.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+          <div class="video-card"><video src="videos/ad-5.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+          <div class="video-card"><video src="videos/ad-6.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
         </div>
       </div>
 
@@ -3067,10 +3098,13 @@
         clearTimeout(resumeTimer);
       }
 
-      // Hover: pause auto, resume immediately on leave
+      // Hover: pause auto + show arrows on desktop, resume on leave
       carousel.addEventListener('mouseenter', () => {
         isHovering = true;
-        stopAuto();
+        if (isDesktop()) {
+          stopAuto();
+          snapToNearest();
+        }
       });
       carousel.addEventListener('mouseleave', () => {
         isHovering = false;
@@ -3121,10 +3155,39 @@
         }
       }
 
-      // Mouse events
-      carousel.addEventListener('mousedown', e => { e.preventDefault(); startDrag(e.clientX); });
-      window.addEventListener('mousemove', e => { moveDrag(e.clientX); });
-      window.addEventListener('mouseup', () => { endDrag(); });
+      // Desktop: arrow navigation instead of drag
+      const isDesktop = () => window.innerWidth > 768;
+
+      // Smooth arrow scroll — moves 2 cards with eased animation
+      let arrowTarget = null;
+      function arrowNavigate(direction) {
+        stopAuto();
+        const step = getCardStep();
+        // Snap current position first, then move 2 cards
+        const co = getCenterOffset();
+        const adjusted = offset - co;
+        const snapped = Math.round(adjusted / getCardStep()) * getCardStep() + co;
+        arrowTarget = snapped + (direction * step);
+        wrapOffset();
+      }
+
+      carousel.querySelector('.vc-arrow-left').addEventListener('click', e => {
+        e.stopPropagation();
+        arrowNavigate(1);
+      });
+      carousel.querySelector('.vc-arrow-right').addEventListener('click', e => {
+        e.stopPropagation();
+        arrowNavigate(-1);
+      });
+
+      // Mouse drag — mobile only (desktop uses arrows)
+      carousel.addEventListener('mousedown', e => {
+        if (isDesktop()) return;
+        e.preventDefault();
+        startDrag(e.clientX);
+      });
+      window.addEventListener('mousemove', e => { if (!isDesktop()) moveDrag(e.clientX); });
+      window.addEventListener('mouseup', () => { if (!isDesktop()) endDrag(); });
 
       // Touch events — lock to horizontal to prevent vertical scroll jank
       let touchStartY = 0;
@@ -3169,10 +3232,24 @@
       let lastTransferTime = 0;
       function animate() {
         const now = performance.now();
-        if (isAutoScrolling && !isDragging && !isMomentum && !isSnapping) {
+        if (isAutoScrolling && !isDragging && !isMomentum && !isSnapping && arrowTarget === null) {
           offset += autoSpeed;
           wrapOffset();
           track.style.transform = 'translateX(' + offset + 'px)';
+        }
+        // Smooth arrow animation (ease toward target)
+        if (arrowTarget !== null && !isDragging) {
+          const diff = arrowTarget - offset;
+          if (Math.abs(diff) < 0.5) {
+            offset = arrowTarget;
+            arrowTarget = null;
+            wrapOffset();
+            track.style.transform = 'translateX(' + offset + 'px)';
+            transferSoundToVisible();
+          } else {
+            offset += diff * 0.08;
+            track.style.transform = 'translateX(' + offset + 'px)';
+          }
         }
         if (isMomentum) {
           offset += velocity;
@@ -3283,10 +3360,16 @@
         navbar.classList.remove('scrolled');
       }
 
-      if (window.innerWidth > 768) {
-        navOffset = 0;
-        navbar.style.top = '0px';
+      const delta = window.scrollY - lastScrollY;
+      if (delta > 0) {
+        // Scrolling down — hide nav
+        navOffset = Math.min(navOffset + delta, navHeight);
+      } else {
+        // Scrolling up — show nav
+        navOffset = Math.max(navOffset + delta, 0);
       }
+      if (window.scrollY <= 0) navOffset = 0;
+      navbar.style.transform = 'translateY(' + (-navOffset) + 'px)';
       lastScrollY = window.scrollY;
     });
 
