@@ -1218,35 +1218,37 @@
       .pipeline-flow {
         grid-template-columns: 1fr;
         max-width: 100%;
-        gap: 20px;
+        gap: 12px;
       }
 
       .pipeline-col {
-        display: grid;
-        grid-template-columns: 160px 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 12px;
-        align-items: end;
       }
 
       .pipeline-col .pipeline-col-label {
-        grid-column: 1 / -1;
+        display: none;
       }
 
-      .pipeline-col.flipped {
-        grid-template-columns: 1fr 160px;
+      /* Chat bubble stagger */
+      .pipeline-col .chat-left {
+        align-self: flex-start;
+        width: 55%;
+        max-width: 200px;
       }
 
-      .pipeline-col.flipped .step-media {
-        order: 2;
+      .pipeline-col .chat-right {
+        align-self: flex-end;
+        width: 75%;
+        max-width: 280px;
+        padding: 12px 14px;
       }
 
-      .pipeline-col.flipped .ks-prompt {
-        order: 1;
-      }
-
-      .pipeline-col .step-media {
-        width: 100%;
-        max-width: 160px;
+      .pipeline-col .chat-center {
+        align-self: center;
+        width: calc(100vw - 80px);
+        max-width: 260px;
       }
 
       .pipeline-col.video-col {
@@ -1255,34 +1257,22 @@
         align-items: center;
       }
 
-      .pipeline-col.video-col .step-media {
-        max-width: 260px;
-        width: calc(100vw - 80px);
-      }
-
-      .ks-prompt {
-        padding: 12px 14px;
-      }
-
       .ks-prompt-text {
         font-size: 11px;
       }
     }
 
     @media (max-width: 480px) {
-      .pipeline-col {
-        grid-template-columns: 130px 1fr;
+      .pipeline-col .chat-left {
+        width: 50%;
+        max-width: 170px;
       }
 
-      .pipeline-col.flipped {
-        grid-template-columns: 1fr 130px;
+      .pipeline-col .chat-right {
+        width: 80%;
       }
 
-      .pipeline-col .step-media {
-        max-width: 130px;
-      }
-
-      .pipeline-col.video-col .step-media {
+      .pipeline-col .chat-center {
         max-width: 220px;
         width: calc(100vw - 60px);
       }
@@ -2019,8 +2009,8 @@
       }
 
       .hero h1 {
-        font-size: clamp(36px, 10vw, 52px);
-        padding: 0 12px;
+        font-size: clamp(40px, 12vw, 58px);
+        padding: 0 8px;
       }
 
       .hero-subtitle {
@@ -2254,7 +2244,7 @@
 
     @media (max-width: 480px) {
       .hero h1 {
-        font-size: clamp(32px, 9vw, 46px);
+        font-size: clamp(36px, 11vw, 50px);
       }
 
       .video-card {
@@ -2819,10 +2809,10 @@
       <!-- Column 1: Hat + Image Prompt -->
       <div class="pipeline-col">
         <p class="pipeline-col-label">Product Photo</p>
-        <div class="step-media">
+        <div class="step-media chat-left">
           <img src="images/demo-hat-product.png" alt="Product photo">
         </div>
-        <div class="ks-prompt">
+        <div class="ks-prompt chat-right">
           <div class="ks-prompt-header">
             <span class="ks-prefix">KS&gt;</span>
             <div class="ks-toggle">
@@ -2835,12 +2825,12 @@
       </div>
 
       <!-- Column 2: Model + Video Prompt -->
-      <div class="pipeline-col flipped">
+      <div class="pipeline-col">
         <p class="pipeline-col-label">AI Image</p>
-        <div class="step-media">
+        <div class="step-media chat-left">
           <img src="images/demo-hat-model.png" alt="AI-generated model image">
         </div>
-        <div class="ks-prompt">
+        <div class="ks-prompt chat-right">
           <div class="ks-prompt-header">
             <span class="ks-prefix">KS&gt;</span>
             <div class="ks-toggle">
@@ -2855,7 +2845,7 @@
       <!-- Column 3: Video -->
       <div class="pipeline-col video-col">
         <p class="pipeline-col-label">AI Video</p>
-        <div class="step-media">
+        <div class="step-media chat-center">
           <video src="videos/demo-hat-morph.mp4" autoplay muted loop playsinline preload="auto"></video>
         </div>
       </div>
