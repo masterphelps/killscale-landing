@@ -2427,19 +2427,19 @@
       <div class="video-carousel">
         <p class="video-carousel-label">AI-generated video ads</p>
         <div class="video-carousel-track">
-          <div class="video-card"><video src="videos/ad-1.mp4" autoplay muted loop playsinline></video></div>
-          <div class="video-card"><video src="videos/ad-2.mp4" autoplay muted loop playsinline></video></div>
-          <div class="video-card"><video src="videos/ad-3.mp4" autoplay muted loop playsinline></video></div>
-          <div class="video-card"><video src="videos/ad-4.mp4" autoplay muted loop playsinline></video></div>
-          <div class="video-card"><video src="videos/ad-5.mp4" autoplay muted loop playsinline></video></div>
-          <div class="video-card"><video src="videos/ad-6.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-1.mp4" autoplay muted loop playsinline preload="auto"></video></div>
+          <div class="video-card"><video src="videos/ad-2.mp4" autoplay muted loop playsinline preload="auto"></video></div>
+          <div class="video-card"><video src="videos/ad-3.mp4" autoplay muted loop playsinline preload="auto"></video></div>
+          <div class="video-card"><video src="videos/ad-4.mp4" autoplay muted loop playsinline preload="auto"></video></div>
+          <div class="video-card"><video src="videos/ad-5.mp4" autoplay muted loop playsinline preload="auto"></video></div>
+          <div class="video-card"><video src="videos/ad-6.mp4" autoplay muted loop playsinline preload="auto"></video></div>
           <!-- Duplicate set for infinite scroll illusion -->
-          <div class="video-card"><video src="videos/ad-1.mp4" autoplay muted loop playsinline></video></div>
-          <div class="video-card"><video src="videos/ad-2.mp4" autoplay muted loop playsinline></video></div>
-          <div class="video-card"><video src="videos/ad-3.mp4" autoplay muted loop playsinline></video></div>
-          <div class="video-card"><video src="videos/ad-4.mp4" autoplay muted loop playsinline></video></div>
-          <div class="video-card"><video src="videos/ad-5.mp4" autoplay muted loop playsinline></video></div>
-          <div class="video-card"><video src="videos/ad-6.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video src="videos/ad-1.mp4" autoplay muted loop playsinline preload="auto"></video></div>
+          <div class="video-card"><video src="videos/ad-2.mp4" autoplay muted loop playsinline preload="auto"></video></div>
+          <div class="video-card"><video src="videos/ad-3.mp4" autoplay muted loop playsinline preload="auto"></video></div>
+          <div class="video-card"><video src="videos/ad-4.mp4" autoplay muted loop playsinline preload="auto"></video></div>
+          <div class="video-card"><video src="videos/ad-5.mp4" autoplay muted loop playsinline preload="auto"></video></div>
+          <div class="video-card"><video src="videos/ad-6.mp4" autoplay muted loop playsinline preload="auto"></video></div>
         </div>
       </div>
 
@@ -2947,17 +2947,22 @@
       const track = document.querySelector('.video-carousel-track');
       if (!carousel || !track) return;
 
-      // Force autoplay all videos — retry until they play
-      function ensureAllPlaying() {
-        track.querySelectorAll('video').forEach(v => {
-          if (v.paused) v.play().catch(() => {});
-        });
+      // Play visible videos — use IntersectionObserver on the carousel container
+      const allVideos = track.querySelectorAll('video');
+      function playAllVideos() {
+        allVideos.forEach(v => { if (v.paused) v.play().catch(() => {}); });
       }
-      ensureAllPlaying();
-      // Retry a few times for slow-loading videos
-      setTimeout(ensureAllPlaying, 500);
-      setTimeout(ensureAllPlaying, 1500);
-      setTimeout(ensureAllPlaying, 3000);
+
+      // Try autoplay immediately
+      playAllVideos();
+
+      // Also play on first scroll/touch/click (Chrome needs user gesture for many videos)
+      const gestureEvents = ['scroll', 'touchstart', 'click', 'mousemove'];
+      function onFirstGesture() {
+        playAllVideos();
+        gestureEvents.forEach(evt => window.removeEventListener(evt, onFirstGesture));
+      }
+      gestureEvents.forEach(evt => window.addEventListener(evt, onFirstGesture, { once: false, passive: true }));
 
       let currentUnmutedVideo = null;
       let isUnmutedMode = false;
@@ -3099,13 +3104,21 @@
         track.style.transform = 'translateX(' + offset + 'px)';
       }
 
+      function getCenterOffset() {
+        // Offset needed so card center aligns with carousel center
+        const card = track.querySelector('.video-card');
+        if (!card) return 0;
+        return (carousel.offsetWidth - card.offsetWidth) / 2;
+      }
+
       function snapToNearest() {
-        // Find nearest card center offset using card step math
         const step = getCardStep();
-        const snapPos = Math.round(offset / step) * step;
-        const diff = snapPos - offset;
+        const co = getCenterOffset();
+        // Adjust offset so we snap to centered positions
+        const adjusted = offset - co;
+        const snapped = Math.round(adjusted / step) * step;
         isSnapping = true;
-        snapVelocity = diff * 0.15; // initial snap speed proportional to distance
+        snapVelocity = 0; // not used, animation loop handles it
       }
 
       function endDrag() {
@@ -3180,10 +3193,12 @@
           }
         }
 
-        // Snap animation
+        // Snap animation — centers card in carousel
         if (isSnapping && !isDragging) {
           const step = getCardStep();
-          const snapPos = Math.round(offset / step) * step;
+          const co = getCenterOffset();
+          const adjusted = offset - co;
+          const snapPos = Math.round(adjusted / step) * step + co;
           const diff = snapPos - offset;
           if (Math.abs(diff) < 0.5) {
             offset = snapPos;
@@ -3206,9 +3221,6 @@
         requestAnimationFrame(animate);
       }
       requestAnimationFrame(animate);
-
-      // Keep videos playing — check every 3s
-      setInterval(ensureAllPlaying, 3000);
 
       // Mute + resume when scrolled out of view
       new IntersectionObserver(entries => {
