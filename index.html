@@ -2427,19 +2427,19 @@
       <div class="video-carousel">
         <p class="video-carousel-label">AI-generated video ads</p>
         <div class="video-carousel-track">
-          <div class="video-card"><video src="videos/ad-1.mp4" autoplay muted loop playsinline></video></div>
-          <div class="video-card"><video src="videos/ad-2.mp4" autoplay muted loop playsinline></video></div>
-          <div class="video-card"><video src="videos/ad-3.mp4" autoplay muted loop playsinline></video></div>
-          <div class="video-card"><video src="videos/ad-4.mp4" autoplay muted loop playsinline></video></div>
-          <div class="video-card"><video src="videos/ad-5.mp4" autoplay muted loop playsinline></video></div>
-          <div class="video-card"><video src="videos/ad-6.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video data-src="videos/ad-1.mp4" muted loop playsinline></video></div>
+          <div class="video-card"><video data-src="videos/ad-2.mp4" muted loop playsinline></video></div>
+          <div class="video-card"><video data-src="videos/ad-3.mp4" muted loop playsinline></video></div>
+          <div class="video-card"><video data-src="videos/ad-4.mp4" muted loop playsinline></video></div>
+          <div class="video-card"><video data-src="videos/ad-5.mp4" muted loop playsinline></video></div>
+          <div class="video-card"><video data-src="videos/ad-6.mp4" muted loop playsinline></video></div>
           <!-- Duplicate set for infinite scroll illusion -->
-          <div class="video-card"><video src="videos/ad-1.mp4" autoplay muted loop playsinline></video></div>
-          <div class="video-card"><video src="videos/ad-2.mp4" autoplay muted loop playsinline></video></div>
-          <div class="video-card"><video src="videos/ad-3.mp4" autoplay muted loop playsinline></video></div>
-          <div class="video-card"><video src="videos/ad-4.mp4" autoplay muted loop playsinline></video></div>
-          <div class="video-card"><video src="videos/ad-5.mp4" autoplay muted loop playsinline></video></div>
-          <div class="video-card"><video src="videos/ad-6.mp4" autoplay muted loop playsinline></video></div>
+          <div class="video-card"><video data-src="videos/ad-1.mp4" muted loop playsinline></video></div>
+          <div class="video-card"><video data-src="videos/ad-2.mp4" muted loop playsinline></video></div>
+          <div class="video-card"><video data-src="videos/ad-3.mp4" muted loop playsinline></video></div>
+          <div class="video-card"><video data-src="videos/ad-4.mp4" muted loop playsinline></video></div>
+          <div class="video-card"><video data-src="videos/ad-5.mp4" muted loop playsinline></video></div>
+          <div class="video-card"><video data-src="videos/ad-6.mp4" muted loop playsinline></video></div>
         </div>
       </div>
 
@@ -3210,18 +3210,33 @@
       }
       requestAnimationFrame(animate);
 
-      // Ensure visible videos are playing (browsers drop autoplay for offscreen videos)
+      // Lazy-load and play videos near the visible area
       function ensureVideosPlaying() {
         const rect = carousel.getBoundingClientRect();
+        const buffer = rect.width; // preload one viewport width ahead
         track.querySelectorAll('.video-card video').forEach(v => {
           const vr = v.getBoundingClientRect();
+          const near = vr.right > (rect.left - buffer) && vr.left < (rect.right + buffer);
+          // Lazy-load: assign src when near viewport
+          if (near && !v.src && v.dataset.src) {
+            v.src = v.dataset.src;
+            v.load();
+          }
+          // Unload far-away videos to free connections
+          if (!near && v.src) {
+            v.pause();
+            v.removeAttribute('src');
+            v.load();
+          }
+          // Play visible videos
           const visible = vr.right > rect.left && vr.left < rect.right;
-          if (visible && v.paused) {
+          if (visible && v.paused && v.src) {
             v.play().catch(() => {});
           }
         });
       }
-      setInterval(ensureVideosPlaying, 1000);
+      ensureVideosPlaying();
+      setInterval(ensureVideosPlaying, 500);
 
       // Mute + resume auto when carousel scrolls out of view
       const carouselObserver = new IntersectionObserver(entries => {
