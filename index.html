@@ -3067,15 +3067,15 @@
         clearTimeout(resumeTimer);
       }
 
-      // Hover: pause auto, resume on leave
+      // Hover: pause auto, resume immediately on leave
       carousel.addEventListener('mouseenter', () => {
         isHovering = true;
         stopAuto();
       });
       carousel.addEventListener('mouseleave', () => {
         isHovering = false;
-        if (!isDragging && !isMomentum) {
-          scheduleResume();
+        if (!isDragging && !isMomentum && !isUnmutedMode) {
+          isAutoScrolling = true;
         }
       });
 
