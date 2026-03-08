@@ -3213,14 +3213,20 @@
       // Lazy-load and play videos near the visible area
       function ensureVideosPlaying() {
         const rect = carousel.getBoundingClientRect();
-        const buffer = rect.width; // preload one viewport width ahead
+        const buffer = rect.width;
         track.querySelectorAll('.video-card video').forEach(v => {
           const vr = v.getBoundingClientRect();
           const near = vr.right > (rect.left - buffer) && vr.left < (rect.right + buffer);
           // Lazy-load: assign src when near viewport
           if (near && !v.src && v.dataset.src) {
             v.src = v.dataset.src;
+            v.autoplay = true;
             v.load();
+            // Play once enough data is buffered
+            v.addEventListener('canplay', function handler() {
+              v.play().catch(() => {});
+              v.removeEventListener('canplay', handler);
+            });
           }
           // Unload far-away videos to free connections
           if (!near && v.src) {
@@ -3228,9 +3234,9 @@
             v.removeAttribute('src');
             v.load();
           }
-          // Play visible videos
+          // Keep visible videos playing
           const visible = vr.right > rect.left && vr.left < rect.right;
-          if (visible && v.paused && v.src) {
+          if (visible && v.paused && v.readyState >= 2) {
             v.play().catch(() => {});
           }
         });
